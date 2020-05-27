@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "543739431801",
+    "firebase_url": "https://nomoneytrip-63056.firebaseio.com",
+    "project_id": "nomoneytrip-63056",
+    "storage_bucket": "nomoneytrip-63056.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543739431801:android:f1ae4cee541a26810a3da8",
+        "android_client_info": {
+          "package_name": "com.mtjin.nomoneytrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543739431801-a7f01vjc895ip1tirt4jgvbo0rli7i7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mtjin.nomoneytrip",
+            "certificate_hash": "2594505716124fb73c0d9ca0633d9dd80b38d943"
+          }
+        },
+        {
+          "client_id": "543739431801-jacd0dim9mqkptqbf6vrcn1ejfj1ldsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX1c9KCIuFxi9HWjgokKe_LfxbB5ANaoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543739431801-jacd0dim9mqkptqbf6vrcn1ejfj1ldsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
