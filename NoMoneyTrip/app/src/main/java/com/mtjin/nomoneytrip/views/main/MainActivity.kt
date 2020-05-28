@@ -15,7 +15,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         initNavigation()
 //        val tmapview = TMapView(this)
 //        tmapview.setSKTMapApiKey(getString(R.string.tmap_key))
