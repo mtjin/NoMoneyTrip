@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NoMoneyTrip</string>
     <string name="tmap_key">l7xxb33343042e394ae68af011ca74411a30</string>
+
+    <string name="bottom_navi_test2">홈</string>
+    <string name="bottom_navi_text1">정보</string>
+    <string name="bottom_navi_text3">커뮤니티</string>
+    <string name="bottom_navi_text4">마이페이지</string>
 </resources>
