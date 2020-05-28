@@ -54,4 +54,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     // For BottomNavigationView from Material Components
     implementation 'com.google.android.material:material:1.1.0'
+    // rxjava
+    implementation "io.reactivex.rxjava2:rxjava:2.2.17"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.3.0"
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
 }
