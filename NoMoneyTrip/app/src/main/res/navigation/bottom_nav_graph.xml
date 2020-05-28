@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/bottom_nav_1">
+
+    <fragment
+        android:id="@+id/bottom_nav_1"
+        android:name="com.mtjin.nomoneytrip.views.home.HomeFragment"
+        android:label="BottomNavFragment1"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/bottom_nav_2"
+        android:name="com.mtjin.nomoneytrip.views.info.InfoFragment"
+        android:label="BottomNavFragment2"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/bottom_nav_3"
+        android:name="com.mtjin.nomoneytrip.views.community.CommunityFragment"
+        android:label="BottomNavFragment3"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/bottom_nav_4"
+        android:name="com.mtjin.nomoneytrip.views.mypage.MyPageFragment"
+        android:label="BottomNavFragment4"
+        tools:layout="@layout/fragment_mypage" />
+</navigation>
