@@ -51,7 +51,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_event"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/et_search" />
@@ -70,7 +70,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_farming_tours"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -106,7 +106,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_more_funs"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

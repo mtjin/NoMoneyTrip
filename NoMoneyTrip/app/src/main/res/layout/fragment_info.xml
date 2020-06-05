@@ -17,7 +17,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_toplocal"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_lodgments"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -93,7 +93,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tours"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -114,7 +114,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_restaurants"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -135,7 +135,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_local_popular_tours"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:orientation="horizontal"
