@@ -1,6 +1,11 @@
 package com.mtjin.nomoneytrip.views.home
 
-import androidx.fragment.app.Fragment
+import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.base.BaseFragment
+import com.mtjin.nomoneytrip.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+    override fun init() {
+
+    }
 }

@@ -1,5 +1,12 @@
 package com.mtjin.nomoneytrip.views.community
 
-import androidx.fragment.app.Fragment
+import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.base.BaseFragment
+import com.mtjin.nomoneytrip.databinding.FragmentCommunityBinding
 
-class CommunityFragment : Fragment()
+class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragment_community){
+    override fun init() {
+        TODO("Not yet implemented")
+    }
+
+}

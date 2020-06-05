@@ -1,6 +1,11 @@
 package com.mtjin.nomoneytrip.views.mypage
 
-import androidx.fragment.app.Fragment
+import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.base.BaseFragment
+import com.mtjin.nomoneytrip.databinding.FragmentMypageBinding
 
-class MyPageFragment : Fragment() {
+class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage) {
+    override fun init() {
+        TODO("Not yet implemented")
+    }
 }

@@ -1,6 +1,11 @@
 package com.mtjin.nomoneytrip.views.info
 
-import androidx.fragment.app.Fragment
+import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.base.BaseFragment
+import com.mtjin.nomoneytrip.databinding.FragmentInfoBinding
 
-class InfoFragment :Fragment() {
+class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
+    override fun init() {
+        TODO("Not yet implemented")
+    }
 }
