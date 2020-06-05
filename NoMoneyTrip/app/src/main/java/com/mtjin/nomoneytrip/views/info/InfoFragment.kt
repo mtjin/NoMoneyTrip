@@ -6,6 +6,6 @@ import com.mtjin.nomoneytrip.databinding.FragmentInfoBinding
 
 class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
     override fun init() {
-        TODO("Not yet implemented")
+
     }
 }
