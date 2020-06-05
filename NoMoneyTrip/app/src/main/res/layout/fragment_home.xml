@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:text="숙박"
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="16sp"
