@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -76,7 +77,8 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_farming_tour" />
+                app:layout_constraintTop_toBottomOf="@id/tv_farming_tour"
+                tools:listitem="@layout/item_guide_tour" />
 
             <Button
                 android:id="@+id/btn_view_all_lodgment"
@@ -112,7 +114,8 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_more_fun" />
+                app:layout_constraintTop_toBottomOf="@id/tv_more_fun"
+                tools:listitem="@layout/item_guide_tour" />
 
             <Button
                 android:id="@+id/btn_view_all_program"

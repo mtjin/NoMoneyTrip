@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -64,7 +65,8 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_lodgment" />
+                app:layout_constraintTop_toBottomOf="@id/tv_lodgment"
+                tools:listitem="@layout/item_guide_tour" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_tip"
@@ -97,7 +99,8 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_tour_introduce" />
+                app:layout_constraintTop_toBottomOf="@id/tv_tour_introduce"
+                tools:listitem="@layout/item_normal_tour" />
 
             <TextView
                 android:id="@+id/tv_restaurant_introduce"
@@ -118,7 +121,8 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_restaurant_introduce" />
+                app:layout_constraintTop_toBottomOf="@id/tv_restaurant_introduce"
+                tools:listitem="@layout/item_normal_tour" />
 
             <TextView
                 android:id="@+id/tv_local_popular_tour"
@@ -140,7 +144,8 @@
                 android:layout_marginBottom="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour" />
+                app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour"
+                tools:listitem="@layout/item_normal_tour" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
