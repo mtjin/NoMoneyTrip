@@ -66,4 +66,16 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    // Room
+    implementation "androidx.room:room-runtime:2.2.5"
+    implementation "androidx.room:room-rxjava2:2.2.5"
+    testImplementation "androidx.room:room-testing:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+    implementation 'androidx.room:room-ktx:2.2.5'
+    // koin
+    implementation 'org.koin:koin-androidx-viewmodel:2.1.5'
+    //retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.8.1"
 }
