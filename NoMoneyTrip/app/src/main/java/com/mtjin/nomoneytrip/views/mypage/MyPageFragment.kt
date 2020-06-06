@@ -6,6 +6,6 @@ import com.mtjin.nomoneytrip.databinding.FragmentMypageBinding
 
 class MyPageFragment : BaseFragment<FragmentMypageBinding>(R.layout.fragment_mypage) {
     override fun init() {
-        TODO("Not yet implemented")
+
     }
 }

@@ -3,7 +3,7 @@
     <string name="tmap_key">l7xxb33343042e394ae68af011ca74411a30</string>
 
     <string name="bottom_navi_test1">홈</string>
-    <string name="bottom_navi_text2">정보</string>
-    <string name="bottom_navi_text3">커뮤니티</string>
+    <string name="bottom_navi_text2">커뮤니티</string>
+    <string name="bottom_navi_text3">예약하기</string>
     <string name="bottom_navi_text4">마이페이지</string>
 </resources>

@@ -11,14 +11,14 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/bottom_nav_2"
-        android:name="com.mtjin.nomoneytrip.views.info.InfoFragment"
+        android:name="com.mtjin.nomoneytrip.views.community.CommunityFragment"
         android:label="BottomNavFragment2"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_community" />
     <fragment
         android:id="@+id/bottom_nav_3"
-        android:name="com.mtjin.nomoneytrip.views.community.CommunityFragment"
+        android:name="com.mtjin.nomoneytrip.views.ticketoff.TicketOffFragment"
         android:label="BottomNavFragment3"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_ticket_off" />
     <fragment
         android:id="@+id/bottom_nav_4"
         android:name="com.mtjin.nomoneytrip.views.mypage.MyPageFragment"
