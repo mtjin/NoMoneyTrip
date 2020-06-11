@@ -51,7 +51,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_edit_search_gray"
-                android:drawableLeft="@drawable/ic_search_gray_24dp"
+                android:drawableEnd="@drawable/ic_search_gray_24dp"
                 android:drawablePadding="16dp"
                 android:hint="여행 갈 '지역'을 검색하세요."
                 android:inputType="textEmailAddress"
@@ -72,12 +72,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
-                android:text="농사 짓고 무전여행"
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/et_search"
-                app:layout_constraintTop_toBottomOf="@id/vp_viewpager" />
+                app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
+                tools:text="농사 짓고 무전여행" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_farming_tours"
@@ -98,23 +98,23 @@
                 android:layout_marginTop="28dp"
                 android:background="@drawable/bg_btn_orange_edge"
                 android:gravity="center"
-                android:text="숙박 전체보기"
                 android:textColor="@color/colorOrange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_farming_tours" />
+                app:layout_constraintTop_toBottomOf="@id/rv_farming_tours"
+                tools:text="숙박 전체보기" />
 
             <TextView
                 android:id="@+id/tv_more_fun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="여행의 재미를 더해줄"
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/et_search"
-                app:layout_constraintTop_toBottomOf="@id/btn_view_all_lodgment" />
+                app:layout_constraintTop_toBottomOf="@id/btn_view_all_lodgment"
+                tools:text="여행의 재미를 더해줄" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_more_funs"
@@ -135,11 +135,11 @@
                 android:layout_marginTop="32dp"
                 android:background="@drawable/bg_btn_orange_edge"
                 android:gravity="center"
-                android:text="프로그램 전체보기"
                 android:textColor="@color/colorOrange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_more_funs" />
+                app:layout_constraintTop_toBottomOf="@id/rv_more_funs"
+                tools:text="프로그램 전체보기" />
 
             <TextView
                 android:id="@+id/tv_banner"
@@ -148,9 +148,9 @@
                 android:layout_marginTop="32dp"
                 android:background="@color/colorWhiteGray"
                 android:gravity="center"
-                android:text="무전여행 200% 즐기는 방법(배너링크)"
                 android:textColor="@color/colorBlack"
-                app:layout_constraintTop_toBottomOf="@id/btn_view_all_program" />
+                app:layout_constraintTop_toBottomOf="@id/btn_view_all_program"
+                tools:text="무전여행 200% 즐기는 방법(배너링크)" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
