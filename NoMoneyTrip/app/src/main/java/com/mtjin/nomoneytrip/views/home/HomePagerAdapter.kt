@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 class HomePagerAdapter(fm: FragmentManager, behavior: Int) :
     FragmentStatePagerAdapter(fm, behavior) {
 
-    private val items: ArrayList<Fragment> = ArrayList()
+    private val items: ArrayList<HomePagerItemFragment> = ArrayList()
     override fun getItem(position: Int): Fragment = items[position]
 
     override fun getCount(): Int {
