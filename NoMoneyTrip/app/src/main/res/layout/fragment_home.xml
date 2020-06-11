@@ -108,7 +108,7 @@
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/et_search"
+                app:layout_constraintStart_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toBottomOf="@id/btn_view_all_lodgment"
                 tools:text="여행의 재미를 더해줄" />
 
