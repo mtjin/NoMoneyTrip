@@ -94,11 +94,11 @@
                 android:layout_marginTop="28dp"
                 android:background="@drawable/bg_btn_orange_edge"
                 android:gravity="center"
+                android:text="숙박 전체보기"
                 android:textColor="@color/colorOrange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_farming_tours"
-                tools:text="숙박 전체보기" />
+                app:layout_constraintTop_toBottomOf="@id/rv_farming_tours" />
 
             <TextView
                 android:id="@+id/tv_more_fun"
@@ -131,11 +131,11 @@
                 android:layout_marginTop="32dp"
                 android:background="@drawable/bg_btn_orange_edge"
                 android:gravity="center"
+                android:text="프로그램 전체보기"
                 android:textColor="@color/colorOrange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_more_funs"
-                tools:text="프로그램 전체보기" />
+                app:layout_constraintTop_toBottomOf="@id/rv_more_funs" />
 
             <TextView
                 android:id="@+id/tv_banner"
