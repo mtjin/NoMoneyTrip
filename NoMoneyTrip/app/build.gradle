@@ -80,4 +80,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.8.1"
     //circle ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //PageIndicatorView
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
 }
