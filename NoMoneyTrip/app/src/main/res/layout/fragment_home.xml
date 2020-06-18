@@ -73,7 +73,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                tools:text="농사 짓고 무전여행" />
+                tools:text="농사 짓고 무전여행 어떄요?" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_farming_tours"
@@ -110,7 +110,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toBottomOf="@id/btn_view_all_lodgment"
-                tools:text="여행의 재미를 더해줄" />
+                tools:text="여행의 재미를 더해줄 프로그램" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_more_funs"
@@ -131,7 +131,7 @@
                 android:layout_marginTop="32dp"
                 android:background="@drawable/bg_btn_orange_edge"
                 android:gravity="center"
-                android:text="프로그램 전체보기"
+                android:text="투어 전체보기"
                 android:textColor="@color/colorOrange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
