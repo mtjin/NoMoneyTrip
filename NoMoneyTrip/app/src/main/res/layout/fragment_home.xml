@@ -17,32 +17,20 @@
             android:layout_height="wrap_content">
 
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/ll_app_title"
-                android:layout_width="match_parent"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_logo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
 
-                <TextView
-                    android:id="@+id/tv_app_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:layout_weight="1"
-                    android:text="무전일기(로고)"
-                    android:textColor="@color/colorWhiteBlack"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:src="@drawable/ic_alarm_1" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_alarm_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_search"
@@ -52,7 +40,36 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_search_button"
                 android:drawableEnd="@drawable/ic_search_gray_24dp"
-                app:layout_constraintTop_toBottomOf="@id/ll_app_title" />
+                app:layout_constraintTop_toBottomOf="@id/iv_app_logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_component_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toStartOf="@id/iv_component_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_search"
+                app:srcCompat="@drawable/component_1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_component_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/iv_component_3"
+                app:layout_constraintStart_toEndOf="@id/iv_component_1"
+                app:layout_constraintTop_toBottomOf="@id/iv_search"
+                app:layout_constraintTop_toTopOf="@id/iv_component_1"
+                app:srcCompat="@drawable/component_2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_component_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_component_2"
+                app:layout_constraintTop_toTopOf="@id/iv_component_1"
+                app:srcCompat="@drawable/component_3" />
 
 
             <androidx.viewpager2.widget.ViewPager2
@@ -61,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/iv_search" />
+                app:layout_constraintTop_toBottomOf="@id/iv_component_1" />
 
             <TextView
                 android:id="@+id/tv_farming_tour"
@@ -73,7 +90,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                tools:text="농사 짓고 무전여행 어떄요?" />
+                tools:text="숙박비는 열정으로" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_farming_tours"
@@ -110,7 +127,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toBottomOf="@id/btn_view_all_lodgment"
-                tools:text="여행의 재미를 더해줄 프로그램" />
+                tools:text="일일 농부 체험" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_more_funs"
