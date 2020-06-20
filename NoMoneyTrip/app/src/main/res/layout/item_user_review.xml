@@ -86,7 +86,7 @@
             android:singleLine="true"
             android:text="text"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
+            app:layout_constraintEnd_toEndOf="@id/cv_cardview"
             app:layout_constraintStart_toStartOf="@id/cv_cardview"
             app:layout_constraintTop_toBottomOf="@id/cv_cardview" />
 
@@ -127,10 +127,10 @@
             app:srcCompat="@drawable/ic_detail_button" />
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:layout_marginStart="28dp"
             android:background="@color/colorWhiteGray"
+            app:layout_constraintStart_toStartOf="@+id/cv_cardview"
             app:layout_constraintTop_toBottomOf="@id/tv_comment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
