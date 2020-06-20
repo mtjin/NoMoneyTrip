@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
-                android:text="프로그램"
+                android:text="투어·티켓"
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@id/tv_lodgment"
@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="이 지역 인기 여행기"
+                android:text="이 지역 인기 여행지"
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -149,7 +149,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour"
                 tools:itemCount="3"
-                tools:listitem="@layout/item_normal_tour" />
+                tools:listitem="@layout/item_user_review" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
