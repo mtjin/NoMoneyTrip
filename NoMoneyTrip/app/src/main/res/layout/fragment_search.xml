@@ -31,9 +31,8 @@
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@color/colorWhite"
-                android:drawableStart="ic_back"
+                android:drawableStart="@drawable/ic_back"
                 android:hint="지역 이름으로 검색"
-                android:paddingEnd="16dp"
                 android:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
