@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NoMoneyTrip</string>
     <string name="tmap_key">l7xxb33343042e394ae68af011ca74411a30</string>
+    <string name="kakao_app_key">541c8caff279c6e6019cd20dde7951d5</string>
 
     <string name="bottom_navi_test1">홈</string>
     <string name="bottom_navi_text2">여행기</string>

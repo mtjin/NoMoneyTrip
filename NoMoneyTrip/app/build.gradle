@@ -82,4 +82,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //PageIndicatorView
     implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+    /*카카오로그인*/
+    implementation group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
 }
