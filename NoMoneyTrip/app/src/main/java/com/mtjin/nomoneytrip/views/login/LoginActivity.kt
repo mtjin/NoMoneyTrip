@@ -1,7 +1,6 @@
 package com.mtjin.nomoneytrip.views.login
 
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NO_HISTORY
 import android.os.Bundle
 import android.util.Log
 import com.kakao.auth.AuthType
@@ -37,8 +36,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         override fun onSessionOpened() {
             Log.i(TAG, "로그인 성공")
             val intent: Intent = Intent(this@LoginActivity, MainActivity::class.java)
-            intent.addFlags(FLAG_ACTIVITY_NO_HISTORY)
             startActivity(intent)
+            finish()
         }
 
         override fun onSessionOpenFailed(exception: KakaoException) {
@@ -89,23 +88,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
                     override fun onSuccess(result: MeV2Response) {
                         Log.i(TAG, "사용자 아이디: " + result.id)
-//                        val kakaoAccount: UserAccount = result.kakaoAccount
-//
-//                        // 이메일
-//                        val email: String = kakaoAccount.email
-//                        Log.i("KAKAO_API", "email: $email")
-//
-//                        // 프로필
-//                        val profile: Profile = kakaoAccount.profile
-//                        Log.d("KAKAO_API", "nickname: " + profile.nickname)
-//                        Log.d(
-//                            "KAKAO_API",
-//                            "profile image: " + profile.profileImageUrl
-//                        )
-//                        Log.d(
-//                            "KAKAO_API",
-//                            "thumbnail image: " + profile.thumbnailImageUrl
-//                        )
                     }
                 })
         }
