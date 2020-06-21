@@ -11,8 +11,6 @@ import com.kakao.network.ErrorResult
 import com.kakao.usermgmt.UserManagement
 import com.kakao.usermgmt.callback.MeV2ResponseCallback
 import com.kakao.usermgmt.response.MeV2Response
-import com.kakao.usermgmt.response.model.Profile
-import com.kakao.usermgmt.response.model.UserAccount
 import com.kakao.util.exception.KakaoException
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseActivity
@@ -37,14 +35,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     // 세션 콜백 구현
     private val sessionCallback: ISessionCallback = object : ISessionCallback {
         override fun onSessionOpened() {
-            Log.i("KAKAO_SESSION", "로그인 성공")
+            Log.i(TAG, "로그인 성공")
             val intent: Intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.addFlags(FLAG_ACTIVITY_NO_HISTORY)
             startActivity(intent)
         }
 
         override fun onSessionOpenFailed(exception: KakaoException) {
-            Log.e("KAKAO_SESSION", "로그인 실패", exception)
+            Log.e(TAG, "로그인 실패", exception)
         }
     }
 
@@ -74,7 +72,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
         // 로그인에 실패한 상태
         override fun onSessionOpenFailed(exception: KakaoException) {
-            Log.e("SessionCallback :: ", "onSessionOpenFailed : " + exception.message)
+            Log.e(TAG, "onSessionOpenFailed : " + exception.message)
         }
 
         // 사용자 정보 요청
@@ -82,16 +80,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             UserManagement.getInstance()
                 .me(object : MeV2ResponseCallback() {
                     override fun onSessionClosed(errorResult: ErrorResult) {
-                        Log.e("KAKAO_API", "세션이 닫혀 있음: $errorResult")
+                        Log.e(TAG, "세션이 닫혀 있음: $errorResult")
                     }
 
                     override fun onFailure(errorResult: ErrorResult) {
-                        Log.e("KAKAO_API", "사용자 정보 요청 실패: $errorResult")
+                        Log.e(TAG, "사용자 정보 요청 실패: $errorResult")
                     }
 
                     override fun onSuccess(result: MeV2Response) {
-                        Log.d("AAAAA", "유저가입성공")
-                        Log.i("KAKAO_API", "사용자 아이디: " + result.id)
+                        Log.i(TAG, "사용자 아이디: " + result.id)
 //                        val kakaoAccount: UserAccount = result.kakaoAccount
 //
 //                        // 이메일
@@ -112,5 +109,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                     }
                 })
         }
+    }
+
+    companion object {
+        const val TAG: String = "LoginActivityTAG"
     }
 }
