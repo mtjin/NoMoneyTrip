@@ -23,36 +23,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="28dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/vp_viewpager"
+            android:layout_height="wrap_content"
+            android:text="김종훈"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_time"
             app:layout_constraintStart_toEndOf="@id/civ_image"
-            app:layout_constraintTop_toTopOf="@id/civ_image">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="김종훈"
-                android:textColor="@color/colorBlack"
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/tv_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="39분 전"
-                android:textSize="10dp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="39분 전"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toTopOf="@id/cv_cardview"
+            app:layout_constraintStart_toEndOf="@id/civ_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/vp_viewpager"
+            app:layout_constraintBottom_toTopOf="@id/cv_cardview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_more" />
