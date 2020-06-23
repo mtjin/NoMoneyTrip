@@ -6,7 +6,8 @@ import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 
-class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewModel() {
+class LoginViewModel(private val loginRepository: LoginRepository) :
+    BaseViewModel() {
     private val _kakaoLogin = SingleLiveEvent<Session>()
 
     val kakaoLogin: LiveData<Session> get() = _kakaoLogin
