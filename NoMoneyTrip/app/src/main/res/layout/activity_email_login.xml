@@ -48,6 +48,7 @@
             android:layout_marginEnd="17dp"
             android:hint="@string/email_input_hint"
             android:paddingBottom="20dp"
+            android:text="@={vm.email}"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/tv_text" />
 
@@ -60,6 +61,7 @@
             android:layout_marginEnd="17dp"
             android:hint="@string/pw_input_hint"
             android:paddingBottom="20dp"
+            android:text="@={vm.pw}"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/et_email" />
 
@@ -68,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:onClick="@{()->vm.onEmailLoginClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_pw"
@@ -81,18 +84,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_login"
             app:srcCompat="@drawable/button_forgot_password" />
-
         <ProgressBar
             android:id="@+id/pb_loading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:visibility="@={vm.isLoading() ? View.VISIBLE : View.GONE}"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
