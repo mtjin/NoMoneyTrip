@@ -7,4 +7,7 @@
     <string name="bottom_navi_text2">여행기</string>
     <string name="bottom_navi_text3">예약내역</string>
     <string name="bottom_navi_text4">프로필</string>
+    <string name="email_input_hint">이메일 주소 입력</string>
+    <string name="email_login_text">이메일로 로그인</string>
+    <string name="pw_input_hint">비밀번호 입력</string>
 </resources>
