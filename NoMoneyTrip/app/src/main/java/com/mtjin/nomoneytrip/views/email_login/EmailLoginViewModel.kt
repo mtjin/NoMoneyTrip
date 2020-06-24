@@ -8,9 +8,9 @@ import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 class EmailLoginViewModel : BaseViewModel() {
     val email: MutableLiveData<String> = MutableLiveData("")
     val pw: MutableLiveData<String> = MutableLiveData("")
-    private val _isEmailEmpty: MutableLiveData<Unit> = SingleLiveEvent()
-    private val _isPwEmpty: MutableLiveData<Unit> = SingleLiveEvent()
-    private val _login: MutableLiveData<Unit> = SingleLiveEvent()
+    private val _isEmailEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _isPwEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _login: SingleLiveEvent<Unit> = SingleLiveEvent()
 
     val isEmailEmpty: LiveData<Unit> get() = _isEmailEmpty
     val isPwEmpty: LiveData<Unit> get() = _isPwEmpty
@@ -21,11 +21,11 @@ class EmailLoginViewModel : BaseViewModel() {
         val email: String = email.value.toString().trim()
         val pw: String = pw.value.toString().trim()
         if (email.isEmpty()) {
-            _isEmailEmpty.value = Unit
+            _isEmailEmpty.call()
         } else if (pw.isEmpty()) {
-            _isPwEmpty.value = Unit
+            _isPwEmpty.call()
         } else {
-            _login.value = Unit
+            _login.call()
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.mtjin.nomoneytrip.views.login
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.kakao.auth.Session
 import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
@@ -10,8 +9,8 @@ import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 class LoginViewModel(private val loginRepository: LoginRepository) :
     BaseViewModel() {
     private val _kakaoLogin = SingleLiveEvent<Session>()
-    private val _goEmailSignUp: MutableLiveData<Unit> = MutableLiveData()
-    private val _goEmailLogin: MutableLiveData<Unit> = MutableLiveData()
+    private val _goEmailSignUp: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _goEmailLogin: SingleLiveEvent<Unit> = SingleLiveEvent()
 
     val kakaoLogin: LiveData<Session> get() = _kakaoLogin
     val goEmailSignUp: LiveData<Unit> get() = _goEmailSignUp
@@ -23,11 +22,11 @@ class LoginViewModel(private val loginRepository: LoginRepository) :
     }
 
     fun goEmailSignUp() {
-        _goEmailSignUp.value = Unit
+        _goEmailSignUp.call()
     }
 
     fun goEmailLogin() {
-        _goEmailLogin.value = Unit
+        _goEmailLogin.call()
     }
 
 }

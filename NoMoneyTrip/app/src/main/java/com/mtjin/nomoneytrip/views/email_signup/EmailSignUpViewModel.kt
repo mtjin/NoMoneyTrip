@@ -10,11 +10,11 @@ class EmailSignUpViewModel : BaseViewModel() {
     val pw: MutableLiveData<String> = MutableLiveData("")
     val pwConfirm: MutableLiveData<String> = MutableLiveData("")
 
-    private val _isEmailEmpty: MutableLiveData<Unit> = SingleLiveEvent()
-    private val _isPwEmpty: MutableLiveData<Unit> = SingleLiveEvent()
-    private val _isPwConfirmEmpty: MutableLiveData<Unit> = SingleLiveEvent()
-    private val _pwNotMatch: MutableLiveData<Unit> = SingleLiveEvent()
-    private val _signUp: MutableLiveData<Unit> = SingleLiveEvent()
+    private val _isEmailEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _isPwEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _isPwConfirmEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _pwNotMatch: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _signUp: SingleLiveEvent<Unit> = SingleLiveEvent()
 
     val isEmailEmpty: LiveData<Unit> get() = _isEmailEmpty
     val isPwEmpty: LiveData<Unit> get() = _isPwEmpty
@@ -29,15 +29,15 @@ class EmailSignUpViewModel : BaseViewModel() {
         val pwConfirm: String = pwConfirm.value.toString().trim()
 
         if (email.isEmpty()) {
-            _isEmailEmpty.value = Unit
+            _isEmailEmpty.call()
         } else if (pw.isEmpty()) {
-            _isPwEmpty.value = Unit
+            _isPwEmpty.call()
         } else if (pwConfirm.isEmpty()) {
-            _isPwConfirmEmpty.value = Unit
+            _isPwConfirmEmpty.call()
         } else if (pw != pwConfirm) {
-            _pwNotMatch.value = Unit
+            _pwNotMatch.call()
         } else {
-            _signUp.value = Unit
+            _signUp.call()
         }
     }
 
