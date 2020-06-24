@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.views.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -19,6 +20,8 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.databinding.ActivityLoginBinding
 import com.mtjin.nomoneytrip.utils.Fb
+import com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity
+import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpActivity
 import com.mtjin.nomoneytrip.views.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -52,6 +55,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             kakaoLogin.observe(this@LoginActivity, Observer {
                 kakaoLogin.value?.addCallback(SessionCallback())
                 kakaoLogin.value?.open(AuthType.KAKAO_LOGIN_ALL, this@LoginActivity)
+            })
+
+            goEmailSignUp.observe(this@LoginActivity, Observer {
+                startActivity(Intent(this@LoginActivity, EmailSignUpActivity::class.java))
+            })
+
+            goEmailLogin.observe(this@LoginActivity, Observer {
+                startActivity(Intent(this@LoginActivity, EmailLoginActivity::class.java))
             })
         }
     }
@@ -118,6 +129,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         )
                         startActivity(intent)
                         showToast("로그인 성공")
+                        binding.pbLoading.visibility = View.GONE
                         finish()
                     } else {
                         auth.createUserWithEmailAndPassword(email, password)
@@ -133,13 +145,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                 )
                                                 startActivity(intent)
                                                 showToast("로그인 성공")
+                                                binding.pbLoading.visibility = View.GONE
                                                 finish()
                                             } else {
                                                 showToast("로그인 실패")
+                                                binding.pbLoading.visibility = View.GONE
                                             }
                                         }
                                 } else {
                                     showToast("로그인 실패")
+                                    binding.pbLoading.visibility = View.GONE
                                 }
                             }
                     }
