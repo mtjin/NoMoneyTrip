@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.email_signup.EmailSignupActivity"></activity>
+        <activity android:name=".views.email_signup.EmailSignUpActivity" />
         <activity android:name=".views.email_login.EmailLoginActivity" />
 
         <meta-data

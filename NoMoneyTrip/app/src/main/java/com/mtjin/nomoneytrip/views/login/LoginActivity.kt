@@ -3,7 +3,6 @@ package com.mtjin.nomoneytrip.views.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -129,7 +128,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         )
                         startActivity(intent)
                         showToast("로그인 성공")
-                        binding.pbLoading.visibility = View.GONE
+                        viewModel.hideProgress()
                         finish()
                     } else {
                         auth.createUserWithEmailAndPassword(email, password)
@@ -145,16 +144,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                 )
                                                 startActivity(intent)
                                                 showToast("로그인 성공")
-                                                binding.pbLoading.visibility = View.GONE
+                                                viewModel.hideProgress()
                                                 finish()
                                             } else {
                                                 showToast("로그인 실패")
-                                                binding.pbLoading.visibility = View.GONE
+                                                viewModel.hideProgress()
                                             }
                                         }
                                 } else {
                                     showToast("로그인 실패")
-                                    binding.pbLoading.visibility = View.GONE
+                                    viewModel.hideProgress()
                                 }
                             }
                     }
