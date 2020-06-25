@@ -13,14 +13,15 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:layout_height="wrap_content">
 
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_app_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/logo" />
@@ -28,19 +29,38 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_alarm_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_where_go"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="28dp"
+                android:lineSpacingExtra="10sp"
+                android:textColor="@color/colorWhiteBlack"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_app_logo"
+                tools:text="무전여행\n어디로 가볼까요?" />
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="28dp"
                 android:background="@drawable/bg_search_button"
                 android:drawableEnd="@drawable/ic_search_gray_24dp"
-                app:layout_constraintTop_toBottomOf="@id/iv_app_logo" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_where_go" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_component_1"
@@ -84,11 +104,12 @@
                 android:id="@+id/tv_farming_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="32dp"
                 android:textColor="@color/colorWhiteBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/iv_search"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
                 tools:text="숙박비는 열정으로" />
 
@@ -96,26 +117,26 @@
                 android:id="@+id/rv_farming_tours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="18dp"
                 android:orientation="horizontal"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_farming_tour"
                 tools:listitem="@layout/item_guide_tour" />
 
-            <Button
-                android:id="@+id/btn_view_all_lodgment"
-                android:layout_width="200dp"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_view_all_lodgment"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/bg_btn_orange_edge"
-                android:gravity="center"
-                android:text="숙박 전체보기"
                 android:textColor="@color/colorOrange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_farming_tours" />
+                app:layout_constraintTop_toBottomOf="@id/rv_farming_tours"
+                app:srcCompat="@drawable/every_view" />
 
             <TextView
                 android:id="@+id/tv_more_fun"
@@ -126,7 +147,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/iv_search"
-                app:layout_constraintTop_toBottomOf="@id/btn_view_all_lodgment"
+                app:layout_constraintTop_toBottomOf="@id/iv_view_all_lodgment"
                 tools:text="일일 농부 체험" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -135,33 +156,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:orientation="horizontal"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_more_fun"
                 tools:listitem="@layout/item_guide_tour" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btn_view_all_program"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/bg_btn_orange_edge"
-                android:gravity="center"
-                android:text="투어 전체보기"
-                android:textColor="@color/colorOrange"
+                android:layout_marginTop="28dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_more_funs" />
+                app:layout_constraintTop_toBottomOf="@id/rv_more_funs"
+                app:srcCompat="@drawable/every_view" />
 
             <TextView
                 android:id="@+id/tv_banner"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="32dp"
-                android:background="@color/colorWhiteGray"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="36dp"
+                android:background="@drawable/img_product"
                 android:gravity="center"
                 android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_view_all_program"
                 tools:text="무전여행 200% 즐기는 방법(배너링크)" />
         </androidx.constraintlayout.widget.ConstraintLayout>
