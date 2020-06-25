@@ -33,6 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun initNavigation() {
         val navController = findNavController(R.id.main_nav_host)
         binding.mainBottomNavigation.setupWithNavController(navController)
+        binding.mainBottomNavigation.itemIconTintList = null
     }
 
     private fun getHashKey() {
