@@ -43,9 +43,9 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="29dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="80dp"
-            android:layout_marginEnd="17dp"
+            android:layout_marginEnd="30dp"
             android:hint="@string/email_input_hint"
             android:paddingBottom="20dp"
             android:text="@={vm.email}"
@@ -56,9 +56,9 @@
             android:id="@+id/et_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="29dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="17dp"
+            android:layout_marginEnd="30dp"
             android:hint="@string/pw_input_hint"
             android:paddingBottom="20dp"
             android:text="@={vm.pw}"
@@ -84,6 +84,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_login"
             app:srcCompat="@drawable/button_forgot_password" />
+
         <ProgressBar
             android:id="@+id/pb_loading"
             android:layout_width="match_parent"
