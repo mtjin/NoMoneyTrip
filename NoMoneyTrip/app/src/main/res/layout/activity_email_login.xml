@@ -47,7 +47,9 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="30dp"
             android:hint="@string/email_input_hint"
+            android:inputType="textEmailAddress"
             android:paddingBottom="20dp"
+            android:singleLine="true"
             android:text="@={vm.email}"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/tv_text" />
@@ -60,6 +62,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="30dp"
             android:hint="@string/pw_input_hint"
+            android:singleLine="true"
             android:paddingBottom="20dp"
             android:text="@={vm.pw}"
             android:textSize="12sp"
