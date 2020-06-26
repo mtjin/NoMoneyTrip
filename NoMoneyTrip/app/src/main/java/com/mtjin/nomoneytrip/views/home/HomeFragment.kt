@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -26,4 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+    }
 }

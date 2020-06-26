@@ -1,15 +1,15 @@
 package com.mtjin.nomoneytrip.views.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
+import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 
 class HomeViewModel : BaseViewModel() {
-    private val _goSearch: MutableLiveData<Unit> = MutableLiveData()
+    private val _goSearch: SingleLiveEvent<Unit> = SingleLiveEvent()
 
     val goSearch: LiveData<Unit> get() = _goSearch
 
     fun goSearch() {
-        _goSearch.value = Unit
+        _goSearch.call()
     }
 }

@@ -11,8 +11,7 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_bottom_nav_1_to_search_fragment"
-            app:destination="@id/search_fragment"
-            app:launchSingleTop="true" />
+            app:destination="@id/search_fragment" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
