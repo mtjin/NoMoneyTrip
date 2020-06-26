@@ -12,8 +12,8 @@
         android:layout_height="match_parent"
         tools:context=".views.MainActivity">
 
-        <FrameLayout
-            android:id="@+id/main_fl_container"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_fcv_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/main_bottom_navigation"
@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/bottom_nav_graph" />
-        </FrameLayout>
+        </androidx.fragment.app.FragmentContainerView>
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -46,7 +46,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_fl_container"
+            app:layout_constraintTop_toBottomOf="@+id/main_fcv_container"
             app:menu="@menu/bottom_menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
