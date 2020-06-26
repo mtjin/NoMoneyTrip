@@ -54,7 +54,6 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_search"
-                android:onClick="@{()->vm.goSearch()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
@@ -62,6 +61,7 @@
                 android:layout_marginEnd="28dp"
                 android:background="@drawable/bg_search_button"
                 android:drawableEnd="@drawable/ic_search_gray_24dp"
+                android:onClick="@{()->vm.goSearch()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_where_go" />
@@ -189,6 +189,7 @@
                 android:background="@drawable/img_product"
                 android:gravity="center"
                 android:textColor="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_view_all_program"
