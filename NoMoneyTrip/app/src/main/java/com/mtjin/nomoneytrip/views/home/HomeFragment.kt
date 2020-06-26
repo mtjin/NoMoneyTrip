@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.views.home
 
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
@@ -20,7 +19,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initViewModelCallback() {
         with(viewModel) {
             goSearch.observe(this@HomeFragment, Observer {
-                Log.d("AAA", "aaa");
                 val direction: NavDirections =
                     HomeFragmentDirections.actionBottomNav1ToSearchFragment()
                 findNavController().navigate(direction)
