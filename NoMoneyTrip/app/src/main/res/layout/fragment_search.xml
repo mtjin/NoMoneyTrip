@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -30,8 +30,9 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:background="@color/colorWhite"
+                android:background="@android:color/transparent"
                 android:hint="지역 이름으로 검색"
+                android:textColor="@color/colorWhiteBlack"
                 android:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
