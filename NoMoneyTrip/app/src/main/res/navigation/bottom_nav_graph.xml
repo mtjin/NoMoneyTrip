@@ -8,7 +8,12 @@
         android:id="@+id/bottom_nav_1"
         android:name="com.mtjin.nomoneytrip.views.home.HomeFragment"
         android:label="BottomNavFragment1"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_bottom_nav_1_to_search_fragment"
+            app:destination="@id/search_fragment"
+            app:launchSingleTop="true" />
+    </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
         android:name="com.mtjin.nomoneytrip.views.community.CommunityFragment"
@@ -24,4 +29,9 @@
         android:name="com.mtjin.nomoneytrip.views.profile.ProfileFragment"
         android:label="BottomNavFragment4"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.mtjin.nomoneytrip.views.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
 </navigation>

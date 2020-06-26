@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.home.HomeViewModel" />
     </data>
 
     <ScrollView
@@ -51,6 +54,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_search"
+                android:onClick="@{()->vm.goSearch()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"

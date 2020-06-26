@@ -6,6 +6,6 @@ import com.mtjin.nomoneytrip.databinding.FragmentSearchBinding
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
     override fun init() {
-        TODO("Not yet implemented")
+
     }
 }
