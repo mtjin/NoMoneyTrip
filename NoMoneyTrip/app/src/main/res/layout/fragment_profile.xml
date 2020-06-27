@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,6 +10,115 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
+            android:text="마이페이지"
+            android:textColor="@color/colorWhiteBlack3535"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_mypage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_mypage"
+            app:srcCompat="@drawable/ic_setting" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorWhiteGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mypage" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="110dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/shape_radius_8dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            tools:srcCompat="@drawable/img_product" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="@id/iv_image"
+            tools:text="UMINYOUNG" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/colorWhiteGrayA3A3"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tv_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_id"
+            tools:text="dvsvp@kakao.com" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Follower"
+            android:textColor="@color/colorWhiteBlack3535"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_image"
+            app:layout_constraintStart_toEndOf="@id/iv_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_follower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/colorWhiteBlack3535"
+            app:layout_constraintStart_toEndOf="@id/tv_followers"
+            app:layout_constraintTop_toTopOf="@id/tv_followers"
+            tools:text="24" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_follows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Follower"
+            android:textColor="@color/colorWhiteBlack3535"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_image"
+            app:layout_constraintStart_toEndOf="@id/tv_follower" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/colorWhiteBlack3535"
+            app:layout_constraintStart_toEndOf="@id/tv_follows"
+            app:layout_constraintTop_toTopOf="@id/tv_followers"
+            tools:text="5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
