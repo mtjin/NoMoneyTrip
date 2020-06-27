@@ -36,7 +36,7 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:hint="지역 이름으로 검색"
-                    android:textColor="@color/colorWhiteBlack"
+                    android:textColor="@color/colorWhiteBlack3535"
                     android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
