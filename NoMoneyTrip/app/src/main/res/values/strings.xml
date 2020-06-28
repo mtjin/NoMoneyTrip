@@ -15,4 +15,8 @@
     <string name="pw_confirm_hint">비밀번호 확인</string>
     <string name="volunteer_time_accept_text">봉사시간 인정</string>
     <string name="near_tour_info_text">근처 여행 정보</string>
+    <string name="write_tour_text">무전일기 남기기</string>
+    <string name="write_text">게시하기</string>
+    <string name="how_tour_question_text">어떤 여행을 다녀오셨나요? 숨겨진 국내 여행 팁을 나눠주세요.</string>
+    <string name="travel_history_text">다녀온 여행지</string>
 </resources>
