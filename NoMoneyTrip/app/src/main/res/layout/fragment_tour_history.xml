@@ -40,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:lineSpacingExtra="14sp"
                 android:textColor="@color/colorWhiteBlack3535"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@id/tv_text"
@@ -52,6 +53,7 @@
                 android:id="@+id/tv_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="14sp"
                 android:text="님이 다녀간"
                 android:textColor="@color/colorWhiteBlack3535"
                 android:textSize="20sp"
@@ -63,6 +65,8 @@
                 android:id="@+id/tv_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="14sp"
                 android:text="여행기록이에요!"
                 android:textColor="@color/colorWhiteBlack3535"
                 android:textSize="20sp"
@@ -79,7 +83,9 @@
                 android:paddingStart="28dp"
                 android:paddingEnd="28dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_text2" />
+                app:layout_constraintTop_toBottomOf="@id/tv_text2"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_tour_history" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_text3"
@@ -98,6 +104,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorOrangeF79256"
+                android:progressTint="@color/colorOrangeF79256"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_text3" />
