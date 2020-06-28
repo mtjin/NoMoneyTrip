@@ -13,4 +13,6 @@
     <string name="pw_input_hint">비밀번호 입력</string>
     <string name="pw_signip_input_hint">비밀번호 입력(영문, 숫자, 8자리 이상)</string>
     <string name="pw_confirm_hint">비밀번호 확인</string>
+    <string name="volunteer_time_accept_text">봉사시간 인정</string>
+    <string name="near_tour_info_text">근처 여행 정보</string>
 </resources>
