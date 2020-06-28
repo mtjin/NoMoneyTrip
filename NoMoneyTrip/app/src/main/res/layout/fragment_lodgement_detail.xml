@@ -219,6 +219,8 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="28dp"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_lodgement_review"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
