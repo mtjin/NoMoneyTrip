@@ -126,8 +126,8 @@
             android:layout_marginEnd="28dp"
             android:layout_marginBottom="20dp"
             android:background="@color/colorWhiteGray"
-            app:layout_constraintEnd_toEndOf="tv_merchandise_title"
-            app:layout_constraintStart_toStartOf="tv_merchandise_title"
+            app:layout_constraintEnd_toEndOf="@id/tv_content"
+            app:layout_constraintStart_toStartOf="@id/tv_content"
             app:layout_constraintTop_toBottomOf="@id/rv_tour_images" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
