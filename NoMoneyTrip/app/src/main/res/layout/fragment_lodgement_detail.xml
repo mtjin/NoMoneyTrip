@@ -7,335 +7,342 @@
 
     </data>
 
-    <ScrollView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_lodgment_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="28dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="숙소 이름" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_cancel" />
-
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@color/colorOrangeF79256"
-                android:progressTint="@color/colorOrangeF79256"
-                app:layout_constraintStart_toStartOf="@id/tv_lodgment_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/rb_rating"
-                app:layout_constraintStart_toEndOf="@id/rb_rating"
-                app:layout_constraintTop_toTopOf="@id/rb_rating"
-                tools:text="6" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_viewpager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_score" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toStartOf="@id/iv_map"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                app:srcCompat="@drawable/ic_good_off" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_map"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="52dp"
-                app:layout_constraintEnd_toStartOf="@id/iv_share"
-                app:layout_constraintStart_toEndOf="@id/iv_favorite"
-                app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                app:srcCompat="@drawable/ic_map" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_share"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_map"
-                app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                app:srcCompat="@drawable/ic_share" />
-
-            <View
-                android:id="@+id/view"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteGray"
-                app:layout_constraintTop_toBottomOf="@id/iv_share" />
+                android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_volunteer_service"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:background="@drawable/shape_orange_radius_4dp"
-                android:text="@string/volunteer_time_accept_text"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_lodgment_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="숙소 이름" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_volunteer_service"
-                tools:text="1박, 일손 4시간" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_cancel" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/iv_free"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:textColor="#f79256"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_volunteer_service"
-                tools:text="무료숙박" />
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/colorOrangeF79256"
+                    android:progressTint="@color/colorOrangeF79256"
+                    app:layout_constraintStart_toStartOf="@id/tv_lodgment_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_option"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="28dp"
-                android:background="@drawable/bg_gray_radius_8dp"
-                android:paddingStart="16dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_info"
-                tools:text="옵션 A 일손 1시간 추가시 저녁식사 제공
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/rb_rating"
+                    app:layout_constraintStart_toEndOf="@id/rb_rating"
+                    app:layout_constraintTop_toTopOf="@id/rb_rating"
+                    tools:text="6" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_viewpager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="28dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_score" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toStartOf="@id/iv_map"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
+                    app:srcCompat="@drawable/ic_good_off" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="52dp"
+                    app:layout_constraintEnd_toStartOf="@id/iv_share"
+                    app:layout_constraintStart_toEndOf="@id/iv_favorite"
+                    app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
+                    app:srcCompat="@drawable/ic_map" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_map"
+                    app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
+                    app:srcCompat="@drawable/ic_share" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@color/colorWhiteGray"
+                    app:layout_constraintTop_toBottomOf="@id/iv_share" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_volunteer_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/shape_orange_radius_4dp"
+                    android:text="@string/volunteer_time_accept_text"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_volunteer_service"
+                    tools:text="1박, 일손 4시간" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/iv_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:textColor="#f79256"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_volunteer_service"
+                    tools:text="무료숙박" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@drawable/bg_gray_radius_8dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_info"
+                    tools:text="옵션 A 일손 1시간 추가시 저녁식사 제공
                            옵션 B 10,000원 추가시 바베큐 그릴 제공" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="28dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_option"
-                tools:text="상품 설명 타이틀" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="28dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_option"
+                    tools:text="상품 설명 타이틀" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="28dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title"
-                tools:text="상품 설명 상세  설명 상품 설명 상세 설명 상품 설명
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="28dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    tools:text="상품 설명 상세  설명 상품 설명 상세 설명 상품 설명
 상품 설명 상세 설명 상품 설명 상세 설명 상품 설명
 상품 설명 상세 설명 상품 설명 상세 설명 상품 설명" />
 
-            <TextView
-                android:id="@+id/tv_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="100dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_content"
-                tools:text="여행자 후기" />
+                <TextView
+                    android:id="@+id/tv_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="100dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_content"
+                    tools:text="여행자 후기" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_reviews"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="28dp"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_lodgement_review"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_text" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="28dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_text"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_lodgement_review" />
 
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_every_review"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_reviews"
-                app:srcCompat="@drawable/button_view_all_reviews" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_every_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="28dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_reviews"
+                    app:srcCompat="@drawable/button_view_all_reviews" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteGray"
-                app:layout_constraintTop_toBottomOf="@id/iv_every_review" />
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@color/colorWhiteGray"
+                    app:layout_constraintTop_toBottomOf="@id/iv_every_review" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_cancel_rule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view2"
-                app:srcCompat="@drawable/button_cancel_rule" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_cancel_rule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view2"
+                    app:srcCompat="@drawable/button_cancel_rule" />
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteGray"
-                app:layout_constraintTop_toBottomOf="@id/iv_cancel_rule" />
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@color/colorWhiteGray"
+                    app:layout_constraintTop_toBottomOf="@id/iv_cancel_rule" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view3"
-                app:srcCompat="@drawable/button_question" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view3"
+                    app:srcCompat="@drawable/button_question" />
 
-            <View
-                android:id="@+id/view4"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteGray"
-                app:layout_constraintTop_toBottomOf="@id/iv_question" />
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@color/colorWhiteGray"
+                    app:layout_constraintTop_toBottomOf="@id/iv_question" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="36dp"
-                android:text="@string/near_tour_info_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view4" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="36dp"
+                    android:text="@string/near_tour_info_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view4" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_near_tours"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/item_normal_tour"
-                tools:itemCount="3"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal"
-                android:paddingStart="28dp"
-                android:paddingEnd="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text2" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_near_tours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="28dp"
+                    android:paddingEnd="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text2"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_normal_tour" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_option_select"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:layout_marginTop="36dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_near_tours"
-                app:layout_constraintEnd_toStartOf="@id/iv_data_select"
                 app:srcCompat="@drawable/button_optionselect" />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_data_select"
                 android:layout_width="0dp"
-                android:scaleType="fitXY"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                app:layout_constraintStart_toEndOf="@id/iv_option_select"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_near_tours"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/button_dateselect" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
