@@ -20,4 +20,5 @@
     <string name="how_tour_question_text">어떤 여행을 다녀오셨나요? 숨겨진 국내 여행 팁을 나눠주세요.</string>
     <string name="travel_history_text">다녀온 여행지</string>
     <string name="lodgment_date_text">숙박 날짜</string>
+    <string name="my_tour_diary_text">내 여행기</string>
 </resources>
