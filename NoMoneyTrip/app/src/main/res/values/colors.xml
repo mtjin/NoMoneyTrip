@@ -15,4 +15,6 @@
     <color name="colorWhiteGrayEAEA">#eaeaea</color>
     <color name="colorWhiteBlack3535">#353535</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorVileLineF7F7F7">#f7f7f7</color>
+    <color name="colorWhiteFAFAFA">#f7f7f7</color>
 </resources>

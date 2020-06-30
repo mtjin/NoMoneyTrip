@@ -22,4 +22,13 @@
     <string name="lodgment_date_text">숙박 날짜</string>
     <string name="my_tour_diary_text">내 여행기</string>
     <string name="saved_tour_diary_text">저장한 여행기</string>
+    <string name="lodgement_info_text">숙소 정보</string>
+    <string name="address_text">주소</string>
+    <string name="telephone_text">전화</string>
+    <string name="homepage_text">홈페이지</string>
+    <string name="facility_text">편의시설</string>
+    <string name="housing_policy_text">숙소정책</string>
+    <string name="check_in_text">체크인</string>
+    <string name="service_time_certification_text">봉사시간인증</string>
+    <string name="server_time_certification_info_text">일손 시간 만큼 봉사시간 인증 가능합니다. 여행 후 구매내역 페이지에서 접수할 수 있습니다.</string>
 </resources>
