@@ -71,6 +71,34 @@
             android:background="@color/colorViewGrayLineF4F4F4"
             app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
+        <com.applikeysolutions.cosmocalendar.view.CalendarView
+            android:id="@+id/cv_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:connectedDayIconPosition="top"
+            app:currentDayIconRes="@drawable/ic_select"
+            app:currentDaySelectedIconRes="@drawable/ic_select"
+            app:currentDayTextColor="#f79256"
+            app:firstDayOfTheWeek="sunday"
+            app:layout_constraintTop_toBottomOf="@id/view_date"
+            app:orientation="horizontal"
+            app:selectedDayBackgroundColor="#FFEACA"
+            app:selectedDayBackgroundEndColor="#f79256"
+            app:selectedDayBackgroundStartColor="#f79256"
+            app:selectedDayTextColor="#FFFFFF"
+            app:selectionType="range"
+            app:weekendDayTextColor="#ef4550" />
+
+        <View
+            android:id="@+id/view_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorViewGrayLineF4F4F4"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cv_calendar" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_personnel"
             android:layout_width="wrap_content"
@@ -81,7 +109,7 @@
             android:textColor="@color/colorWhiteBlack3535"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_date" />
+            app:layout_constraintTop_toBottomOf="@id/view_calendar" />
 
         <com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/iv_up"
@@ -182,8 +210,8 @@
         <com.skydoves.elasticviews.ElasticImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:imageView_duration="300"
             android:layout_marginTop="46dp"
+            app:imageView_duration="300"
             app:imageView_scale="0.9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
