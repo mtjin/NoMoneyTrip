@@ -89,4 +89,6 @@ dependencies {
     implementation group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
     //elastic view
     implementation "com.github.skydoves:elasticviews:2.0.7"
+    //달력
+    implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
 }
