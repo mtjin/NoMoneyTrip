@@ -15,6 +15,6 @@
     <color name="colorWhiteGrayEAEA">#eaeaea</color>
     <color name="colorWhiteBlack3535">#353535</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorViewBackLineF4F4F4">#f4f4f4</color>
+    <color name="colorViewGrayLineF4F4F4">#f4f4f4</color>
     <color name="colorWhiteFAFAFA">#f7f7f7</color>
 </resources>
