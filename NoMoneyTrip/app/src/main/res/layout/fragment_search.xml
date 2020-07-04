@@ -26,8 +26,8 @@
                     android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    app:srcCompat="@drawable/ic_back" />
+                    android:layout_marginStart="4dp"
+                    app:srcCompat="@drawable/ic_back_title" />
 
                 <EditText
                     android:id="@+id/et_search"
@@ -37,7 +37,7 @@
                     android:background="@android:color/transparent"
                     android:hint="지역 이름으로 검색"
                     android:textColor="@color/colorWhiteBlack3535"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_search"
