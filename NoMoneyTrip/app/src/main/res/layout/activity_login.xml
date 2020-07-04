@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_app_main_logo" />
+            app:srcCompat="@drawable/img_intro" />
 
         <com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/iv_kakao_login"
