@@ -15,17 +15,17 @@
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back" />
+            app:srcCompat="@drawable/ic_back_title" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhiteBlack3535"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_back"
             app:layout_constraintStart_toEndOf="@id/iv_back"
             app:layout_constraintTop_toTopOf="@id/iv_back"
@@ -39,184 +39,197 @@
             android:background="@color/colorViewGrayLineF4F4F4"
             app:layout_constraintTop_toBottomOf="@id/iv_back" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
-            android:textColor="@color/colorWhiteBlack3535"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_top"
-            tools:text="2020.7.2 - 7.4" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorOrangeF79256"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_date"
-            app:layout_constraintStart_toEndOf="@id/tv_date"
-            app:layout_constraintTop_toTopOf="@id/tv_date"
-            tools:text="2박" />
-
-        <View
-            android:id="@+id/view_date"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="23dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
-            app:layout_constraintTop_toBottomOf="@id/tv_date" />
-
-        <com.applikeysolutions.cosmocalendar.view.CalendarView
-            android:id="@+id/cv_calendar"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:connectedDayIconPosition="top"
-            app:currentDayIconRes="@drawable/ic_select"
-            app:currentDaySelectedIconRes="@drawable/ic_select"
-            app:currentDayTextColor="#f79256"
-            app:firstDayOfTheWeek="sunday"
-            app:layout_constraintTop_toBottomOf="@id/view_date"
-            app:orientation="horizontal"
-            app:selectedDayBackgroundColor="#FFEACA"
-            app:selectedDayBackgroundEndColor="#f79256"
-            app:selectedDayBackgroundStartColor="#f79256"
-            app:selectedDayTextColor="#FFFFFF"
-            app:selectionType="range"
-            app:weekendDayTextColor="#ef4550" />
+            app:layout_constraintTop_toBottomOf="@id/view_top">
 
-        <View
-            android:id="@+id/view_calendar"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/cv_calendar" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_personnel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/personnel_text"
-            android:textColor="@color/colorWhiteBlack3535"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_calendar" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2020.7.2 - 7.4" />
 
-        <com.skydoves.elasticviews.ElasticImageView
-            android:id="@+id/iv_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:imageView_duration="300"
-            app:imageView_scale="0.9"
-            app:layout_constraintBottom_toBottomOf="@id/text_personnel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text_personnel"
-            app:srcCompat="@drawable/ic_up" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_date"
+                    app:layout_constraintStart_toEndOf="@id/tv_date"
+                    app:layout_constraintTop_toTopOf="@id/tv_date"
+                    tools:text="2박" />
 
-        <TextView
-            android:id="@+id/tv_total_people_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/colorWhiteBlack3535"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/text_personnel"
-            app:layout_constraintEnd_toStartOf="@id/iv_up"
-            app:layout_constraintTop_toTopOf="@id/text_personnel"
-            tools:text="2" />
+                <View
+                    android:id="@+id/view_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@color/colorViewGrayLineF4F4F4"
+                    app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
-        <com.skydoves.elasticviews.ElasticImageView
-            android:id="@+id/iv_down"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:imageView_duration="300"
-            app:imageView_scale="0.9"
-            app:layout_constraintBottom_toBottomOf="@id/text_personnel"
-            app:layout_constraintEnd_toStartOf="@id/tv_total_people_num"
-            app:layout_constraintTop_toTopOf="@id/text_personnel"
-            app:srcCompat="@drawable/ic_down" />
+                <com.applikeysolutions.cosmocalendar.view.CalendarView
+                    android:id="@+id/cv_calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:connectedDayIconPosition="top"
+                    app:currentDayIconRes="@drawable/ic_select"
+                    app:currentDaySelectedIconRes="@drawable/ic_select"
+                    app:currentDayTextColor="#f79256"
+                    app:firstDayOfTheWeek="sunday"
+                    app:layout_constraintTop_toBottomOf="@id/view_date"
+                    app:orientation="horizontal"
+                    app:selectedDayBackgroundColor="#FFEACA"
+                    app:selectedDayBackgroundEndColor="#f79256"
+                    app:selectedDayBackgroundStartColor="#f79256"
+                    app:selectedDayTextColor="#FFFFFF"
+                    app:selectionType="range"
+                    app:weekendDayTextColor="#ef4550" />
 
-        <View
-            android:id="@+id/view_more_option"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="23dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
-            app:layout_constraintTop_toBottomOf="@id/text_personnel" />
+                <View
+                    android:id="@+id/view_calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorViewGrayLineF4F4F4"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/cv_calendar" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_more_option"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/more_option_text"
-            android:textColor="@color/colorWhiteBlack3535"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_more_option" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_personnel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/personnel_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_calendar" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_option_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/colorWhiteBlack3535"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_more_option"
-            tools:text="첫번째 옵션입니다. 첫번째 옵션" />
+                <com.skydoves.elasticviews.ElasticImageView
+                    android:id="@+id/iv_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:imageView_duration="300"
+                    app:imageView_scale="0.9"
+                    app:layout_constraintBottom_toBottomOf="@id/text_personnel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/text_personnel"
+                    app:srcCompat="@drawable/ic_up" />
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_option_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="26dp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_option_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_option_1" />
+                <TextView
+                    android:id="@+id/tv_total_people_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/text_personnel"
+                    app:layout_constraintEnd_toStartOf="@id/iv_up"
+                    app:layout_constraintTop_toTopOf="@id/text_personnel"
+                    tools:text="2" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_option_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/colorWhiteBlack3535"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_option_1"
-            tools:text="두번째 옵션입니다. 두번째 옵션" />
+                <com.skydoves.elasticviews.ElasticImageView
+                    android:id="@+id/iv_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:imageView_duration="300"
+                    app:imageView_scale="0.9"
+                    app:layout_constraintBottom_toBottomOf="@id/text_personnel"
+                    app:layout_constraintEnd_toStartOf="@id/tv_total_people_num"
+                    app:layout_constraintTop_toTopOf="@id/text_personnel"
+                    app:srcCompat="@drawable/ic_down" />
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_option_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="26dp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_option_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_option_2" />
+                <View
+                    android:id="@+id/view_more_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@color/colorViewGrayLineF4F4F4"
+                    app:layout_constraintTop_toBottomOf="@id/text_personnel" />
 
-        <com.skydoves.elasticviews.ElasticImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="46dp"
-            app:imageView_duration="300"
-            app:imageView_scale="0.9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_option_2"
-            app:srcCompat="@drawable/button_reservation" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_more_option"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/more_option_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_more_option" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_option_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_more_option"
+                    tools:text="첫번째 옵션입니다. 첫번째 옵션" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cb_option_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="26dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_option_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_option_1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_option_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_option_1"
+                    tools:text="두번째 옵션입니다. 두번째 옵션" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cb_option_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="26dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_option_2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_option_2" />
+
+                <com.skydoves.elasticviews.ElasticImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="46dp"
+                    app:imageView_duration="300"
+                    app:imageView_scale="0.9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_option_2"
+                    app:srcCompat="@drawable/button_reservation" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
