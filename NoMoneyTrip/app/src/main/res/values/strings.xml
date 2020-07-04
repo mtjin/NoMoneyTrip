@@ -43,4 +43,5 @@
     <string name="consent_rule_text">취소 / 이용규정, 개인 정보 수집 / 이용 방침 및 개인정보 제 3자 제공을 모두 읽었으며 이 에 동의합니다.</string>
     <string name="personnel_text">인원</string>
     <string name="more_option_text">추가 옵션</string>
+    <string name="search_local_name_text">지역 이름으로 검색</string>
 </resources>

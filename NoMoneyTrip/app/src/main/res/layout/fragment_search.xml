@@ -6,185 +6,199 @@
 
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_title" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/search_local_name_text"
+            android:textColor="@color/colorWhiteBlack3535"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintStart_toEndOf="@id/iv_back"
+            app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_back"
+            app:srcCompat="@drawable/ic_search_black" />
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="1.3dp"
+            android:background="@color/colorViewGrayLineF4F4F4"
+            app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@id/view_top">
 
-
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    app:srcCompat="@drawable/ic_back_title" />
-
-                <EditText
-                    android:id="@+id/et_search"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:hint="지역 이름으로 검색"
-                    android:textColor="@color/colorWhiteBlack3535"
-                    android:textSize="16sp" />
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/button_every_region" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_search"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    app:srcCompat="@drawable/ic_search_black" />
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_so" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_ic" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/button_every_region" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_dj" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_so" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_dg" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_gj" />
 
-                app:srcCompat="@drawable/search_ic" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_ps" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_dj" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_us" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_dg" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_gg" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_gj" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_kw" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_ps" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_cb" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_us" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_cn" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_gg" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_gb" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_kw" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_gn" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_cb" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_jb" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_cn" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/search_jn" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_gb" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_gn" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_jb" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                app:srcCompat="@drawable/search_jn" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="36dp"
-                app:srcCompat="@drawable/search_jj" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </ScrollView>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="36dp"
+                    app:srcCompat="@drawable/search_jj" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
