@@ -44,4 +44,8 @@
     <string name="personnel_text">인원</string>
     <string name="more_option_text">추가 옵션</string>
     <string name="search_local_name_text">지역 이름으로 검색</string>
+    <string name="profile_revise_text">프로필 수정</string>
+    <string name="my_tour_text">내 여행기</string>
+    <string name="save_tour_text">저장한 여행기</string>
+    <string name="lee_thank_letter_text">이장님의 감사편지</string>
 </resources>
