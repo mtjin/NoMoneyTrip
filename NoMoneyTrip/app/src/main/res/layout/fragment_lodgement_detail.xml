@@ -29,9 +29,10 @@
                     android:layout_marginTop="28dp"
                     android:textColor="@color/colorWhiteBlack3535"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="숙소 이름" />
+                    tools:text="상품 이름" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_exit"
@@ -584,11 +585,9 @@
                 <View
                     android:id="@+id/view2"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="28dp"
+                    android:layout_height="8dp"
                     android:layout_marginTop="36dp"
-                    android:layout_marginEnd="28dp"
-                    android:background="@color/colorWhiteGray"
+                    android:background="@color/colorViewGrayLineF4F4F4"
                     app:layout_constraintTop_toBottomOf="@id/iv_every_review" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -624,11 +623,9 @@
                 <View
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="28dp"
+                    android:layout_height="8dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="28dp"
-                    android:background="@color/colorWhiteGray"
+                    android:background="@color/colorViewGrayLineF4F4F4"
                     app:layout_constraintTop_toBottomOf="@id/iv_question" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -664,7 +661,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:elevation="1dp">
 
             <View
                 android:id="@+id/view_bottom"
