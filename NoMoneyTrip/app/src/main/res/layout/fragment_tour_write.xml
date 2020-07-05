@@ -7,102 +7,109 @@
 
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/text1"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="24dp">
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/colorOrangeF79256"
+            android:progressTint="@color/colorOrangeF79256"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="28dp"
-                android:text="@string/write_tour_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="@string/write_text"
+            android:textColor="@color/colorOrangeF79256"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/text1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text1"
+            app:srcCompat="@drawable/button_upload_write" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:text="@string/write_text"
-                android:textColor="@color/colorOrangeF79256"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/text1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text1" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="11dp"
+            android:background="@color/colorWhiteGray"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorWhiteGray"
-                app:layout_constraintTop_toBottomOf="@id/text1" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/view">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_image"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view"
-                app:srcCompat="@drawable/img_product" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text2"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="49dp"
-                android:text="@string/how_tour_question_text"
-                android:textColor="@color/colorWhiteGrayA3A3"
-                android:textSize="14sp"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_image" />
+                android:paddingBottom="24dp">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="80dp"
-                android:text="@string/travel_history_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text2" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/button_add_pic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text2" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_merchandise_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="28dp"
-                android:background="@drawable/bg_gray_border_radius_16dp"
-                android:drawableStart="@drawable/ic_logo_20dp"
-                android:drawablePadding="8dp"
-                android:paddingStart="12dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="8dp"
-                android:textColor="@color/colorOrangeF79256"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text3"
-                tools:text="[충북] 상품제목" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="49dp"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/how_tour_question_text"
+                    android:textColor="@color/colorWhiteGrayA3A3"
+                    android:textSize="14sp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/travel_history_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_image" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_merchandise_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@drawable/bg_gray_no_border_radius_16dp"
+                    android:drawableStart="@drawable/ic_logo_20dp"
+                    android:drawablePadding="8dp"
+                    android:paddingStart="12dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text3"
+                    tools:text="[충북] 상품제목" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
