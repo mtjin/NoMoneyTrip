@@ -7,329 +7,339 @@
 
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="36dp">
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_title" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_reservation_confrim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="28dp"
-                android:text="@string/reservation_confirm_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_reservation_info_text"
+            android:textColor="@color/colorWhiteBlack3535"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+            app:layout_constraintStart_toEndOf="@id/iv_back"
+            app:layout_constraintTop_toTopOf="@id/iv_back" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                app:layout_constraintBottom_toBottomOf="@id/text_reservation_confrim"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text_reservation_confrim"
-                app:srcCompat="@drawable/ic_cancel" />
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorWhiteGrayA3A3"
+            app:layout_constraintTop_toBottomOf="@id/text_title" />
 
-            <View
-                android:id="@+id/view_top"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorWhiteGrayA3A3"
-                app:layout_constraintTop_toBottomOf="@id/text_reservation_confrim" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_lodgment_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_top"
-                tools:text="숙소 이름" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_local_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/colorWhiteGrayA3A3"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name"
-                tools:text="충청남도 청양군" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_top">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_lodgement_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteFAFAFA"
-                android:paddingBottom="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_local_info">
+                android:paddingBottom="36dp">
+
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_date"
+                    android:id="@+id/tv_lodgment_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/lodgment_date_text"
-                    android:textColor="@color/colorOrangeF79256"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_total_people_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="49dp"
-                    android:text="@string/total_people_num_text"
-                    android:textColor="@color/colorOrangeF79256"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
                     android:textColor="@color/colorWhiteBlack3535"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/text_date"
-                    app:layout_constraintTop_toBottomOf="@id/text_date"
-                    tools:text="6.26(금) - 6.27(토)" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_total_people_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:textColor="@color/colorWhiteBlack3535"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/text_total_people_num"
-                    app:layout_constraintTop_toBottomOf="@id/text_total_people_num"
-                    tools:text="2명" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_select_option"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:text="@string/select_option_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cl_lodgement_info" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_option"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="21dp"
-                android:gravity="end"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text_select_option"
-                app:layout_constraintTop_toBottomOf="@id/cl_lodgement_info"
-                tools:text="일손 1시간 추가시 저녁식사 제공" />
-
-            <View
-                android:id="@+id/view_option_below"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_marginTop="36dp"
-                android:background="@color/colorViewGrayLineF4F4F4"
-                app:layout_constraintTop_toBottomOf="@id/tv_option" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_purchase_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/purchase_info_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_option_below" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_total_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="27dp"
-                android:text="@string/total_purchase_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_purchase_info" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_total_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:text="무료 숙박"
-                android:textColor="@color/colorOrangeF79256"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/text_total_price"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text_total_price" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_service_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/total_service_time_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_total_price" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_total_service_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/text_service_time"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text_service_time"
-                tools:text="5시간" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_cancel_available"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteFAFAFA"
-                android:paddingBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@id/text_service_time">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_free_cancel_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/free_cancel_available_time_text"
-                    android:textColor="@color/colorOrangeF79256"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="숙소 이름" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_free_cancel_available_time"
+                    android:id="@+id/tv_local_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/colorOrangeF79256"
+                    android:textColor="@color/colorWhiteGrayA3A3"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@id/text_free_cancel_time"
-                    app:layout_constraintTop_toBottomOf="@id/text_free_cancel_time"
-                    tools:text="2020년 06월 30일 23시 59분까지 무료 취소 가능" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name"
+                    tools:text="충청남도 청양군" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_lodgement_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@color/colorWhiteFAFAFA"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_local_info">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/lodgment_date_text"
+                        android:textColor="@color/colorOrangeF79256"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_total_people_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="49dp"
+                        android:text="@string/total_people_num_text"
+                        android:textColor="@color/colorOrangeF79256"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/colorWhiteBlack3535"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@id/text_date"
+                        app:layout_constraintTop_toBottomOf="@id/text_date"
+                        tools:text="6.26(금) - 6.27(토)" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_total_people_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/colorWhiteBlack3535"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@id/text_total_people_num"
+                        app:layout_constraintTop_toBottomOf="@id/text_total_people_num"
+                        tools:text="2명" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_select_option"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/select_option_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl_lodgement_info" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_option"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
-                    android:text="@string/free_cancel_rule_text"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="21dp"
+                    android:gravity="end"
                     android:textColor="@color/colorWhiteBlack3535"
-                    android:textSize="12sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/text_free_cancel_time"
-                    app:layout_constraintTop_toBottomOf="@id/tv_free_cancel_available_time" />
+                    app:layout_constraintStart_toEndOf="@id/text_select_option"
+                    app:layout_constraintTop_toBottomOf="@id/cl_lodgement_info"
+                    tools:text="일손 1시간 추가시 저녁식사 제공" />
+
+                <View
+                    android:id="@+id/view_option_below"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="36dp"
+                    android:background="@color/colorViewGrayLineF4F4F4"
+                    app:layout_constraintTop_toBottomOf="@id/tv_option" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_purchase_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/purchase_info_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_option_below" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="27dp"
+                    android:text="@string/total_purchase_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_purchase_info" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:text="무료 숙박"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/text_total_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/text_total_price" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_service_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/total_service_time_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_total_price" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_total_service_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/text_service_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/text_service_time"
+                    tools:text="5시간" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_cancel_available"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@color/colorWhiteFAFAFA"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/text_service_time">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_free_cancel_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/free_cancel_available_time_text"
+                        android:textColor="@color/colorOrangeF79256"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_free_cancel_available_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/colorOrangeF79256"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@id/text_free_cancel_time"
+                        app:layout_constraintTop_toBottomOf="@id/text_free_cancel_time"
+                        tools:text="2020년 06월 30일 23시 59분까지 무료 취소 가능" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:text="@string/free_cancel_rule_text"
+                        android:textColor="@color/colorWhiteBlack3535"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/text_free_cancel_time"
+                        app:layout_constraintTop_toBottomOf="@id/tv_free_cancel_available_time" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/view_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="36dp"
+                    android:background="@color/colorViewGrayLineF4F4F4"
+                    app:layout_constraintTop_toBottomOf="@id/cl_cancel_available" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_consent_use"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/consent_use_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_bottom" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_consent_rule"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="27dp"
+                    android:text="@string/consent_rule_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColorLink="@color/colorOrangeF79256"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@id/iv_consent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_consent_use" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_consent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_consent_rule"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_consent_rule"
+                    app:srcCompat="@drawable/ic_check_off" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ib_purchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_consent"
+                    app:srcCompat="@drawable/button_purchase" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/view_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_marginTop="36dp"
-                android:background="@color/colorViewGrayLineF4F4F4"
-                app:layout_constraintTop_toBottomOf="@id/cl_cancel_available" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_consent_use"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/consent_use_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_bottom" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_consent_rule"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="27dp"
-                android:text="@string/consent_rule_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@id/iv_consent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_consent_use" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_consent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="19dp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_consent_rule"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_consent_rule"
-                app:srcCompat="@drawable/ic_check_off" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ib_purchase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_consent"
-                app:srcCompat="@drawable/button_purchase" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
