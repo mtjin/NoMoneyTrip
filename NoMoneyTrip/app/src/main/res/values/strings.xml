@@ -49,4 +49,5 @@
     <string name="save_tour_text">저장한 여행기</string>
     <string name="lee_thank_letter_text">이장님의 감사편지</string>
     <string name="enter_reservation_info_text">예약 정보 입력</string>
+    <string name="my_page_text">마이페이지</string>
 </resources>

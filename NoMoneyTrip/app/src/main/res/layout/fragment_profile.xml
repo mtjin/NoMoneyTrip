@@ -7,175 +7,182 @@
 
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/my_page_text"
+            android:textColor="@color/colorWhiteBlack3535"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_mypage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_mypage"
+            app:srcCompat="@drawable/ic_setting" />
+
+        <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorWhiteGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mypage" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_mypage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="28dp"
-                android:text="마이페이지"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_mypage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_mypage"
-                app:srcCompat="@drawable/ic_setting" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorWhiteGray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_mypage" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_image"
-                android:layout_width="110dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="18dp"
-                android:background="@drawable/shape_radius_8dp"
-                android:scaleType="fitXY"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view"
-                tools:srcCompat="@drawable/img_product" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="23dp"
-                android:fontFamily="@font/goyang_ilsan_regular"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/iv_image"
-                app:layout_constraintTop_toTopOf="@id/iv_image"
-                tools:text="UMINYOUNG" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="@color/colorWhiteGrayA3A3"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@id/tv_id"
-                app:layout_constraintTop_toBottomOf="@id/tv_id"
-                tools:text="dvsvp@kakao.com" />
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_followers"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/bg_orange_border_radius_8dp"
-                android:paddingStart="55dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="55dp"
-                android:paddingBottom="7dp"
-                android:text="@string/profile_revise_text"
-                android:textColor="@color/colorOrangeF79256"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/iv_image"
-                app:layout_constraintStart_toEndOf="@id/iv_image" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_mytour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:drawableBottom="@drawable/ic_select"
-                android:drawablePadding="6dp"
-                android:fontFamily="@font/goyang_ilsan_regular"
-                android:text="@string/my_tour_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@id/iv_image"
-                app:layout_constraintTop_toBottomOf="@id/iv_image" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_saved_tour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:drawablePadding="6dp"
-                android:fontFamily="@font/goyang_ilsan_regular"
-                android:text="@string/save_tour_text"
-                android:textColor="@color/colorWhiteGray"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@id/tv_mytour"
-                app:layout_constraintTop_toTopOf="@id/tv_mytour" />
-
-            <TextView
-                android:id="@+id/text_mytour_line"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:fontFamily="@font/goyang_ilsan_regular"
-                android:text="라인용"
-                android:textSize="18sp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@id/tv_saved_tour"
-                app:layout_constraintTop_toTopOf="@id/tv_saved_tour" />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_tours"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:orientation="horizontal"
-                android:paddingStart="28dp"
-                android:paddingEnd="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_mytour"
-                tools:listitem="@layout/item_mytour" />
+                android:paddingBottom="26dp">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_thanks_letter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="36dp"
-                android:text="@string/lee_thank_letter_text"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_tours" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="36dp"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_thanks_letter"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_thank_letter" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="110dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/shape_radius_8dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/img_product" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="23dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/iv_image"
+                    app:layout_constraintTop_toTopOf="@id/iv_image"
+                    tools:text="UMINYOUNG" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/colorWhiteGrayA3A3"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_id"
+                    app:layout_constraintTop_toBottomOf="@id/tv_id"
+                    tools:text="dvsvp@kakao.com" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/bg_orange_border_radius_8dp"
+                    android:paddingStart="55dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="55dp"
+                    android:paddingBottom="7dp"
+                    android:text="@string/profile_revise_text"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_image"
+                    app:layout_constraintStart_toEndOf="@id/iv_image" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_mytour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:drawableBottom="@drawable/ic_select"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/my_tour_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/iv_image"
+                    app:layout_constraintTop_toBottomOf="@id/iv_image" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_saved_tour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/save_tour_text"
+                    android:textColor="@color/colorWhiteGray"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_mytour"
+                    app:layout_constraintTop_toTopOf="@id/tv_mytour" />
+
+                <TextView
+                    android:id="@+id/text_mytour_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="라인용"
+                    android:textSize="18sp"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@id/tv_saved_tour"
+                    app:layout_constraintTop_toTopOf="@id/tv_saved_tour" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="28dp"
+                    android:paddingEnd="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_mytour"
+                    tools:listitem="@layout/item_mytour" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_thanks_letter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="36dp"
+                    android:text="@string/lee_thank_letter_text"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_tours" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_thanks_letter"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_thank_letter" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
