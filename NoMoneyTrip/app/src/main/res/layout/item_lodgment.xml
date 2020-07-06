@@ -10,6 +10,7 @@
         android:id="@+id/iv_image"
         android:layout_width="88dp"
         android:layout_height="100dp"
+        android:layout_marginStart="28dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
