@@ -36,8 +36,9 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
             android:text="@string/no_text"
             android:textColor="@color/colorWhiteGrayA3A3"
             android:textSize="14sp"
@@ -58,8 +59,9 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
             android:text="@string/yes_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="14sp"
