@@ -55,4 +55,6 @@
     <string name="free_lodgment_text">무전숙박</string>
     <string name="no_free_lodgment_text">유료숙박</string>
     <string name="reservation_completed_text">예약이 \n완료되었습니다.</string>
+    <string name="no_text">아니요</string>
+    <string name="yes_text">네</string>
 </resources>
