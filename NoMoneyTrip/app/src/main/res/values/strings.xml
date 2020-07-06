@@ -54,4 +54,5 @@
     <string name="local_city_name_search_hint">지역, 마을 이름으로 검색</string>
     <string name="free_lodgment_text">무전숙박</string>
     <string name="no_free_lodgment_text">유료숙박</string>
+    <string name="reservation_completed_text">예약이 \n완료되었습니다.</string>
 </resources>
