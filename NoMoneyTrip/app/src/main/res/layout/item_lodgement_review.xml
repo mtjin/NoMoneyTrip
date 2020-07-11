@@ -27,23 +27,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            tools:text="김종훈"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_time"
             app:layout_constraintStart_toEndOf="@id/civ_image"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="김종훈" />
 
         <TextView
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            tools:text="39분 전"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/civ_image"
             app:layout_constraintStart_toEndOf="@id/civ_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="39분 전" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
@@ -75,12 +75,12 @@
             android:layout_marginEnd="41dp"
             android:ellipsize="end"
             android:singleLine="true"
-            tools:text="사용자가 작성한 후기입니다. 사용자가 작성한 후..."
             android:textColor="@color/colorWhiteBlack3535"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rb_rating" />
+            app:layout_constraintTop_toBottomOf="@id/rb_rating"
+            tools:text="사용자가 작성한 후기입니다. 사용자가 작성한 후..." />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/rv_tour_images"
@@ -103,12 +103,12 @@
             android:layout_marginTop="8dp"
             android:drawableStart="@drawable/ic_community_good_off"
             android:gravity="center_vertical"
-            tools:text="8"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_tour_images" />
+            app:layout_constraintTop_toBottomOf="@id/rv_tour_images"
+            tools:text="8" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
