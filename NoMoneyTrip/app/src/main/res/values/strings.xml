@@ -58,4 +58,10 @@
     <string name="no_text">아니요</string>
     <string name="yes_text">네</string>
     <string name="alarm_text">알림</string>
+    <string name="order_by_text">정렬</string>
+    <string name="order_by_recmmend_text">추천순</string>
+    <string name="order_by_review_text">리뷰순</string>
+    <string name="order_by_save_text">저장순</string>
+    <string name="order_by_low_price_text">가격 낮은순</string>
+    <string name="order_by_high_price_text">가격 높은순</string>
 </resources>
