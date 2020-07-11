@@ -64,4 +64,5 @@
     <string name="order_by_save_text">저장순</string>
     <string name="order_by_low_price_text">가격 낮은순</string>
     <string name="order_by_high_price_text">가격 높은순</string>
+    <string name="report_text">신고하기</string>
 </resources>
