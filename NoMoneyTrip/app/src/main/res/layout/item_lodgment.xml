@@ -92,7 +92,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
         android:textColor="@color/colorWhiteBlack3535"
-        android:textEditSuggestionItemLayout="18sp"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tv_date_hour"
