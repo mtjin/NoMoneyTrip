@@ -1,0 +1,7 @@
+package com.mtjin.nomoneytrip.utils
+
+var FCM_KEY: String =
+    "AAAALELZg6I:APA91bGJ2xRqylwmLpnsKGDPhfKh9JRBU5cqTenTlZuCKfphWOjuft10tlouHuSfN4QUJjJ0dyyayVhkOEITr8kGHzN3oAvW5Hipn5UlhcF7GDaUE1XmnL9MKImvbjOtdAvcEiG-UAgy"
+
+const val EXTRA_NOTIFICATION_TITLE = "EXTRA_NOTIFICATION_TITLE"
+const val EXTRA_NOTIFICATION_MESSAGE = "EXTRA_NOTIFICATION_MESSAGE"
