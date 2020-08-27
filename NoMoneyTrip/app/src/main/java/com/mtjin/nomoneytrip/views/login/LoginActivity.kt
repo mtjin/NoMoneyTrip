@@ -92,7 +92,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
         // 로그인에 실패한 상태
         override fun onSessionOpenFailed(exception: KakaoException) {
-            Log.e(LoginActivity.TAG, "onSessionOpenFailed : " + exception.message)
+            Log.e(TAG, "onSessionOpenFailed : " + exception.message)
         }
 
         // 사용자 정보 요청
@@ -100,15 +100,20 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             UserManagement.getInstance()
                 .me(object : MeV2ResponseCallback() {
                     override fun onSessionClosed(errorResult: ErrorResult) {
-                        Log.e(LoginActivity.TAG, "세션이 닫혀 있음: $errorResult")
+                        Log.e(TAG, "세션이 닫혀 있음: $errorResult")
                     }
 
                     override fun onFailure(errorResult: ErrorResult) {
-                        Log.e(LoginActivity.TAG, "사용자 정보 요청 실패: $errorResult")
+                        Log.e(TAG, "사용자 정보 요청 실패: $errorResult")
                     }
 
                     override fun onSuccess(result: MeV2Response) {
-                        Log.i(LoginActivity.TAG, "사용자 아이디: " + result.id)
+                        Log.i(TAG, "사용자 아이디: " + result.id)
+                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.email)
+                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.profile)
+                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.gender)
+                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.birthday)
+
                         val email: String = "" + result.id + "@mujeon.com"
                         val password: String = "111111"
                         //구글이메일 로그인
