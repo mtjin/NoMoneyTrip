@@ -3,6 +3,7 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="tmap_key">l7xxb33343042e394ae68af011ca74411a30</string>
     <string name="kakao_app_key">541c8caff279c6e6019cd20dde7951d5</string>
+    <string name="tour_api_key">GU7pI9Qe5kD1WOmPjAuxSGYzbLGkUJXMnQmy8EyV18c%2FdMkdvBBO1gpgrNoX30AOF%2FyKVxQkdZ45c7hMLOBfzQ%3D%3D</string>
 
     <string name="bottom_navi_test1">홈</string>
     <string name="bottom_navi_text2">여행기</string>
