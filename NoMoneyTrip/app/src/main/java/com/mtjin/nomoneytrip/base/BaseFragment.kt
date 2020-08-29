@@ -1,5 +1,6 @@
 package com.mtjin.nomoneytrip.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ abstract class BaseFragment<B : ViewDataBinding>(
     @LayoutRes val layoutId: Int
 ) : Fragment() {
     lateinit var binding: B
+    protected lateinit var thisContext: Context
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +23,7 @@ abstract class BaseFragment<B : ViewDataBinding>(
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        thisContext = inflater.context
         return binding.root
     }
 
