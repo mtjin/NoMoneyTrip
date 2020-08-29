@@ -7,184 +7,216 @@
 
     </data>
 
-    <ScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="36dp">
+            android:fitsSystemWindows="true"
+            android:theme="@style/toolbarTheme">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_top"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent">
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleTextAppearance="@android:color/transparent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_local"
                     android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_200dp"
                     android:scaleType="fitXY"
-                    android:layout_height="200dp"
-                    android:background="@drawable/img_product"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/img_product" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_local_title"
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_local_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_28dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_20sp"
+                        android:textStyle="bold"
+                        tools:text="지역 제목" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        app:srcCompat="@drawable/ic_search_black" />
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/padding_36dp">
+
+                <TextView
+                    android:id="@+id/tv_lodgment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginBottom="16dp"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/margin_28dp"
+                    android:layout_marginTop="@dimen/margin_30dp"
+                    android:drawableBottom="@drawable/ic_select"
+                    android:drawablePadding="@dimen/padding_6dp"
+                    android:text="숙박"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="@dimen/text_size_18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="지역 제목" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_22dp"
+                    android:text="투어·티켓"
+                    android:textColor="@color/colorWhiteGray"
+                    android:textSize="@dimen/text_size_18sp"
+                    app:layout_constraintStart_toEndOf="@id/tv_lodgment"
+                    app:layout_constraintTop_toTopOf="@id/tv_lodgment" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_25dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/button_every_view" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_lodgments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/margin_28dp"
+                    android:paddingEnd="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lodgment"
+                    tools:listitem="@layout/item_guide_tour" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="@dimen/margin_28dp"
+                    android:layout_marginTop="@dimen/margin_36dp"
+                    android:layout_marginEnd="@dimen/margin_28dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_lodgments"
+                    tools:src="@drawable/img_product" />
+
+                <TextView
+                    android:id="@+id/tv_tour_introduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_36dp"
+                    android:text="관광지 소개"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="@dimen/text_size_18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/iv_tip"
+                    app:layout_constraintTop_toBottomOf="@id/iv_tip" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_18dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/padding_28dp"
+                    android:paddingEnd="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_tour_introduce"
+                    tools:listitem="@layout/item_normal_tour" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_introduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:text="맛집 소개"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/iv_tip"
+                    app:layout_constraintTop_toBottomOf="@id/rv_tours" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_restaurants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/margin_28dp"
+                    android:paddingEnd="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_introduce"
+                    tools:listitem="@layout/item_normal_tour" />
+
+                <TextView
+                    android:id="@+id/tv_local_popular_tour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_36dp"
+                    android:text="이 지역 인기 여행지"
+                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textSize="@dimen/text_size_18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/iv_tip"
+                    app:layout_constraintTop_toBottomOf="@id/rv_restaurants" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_local_popular_tours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_22dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_user_review" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_36dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_local_popular_tours"
+                    app:srcCompat="@drawable/every_view" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/tv_lodgment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="30dp"
-                android:drawableBottom="@drawable/ic_select"
-                android:drawablePadding="6dp"
-                android:text="숙박"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cl_top" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
-                android:text="투어·티켓"
-                android:textColor="@color/colorWhiteGray"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@id/tv_lodgment"
-                app:layout_constraintTop_toBottomOf="@id/cl_top"
-                app:layout_constraintTop_toTopOf="@id/tv_lodgment" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cl_top"
-                app:srcCompat="@drawable/button_every_view" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_lodgments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:paddingStart="28dp"
-                android:paddingEnd="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_lodgment"
-                tools:listitem="@layout/item_guide_tour" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_tip"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="28dp"
-                android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_lodgments"
-                tools:src="@drawable/img_product" />
-
-            <TextView
-                android:id="@+id/tv_tour_introduce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:text="관광지 소개"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/iv_tip"
-                app:layout_constraintTop_toBottomOf="@id/iv_tip" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_tours"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal"
-                android:paddingStart="28dp"
-                android:paddingEnd="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_tour_introduce"
-                tools:listitem="@layout/item_normal_tour" />
-
-            <TextView
-                android:id="@+id/tv_restaurant_introduce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="맛집 소개"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/iv_tip"
-                app:layout_constraintTop_toBottomOf="@id/rv_tours" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_restaurants"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:paddingStart="28dp"
-                android:paddingEnd="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_restaurant_introduce"
-                tools:listitem="@layout/item_normal_tour" />
-
-            <TextView
-                android:id="@+id/tv_local_popular_tour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:text="이 지역 인기 여행지"
-                android:textColor="@color/colorWhiteBlack3535"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/iv_tip"
-                app:layout_constraintTop_toBottomOf="@id/rv_restaurants" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_local_popular_tours"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_user_review" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="36dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_local_popular_tours"
-                app:srcCompat="@drawable/every_view" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
