@@ -69,4 +69,22 @@
     <string name="report_text">신고하기</string>
     <string name="sign_up_then_start_text">회원가입하고 시작</string>
     <string name="login_text">로그인</string>
+    <string name="seoul_text">서울</string>
+    <string name="local_tour_lodge_text">국내 여행지</string>
+    <string name="incheon_text">인천</string>
+    <string name="daejeon_text">대전</string>
+    <string name="daegu_text">대구</string>
+    <string name="gwangju_text">광주</string>
+    <string name="busan_text">부산</string>
+    <string name="ulsan_text">울산</string>
+    <string name="sejong_text">세종</string>
+    <string name="gyeungi_text">경기</string>
+    <string name="kangwon_text">강원</string>
+    <string name="choongbuk_text">충북</string>
+    <string name="choongnam_text">충남</string>
+    <string name="gyungbuk_text">경북</string>
+    <string name="gyungnam_text">경남</string>
+    <string name="jeonbuk_text">전북</string>
+    <string name="jeonnam_text">전남</string>
+    <string name="jeju_text">제주</string>
 </resources>

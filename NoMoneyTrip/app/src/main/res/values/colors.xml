@@ -14,6 +14,8 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhiteGrayA3A3">#a3a3a3</color>
     <color name="colorWhiteGrayEAEA">#eaeaea</color>
+    <color name="colorWhiteGray2D2D">#2d2d2d</color>
+    <color name="colorWhiteGrayFDFD">#fdfdfd</color>
     <color name="colorWhiteBlack3535">#353535</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorViewGrayLineF4F4F4">#f4f4f4</color>

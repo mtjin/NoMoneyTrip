@@ -1,204 +1,817 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back_title" />
-
-        <EditText
-            android:id="@+id/et_search"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:hint="@string/search_local_name_text"
-            android:textColor="@color/colorWhiteBlack3535"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_back"
-            app:layout_constraintStart_toEndOf="@id/iv_back"
-            app:layout_constraintTop_toTopOf="@id/iv_back" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_back"
-            app:srcCompat="@drawable/ic_search_black" />
-
-        <View
-            android:id="@+id/view_top"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="1.3dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
-            app:layout_constraintTop_toBottomOf="@id/iv_back" />
-
-        <ScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/view_top">
+            android:paddingBottom="40dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_top_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="47dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/local_tour_lodge_text"
+                android:textColor="@color/colorWhiteGray2D2D"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/text_top_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_top_title"
+                app:srcCompat="@drawable/ic_cancel" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_seoul"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="23dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/text_top_title">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="28dp"
+                    android:src="@drawable/seoul" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/seoul_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_seoul"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="28dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_seoul" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_incheon"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_seoul">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/button_every_region" />
+                    android:src="@drawable/incheon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/incheon_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_incheon"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_incheon" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_daejeon"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_incheon">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_so" />
+                    android:src="@drawable/daejeon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/daejeon_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_daejeon"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_daejeon" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_daegu"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_daejeon">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_ic" />
+                    android:src="@drawable/daegu" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/daegu_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_daegu"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_daegu" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_gwangju"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_daegu">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_dj" />
+                    android:src="@drawable/gwangju" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/gwangju_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_gwangju"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_gwangju" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_busan"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_gwangju">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_dg" />
+                    android:src="@drawable/busan" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/busan_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_busan"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_busan" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_ulsan"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_busan">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_gj" />
+                    android:src="@drawable/ulsan" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/ulsan_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_ulsan"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_ulsan" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_sejong"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_ulsan">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_ps" />
+                    android:src="@drawable/sejong" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/sejong_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_sejong"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_sejong" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_gyeungi"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_sejong">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_us" />
+                    android:src="@drawable/gyeungi" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/gyeungi_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_gyeungi"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_gyeungi" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_kangwon"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_gyeungi">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_gg" />
+                    android:src="@drawable/kangwon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/kangwon_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_kangwon"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_kangwon" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_choongbuk"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_kangwon">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_kw" />
+                    android:src="@drawable/choongbuk" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/choongbuk_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_choongbuk"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_choongbuk" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_choongnam"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_choongbuk">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_cb" />
+                    android:src="@drawable/choongnam" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/choongnam_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_choongnam"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_choongnam" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_gyungbuk"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_choongnam">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_cn" />
+                    android:src="@drawable/gyungbuk" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/gyungbuk_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_gyungbuk"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_gyungbuk" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_gyungnam"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_gyungbuk">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_gb" />
+                    android:src="@drawable/gyungnam" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/gyungnam_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_gyungnam"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_gyungnam" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_jeonbuk"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_gyungnam">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_gn" />
+                    android:src="@drawable/jeonbuk" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/jeonbuk_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next"
+                    tools:ignore="TooManyViews" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_jeonnbuk"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_jeonbuk" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_jeonnam"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_jeonnbuk">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_jb" />
+                    android:src="@drawable/jeonnam" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/jeonnam_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/view_jeonnam"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                app:layout_constraintEnd_toEndOf="@id/view_seoul"
+                app:layout_constraintStart_toStartOf="@id/view_seoul"
+                app:layout_constraintTop_toBottomOf="@id/ll_jeonnam" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_jeju"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorWhiteGrayFDFD"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/view_jeonnam">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    app:srcCompat="@drawable/search_jn" />
+                    android:src="@drawable/jeju" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@string/jeju_text"
+                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="36dp"
-                    app:srcCompat="@drawable/search_jj" />
-            </LinearLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/ic_next" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
