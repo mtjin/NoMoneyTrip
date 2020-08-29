@@ -67,4 +67,6 @@
     <string name="order_by_low_price_text">가격 낮은순</string>
     <string name="order_by_high_price_text">가격 높은순</string>
     <string name="report_text">신고하기</string>
+    <string name="sign_up_then_start_text">회원가입하고 시작</string>
+    <string name="login_text">로그인</string>
 </resources>

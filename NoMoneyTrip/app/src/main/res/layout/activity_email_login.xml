@@ -22,16 +22,16 @@
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back" />
+            app:srcCompat="@drawable/ic_back_title" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="29dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="12dp"
             android:text="@string/email_login_text"
             android:textColor="@color/colorBlack"
@@ -43,9 +43,9 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="80dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="28dp"
             android:hint="@string/email_input_hint"
             android:inputType="textEmailAddress"
             android:paddingBottom="20dp"
@@ -58,35 +58,32 @@
             android:id="@+id/et_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="28dp"
             android:hint="@string/pw_input_hint"
-            android:singleLine="true"
             android:paddingBottom="20dp"
+            android:singleLine="true"
             android:text="@={vm.pw}"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/et_email" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/iv_login"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/bg_btn_normal_orange_radius_8dp"
+            android:gravity="center"
             android:onClick="@{()->vm.onEmailLoginClick()}"
+            android:text="@string/login_text"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_pw"
-            app:srcCompat="@drawable/button_orange_login" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_login"
-            app:srcCompat="@drawable/button_forgot_password" />
+            app:layout_constraintTop_toBottomOf="@id/et_pw" />
 
         <ProgressBar
             android:id="@+id/pb_loading"
