@@ -32,5 +32,20 @@
         android:id="@+id/search_fragment"
         android:name="com.mtjin.nomoneytrip.views.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_fragment_to_localpage_fragment"
+            app:destination="@id/localpage_fragment"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/localpage_fragment"
+        android:name="com.mtjin.nomoneytrip.views.localpage.LocalPageFragment"
+        android:label="LocalPageFragment"
+        tools:layout="@layout/fragment_local_page" >
+        <argument
+            android:name="local"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.utils
 
+const val TAG = "LOG_TAG"
+
 var FCM_KEY: String =
     "AAAALELZg6I:APA91bGJ2xRqylwmLpnsKGDPhfKh9JRBU5cqTenTlZuCKfphWOjuft10tlouHuSfN4QUJjJ0dyyayVhkOEITr8kGHzN3oAvW5Hipn5UlhcF7GDaUE1XmnL9MKImvbjOtdAvcEiG-UAgy"
 
