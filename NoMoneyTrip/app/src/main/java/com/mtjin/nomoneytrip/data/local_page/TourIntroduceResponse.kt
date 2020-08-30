@@ -3,9 +3,9 @@ package com.mtjin.nomoneytrip.data.local_page
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class TourIntroduceResponse(
     @SerializedName("body")
-    val body: Body,
+    val tourIntroduceBody: TourIntroduceBody,
     @SerializedName("header")
-    val header: Header
+    val tourIntroduceHeader: TourIntroduceHeader
 )

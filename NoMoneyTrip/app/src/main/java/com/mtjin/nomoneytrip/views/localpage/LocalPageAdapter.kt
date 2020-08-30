@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
+import com.mtjin.nomoneytrip.data.local_page.TourIntroduceResponseBody
 import com.mtjin.nomoneytrip.databinding.ItemTourIntroduceBinding
 
 class LocalPageAdapter :

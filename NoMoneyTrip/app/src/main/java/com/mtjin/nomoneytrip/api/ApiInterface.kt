@@ -1,6 +1,6 @@
 package com.mtjin.nomoneytrip.api
 
-import com.kakao.network.response.ResponseBody
+import com.mtjin.nomoneytrip.data.local_page.TourIntroduceResponseBody
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -21,5 +21,5 @@ interface ApiInterface {
         @Query("numOfRows") numOfRows: Int = 12,
         @Query("pageNo") pageNo: Int = 1,
         @Query("_type") _type: String = "json"
-    ): Single<ResponseBody>
+    ): Single<TourIntroduceResponseBody>
 }
