@@ -10,13 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp">
+        android:layout_marginTop="@dimen/margin_14dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@id/civ_image"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="28dp"
+            android:layout_width="@dimen/width_44dp"
+            android:layout_height="@dimen/width_44dp"
+            android:layout_marginStart="@dimen/margin_28dp"
             android:src="@drawable/img_product"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,10 +26,10 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="@dimen/margin_12dp"
             android:text="김종훈"
             android:textColor="@color/colorBlack2D2D"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_time"
             app:layout_constraintStart_toEndOf="@id/civ_image"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,9 +38,9 @@
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="@dimen/margin_12dp"
             android:text="39분 전"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_12sp"
             app:layout_constraintBottom_toBottomOf="@id/civ_image"
             app:layout_constraintStart_toEndOf="@id/civ_image"
             app:layout_constraintTop_toBottomOf="@id/tv_name" />
@@ -48,7 +48,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             app:layout_constraintBottom_toBottomOf="@id/civ_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/civ_image"
@@ -57,39 +57,40 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_cardview"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="28dp"
-            app:cardCornerRadius="16dp"
+            android:layout_height="@dimen/height_240do"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_14dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            app:cardCornerRadius="@dimen/radius_16dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/civ_image">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_image"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_product" />
+                android:scaleType="fitXY"
+                tools:src="@drawable/img_product" />
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_merchandise_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
             android:background="@drawable/bg_gray_border_radius_16dp"
-            android:drawableStart="@drawable/ic_logo_20dp"
-            android:drawablePadding="8dp"
-            android:paddingStart="12dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="12dp"
-            android:paddingBottom="8dp"
+            android:drawableStart="@drawable/logo_20dp"
+            android:drawablePadding="@dimen/padding_8dp"
+            android:paddingStart="@dimen/padding_12dp"
+            android:paddingTop="@dimen/padding_8dp"
+            android:paddingEnd="@dimen/padding_12dp"
+            android:paddingBottom="@dimen/padding_8dp"
             android:textColor="@color/colorOrangeF79256"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_cardview"
             tools:text="[충북] 상품제목" />
@@ -98,13 +99,13 @@
             android:id="@+id/tv_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_14dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="사용자가 작성한 후기입니다. 사용자가 작성한 후..."
             android:textColor="@color/colorBlack2D2D"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="@id/cv_cardview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_merchandise_title" />
@@ -113,33 +114,24 @@
             android:id="@+id/tv_heart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:layout_marginEnd="@dimen/margin_36dp"
             android:drawableStart="@drawable/ic_community_good_off"
             android:gravity="center_vertical"
             android:text="8"
             android:textColor="@color/colorBlack2D2D"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_content" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="18dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_content"
-            app:srcCompat="@drawable/ic_save_black_off" />
+            app:layout_constraintTop_toBottomOf="@id/tv_content" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="20dp"
+            android:layout_height="@dimen/height_1dp"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_59dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
             android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintEnd_toEndOf="@id/tv_merchandise_title"
             app:layout_constraintStart_toStartOf="@id/tv_merchandise_title"

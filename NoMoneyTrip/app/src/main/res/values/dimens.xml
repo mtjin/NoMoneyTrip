@@ -33,4 +33,12 @@
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_3dp">3dp</dimen>
+    <dimen name="height_224dp">224dp</dimen>
+    <dimen name="width_260dp">260dp</dimen>
+    <dimen name="height_290dp">290dp</dimen>
+    <dimen name="height_240do">240dp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="width_44dp">44dp</dimen>
+    <dimen name="height_1dp">1dp</dimen>
+    <dimen name="margin_59dp">59dp</dimen>
 </resources>

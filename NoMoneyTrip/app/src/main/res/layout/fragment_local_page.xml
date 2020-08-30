@@ -33,7 +33,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_local"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_200dp"
+                    android:layout_height="@dimen/height_224dp"
                     android:scaleType="fitXY"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@drawable/img_product" />
@@ -73,48 +73,27 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:fillViewport="true"
+            android:paddingBottom="@dimen/padding_36dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/padding_36dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/tv_lodgment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_28dp"
-                    android:layout_marginTop="@dimen/margin_30dp"
-                    android:drawableBottom="@drawable/ic_select"
-                    android:drawablePadding="@dimen/padding_6dp"
-                    android:text="숙박"
+                    android:layout_marginTop="@dimen/margin_28dp"
+                    android:text="무전여행지"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_22dp"
-                    android:text="투어·티켓"
-                    android:textColor="@color/colorWhiteGrayF4F4"
-                    android:textSize="@dimen/text_size_18sp"
-                    app:layout_constraintStart_toEndOf="@id/tv_lodgment"
-                    app:layout_constraintTop_toTopOf="@id/tv_lodgment" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_25dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/button_every_view" />
-
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_lodgments"
+                    android:id="@+id/rv_products"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16dp"
@@ -123,32 +102,19 @@
                     android:paddingEnd="0dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tv_lodgment"
-                    tools:listitem="@layout/item_guide_tour" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_tip"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="@dimen/margin_28dp"
-                    android:layout_marginTop="@dimen/margin_36dp"
-                    android:layout_marginEnd="@dimen/margin_28dp"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rv_lodgments"
-                    tools:src="@drawable/img_product" />
+                    tools:listitem="@layout/item_local_product" />
 
                 <TextView
                     android:id="@+id/tv_tour_introduce"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_36dp"
-                    android:text="관광지 소개"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:text="힐링 관광지"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/iv_tip"
-                    app:layout_constraintTop_toBottomOf="@id/iv_tip" />
+                    app:layout_constraintStart_toStartOf="@id/tv_lodgment"
+                    app:layout_constraintTop_toBottomOf="@id/rv_products" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_tours"
@@ -170,11 +136,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_32dp"
-                    android:text="맛집 소개"
+                    android:text="본토 음식점"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_16sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/iv_tip"
+                    app:layout_constraintStart_toStartOf="@id/tv_lodgment"
                     app:layout_constraintTop_toBottomOf="@id/rv_tours" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -195,11 +161,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_36dp"
-                    android:text="이 지역 인기 여행지"
+                    android:text="이 지역 인기 여행기"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/iv_tip"
+                    app:layout_constraintStart_toStartOf="@id/tv_lodgment"
                     app:layout_constraintTop_toBottomOf="@id/rv_restaurants" />
 
                 <androidx.recyclerview.widget.RecyclerView

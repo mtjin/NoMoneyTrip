@@ -91,7 +91,7 @@
             app:srcCompat="@drawable/button_order_by_recommend" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_lodgments"
+            android:id="@+id/rv_products"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="28dp"
