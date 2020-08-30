@@ -4,6 +4,7 @@ import com.mtjin.nomoneytrip.views.alarm.AlarmViewModel
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginViewModel
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpViewModel
 import com.mtjin.nomoneytrip.views.home.HomeViewModel
+import com.mtjin.nomoneytrip.views.localpage.LocalPageViewModel
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
 import com.mtjin.nomoneytrip.views.search.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -17,4 +18,5 @@ val viewModelModule: Module = module {
     viewModel { HomeViewModel() }
     viewModel { AlarmViewModel() }
     viewModel { SearchViewModel() }
+    viewModel { LocalPageViewModel(get()) }
 }
