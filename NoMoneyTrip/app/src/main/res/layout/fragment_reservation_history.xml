@@ -18,7 +18,7 @@
             android:layout_marginTop="28dp"
             android:fontFamily="@font/goyang_ilsan_regular"
             android:text="예약 내역"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="8dp"
             android:layout_marginTop="18dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
+            android:background="@color/colorWhiteFDFD"
             app:layout_constraintTop_toBottomOf="@id/text_reservation_history" />
 
         <androidx.recyclerview.widget.RecyclerView

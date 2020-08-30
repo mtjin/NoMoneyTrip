@@ -2,6 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingDefaultResource">
-    <solid android:color="@color/colorWhiteBlack3535" />
+    <solid android:color="@color/colorBlack2D2D" />
     <corners android:radius="12dp" />
 </shape>

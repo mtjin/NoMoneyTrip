@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="1.3dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
+            android:background="@color/colorWhiteFDFD"
             app:layout_constraintTop_toBottomOf="@id/iv_back" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -62,7 +62,7 @@
             android:drawablePadding="8dp"
             android:fontFamily="@font/goyang_ilsan_regular"
             android:text="@string/free_lodgment_text"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_top" />
@@ -75,7 +75,7 @@
             android:drawablePadding="8dp"
             android:fontFamily="@font/goyang_ilsan_regular"
             android:text="@string/no_free_lodgment_text"
-            android:textColor="@color/colorWhiteGrayA3A3"
+            android:textColor="@color/colorGray8C8C"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/tv_free_lodgment"
             app:layout_constraintTop_toTopOf="@id/tv_free_lodgment" />

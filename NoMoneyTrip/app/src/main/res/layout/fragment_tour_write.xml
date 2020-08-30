@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="11dp"
-            android:background="@color/colorWhiteGray"
+            android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintTop_toBottomOf="@id/text1" />
 
         <ScrollView
@@ -72,7 +72,7 @@
                     android:layout_marginEnd="49dp"
                     android:background="@android:color/transparent"
                     android:hint="@string/how_tour_question_text"
-                    android:textColor="@color/colorWhiteGrayA3A3"
+                    android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:text="@string/travel_history_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_image" />

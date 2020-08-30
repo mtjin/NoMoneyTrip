@@ -34,7 +34,7 @@
             android:ellipsize="middle"
             android:maxLines="2"
             android:text="@{item.content}"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/civ_image"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="@color/colorWhiteGrayA3A3"
+            android:textColor="@color/colorGray8C8C"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/tv_content"
             app:layout_constraintTop_toBottomOf="@id/tv_content"
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="18dp"
-            android:background="@color/colorWhiteGray"
+            android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

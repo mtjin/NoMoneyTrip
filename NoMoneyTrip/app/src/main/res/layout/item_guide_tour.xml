@@ -35,7 +35,7 @@
                 android:layout_marginTop="8dp"
                 android:drawableStart="@drawable/ic_location"
                 android:text="지역"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorWhiteFDFD"
                 android:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -52,7 +52,7 @@
             android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_cardview"
@@ -64,7 +64,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
-            android:background="@color/colorWhiteGray"
+            android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
@@ -72,7 +72,7 @@
             android:id="@+id/tv_sub_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_line"
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:textColor="@color/colorOrange"
+            android:textColor="@color/colorOrangeF79256"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_line"

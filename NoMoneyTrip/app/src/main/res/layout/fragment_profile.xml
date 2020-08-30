@@ -18,7 +18,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
             android:text="@string/my_page_text"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:background="@color/colorWhiteGray"
+            android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_mypage" />
@@ -73,7 +73,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="23dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@id/iv_image"
                     app:layout_constraintTop_toTopOf="@id/iv_image"
@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/colorWhiteGrayA3A3"
+                    android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@id/tv_id"
                     app:layout_constraintTop_toBottomOf="@id/tv_id"
@@ -117,7 +117,7 @@
                     android:drawablePadding="6dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/my_tour_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@id/iv_image"
                     app:layout_constraintTop_toBottomOf="@id/iv_image" />
@@ -130,7 +130,7 @@
                     android:drawablePadding="6dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/save_tour_text"
-                    android:textColor="@color/colorWhiteGray"
+                    android:textColor="@color/colorWhiteGrayF4F4"
                     android:textSize="18sp"
                     app:layout_constraintStart_toEndOf="@id/tv_mytour"
                     app:layout_constraintTop_toTopOf="@id/tv_mytour" />
@@ -167,7 +167,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="36dp"
                     android:text="@string/lee_thank_letter_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rv_tours" />

@@ -24,7 +24,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_back"
             app:layout_constraintStart_toEndOf="@id/iv_back"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="1dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
+            android:background="@color/colorWhiteFDFD"
             app:layout_constraintTop_toBottomOf="@id/iv_back" />
 
         <ScrollView
@@ -55,7 +55,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="23dp"
-                    android:background="@color/colorViewGrayLineF4F4F4"
+                    android:background="@color/colorWhiteFDFD"
                     app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
                 <com.applikeysolutions.cosmocalendar.view.CalendarView
@@ -105,7 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/colorViewGrayLineF4F4F4"
+                    android:background="@color/colorWhiteFDFD"
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/cv_calendar" />
 
@@ -117,7 +117,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/personnel_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view_calendar" />
@@ -139,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/text_personnel"
                     app:layout_constraintEnd_toStartOf="@id/iv_up"
@@ -163,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="23dp"
-                    android:background="@color/colorViewGrayLineF4F4F4"
+                    android:background="@color/colorWhiteFDFD"
                     app:layout_constraintTop_toBottomOf="@id/text_personnel" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -174,7 +174,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/more_option_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view_more_option" />
@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="25dp"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_more_option"
                     tools:text="첫번째 옵션입니다. 첫번째 옵션" />
@@ -205,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="25dp"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_option_1"
                     tools:text="두번째 옵션입니다. 두번째 옵션" />

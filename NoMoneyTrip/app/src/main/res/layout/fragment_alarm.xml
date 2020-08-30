@@ -21,7 +21,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
             android:text="@string/alarm_text"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:background="@color/colorWhiteGray"
+            android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <androidx.recyclerview.widget.RecyclerView

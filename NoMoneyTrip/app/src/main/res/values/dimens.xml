@@ -15,4 +15,12 @@
     <dimen name="text_size_16sp">16sp</dimen>
     <dimen name="height_200dp">200dp</dimen>
     <dimen name="padding_36dp">36dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="line_spacing_extra_size_10sp">10sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="margin_26dp">26dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
 </resources>

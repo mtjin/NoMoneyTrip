@@ -15,7 +15,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
         android:text="@string/order_by_text"
-        android:textColor="@color/colorWhiteGrayA3A3"
+        android:textColor="@color/colorGray8C8C"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="@string/order_by_recmmend_text"
-        android:textColor="@color/colorWhiteBlack3535"
+        android:textColor="@color/colorBlack2D2D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_order" />
@@ -39,7 +39,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="@string/order_by_review_text"
-        android:textColor="@color/colorWhiteBlack3535"
+        android:textColor="@color/colorBlack2D2D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_recommend_order"
@@ -52,7 +52,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="@string/order_by_save_text"
-        android:textColor="@color/colorWhiteBlack3535"
+        android:textColor="@color/colorBlack2D2D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_review_order" />
@@ -64,7 +64,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="@string/order_by_low_price_text"
-        android:textColor="@color/colorWhiteBlack3535"
+        android:textColor="@color/colorBlack2D2D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_save_order" />
@@ -76,7 +76,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="@string/order_by_high_price_text"
-        android:textColor="@color/colorWhiteBlack3535"
+        android:textColor="@color/colorBlack2D2D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_price_low_order"

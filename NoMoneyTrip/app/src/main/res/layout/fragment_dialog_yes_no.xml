@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:text="예약을 취소하시겠습니까?"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="35.3dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
+            android:background="@color/colorWhiteFDFD"
             app:layout_constraintTop_toBottomOf="@id/tv_question" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -40,7 +40,7 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:text="@string/no_text"
-            android:textColor="@color/colorWhiteGrayA3A3"
+            android:textColor="@color/colorGray8C8C"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/view_yes_no"
@@ -51,7 +51,7 @@
             android:id="@+id/view_yes_no"
             android:layout_width="1dp"
             android:layout_height="0dp"
-            android:background="@color/colorViewGrayLineF4F4F4"
+            android:background="@color/colorWhiteFDFD"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_yes"
             app:layout_constraintStart_toEndOf="@id/tv_no"

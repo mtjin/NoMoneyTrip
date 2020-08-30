@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/enter_reservation_info_text"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_back"
             app:layout_constraintStart_toEndOf="@id/iv_back"
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:background="@color/colorWhiteGrayA3A3"
+            android:background="@color/colorGray8C8C"
             app:layout_constraintTop_toBottomOf="@id/text_title" />
 
         <ScrollView
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/colorWhiteGrayA3A3"
+                    android:textColor="@color/colorGray8C8C"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name"
@@ -83,7 +83,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="28dp"
-                    android:background="@color/colorWhiteFAFAFA"
+                    android:background="@color/colorWhiteFDFD"
                     android:paddingBottom="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:textColor="@color/colorWhiteBlack3535"
+                        android:textColor="@color/colorBlack2D2D"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="@id/text_date"
                         app:layout_constraintTop_toBottomOf="@id/text_date"
@@ -129,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:textColor="@color/colorWhiteBlack3535"
+                        android:textColor="@color/colorBlack2D2D"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="@id/text_total_people_num"
                         app:layout_constraintTop_toBottomOf="@id/text_total_people_num"
@@ -144,7 +144,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
                     android:text="@string/select_option_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cl_lodgement_info" />
@@ -157,7 +157,7 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="21dp"
                     android:gravity="end"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/text_select_option"
@@ -169,7 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="8dp"
                     android:layout_marginTop="36dp"
-                    android:background="@color/colorViewGrayLineF4F4F4"
+                    android:background="@color/colorWhiteFDFD"
                     app:layout_constraintTop_toBottomOf="@id/tv_option" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -180,7 +180,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/purchase_info_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view_option_below" />
@@ -192,7 +192,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="27dp"
                     android:text="@string/total_purchase_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_purchase_info" />
@@ -217,7 +217,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="8dp"
                     android:text="@string/total_service_time_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_total_price" />
@@ -227,7 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="28dp"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/text_service_time"
@@ -242,7 +242,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="28dp"
-                    android:background="@color/colorWhiteFAFAFA"
+                    android:background="@color/colorWhiteFDFD"
                     android:paddingBottom="16dp"
                     app:layout_constraintTop_toBottomOf="@id/text_service_time">
 
@@ -276,7 +276,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="32dp"
                         android:text="@string/free_cancel_rule_text"
-                        android:textColor="@color/colorWhiteBlack3535"
+                        android:textColor="@color/colorBlack2D2D"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@id/text_free_cancel_time"
@@ -288,7 +288,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="8dp"
                     android:layout_marginTop="36dp"
-                    android:background="@color/colorViewGrayLineF4F4F4"
+                    android:background="@color/colorWhiteFDFD"
                     app:layout_constraintTop_toBottomOf="@id/cl_cancel_available" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -299,7 +299,7 @@
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/consent_use_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view_bottom" />
@@ -312,7 +312,7 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="27dp"
                     android:text="@string/consent_rule_text"
-                    android:textColor="@color/colorWhiteBlack3535"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textColorLink="@color/colorOrangeF79256"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toStartOf="@id/iv_consent"

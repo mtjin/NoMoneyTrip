@@ -27,7 +27,7 @@
                 android:layout_marginTop="47dp"
                 android:fontFamily="@font/goyang_ilsan_regular"
                 android:text="@string/local_tour_lodge_text"
-                android:textColor="@color/colorWhiteGray2D2D"
+                android:textColor="@color/colorBlack2D2D"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="23dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:onClick="@{()->vm.goLocation(`seoul`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/text_top_title">
@@ -66,7 +66,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/seoul_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -84,7 +84,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="28dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_seoul" />
@@ -96,7 +96,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:onClick="@{()->vm.goLocation(`incheon`)}"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_seoul">
 
@@ -115,7 +115,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/incheon_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -131,7 +131,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_incheon" />
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`daejeon`)}"
                 app:layout_constraintTop_toBottomOf="@id/view_incheon">
@@ -162,7 +162,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/daejeon_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -178,7 +178,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_daejeon" />
@@ -189,7 +189,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`daegu`)}"
                 app:layout_constraintTop_toBottomOf="@id/view_daejeon">
@@ -209,7 +209,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/daegu_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -225,7 +225,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_daegu" />
@@ -236,7 +236,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`gwangju`)}"
                 app:layout_constraintTop_toBottomOf="@id/view_daegu">
@@ -256,7 +256,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/gwangju_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -272,7 +272,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_gwangju" />
@@ -283,7 +283,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`busan`)}"
                 app:layout_constraintTop_toBottomOf="@id/view_gwangju">
@@ -303,7 +303,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/busan_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -319,7 +319,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_busan" />
@@ -330,7 +330,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`ulsan`)}"
                 app:layout_constraintTop_toBottomOf="@id/view_busan">
@@ -350,7 +350,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/ulsan_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -366,7 +366,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_ulsan" />
@@ -378,7 +378,7 @@
                 android:layout_height="60dp"
                 android:onClick="@{()->vm.goLocation(`sejong`)}"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_ulsan">
 
@@ -397,7 +397,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/sejong_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -413,7 +413,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_sejong" />
@@ -425,7 +425,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_sejong">
 
@@ -444,7 +444,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/gyeungi_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -460,7 +460,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_gyeungi" />
@@ -472,7 +472,7 @@
                 android:layout_height="60dp"
                 android:onClick="@{()->vm.goLocation(`kangwon`)}"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gyeungi">
 
@@ -491,7 +491,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/kangwon_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -507,7 +507,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_kangwon" />
@@ -519,7 +519,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:onClick="@{()->vm.goLocation(`choongbuk`)}"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_kangwon">
 
@@ -538,7 +538,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/choongbuk_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -554,7 +554,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_choongbuk" />
@@ -566,7 +566,7 @@
                 android:layout_height="60dp"
                 android:onClick="@{()->vm.goLocation(`choongnam`)}"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_choongbuk">
 
@@ -585,7 +585,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/choongnam_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -601,7 +601,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_choongnam" />
@@ -613,7 +613,7 @@
                 android:layout_height="60dp"
                 android:onClick="@{()->vm.goLocation(`gyungbuk`)}"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_choongnam">
 
@@ -632,7 +632,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/gyungbuk_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -648,7 +648,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_gyungbuk" />
@@ -660,7 +660,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:onClick="@{()->vm.goLocation(`gyungnam`)}"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gyungbuk">
 
@@ -679,7 +679,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/gyungnam_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -695,7 +695,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_gyungnam" />
@@ -707,7 +707,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:onClick="@{()->vm.goLocation(`jeonbuk`)}"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gyungnam">
 
@@ -726,7 +726,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/jeonbuk_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -743,7 +743,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_jeonbuk" />
@@ -754,7 +754,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:onClick="@{()->vm.goLocation(`jeonnam`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_jeonnbuk">
@@ -774,7 +774,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/jeonnam_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -790,7 +790,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 app:layout_constraintEnd_toEndOf="@id/view_seoul"
                 app:layout_constraintStart_toStartOf="@id/view_seoul"
                 app:layout_constraintTop_toBottomOf="@id/ll_jeonnam" />
@@ -801,7 +801,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorWhiteGrayFDFD"
+                android:background="@color/colorWhiteFDFD"
                 android:onClick="@{()->vm.goLocation(`jeju`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_jeonnam">
@@ -821,7 +821,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:text="@string/jeju_text"
-                    android:textColor="@color/colorWhiteGray2D2D"
+                    android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView

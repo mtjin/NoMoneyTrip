@@ -34,7 +34,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="12dp"
             android:text="@string/email_signup_text"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_back" />
@@ -93,7 +93,7 @@
             android:gravity="center"
             android:onClick="@{()->vm.onSignUpClick()}"
             android:text="@string/sign_up_then_start_text"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorWhiteFDFD"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -35,7 +35,7 @@
             android:id="@+id/main_bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:background="@color/colorWhite"
+            android:background="@color/colorWhiteFDFD"
             android:paddingStart="18dp"
             android:paddingLeft="18dp"
             android:paddingEnd="18dp"

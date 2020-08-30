@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="28dp"
             android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/colorWhite"
+            android:backgroundTint="@color/colorWhiteFDFD"
             android:src="@drawable/ic_pencil"
-            app:backgroundTint="@color/colorWhite"
+            app:backgroundTint="@color/colorWhiteFDFD"
             app:imageView_duration="300"
             app:imageView_scale="0.9"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +31,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
             android:text="청춘의 무전일기"
-            android:textColor="@color/colorWhiteBlack3535"
+            android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
-            android:background="@color/colorWhiteGray"
+            android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
