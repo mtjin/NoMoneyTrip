@@ -12,6 +12,11 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     private val safeArgs: LocalPageFragmentArgs by navArgs()
     override fun init() {
         processIntent()
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+
     }
 
     private fun processIntent() {

@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="com.mtjin.nomoneytrip.data.local_page.TourIntroduce" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

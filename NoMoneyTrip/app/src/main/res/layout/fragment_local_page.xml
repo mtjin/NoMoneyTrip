@@ -158,7 +158,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_tour_introduce"
-                    tools:listitem="@layout/item_normal_tour" />
+                    tools:listitem="@layout/item_tour_introduce" />
 
                 <TextView
                     android:id="@+id/tv_restaurant_introduce"
@@ -182,7 +182,7 @@
                     android:paddingEnd="0dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tv_restaurant_introduce"
-                    tools:listitem="@layout/item_normal_tour" />
+                    tools:listitem="@layout/item_tour_introduce" />
 
                 <TextView
                     android:id="@+id/tv_local_popular_tour"

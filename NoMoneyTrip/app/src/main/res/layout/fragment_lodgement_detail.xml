@@ -654,7 +654,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text2"
                     tools:itemCount="3"
-                    tools:listitem="@layout/item_normal_tour" />
+                    tools:listitem="@layout/item_tour_introduce" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
