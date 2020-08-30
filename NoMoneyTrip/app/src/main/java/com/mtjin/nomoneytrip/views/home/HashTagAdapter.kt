@@ -1,25 +1,26 @@
-package com.mtjin.nomoneytrip.views.localpage
+package com.mtjin.nomoneytrip.views.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
-import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
-import com.mtjin.nomoneytrip.databinding.ItemTourIntroduceBinding
+import com.mtjin.nomoneytrip.databinding.ItemHashTagBinding
 
-class LocalPageAdapter :
-    RecyclerView.Adapter<LocalPageAdapter.ViewHolder>() {
-    private val items: ArrayList<TourIntroduce> = ArrayList()
+class HashTagAdapter :
+    RecyclerView.Adapter<HashTagAdapter.ViewHolder>() {
+    private val items: ArrayList<String> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemTourIntroduceBinding = DataBindingUtil.inflate(
+        val binding: ItemHashTagBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_tour_introduce,
+            R.layout.item_product_hash_tag,
             parent,
             false
         )
-        return ViewHolder(binding)
+        return ViewHolder(
+            binding
+        )
     }
 
     override fun getItemCount(): Int = items.size
@@ -30,21 +31,21 @@ class LocalPageAdapter :
         }
     }
 
-    class ViewHolder(private val binding: ItemTourIntroduceBinding) :
+    class ViewHolder(private val binding: ItemHashTagBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: TourIntroduce) {
+        fun bind(item: String) {
             binding.item = item
             binding.executePendingBindings()
         }
     }
 
-    fun addItems(items: List<TourIntroduce>) {
+    fun addItems(items: List<String>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun addItem(item: TourIntroduce) {
+    fun addItem(item: String) {
         this.items.add(item)
         notifyDataSetChanged()
     }

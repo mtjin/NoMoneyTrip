@@ -1,25 +1,27 @@
-package com.mtjin.nomoneytrip.views.localpage
+package com.mtjin.nomoneytrip.views.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
-import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
-import com.mtjin.nomoneytrip.databinding.ItemTourIntroduceBinding
+import com.mtjin.nomoneytrip.data.home.Product
+import com.mtjin.nomoneytrip.databinding.ItemProductBinding
 
-class LocalPageAdapter :
-    RecyclerView.Adapter<LocalPageAdapter.ViewHolder>() {
-    private val items: ArrayList<TourIntroduce> = ArrayList()
+class HomeProductAdapter :
+    RecyclerView.Adapter<HomeProductAdapter.ViewHolder>() {
+    private val items: ArrayList<Product> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemTourIntroduceBinding = DataBindingUtil.inflate(
+        val binding: ItemProductBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_tour_introduce,
+            R.layout.item_product,
             parent,
             false
         )
-        return ViewHolder(binding)
+        return ViewHolder(
+            binding
+        )
     }
 
     override fun getItemCount(): Int = items.size
@@ -30,21 +32,23 @@ class LocalPageAdapter :
         }
     }
 
-    class ViewHolder(private val binding: ItemTourIntroduceBinding) :
+    class ViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: TourIntroduce) {
+        fun bind(item: Product) {
             binding.item = item
+            val adapter = HashTagAdapter()
+            adapter.addItems(item.hashTagList)
             binding.executePendingBindings()
         }
     }
 
-    fun addItems(items: List<TourIntroduce>) {
+    fun addItems(items: List<Product>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun addItem(item: TourIntroduce) {
+    fun addItem(item: Product) {
         this.items.add(item)
         notifyDataSetChanged()
     }
