@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.localpage.LocalPageViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -158,6 +162,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_tour_introduce"
+                    bind:setItems="@{vm.tourIntroduceList}"
                     tools:listitem="@layout/item_tour_introduce" />
 
                 <TextView
@@ -182,6 +187,7 @@
                     android:paddingEnd="0dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tv_restaurant_introduce"
+                    bind:setItems="@{vm.restaurantIntroduceList}"
                     tools:listitem="@layout/item_tour_introduce" />
 
                 <TextView
