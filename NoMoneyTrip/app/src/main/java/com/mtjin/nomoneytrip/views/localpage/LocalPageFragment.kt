@@ -10,12 +10,18 @@ import com.mtjin.nomoneytrip.utils.TAG
 
 class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragment_local_page) {
     private val safeArgs: LocalPageFragmentArgs by navArgs()
+    private lateinit var tourIntroduceAdapter: LocalPageAdapter
+    private lateinit var restaurantIntroduceAdapter: LocalPageAdapter
     override fun init() {
         processIntent()
         initAdapter()
     }
 
     private fun initAdapter() {
+        tourIntroduceAdapter = LocalPageAdapter()
+        restaurantIntroduceAdapter = LocalPageAdapter()
+        binding.rvTours.adapter = tourIntroduceAdapter
+        binding.rvRestaurants.adapter = restaurantIntroduceAdapter
 
     }
 
