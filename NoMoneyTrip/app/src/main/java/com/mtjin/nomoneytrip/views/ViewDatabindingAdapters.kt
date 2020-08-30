@@ -5,7 +5,10 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
+import com.mtjin.nomoneytrip.views.home.HashTagAdapter
+import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 
 @BindingAdapter("urlImage")
@@ -24,6 +27,22 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as LocalPageAdapter) {
                     clear()
                     addItems(it as List<TourIntroduce>)
+                }
+            }
+        }
+        is HomeProductAdapter -> {
+            items?.let {
+                with(adapter as HomeProductAdapter) {
+                    clear()
+                    addItems(it as List<Product>)
+                }
+            }
+        }
+        is HashTagAdapter -> {
+            items?.let {
+                with(adapter as HashTagAdapter) {
+                    clear()
+                    addItems(it as List<String>)
                 }
             }
         }

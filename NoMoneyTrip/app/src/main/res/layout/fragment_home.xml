@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -78,16 +79,22 @@
                 android:id="@+id/rv_hash_tags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginTop="@dimen/margin_20dp"
                 android:orientation="horizontal"
+                android:paddingStart="@dimen/padding_28dp"
+                android:paddingEnd="0dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/iv_search" />
+                app:layout_constraintTop_toBottomOf="@id/iv_search"
+                tools:listitem="@layout/item_hash_tag" />
 
             <View
                 android:id="@+id/view_below_hashtag"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:layout_marginBottom="@dimen/margin_12dp"
                 android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintBottom_toTopOf="@id/rv_home_lodges"
                 app:layout_constraintTop_toBottomOf="@id/rv_hash_tags" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -96,11 +103,14 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:orientation="vertical"
+                android:paddingStart="@dimen/padding_28dp"
                 android:paddingTop="@dimen/padding_12dp"
+                android:paddingEnd="@dimen/padding_28dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_below_hashtag" />
+                app:layout_constraintTop_toBottomOf="@id/view_below_hashtag"
+                tools:listitem="@layout/item_product" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
