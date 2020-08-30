@@ -23,4 +23,5 @@
     <dimen name="margin_14dp">14dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
     <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="margin_12dp">12dp</dimen>
 </resources>

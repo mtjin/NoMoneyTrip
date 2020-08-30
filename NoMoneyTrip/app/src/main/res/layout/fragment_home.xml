@@ -67,7 +67,7 @@
                 android:layout_marginStart="@dimen/margin_28dp"
                 android:layout_marginTop="@dimen/margin_14dp"
                 android:layout_marginEnd="@dimen/margin_28dp"
-                android:background="@drawable/bg_search_button"
+                android:background="@drawable/button_search"
                 android:drawableEnd="@drawable/ic_search_gray_24dp"
                 android:onClick="@{()->vm.goSearch()}"
                 app:layout_constraintEnd_toEndOf="parent"
