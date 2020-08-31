@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -94,11 +95,11 @@
                 android:layout_marginTop="@dimen/margin_12dp"
                 android:layout_marginBottom="@dimen/margin_12dp"
                 android:background="@color/colorWhiteGrayF4F4"
-                app:layout_constraintBottom_toTopOf="@id/rv_home_lodges"
+                app:layout_constraintBottom_toTopOf="@id/rv_home_products"
                 app:layout_constraintTop_toBottomOf="@id/rv_hash_tags" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_lodges"
+                android:id="@+id/rv_home_products"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
@@ -110,6 +111,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/view_below_hashtag"
+                bind:setItems="@{vm.productList}"
                 tools:listitem="@layout/item_product" />
 
 

@@ -15,7 +15,7 @@ val viewModelModule: Module = module {
     viewModel { LoginViewModel(get()) }
     viewModel { EmailSignUpViewModel() }
     viewModel { EmailLoginViewModel(get()) }
-    viewModel { HomeViewModel() }
+    viewModel { HomeViewModel(get()) }
     viewModel { AlarmViewModel() }
     viewModel { SearchViewModel() }
     viewModel { LocalPageViewModel(get()) }

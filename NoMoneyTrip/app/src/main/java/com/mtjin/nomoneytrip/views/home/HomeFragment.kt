@@ -6,15 +6,26 @@ import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentHomeBinding
-import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModel()
+    private lateinit var homeAdapter: HomeProductAdapter
 
     override fun init() {
         binding.vm = viewModel
         initViewModelCallback()
+        initAdapter()
+        initView()
+    }
+
+    private fun initAdapter() {
+        homeAdapter = HomeProductAdapter()
+        binding.rvHomeProducts.adapter = homeAdapter
+    }
+
+    private fun initView() {
+        viewModel.requestProducts()
     }
 
     private fun initViewModelCallback() {
@@ -27,7 +38,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
 }

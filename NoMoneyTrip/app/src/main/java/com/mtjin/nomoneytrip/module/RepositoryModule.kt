@@ -2,6 +2,8 @@ package com.mtjin.nomoneytrip.module
 
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepositoryImpl
+import com.mtjin.nomoneytrip.data.home.source.HomeRepository
+import com.mtjin.nomoneytrip.data.home.source.HomeRepositoryImpl
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepositoryImpl
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
@@ -14,4 +16,5 @@ val repositoryModule: Module = module {
     single<LoginRepository> { LoginRepositoryImpl(get()) }
     single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour"))) }
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
+    single<HomeRepository> { HomeRepositoryImpl(get()) }
 }

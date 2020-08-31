@@ -1,4 +1,32 @@
 package com.mtjin.nomoneytrip.data.home.source
 
-class HomeRepositoryImpl : HomeRepository {
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.mtjin.nomoneytrip.data.home.Product
+import com.mtjin.nomoneytrip.utils.PRODUCT
+import io.reactivex.Single
+
+class HomeRepositoryImpl(private val database: DatabaseReference) : HomeRepository {
+    override fun requestProducts(): Single<List<Product>> {
+        return Single.create { emitter ->
+            database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    emitter.onError(error.toException())
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val productList = ArrayList<Product>()
+                    for (productSnapShot: DataSnapshot in snapshot.children) {
+                        productSnapShot.getValue(Product::class.java)?.let {
+                            productList.add(it)
+                        }
+                    }
+                    emitter.onSuccess(productList)
+                }
+
+            })
+        }
+    }
 }
