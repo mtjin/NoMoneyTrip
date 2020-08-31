@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
-import com.mtjin.nomoneytrip.databinding.ItemHashTagBinding
+import com.mtjin.nomoneytrip.databinding.ItemProductHashTagBinding
 
 class HashTagAdapter :
     RecyclerView.Adapter<HashTagAdapter.ViewHolder>() {
     private val items: ArrayList<String> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemHashTagBinding = DataBindingUtil.inflate(
+        val binding: ItemProductHashTagBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_hash_tag,
+            R.layout.item_product_hash_tag,
             parent,
             false
         )
@@ -31,7 +31,7 @@ class HashTagAdapter :
         }
     }
 
-    class ViewHolder(private val binding: ItemHashTagBinding) :
+    class ViewHolder(private val binding: ItemProductHashTagBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: String) {
