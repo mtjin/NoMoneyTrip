@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.databinding.ItemProductHashTagBinding
 
-class HashTagAdapter :
-    RecyclerView.Adapter<HashTagAdapter.ViewHolder>() {
+class ProductHashTagAdapter :
+    RecyclerView.Adapter<ProductHashTagAdapter.ViewHolder>() {
     private val items: ArrayList<String> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
