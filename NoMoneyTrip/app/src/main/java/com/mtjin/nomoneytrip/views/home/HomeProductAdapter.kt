@@ -36,9 +36,9 @@ class HomeProductAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Product) {
-            binding.item = item
             val adapter = HashTagAdapter()
-            adapter.addItems(item.hashTagList)
+            binding.rvHashTags.adapter = adapter
+            binding.item = item
             binding.executePendingBindings()
         }
     }

@@ -14,7 +14,7 @@ class HashTagAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemHashTagBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_product_hash_tag,
+            R.layout.item_hash_tag,
             parent,
             false
         )
