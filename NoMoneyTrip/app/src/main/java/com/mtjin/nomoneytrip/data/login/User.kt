@@ -4,5 +4,6 @@ data class User(
     var id: String = "",
     var fcm: String = "",
     var email: String = "",
-    var pw: String = ""
+    var pw: String = "",
+    var image: String = ""
 )
