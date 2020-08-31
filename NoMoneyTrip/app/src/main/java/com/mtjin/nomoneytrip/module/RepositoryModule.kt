@@ -14,7 +14,7 @@ import org.koin.dsl.module
 
 val repositoryModule: Module = module {
     single<LoginRepository> { LoginRepositoryImpl(get()) }
-    single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour"))) }
+    single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour")), get()) }
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
 }

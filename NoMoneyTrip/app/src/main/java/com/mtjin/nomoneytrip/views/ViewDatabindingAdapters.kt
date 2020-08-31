@@ -8,9 +8,10 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
-import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
+import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
+import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
 
 @BindingAdapter("urlImage")
 fun ImageView.setUrlImage(url: String) {
@@ -52,6 +53,14 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as HomeHashTagAdapter) {
                     clear()
                     addItems(it as List<String>)
+                }
+            }
+        }
+        is LocalProductAdapter -> {
+            items?.let {
+                with(adapter as LocalProductAdapter) {
+                    clear()
+                    addItems(it as List<Product>)
                 }
             }
         }

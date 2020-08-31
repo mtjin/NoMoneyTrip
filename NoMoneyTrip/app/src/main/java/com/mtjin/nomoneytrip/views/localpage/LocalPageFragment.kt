@@ -14,6 +14,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     private val viewModel: LocalPageViewModel by viewModel()
     private lateinit var tourIntroduceAdapter: LocalPageAdapter
     private lateinit var restaurantIntroduceAdapter: LocalPageAdapter
+    private lateinit var productAdapter: LocalProductAdapter
 
     override fun init() {
         initAdapter()
@@ -24,8 +25,10 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
         binding.vm = viewModel
         tourIntroduceAdapter = LocalPageAdapter()
         restaurantIntroduceAdapter = LocalPageAdapter()
+        productAdapter = LocalProductAdapter()
         binding.rvTours.adapter = tourIntroduceAdapter
         binding.rvRestaurants.adapter = restaurantIntroduceAdapter
+        binding.rvProducts.adapter = productAdapter
 
     }
 
@@ -221,6 +224,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 viewModel.requestRestaurantIntroduces(JEJU_CODE)
             }
         }
+        viewModel.requestProducts(local)
         binding.tvLocalTitle.text = local
 
     }
