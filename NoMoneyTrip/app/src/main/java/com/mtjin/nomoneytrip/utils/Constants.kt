@@ -36,3 +36,4 @@ var fcm = "" // fcm
 
 //database child
 const val USER = "user" // 유저프로필
+const val PRODUCT = "product" // 상품
