@@ -14,9 +14,11 @@ import io.reactivex.schedulers.Schedulers
 class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel() {
     private val _goSearch: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _productList = MutableLiveData<ArrayList<Product>>()
+    private val _hashTagList = MutableLiveData<ArrayList<String>>()
 
     val goSearch: LiveData<Unit> get() = _goSearch
     val productList: LiveData<ArrayList<Product>> get() = _productList
+    val hashTagList: LiveData<ArrayList<String>> get() = _hashTagList
 
     fun goSearch() {
         _goSearch.call()
@@ -29,7 +31,13 @@ class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ products ->
                     _productList.value = products as ArrayList<Product>
-                    hideProgress()
+                    val hashTags = ArrayList<String>()
+                    for (product in products){
+                        for (hashTag in product.hashTagList){
+                            hashTags.add(hashTag)
+                        }
+                    }
+                    _hashTagList.value = hashTags.distinct() as ArrayList<String>
                 }, {
                     Log.d(TAG, "HomeViewModel requestProducts() Error -> $it")
                 })

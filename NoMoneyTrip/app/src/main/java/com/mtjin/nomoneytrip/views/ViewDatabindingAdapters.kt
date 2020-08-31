@@ -7,7 +7,8 @@ import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
-import com.mtjin.nomoneytrip.views.home.HashTagAdapter
+import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
+import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 
@@ -38,9 +39,17 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 }
             }
         }
-        is HashTagAdapter -> {
+        is ProductHashTagAdapter -> {
             items?.let {
-                with(adapter as HashTagAdapter) {
+                with(adapter as ProductHashTagAdapter) {
+                    clear()
+                    addItems(it as List<String>)
+                }
+            }
+        }
+        is HomeHashTagAdapter -> {
+            items?.let {
+                with(adapter as HomeHashTagAdapter) {
                     clear()
                     addItems(it as List<String>)
                 }
