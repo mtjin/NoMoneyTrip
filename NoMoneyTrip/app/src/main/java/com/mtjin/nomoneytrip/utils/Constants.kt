@@ -29,3 +29,10 @@ const val GYUNGNAM_CODE = 36
 const val JEONBUK_CODE = 37
 const val JEONNAM_CODE = 38
 const val JEJU_CODE = 39
+
+// user
+var uuid = "" // 유저 고유 토큰
+var fcm = "" // fcm
+
+//database child
+const val USER = "user" // 유저프로필

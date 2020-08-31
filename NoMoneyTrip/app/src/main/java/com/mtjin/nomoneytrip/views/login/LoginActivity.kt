@@ -4,8 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
 import com.google.firebase.ktx.Firebase
 import com.kakao.auth.AuthType
 import com.kakao.auth.ISessionCallback
@@ -17,8 +21,10 @@ import com.kakao.usermgmt.response.MeV2Response
 import com.kakao.util.exception.KakaoException
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseActivity
+import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityLoginBinding
-import com.mtjin.nomoneytrip.utils.Fb
+import com.mtjin.nomoneytrip.utils.fcm
+import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpActivity
 import com.mtjin.nomoneytrip.views.main.MainActivity
@@ -45,6 +51,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         binding.vm = viewModel
         Session.getCurrentSession().addCallback(sessionCallback)
         initViewModelCallback()
+        initFcmToken()
         // Initialize Firebase Auth
         auth = Firebase.auth
     }
@@ -117,16 +124,25 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         val email: String = "" + result.id + "@mujeon.com"
                         val password: String = "111111"
                         //구글이메일 로그인
-                        googleAuth(email, password)
+                        googleAuth(email, password, result.kakaoAccount.profile.profileImageUrl)
                     }
                 })
         }
 
-        fun googleAuth(email: String, password: String) {
+        fun googleAuth(email: String, password: String, image: String) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this@LoginActivity) { task ->
                     if (task.isSuccessful) {
-                        Fb.user = auth.currentUser
+                        uuid = auth.currentUser?.uid.toString()
+                        viewModel.insertUser(
+                            User(
+                                id = uuid,
+                                fcm = fcm,
+                                email = email,
+                                pw = password,
+                                image = image
+                            )
+                        )
                         val intent: Intent = Intent(
                             this@LoginActivity,
                             MainActivity::class.java
@@ -142,10 +158,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                     auth.signInWithEmailAndPassword(email, password)
                                         .addOnCompleteListener(this@LoginActivity) { task ->
                                             if (task.isSuccessful) {
-                                                Fb.user = auth.currentUser
+                                                uuid = auth.currentUser?.uid.toString()
                                                 val intent: Intent = Intent(
                                                     this@LoginActivity,
                                                     MainActivity::class.java
+                                                )
+                                                viewModel.insertUser(
+                                                    User(
+                                                        id = uuid,
+                                                        fcm = fcm,
+                                                        email = email,
+                                                        pw = password,
+                                                        image = image
+                                                    )
                                                 )
                                                 startActivity(intent)
                                                 showToast("로그인 성공")
@@ -164,6 +189,21 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                     }
                 }
         }
+    }
+
+    private fun initFcmToken() {
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(object : OnCompleteListener<InstanceIdResult?> {
+                override fun onComplete(task: Task<InstanceIdResult?>) {
+                    if (!task.isSuccessful) {
+                        return
+                    }
+                    // Get new Instance ID token
+                    task.result?.let {
+                        fcm = it.token
+                    }
+                }
+            })
     }
 
     companion object {

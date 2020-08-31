@@ -3,9 +3,12 @@ package com.mtjin.nomoneytrip.views.email_login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
+import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
+import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 
-class EmailLoginViewModel : BaseViewModel() {
+class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository) :
+    BaseViewModel() {
     val email: MutableLiveData<String> = MutableLiveData("")
     val pw: MutableLiveData<String> = MutableLiveData("")
     private val _isEmailEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
@@ -27,5 +30,9 @@ class EmailLoginViewModel : BaseViewModel() {
         } else {
             _login.call()
         }
+    }
+
+    fun insertUser(user: User) {
+        emailLoginRepository
     }
 }

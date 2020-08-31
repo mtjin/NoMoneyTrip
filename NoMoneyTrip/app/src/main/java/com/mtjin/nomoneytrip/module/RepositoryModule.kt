@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.module
 
+import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
+import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepositoryImpl
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepositoryImpl
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
@@ -11,4 +13,5 @@ import org.koin.dsl.module
 val repositoryModule: Module = module {
     single<LoginRepository> { LoginRepositoryImpl(get()) }
     single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour"))) }
+    single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
 }

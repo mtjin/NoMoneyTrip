@@ -38,6 +38,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/email_login/source/EmailLoginRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/email_login/source/EmailLoginRepositoryImpl.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/home/Lodgment.kt">
           <value>
             <set />
@@ -93,6 +103,36 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/login/User.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/login/source/LoginRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/login/source/LoginRepositoryImpl.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/login/source/remote/LoginRemoteDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/login/source/remote/LoginRemoteDataSourceImpl.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/di/KoinApplication.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/fcm/MyFirebaseMessagingService.kt">
           <value>
             <set />
@@ -118,6 +158,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/module/FirebaseModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/module/RemoteDataModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/module/RepositoryModule.kt">
           <value>
             <set />
@@ -129,6 +179,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/utils/Constants.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/utils/Fb.kt">
           <value>
             <set />
           </value>
@@ -154,6 +209,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/alarm/AlarmViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/email_login/EmailLoginActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/email_login/EmailLoginViewModel.kt">
           <value>
             <set />
           </value>
@@ -194,6 +259,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/login/LoginActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/login/LoginViewModel.kt">
           <value>
             <set />
           </value>

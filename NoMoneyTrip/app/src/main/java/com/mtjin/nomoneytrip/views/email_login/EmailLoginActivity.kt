@@ -8,8 +8,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseActivity
+import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityEmailLoginBinding
-import com.mtjin.nomoneytrip.utils.Fb
+import com.mtjin.nomoneytrip.utils.fcm
+import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -42,7 +44,16 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Fb.user = auth.currentUser
+                    uuid = auth.currentUser?.uid.toString()
+                    viewModel.insertUser(
+                        User(
+                            id = uuid,
+                            fcm = fcm,
+                            email = email,
+                            pw = password,
+                            image = ""
+                        )
+                    )
                     startActivity(Intent(this, MainActivity::class.java))
                     showToast("로그인 성공")
                     viewModel.hideProgress()
