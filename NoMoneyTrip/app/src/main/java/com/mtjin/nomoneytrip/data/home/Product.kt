@@ -1,3 +1,8 @@
 package com.mtjin.nomoneytrip.data.home
 
-data class Product(val image: String, val content: String, val hashTagList: List<String>)
+data class Product(
+    var id: String = "",
+    var image: String = "",
+    var content: String = "",
+    var hashTagList: List<String> = ArrayList()
+)
