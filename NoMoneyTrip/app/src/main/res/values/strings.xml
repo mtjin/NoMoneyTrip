@@ -87,4 +87,7 @@
     <string name="jeonbuk_text">전북</string>
     <string name="jeonnam_text">전남</string>
     <string name="jeju_text">제주</string>
+    <string name="nomoney_tour_local_text">무전여행지</string>
+    <string name="healing_tour_local_text">힐링 관광지</string>
+    <string name="local_restaurant_text">본토 음식점</string>
 </resources>

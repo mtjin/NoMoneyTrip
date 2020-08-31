@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_28dp"
                     android:layout_marginTop="@dimen/margin_28dp"
-                    android:text="무전여행지"
+                    android:text="@string/nomoney_tour_local_text"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +108,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_32dp"
-                    android:text="힐링 관광지"
+                    android:text="@string/healing_tour_local_text"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@id/tv_lodgment"
                     app:layout_constraintTop_toBottomOf="@id/rv_products" />
 
@@ -135,10 +134,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_32dp"
-                    android:text="본토 음식점"
+                    android:text="@string/local_restaurant_text"
                     android:textColor="@color/colorBlack2D2D"
-                    android:textSize="@dimen/text_size_16sp"
-                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_18sp"
                     app:layout_constraintStart_toStartOf="@id/tv_lodgment"
                     app:layout_constraintTop_toBottomOf="@id/rv_tours" />
 
