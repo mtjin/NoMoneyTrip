@@ -19,5 +19,5 @@ val repositoryModule: Module = module {
     single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour")), get()) }
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
-    single<TourWriteRepository> { TourWriteRepositoryImpl() }
+    single<TourWriteRepository> { TourWriteRepositoryImpl(get()) }
 }

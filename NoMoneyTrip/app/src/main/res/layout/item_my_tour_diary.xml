@@ -86,7 +86,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@id/cv_cardview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_merchandise_title" />
+            app:layout_constraintTop_toBottomOf="@id/tv_product_title" />
 
         <TextView
             android:id="@+id/tv_heart"
@@ -94,14 +94,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="3dp"
-            android:drawableStart="@drawable/ic_community_good_off"
             android:gravity="center_vertical"
-            android:text="8"
+            tools:text="8"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_content" />
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:drawableStartCompat="@drawable/ic_community_good_off" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
@@ -120,8 +120,8 @@
             android:layout_marginEnd="28dp"
             android:layout_marginBottom="20dp"
             android:background="@color/colorWhiteGrayF4F4"
-            app:layout_constraintEnd_toEndOf="@id/tv_merchandise_title"
-            app:layout_constraintStart_toStartOf="@id/tv_merchandise_title"
+            app:layout_constraintEnd_toEndOf="@id/tv_product_title"
+            app:layout_constraintStart_toStartOf="@id/tv_product_title"
             app:layout_constraintTop_toBottomOf="@id/tv_content" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

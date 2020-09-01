@@ -23,8 +23,8 @@
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/colorOrangeF79256"
             android:max="5"
-            android:rating="0"
             android:progressTint="@color/colorOrangeF79256"
+            android:rating="0"
             android:stepSize="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

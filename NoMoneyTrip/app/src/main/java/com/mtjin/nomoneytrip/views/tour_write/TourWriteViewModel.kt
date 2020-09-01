@@ -10,18 +10,17 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
 
     private val _pickImage = SingleLiveEvent<Unit>()
     private val _contentEmptyMsg = SingleLiveEvent<String>()
-    private val _content = MutableLiveData<String>()
+    val content: MutableLiveData<String> = MutableLiveData("")
 
     val pickImage: LiveData<Unit> get() = _pickImage
     val contentEmptyMsg: LiveData<String> get() = _contentEmptyMsg
-    val content: LiveData<String> get() = _content
 
     fun pickImage() {
         _pickImage.call()
     }
 
     fun writeComplete() {
-        if (_content.value.toString().isNullOrBlank()) {
+        if (content.value.isNullOrBlank()) {
             _contentEmptyMsg.call()
         } else {
             tourWriteRepository.insertReview()
