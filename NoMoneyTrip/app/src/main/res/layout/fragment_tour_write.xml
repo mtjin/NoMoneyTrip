@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/text1"
+            android:id="@+id/rb_rating"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/text1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text1"
+            app:layout_constraintTop_toTopOf="@id/rb_rating"
             app:srcCompat="@drawable/button_upload_write" />
 
         <View
@@ -41,7 +41,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="11dp"
             android:background="@color/colorWhiteGrayF4F4"
-            app:layout_constraintTop_toBottomOf="@id/text1" />
+            app:layout_constraintTop_toBottomOf="@id/rb_rating" />
 
         <ScrollView
             android:layout_width="match_parent"
