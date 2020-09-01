@@ -8,6 +8,8 @@ import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepositoryImpl
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
 import com.mtjin.nomoneytrip.data.login.source.LoginRepositoryImpl
+import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepository
+import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepositoryImpl
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -17,4 +19,5 @@ val repositoryModule: Module = module {
     single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour")), get()) }
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
+    single<TourWriteRepository> { TourWriteRepositoryImpl() }
 }

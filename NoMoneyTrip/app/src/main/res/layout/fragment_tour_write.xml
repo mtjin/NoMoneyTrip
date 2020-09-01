@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.tour_write.TourWriteViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,6 +64,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="80dp"
                     android:background="@drawable/button_add_pic"
+                    android:onClick="@{()->vm.pickImage()}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text2" />
 
