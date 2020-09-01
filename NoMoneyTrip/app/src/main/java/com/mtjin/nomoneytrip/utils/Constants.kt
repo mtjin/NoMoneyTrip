@@ -30,6 +30,9 @@ const val JEONBUK_CODE = 37
 const val JEONNAM_CODE = 38
 const val JEJU_CODE = 39
 
+// Code
+const val RC_PICK_IMAGE = 1001
+
 // user
 var uuid = "" // 유저 고유 토큰
 var fcm = "" // fcm
