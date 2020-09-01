@@ -318,6 +318,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/splash/SplashActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/bg_btn_normal_orange_radius_8dp.xml">
           <value>
             <set />
@@ -349,6 +354,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_email_signup.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
           <value>
             <set />
           </value>
@@ -519,6 +529,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../android-architecture-study-movieapp/BACK_UP/9-RxJava/AndroidArchitectureStudy/app/src/main/java/com/mtjin/androidarchitecturestudy/ui/search/MovieSearchViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/MAIN_JINSEUNGEON/works_mobile_intern/project/Namecard_Wallet/NameCard_Wallet/.idea/sonarIssues.xml">
           <value>
             <set />
           </value>
