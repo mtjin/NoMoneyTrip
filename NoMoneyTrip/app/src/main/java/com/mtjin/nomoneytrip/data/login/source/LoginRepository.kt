@@ -7,4 +7,5 @@ import io.reactivex.Completable
 interface LoginRepository {
     fun kakaoLogin() : Session
     fun insertUser(user : User) : Completable
+    fun updateFCM(): Completable
 }
