@@ -323,6 +323,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/tour_write/TourWriteFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/tour_write/TourWriteViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/bg_btn_normal_orange_radius_8dp.xml">
           <value>
             <set />
@@ -509,6 +519,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/navigation/bottom_nav_graph.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/TourWriteViewModel.xml">
           <value>
             <set />
           </value>
