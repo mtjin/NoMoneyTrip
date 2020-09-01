@@ -90,4 +90,5 @@
     <string name="nomoney_tour_local_text">무전여행지</string>
     <string name="healing_tour_local_text">힐링 관광지</string>
     <string name="local_restaurant_text">본토 음식점</string>
+    <string name="input_content_text">내용을 입력해주세요</string>
 </resources>

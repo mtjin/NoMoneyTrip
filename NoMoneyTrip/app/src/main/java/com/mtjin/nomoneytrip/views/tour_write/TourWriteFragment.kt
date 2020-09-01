@@ -25,6 +25,10 @@ class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragme
                 intent.type = "image/*"
                 startActivityForResult(intent, RC_PICK_IMAGE)
             })
+
+            contentEmptyMsg.observe(this@TourWriteFragment, Observer {
+                showToast(getString(R.string.input_content_text))
+            })
         }
     }
 

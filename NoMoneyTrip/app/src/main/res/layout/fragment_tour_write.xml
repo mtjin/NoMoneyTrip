@@ -22,7 +22,10 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/colorOrangeF79256"
+            android:max="5"
+            android:rating="0"
             android:progressTint="@color/colorOrangeF79256"
+            android:stepSize="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
+            android:onClick="@{()->vm.writeComplete()}"
             android:text="@string/write_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="16sp"
@@ -66,10 +70,10 @@
                     android:background="@drawable/button_add_pic"
                     android:onClick="@{()->vm.pickImage()}"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text2" />
+                    app:layout_constraintTop_toBottomOf="@id/et_content" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/text2"
+                    android:id="@+id/et_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
@@ -77,6 +81,7 @@
                     android:layout_marginEnd="49dp"
                     android:background="@android:color/transparent"
                     android:hint="@string/how_tour_question_text"
+                    android:text="@={vm.content}"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
                     app:layout_constraintHorizontal_bias="0"
@@ -96,7 +101,7 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_image" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_merchandise_title"
+                    android:id="@+id/tv_product_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"

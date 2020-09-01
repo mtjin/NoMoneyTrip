@@ -76,7 +76,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_merchandise_title"
+            android:id="@+id/tv_product_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_28dp"
