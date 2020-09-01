@@ -30,7 +30,7 @@
             android:text="@string/write_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/text1"
+            app:layout_constraintBottom_toBottomOf="@id/rb_rating"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/rb_rating"
             app:srcCompat="@drawable/button_upload_write" />
