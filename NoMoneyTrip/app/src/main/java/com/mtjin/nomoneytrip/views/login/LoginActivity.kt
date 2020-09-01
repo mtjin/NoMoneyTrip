@@ -116,10 +116,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
                     override fun onSuccess(result: MeV2Response) {
                         Log.i(TAG, "사용자 아이디: " + result.id)
-                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.email)
-                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.profile)
-                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.gender)
-                        Log.i(TAG, "사용자 아이디: " + result.kakaoAccount.birthday)
 
                         val email: String = "" + result.id + "@mujeon.com"
                         val password: String = "111111"

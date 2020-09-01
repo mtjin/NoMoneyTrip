@@ -41,4 +41,8 @@ class LoginViewModel(private val loginRepository: LoginRepository) :
         _goEmailLogin.call()
     }
 
+    fun updateFCM() {
+        loginRepository.updateFCM()
+    }
+
 }
