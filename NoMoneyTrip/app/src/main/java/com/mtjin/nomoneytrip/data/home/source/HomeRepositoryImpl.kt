@@ -29,4 +29,27 @@ class HomeRepositoryImpl(private val database: DatabaseReference) : HomeReposito
             })
         }
     }
+
+    override fun requestHashTagProducts(hashTag: String): Single<List<Product>> {
+        return Single.create { emitter ->
+            database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    emitter.onError(error.toException())
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val productList = ArrayList<Product>()
+                    for (productSnapShot: DataSnapshot in snapshot.children) {
+                        productSnapShot.getValue(Product::class.java)?.let {
+                            if (it.hashTagList.contains(hashTag)) {
+                                productList.add(it)
+                            }
+                        }
+                    }
+                    emitter.onSuccess(productList)
+                }
+
+            })
+        }
+    }
 }

@@ -5,4 +5,5 @@ import io.reactivex.Single
 
 interface HomeRepository {
     fun requestProducts(): Single<List<Product>>
+    fun requestHashTagProducts(hashTag: String): Single<List<Product>>
 }

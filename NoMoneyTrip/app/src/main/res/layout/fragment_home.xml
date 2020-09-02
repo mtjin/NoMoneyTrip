@@ -108,11 +108,14 @@
                 android:paddingStart="@dimen/padding_28dp"
                 android:paddingTop="@dimen/padding_12dp"
                 android:paddingEnd="@dimen/padding_28dp"
+                android:paddingBottom="@dimen/padding_36dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/view_below_hashtag"
                 bind:setItems="@{vm.productList}"
+
+                tools:itemCount="2"
                 tools:listitem="@layout/item_product" />
 
 

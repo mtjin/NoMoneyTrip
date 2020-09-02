@@ -22,7 +22,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun initAdapter() {
         //상단 해쉬태그 어댑터
-        hashTagAdapter = HomeHashTagAdapter()
+        hashTagAdapter = HomeHashTagAdapter({ hashTag ->
+            viewModel.requestHashTagProducts(hashTag)
+        }, thisContext)
         binding.rvHashTags.adapter = hashTagAdapter
 
         //하단 아이템 리스트

@@ -32,14 +32,27 @@ class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel(
                 .subscribe({ products ->
                     _productList.value = products as ArrayList<Product>
                     val hashTags = ArrayList<String>()
-                    for (product in products){
-                        for (hashTag in product.hashTagList){
+                    for (product in products) {
+                        for (hashTag in product.hashTagList) {
                             hashTags.add(hashTag)
                         }
                     }
                     _hashTagList.value = hashTags.distinct() as ArrayList<String>
                 }, {
                     Log.d(TAG, "HomeViewModel requestProducts() Error -> $it")
+                })
+        )
+    }
+
+    fun requestHashTagProducts(hashTag: String) {
+        compositeDisposable.add(
+            homeRepository.requestHashTagProducts(hashTag)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ products ->
+                    _productList.value = products as ArrayList<Product>
+                }, {
+                    Log.d(TAG, "HomeViewModel requestHashTagProducts() Error -> $it")
                 })
         )
     }
