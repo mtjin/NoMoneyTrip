@@ -45,11 +45,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_12dp"
-            android:text="39분 전"
             android:textSize="@dimen/text_size_12sp"
             app:layout_constraintBottom_toBottomOf="@id/civ_image"
             app:layout_constraintStart_toEndOf="@id/civ_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="39분 전" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
