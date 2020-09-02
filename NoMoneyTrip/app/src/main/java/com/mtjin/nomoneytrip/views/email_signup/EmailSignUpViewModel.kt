@@ -28,16 +28,13 @@ class EmailSignUpViewModel : BaseViewModel() {
         val pw: String = pw.value.toString().trim()
         val pwConfirm: String = pwConfirm.value.toString().trim()
 
-        if (email.isEmpty()) {
-            _isEmailEmpty.call()
-        } else if (pw.isEmpty()) {
-            _isPwEmpty.call()
-        } else if (pwConfirm.isEmpty()) {
-            _isPwConfirmEmpty.call()
-        } else if (pw != pwConfirm) {
-            _pwNotMatch.call()
-        } else {
-            _signUp.call()
+        when {
+            email.isEmpty() -> _isEmailEmpty.call()
+            pw.isEmpty() -> _isPwEmpty.call()
+            pwConfirm.isEmpty() -> _isPwConfirmEmpty.call()
+            pw != pwConfirm -> _pwNotMatch.call()
+            else -> _signUp.call()
+
         }
     }
 
