@@ -28,28 +28,30 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="28dp"
-            android:text="청춘의 무전일기"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_43dp"
+            android:text="청춘 여행기"
             android:textColor="@color/colorBlack2D2D"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
+            android:text="국내 전체"
+            android:textColor="@color/colorOrangeF79256"
+            android:textSize="@dimen/text_size_18sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_title"
-            app:srcCompat="@drawable/button_counrty_all" />
+            app:layout_constraintTop_toTopOf="@id/tv_title" />
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="@dimen/height_1dp"
+            android:layout_marginTop="@dimen/margin_15dp"
             android:background="@color/colorWhiteGrayF4F4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
@@ -58,8 +60,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="0dp"
-            android:paddingEnd="28dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/view"
             tools:listitem="@layout/item_user_review" />
