@@ -38,6 +38,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/community/Review.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/community/UserReview.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/data/community/source/CommunityRepositoryImpl.kt">
           <value>
             <set />
@@ -239,6 +249,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/alarm/AlarmViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/community/CommunityAdapter.kt">
           <value>
             <set />
           </value>

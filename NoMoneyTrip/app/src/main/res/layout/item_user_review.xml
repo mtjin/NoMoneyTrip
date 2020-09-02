@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="item"
+            type="com.mtjin.nomoneytrip.data.community.UserReview" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +23,8 @@
             android:layout_marginStart="@dimen/margin_28dp"
             android:src="@drawable/img_product"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            bind:urlImage="@{item.userImage}" />
 
 
         <TextView
@@ -27,12 +32,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_12dp"
-            android:text="김종훈"
+            android:text="@{item.name}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_time"
             app:layout_constraintStart_toEndOf="@id/civ_image"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="김종훈" />
 
         <TextView
             android:id="@+id/tv_time"
@@ -72,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
+                bind:urlImage="@{item.image}"
                 tools:src="@drawable/img_product" />
         </androidx.cardview.widget.CardView>
 
@@ -91,6 +98,7 @@
             android:paddingEnd="@dimen/padding_12dp"
             android:paddingBottom="@dimen/padding_8dp"
             android:singleLine="true"
+            android:text="@{item.title}"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,12 +113,13 @@
             android:layout_marginTop="@dimen/margin_14dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="사용자가 작성한 후기입니다. 사용자가 작성한 후..."
+            android:text="@{item.content}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="@id/cv_cardview"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_product_title" />
+            app:layout_constraintTop_toBottomOf="@id/tv_product_title"
+            tools:text="사용자가 작성한 후기입니다. 사용자가 작성한 후..." />
 
         <TextView
             android:id="@+id/tv_heart"
@@ -119,6 +128,7 @@
             android:layout_marginTop="@dimen/margin_12dp"
             android:layout_marginEnd="@dimen/margin_36dp"
             android:gravity="center_vertical"
+            android:text="@{Long.toString(item.recommend)}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:drawableStartCompat="@drawable/ic_community_good_off"
