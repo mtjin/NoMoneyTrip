@@ -91,4 +91,8 @@
     <string name="healing_tour_local_text">힐링 관광지</string>
     <string name="local_restaurant_text">본토 음식점</string>
     <string name="input_content_text">내용을 입력해주세요</string>
+    <string name="enter_email_text">이메일을 입력해주세요</string>
+    <string name="enter_password_text">비밀번호를 입력해주세요</string>
+    <string name="enter_password_confirm_text">비밀번호 확인을 입력해주세요</string>
+    <string name="password_confirm_not_same_text">비밀번호가 일치하지 않습니다.</string>
 </resources>

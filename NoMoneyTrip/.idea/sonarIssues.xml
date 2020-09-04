@@ -8,7 +8,22 @@
             <set />
           </value>
         </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/androidTest/java/com/mtjin/nomoneytrip/ExampleInstrumentedTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/androidTest/java/com/mtjin/nomoneytrip/views/email_signup/EmailSignUpActivityTest.kt">
           <value>
             <set />
           </value>
@@ -269,6 +284,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/email_login/EmailLoginViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mtjin/nomoneytrip/views/email_signup/EmailSignUpActivity.kt">
           <value>
             <set />
           </value>
@@ -604,6 +624,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../android-architecture-study-movieapp/BACK_UP/9-RxJava/AndroidArchitectureStudy/app/src/main/java/com/mtjin/androidarchitecturestudy/ui/search/MovieSearchViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../works-room-reservation-tablet/TabletReservation/app/src/androidTest/java/com/mtjin/tabletworks/code_input/CodeInputActivityTest.kt">
           <value>
             <set />
           </value>

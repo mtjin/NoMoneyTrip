@@ -28,16 +28,16 @@ class EmailSignUpActivity :
     private fun initViewModelCallback() {
         with(viewModel) {
             isEmailEmpty.observe(this@EmailSignUpActivity, Observer {
-                binding.etEmail.error = "이메일을 입력해주세요"
+                binding.etEmail.error = getString(R.string.enter_email_text)
             })
             isPwEmpty.observe(this@EmailSignUpActivity, Observer {
-                binding.etPw.error = "비밀번호를 입력해주세요"
+                binding.etPw.error = getString(R.string.enter_password_text)
             })
             isPwConfirmEmpty.observe(this@EmailSignUpActivity, Observer {
-                binding.etPwConfirm.error = "비밀번호 확인을 입력해주세요"
+                binding.etPwConfirm.error = getString(R.string.enter_password_confirm_text)
             })
             pwNotMatch.observe(this@EmailSignUpActivity, Observer {
-                showToast("비밀번호가 일치하지 않습니다.")
+                showToast(getString(R.string.password_confirm_not_same_text))
             })
             signUp.observe(this@EmailSignUpActivity, Observer {
                 signUp(email.value!!, pw.value!!)
