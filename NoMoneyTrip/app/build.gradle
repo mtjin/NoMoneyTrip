@@ -97,4 +97,16 @@ dependencies {
     implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
     // Work Manager
     implementation "androidx.work:work-runtime-ktx:2.4.0"
+    // test
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:3.4.6'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation 'org.mockito:mockito-inline:3.2.4'
+    androidTestImplementation 'org.mockito:mockito-android:3.4.6'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
+    testImplementation 'org.mockito:mockito-core:3.4.6'
+    androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
+    androidTestImplementation 'com.21buttons:fragment-test-rule:1.0.0'
 }
