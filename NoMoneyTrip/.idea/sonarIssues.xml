@@ -458,6 +458,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/bg_pager_num.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_email_login.xml">
           <value>
             <set />
