@@ -98,4 +98,5 @@
     <string name="next_text">다음</string>
     <string name="tour_write_text">여행기 작성</string>
     <string name="go_home_text">홈으로</string>
+    <string name="reserve_text">예약하기</string>
 </resources>

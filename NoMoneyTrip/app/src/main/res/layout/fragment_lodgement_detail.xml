@@ -21,28 +21,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_lodgment_name"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back_title" />
+
+                <View
+                    android:id="@+id/view_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_1dp"
+                    android:layout_marginTop="@dimen/margin_7dp"
+                    android:background="@color/colorWhiteGrayF4F4"
+                    app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_lodgment_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:layout_marginEnd="@dimen/margin_62dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/goyang_ilsan_regular"
+                    android:maxLines="2"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="상품 이름" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_exit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cancel" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_top"
+                    tools:text="상품 이름" />
 
                 <androidx.appcompat.widget.AppCompatRatingBar
                     android:id="@+id/rb_rating"
@@ -102,7 +116,7 @@
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                    app:srcCompat="@drawable/ic_good_off" />
+                    app:srcCompat="@drawable/ic_good_off_detail" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_map"
@@ -114,7 +128,7 @@
                     app:layout_constraintEnd_toStartOf="@id/iv_share"
                     app:layout_constraintStart_toEndOf="@id/iv_favorite"
                     app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                    app:srcCompat="@drawable/ic_map" />
+                    app:srcCompat="@drawable/ic_map_detail" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_share"
@@ -124,7 +138,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_map"
                     app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
-                    app:srcCompat="@drawable/ic_share" />
+                    app:srcCompat="@drawable/ic_share_detail" />
 
                 <View
                     android:id="@+id/view"
@@ -137,110 +151,65 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_share" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_volunteer_service"
+                    android:id="@+id/text_per_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="18dp"
-                    android:background="@drawable/shape_orange_radius_4dp"
-                    android:text="@string/volunteer_time_accept_text"
-                    android:textColor="@color/colorWhiteFDFD"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="1박 기준"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_12sp"
+                    app:layout_constraintStart_toStartOf="@id/vp_viewpager"
                     app:layout_constraintTop_toBottomOf="@id/view" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_info"
+                    android:id="@+id/tv_work_hour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_volunteer_service"
-                    tools:text="1박, 일손 4시간" />
+                    android:layout_marginTop="@dimen/margin_2dp"
+                    android:text="일손 4시간"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="@id/vp_viewpager"
+                    app:layout_constraintTop_toBottomOf="@id/text_per_day" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/iv_free"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="28dp"
-                    android:textColor="#f79256"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_volunteer_service"
-                    tools:text="무료숙박" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_18dp"
+                    android:background="@drawable/bg_btn_normal_orange_radius_8dp"
+                    android:gravity="center"
+                    android:text="@string/reserve_text"
+                    android:textColor="@color/colorWhiteFDFD"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_work_hour"
+                    app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
+                    app:layout_constraintStart_toEndOf="@id/tv_work_hour"
+                    app:layout_constraintTop_toTopOf="@id/text_per_day" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_option"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="28dp"
-                    android:background="@drawable/bg_round_fafafa_radius_8dp"
-                    android:paddingStart="16dp"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="12dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_info"
-                    tools:text="옵션 A 일손 1시간 추가시 저녁식사 제공
-                           옵션 B 10,000원 추가시 바베큐 그릴 제공" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_title"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_hash_tags"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginEnd="28dp"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/margin_32dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_option"
-                    tools:text="상품 설명 타이틀" />
+                    app:layout_constraintStart_toStartOf="@id/vp_viewpager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_work_hour"
+                    tools:listitem="@layout/item_product_hash_tag" />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_content"
+                    android:id="@+id/tv_explanation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="28dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
                     android:textColor="@color/colorBlack2D2D"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
+                    app:layout_constraintStart_toStartOf="@id/vp_viewpager"
+                    app:layout_constraintTop_toBottomOf="@id/rv_hash_tags"
                     tools:text="상품 설명 상세  설명 상품 설명 상세 설명 상품 설명
 상품 설명 상세 설명 상품 설명 상세 설명 상품 설명
 상품 설명 상세 설명 상품 설명 상세 설명 상품 설명" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/btn_more_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="28dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_content"
-                    app:srcCompat="@drawable/button_more_view" />
-
-                <View
-                    android:id="@+id/view5"
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="36dp"
-                    android:background="@color/colorWhiteFDFD"
-                    app:layout_constraintTop_toBottomOf="@id/btn_more_content" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/text_lodgement_info"
@@ -253,7 +222,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view5" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_explanation" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/tmap"
@@ -274,7 +243,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="28dp"
-                    android:background="@color/colorWhiteFDFD"
+                    android:background="@drawable/bg_grayf4f4_radius_8dp"
                     android:paddingBottom="17dp"
                     app:cardCornerRadius="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -368,17 +337,21 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/iv_search_road"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_44dp"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="28dp"
+                    android:background="@drawable/bg_btn_orange_edge"
+                    android:gravity="center"
+                    android:text="길찾기"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cl_info"
-                    app:srcCompat="@drawable/button_search_road" />
+                    app:layout_constraintTop_toBottomOf="@id/cl_info" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/text_facility"
@@ -451,7 +424,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="28dp"
-                    android:background="@drawable/bg_round_fafafa_radius_8dp"
+                    android:background="@drawable/bg_garyf4f4f4"
                     android:paddingBottom="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -499,9 +472,9 @@
                         android:id="@+id/tv_check_out_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/margin_12dp"
                         android:textColor="@color/colorBlack2D2D"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_14sp"
                         app:layout_constraintEnd_toEndOf="@id/text_check_out"
                         app:layout_constraintStart_toStartOf="@id/text_check_out"
                         app:layout_constraintTop_toBottomOf="@id/text_check_out"
@@ -509,200 +482,65 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_service_certification"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="36dp"
-                    android:text="@string/service_time_certification_text"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cl_policy" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_service_certification_info"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="28dp"
-                    android:text="@string/server_time_certification_info_text"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_service_certification" />
-
-                <View
-                    android:id="@+id/view_up_review"
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="36dp"
-                    android:background="@color/colorWhiteFDFD"
-                    app:layout_constraintTop_toBottomOf="@id/text_service_certification_info" />
-
                 <TextView
                     android:id="@+id/tv_tour_review"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="@dimen/margin_28dp"
+                    android:layout_marginTop="@dimen/margin_32dp"
                     android:textColor="@color/colorBlack2D2D"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/text_size_18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view_up_review"
-                    tools:text="여행자 후기" />
+                    app:layout_constraintTop_toBottomOf="@id/cl_policy"
+                    tools:text="이 지역 여행기" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_reviews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_tour_review"
-                    tools:itemCount="2"
+                    tools:itemCount="1"
                     tools:listitem="@layout/item_lodgement_review" />
 
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_every_review"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="28dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rv_reviews"
-                    app:srcCompat="@drawable/button_view_all_reviews" />
-
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="36dp"
-                    android:background="@color/colorWhiteFDFD"
-                    app:layout_constraintTop_toBottomOf="@id/iv_every_review" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_cancel_rule"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view2"
-                    app:srcCompat="@drawable/button_cancel_rule" />
-
-                <View
-                    android:id="@+id/view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="28dp"
-                    android:background="@color/colorWhiteGrayF4F4"
-                    app:layout_constraintTop_toBottomOf="@id/iv_cancel_rule" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view3"
-                    app:srcCompat="@drawable/button_question" />
-
-                <View
-                    android:id="@+id/view4"
-                    android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorWhiteFDFD"
-                    app:layout_constraintTop_toBottomOf="@id/iv_question" />
-
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="36dp"
-                    android:text="@string/near_tour_info_text"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view4" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_near_tours"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:orientation="horizontal"
-                    android:paddingStart="28dp"
-                    android:paddingEnd="0dp"
-                    android:paddingBottom="36dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text2"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_tour_introduce" />
+                    android:id="@+id/tv_view_all_local"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_44dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_40dp"
+                    android:background="@drawable/bg_btn_orange_edge"
+                    android:gravity="center"
+                    android:text="이 지역 여행기 전체보기"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
+                    app:layout_constraintStart_toStartOf="@id/vp_viewpager"
+                    app:layout_constraintTop_toBottomOf="@id/rv_reviews" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="1dp">
 
-            <View
-                android:id="@+id/view_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorWhiteFDFD"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/text_free_lodge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="2dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_date_select"
-                app:srcCompat="@drawable/ic_free_lodge" />
-
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_bottom_lodge_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/iv_date_select"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="1박, 일손 4시간" />
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_date_select"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_bottom"
-                app:srcCompat="@drawable/button_date_select" />
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_64dp"
+                android:background="@color/colorOrangeF79256"
+                android:gravity="center"
+                android:text="@string/reserve_text"
+                android:textColor="@color/colorWhiteFDFD"
+                android:textSize="@dimen/text_size_14sp"
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
