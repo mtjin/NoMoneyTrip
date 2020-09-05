@@ -12,6 +12,7 @@
     <color name="colorWhiteFFF5EF">#fff5ef</color>
     <color name="colorBlack2D2D">#2d2d2d</color>
     <color name="colorGray8C8C">#8C8C8C</color>
+    <color name="colorGrayC8C8">#C8C8C8</color>
     <color name="colorWhiteFDFD">#fdfdfd</color>
     <color name="colorWhite">#ffffff</color>
 </resources>
