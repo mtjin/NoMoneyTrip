@@ -45,4 +45,6 @@
     <dimen name="margin_15dp">15dp</dimen>
     <dimen name="margin_31dp">31dp</dimen>
     <dimen name="height_64dp">64dp</dimen>
+    <dimen name="width_100dp">100dp</dimen>
+    <dimen name="height_76dp">76dp</dimen>
 </resources>

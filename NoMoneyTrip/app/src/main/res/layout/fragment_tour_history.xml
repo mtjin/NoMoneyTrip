@@ -18,7 +18,7 @@
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_43dp"
             android:fontFamily="@font/goyang_ilsan_regular"
-            android:text="여행기 작성"
+            android:text="@string/tour_write_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,16 +53,18 @@
             android:paddingStart="28dp"
             android:paddingEnd="28dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/tv_next"
             app:layout_constraintTop_toBottomOf="@id/text_question"
-            tools:itemCount="2"
-            tools:listitem="@layout/item_tour_history" />
+            tools:itemCount="4"
+            tools:listitem="@layout/item_tour_write_history" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_next"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_64dp"
             android:background="@color/colorGrayC8C8"
             android:gravity="center"
-            android:text="다음"
+            android:text="@string/next_text"
             android:textColor="@color/colorWhiteFDFD"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toBottomOf="parent" />

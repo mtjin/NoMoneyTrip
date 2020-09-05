@@ -95,4 +95,6 @@
     <string name="enter_password_text">비밀번호를 입력해주세요</string>
     <string name="enter_password_confirm_text">비밀번호 확인을 입력해주세요</string>
     <string name="password_confirm_not_same_text">비밀번호가 일치하지 않습니다.</string>
+    <string name="next_text">다음</string>
+    <string name="tour_write_text">여행기 작성</string>
 </resources>
