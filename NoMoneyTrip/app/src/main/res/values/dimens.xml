@@ -47,4 +47,6 @@
     <dimen name="height_64dp">64dp</dimen>
     <dimen name="width_100dp">100dp</dimen>
     <dimen name="height_76dp">76dp</dimen>
+    <dimen name="width_2dp">2dp</dimen>
+    <dimen name="height_100dp">100dp</dimen>
 </resources>

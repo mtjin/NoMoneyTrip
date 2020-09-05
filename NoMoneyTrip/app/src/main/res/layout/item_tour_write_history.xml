@@ -6,75 +6,68 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_8dp">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:cardBackgroundColor="@color/colorWhiteGrayF4F4"
-        app:cardCornerRadius="@dimen/radius_8dp"
-        app:cardElevation="0dp"
+        android:layout_height="@dimen/height_100dp"
+        android:background="@drawable/bg_garyf4f4f4"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_image"
-                android:layout_width="@dimen/width_100dp"
-                android:layout_height="@dimen/height_76dp"
-                android:layout_marginStart="@dimen/margin_12dp"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:scaleType="fitXY"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/img_product" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="@dimen/width_100dp"
+            android:layout_height="@dimen/height_76dp"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_product" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_12dp"
-                android:textColor="@color/colorBlack2D2D"
-                android:textSize="@dimen/text_size_14sp"
-                app:layout_constraintStart_toEndOf="@id/iv_image"
-                app:layout_constraintTop_toTopOf="@id/iv_image"
-                tools:text="상품 제목입니다" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="@id/iv_image"
+            tools:text="상품 제목입니다" />
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:backgroundTint="@color/colorOrangeF79256"
-                android:progressTint="@color/colorOrangeF79256"
-                app:layout_constraintStart_toStartOf="@id/tv_title"
-                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rb_rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/colorOrangeF79256"
+            android:progressTint="@color/colorOrangeF79256"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:textColor="@color/colorBlack2D2D"
-                android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@id/rb_rating"
-                app:layout_constraintTop_toTopOf="@id/rb_rating"
-                tools:text="6" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/rb_rating"
+            app:layout_constraintTop_toTopOf="@id/rb_rating"
+            tools:text="6" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorGray8C8C"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/iv_image"
-                app:layout_constraintStart_toStartOf="@id/tv_title"
-                tools:text="2020.06.26" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray8C8C"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            tools:text="2020.06.26" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

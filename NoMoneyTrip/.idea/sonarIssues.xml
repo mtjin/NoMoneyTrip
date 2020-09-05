@@ -408,6 +408,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/bg_garyf4f4f4.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/bg_hash_tag_solid_orange_radius_8dp.xml">
           <value>
             <set />
@@ -434,6 +439,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable/bg_item_product_radius_16dp.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/bg_orange_stroke_gary_solid.xml">
           <value>
             <set />
           </value>
