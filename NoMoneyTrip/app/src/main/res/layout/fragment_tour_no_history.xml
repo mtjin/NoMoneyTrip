@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_43dp"
+            android:fontFamily="@font/goyang_ilsan_regular"
+            android:text="@string/tour_write_text"
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="@dimen/text_size_20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_title"
+            app:srcCompat="@drawable/ic_cancel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_31dp"
+            android:text="다녀온 여행지가 없습니다.\n인기있는 무전 여행을 추천해드릴게요."
+            android:textColor="@color/colorBlack2D2D"
+            app:layout_constraintStart_toStartOf="@id/text_title"
+            app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_290dp"
+            android:layout_marginTop="@dimen/margin_80dp"
+            android:clipToPadding="false"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            app:layout_constraintTop_toBottomOf="@id/text_question" />
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
+            app:layout_constraintStart_toStartOf="@id/vp_viewpager"
+            app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
+            app:piv_animationType="scale"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="@color/colorBlack2D2D"
+            app:piv_unselectedColor="@color/colorGrayC8C8"
+            app:piv_viewPager="@id/vp_viewpager"
+            attrs:piv_padding="8dp"
+            attrs:piv_radius="8dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_next"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_64dp"
+            android:background="@color/colorOrangeF79256"
+            android:gravity="center"
+            android:text="@string/go_home_text"
+            android:textColor="@color/colorWhiteFDFD"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

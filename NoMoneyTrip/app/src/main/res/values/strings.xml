@@ -97,4 +97,5 @@
     <string name="password_confirm_not_same_text">비밀번호가 일치하지 않습니다.</string>
     <string name="next_text">다음</string>
     <string name="tour_write_text">여행기 작성</string>
+    <string name="go_home_text">홈으로</string>
 </resources>
