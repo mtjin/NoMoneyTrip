@@ -14,20 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/rb_rating"
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="@color/colorOrangeF79256"
-            android:max="5"
-            android:progressTint="@color/colorOrangeF79256"
-            android:rating="0"
-            android:stepSize="0.5"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_32dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_title" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/tv_write"
@@ -38,18 +33,18 @@
             android:text="@string/write_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/rb_rating"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rb_rating"
+            app:layout_constraintTop_toTopOf="@id/iv_back"
             app:srcCompat="@drawable/button_upload_write" />
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="11dp"
+            android:layout_height="@dimen/height_1dp"
+            android:layout_marginTop="@dimen/margin_13dp"
             android:background="@color/colorWhiteGrayF4F4"
-            app:layout_constraintTop_toBottomOf="@id/rb_rating" />
+            app:layout_constraintTop_toBottomOf="@id/tv_write" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -80,7 +75,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="49dp"
                     android:background="@android:color/transparent"
-                    android:hint="@string/how_tour_question_text"
+                    android:hint="여행은 어떠셨나요?\n숨겨진 국내 여행 팁을 나눠주세요."
                     android:text="@={vm.content}"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
@@ -107,18 +102,20 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="28dp"
-                    android:background="@drawable/bg_gray_no_border_radius_16dp"
-                    android:drawableStart="@drawable/ic_logo_20dp"
+                    android:background="@drawable/bg_grayf4f4_radius_8dp"
+                    android:drawableStart="@drawable/logo_20dp"
                     android:drawablePadding="8dp"
+                    android:ellipsize="end"
                     android:paddingStart="12dp"
                     android:paddingTop="10dp"
                     android:paddingEnd="12dp"
                     android:paddingBottom="10dp"
+                    android:singleLine="true"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text3"
-                    tools:text="[충북] 상품제목" />
+                    tools:text="상품제목이고 한줄까지 가능합니다." />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
