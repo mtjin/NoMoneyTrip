@@ -1,6 +1,7 @@
 package com.mtjin.nomoneytrip.views.lodgment_detail
 
 import androidx.navigation.fragment.navArgs
+import androidx.viewpager2.widget.ViewPager2
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
@@ -21,6 +22,15 @@ class LodgmentDetailFragment :
 
     private fun initViewPager() {
         binding.vpViewpager.adapter = ProductPagerAdapter(thisContext, productArg.product.imageList)
+        binding.tvPagerNum.text = ("" + 1 + " / " + productArg.product.imageList.size.toString())
+        binding.vpViewpager.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.tvPagerNum.text =
+                    ((position + 1).toString() + " / " + productArg.product.imageList.size.toString())
+            }
+        })
     }
 
     private fun initAdapter() {
@@ -32,8 +42,8 @@ class LodgmentDetailFragment :
     }
 
     private fun initTmap() {
-        val tmapview = TMapView(context)
-        tmapview.setSKTMapApiKey(getString(R.string.tmap_key))
+        val tmapView = TMapView(context)
+        tmapView.setSKTMapApiKey(getString(R.string.tmap_key))
         val tMapView = TMapView(context)
         tMapView.setSKTMapApiKey(getString(R.string.tmap_key))
         tmap.addView(tMapView)
