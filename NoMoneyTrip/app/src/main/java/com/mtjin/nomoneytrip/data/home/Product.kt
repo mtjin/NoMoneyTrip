@@ -1,5 +1,9 @@
 package com.mtjin.nomoneytrip.data.home
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Product(
     var id: String = "",
     var image: List<String> = ArrayList(),
@@ -19,4 +23,4 @@ data class Product(
     var market: Boolean = false,
     var animal: Boolean = false
 
-)
+) : Parcelable
