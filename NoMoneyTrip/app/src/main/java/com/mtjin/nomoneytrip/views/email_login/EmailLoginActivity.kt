@@ -37,6 +37,9 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
             login.observe(this@EmailLoginActivity, Observer {
                 emailLogin(email.value!!, pw.value!!)
             })
+            backCLick.observe(this@EmailLoginActivity, Observer {
+                finish()
+            })
         }
     }
 
