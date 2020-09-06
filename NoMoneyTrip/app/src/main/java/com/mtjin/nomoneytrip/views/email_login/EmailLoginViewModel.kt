@@ -22,15 +22,16 @@ class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository
     val backCLick: LiveData<Unit> get() = _backClick
 
     fun onEmailLoginClick() {
-        showProgress()
         val email: String = email.value.toString().trim()
         val pw: String = pw.value.toString().trim()
-        if (email.isEmpty()) {
-            _isEmailEmpty.call()
-        } else if (pw.isEmpty()) {
-            _isPwEmpty.call()
-        } else {
-            _login.call()
+
+        when {
+            email.isEmpty() -> _isEmailEmpty.call()
+            pw.isEmpty() -> _isPwEmpty.call()
+            else -> {
+                showProgress()
+                _login.call()
+            }
         }
     }
 
