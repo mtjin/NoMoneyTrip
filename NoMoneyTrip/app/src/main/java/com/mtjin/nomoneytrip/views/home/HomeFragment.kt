@@ -21,14 +21,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initAdapter() {
-        //상단 해쉬태그 어댑터
+        //해쉬태그 어댑터
         hashTagAdapter = HomeHashTagAdapter({ hashTag ->
             viewModel.requestHashTagProducts(hashTag)
         }, thisContext)
         binding.rvHashTags.adapter = hashTagAdapter
 
-        //하단 아이템 리스트
-        homeAdapter = HomeProductAdapter()
+        //상품 리스트 어댑터
+        homeAdapter = HomeProductAdapter { product ->
+            findNavController().navigate(
+                HomeFragmentDirections.actionBottomNav1ToLodgmentDetailFragment(
+                    product
+                )
+            )
+        }
         binding.rvHomeProducts.adapter = homeAdapter
     }
 

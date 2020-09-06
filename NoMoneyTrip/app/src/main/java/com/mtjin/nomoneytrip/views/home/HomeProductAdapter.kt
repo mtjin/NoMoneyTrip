@@ -8,7 +8,7 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.databinding.ItemProductBinding
 
-class HomeProductAdapter :
+class HomeProductAdapter(private val itemClick: (Product) -> Unit) :
     RecyclerView.Adapter<HomeProductAdapter.ViewHolder>() {
     private val items: ArrayList<Product> = ArrayList()
 
@@ -19,9 +19,11 @@ class HomeProductAdapter :
             parent,
             false
         )
-        return ViewHolder(
-            binding
-        )
+        val viewHolder = ViewHolder(binding)
+        binding.root.setOnClickListener {
+            itemClick(items[viewHolder.adapterPosition])
+        }
+        return viewHolder
     }
 
     override fun getItemCount(): Int = items.size

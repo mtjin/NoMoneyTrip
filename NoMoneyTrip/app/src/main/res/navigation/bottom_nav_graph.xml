@@ -14,7 +14,8 @@
             app:destination="@id/search_fragment" />
         <action
             android:id="@+id/action_bottom_nav_1_to_lodgment_detail_fragment"
-            app:destination="@id/lodgment_detail_fragment" />
+            app:destination="@id/lodgment_detail_fragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
