@@ -14,10 +14,16 @@ class LodgmentDetailFragment :
     private val productArg: LodgmentDetailFragmentArgs by navArgs()
 
     override fun init() {
-        initAdapter()
+        initHashTagAdapter()
         processIntent()
         initViewPager()
+        initReviewAdapter()
         initTmap()
+    }
+
+    private fun initReviewAdapter() {
+        binding.rvReviews.adapter = ReviewAdapter()
+        // TODO :: 아이템 추가작업 추후 구현
     }
 
     private fun initViewPager() {
@@ -33,7 +39,7 @@ class LodgmentDetailFragment :
         })
     }
 
-    private fun initAdapter() {
+    private fun initHashTagAdapter() {
         binding.rvHashTags.adapter = ProductHashTagAdapter()
     }
 
