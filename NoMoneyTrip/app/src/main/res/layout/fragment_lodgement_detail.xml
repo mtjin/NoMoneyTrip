@@ -9,6 +9,10 @@
         <variable
             name="product"
             type="com.mtjin.nomoneytrip.data.home.Product" />
+
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailViewModel" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -184,6 +188,7 @@
                     android:layout_marginStart="@dimen/margin_18dp"
                     android:background="@drawable/bg_btn_normal_orange_radius_8dp"
                     android:gravity="center"
+                    android:onClick="@{()->vm.goReservationFirst()}"
                     android:text="@string/reserve_text"
                     android:textColor="@color/colorWhiteFDFD"
                     app:layout_constraintBottom_toBottomOf="@id/tv_work_hour"
@@ -549,6 +554,7 @@
                 android:layout_height="@dimen/height_64dp"
                 android:background="@color/colorOrangeF79256"
                 android:gravity="center"
+                android:onClick="@{()->vm.goReservationFirst()}"
                 android:text="@string/reserve_text"
                 android:textColor="@color/colorWhiteFDFD"
                 android:textSize="@dimen/text_size_14sp"

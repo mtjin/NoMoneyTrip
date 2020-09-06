@@ -5,6 +5,7 @@ import com.mtjin.nomoneytrip.views.email_login.EmailLoginViewModel
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpViewModel
 import com.mtjin.nomoneytrip.views.home.HomeViewModel
 import com.mtjin.nomoneytrip.views.localpage.LocalPageViewModel
+import com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailViewModel
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
 import com.mtjin.nomoneytrip.views.search.SearchViewModel
 import com.mtjin.nomoneytrip.views.tour_write.TourWriteViewModel
@@ -21,4 +22,5 @@ val viewModelModule: Module = module {
     viewModel { SearchViewModel() }
     viewModel { LocalPageViewModel(get()) }
     viewModel { TourWriteViewModel(get()) }
+    viewModel { LodgmentDetailViewModel() }
 }

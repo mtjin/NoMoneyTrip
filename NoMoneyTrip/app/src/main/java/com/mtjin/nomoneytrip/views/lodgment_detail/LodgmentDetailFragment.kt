@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.views.lodgment_detail
 
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.mtjin.nomoneytrip.R
@@ -8,17 +10,33 @@ import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.skt.Tmap.TMapView
 import kotlinx.android.synthetic.main.fragment_lodgement_detail.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LodgmentDetailFragment :
     BaseFragment<FragmentLodgementDetailBinding>(R.layout.fragment_lodgement_detail) {
     private val productArg: LodgmentDetailFragmentArgs by navArgs()
+    private val viewModel: LodgmentDetailViewModel by viewModel()
 
     override fun init() {
+        binding.vm = viewModel
         initHashTagAdapter()
         processIntent()
         initViewPager()
         initReviewAdapter()
         initTmap()
+        initViewModelCallback()
+    }
+
+    private fun initViewModelCallback() {
+        with(viewModel) {
+            goReservationFirst.observe(this@LodgmentDetailFragment, Observer {
+                findNavController().navigate(
+                    LodgmentDetailFragmentDirections.actionLodgmentDetailFragmentToReservationFirstFragment(
+                        productArg.product
+                    )
+                )
+            })
+        }
     }
 
     private fun initReviewAdapter() {
