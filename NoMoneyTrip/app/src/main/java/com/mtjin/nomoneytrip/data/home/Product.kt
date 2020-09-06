@@ -18,6 +18,7 @@ data class Product(
     var checkIn: String = "",
     var checkOut: String = "",
     var phone: String = "",
+    var time: String = "",
     var internet: Boolean = false,
     var parking: Boolean = false,
     var market: Boolean = false,

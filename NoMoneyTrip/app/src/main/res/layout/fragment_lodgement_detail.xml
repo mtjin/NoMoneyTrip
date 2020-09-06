@@ -171,11 +171,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_2dp"
-                    android:text="일손 4시간"
+                    android:text="@{product.time}"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_16sp"
                     app:layout_constraintStart_toStartOf="@id/vp_viewpager"
-                    app:layout_constraintTop_toBottomOf="@id/text_per_day" />
+                    app:layout_constraintTop_toBottomOf="@id/text_per_day"
+                    tools:text="일손 4시간" />
 
                 <TextView
                     android:layout_width="0dp"
