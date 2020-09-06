@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="product"
+            type="com.mtjin.nomoneytrip.data.home.Product" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -194,6 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="25dp"
+                    android:text="@{product.optionList.get(0)}"
                     android:textColor="@color/colorBlack2D2D"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_more_option"
@@ -214,6 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="25dp"
+                    android:text="@{product.optionList.get(1)}"
                     android:textColor="@color/colorBlack2D2D"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_option_1"
