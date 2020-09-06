@@ -32,11 +32,13 @@ class SplashActivity : AppCompatActivity() {
             viewModel.updateFCM()
             Handler(Looper.getMainLooper()).postDelayed(Runnable {
                 startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }, 1000)
         } else {
             // 로그인 안되어있을 시 로그인 화면으로
             Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this, LoginActivity::class.java))
+                finish()
             }, 1000)
         }
     }
