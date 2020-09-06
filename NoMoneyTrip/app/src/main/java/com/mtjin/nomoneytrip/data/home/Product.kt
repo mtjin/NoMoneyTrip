@@ -8,6 +8,7 @@ data class Product(
     var id: String = "",
     var imageList: List<String> = ArrayList(),
     var hashTagList: List<String> = ArrayList(),
+    var optionList: List<String> = ArrayList(),
     var title: String = "",
     var content: String = "",
     var city: String = "",
