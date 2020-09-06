@@ -43,6 +43,15 @@ fun Int.convertNextHour(): Int = if (this == 23) 0 else this + 1
 
 fun Int.convertNextMinute(): Int = if (this == 59) 0 else this + 1
 
+//현재 Year
+fun getCurrentYear(): Int = Calendar.getInstance().get(Calendar.YEAR)
+
+//현재 Month
+fun getCurrentMonth(): Int = Calendar.getInstance().get(Calendar.MONTH) + 1
+
+//현재 Day
+fun getCurrentDay(): Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+
 // 1시간 뒤 타임스탬프
 fun Long.convertNextHourTimestamp(): Long = this + (60 * 60 * 1000)
 
