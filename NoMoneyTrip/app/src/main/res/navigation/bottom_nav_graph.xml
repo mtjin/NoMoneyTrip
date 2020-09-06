@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_bottom_nav_1_to_search_fragment"
             app:destination="@id/search_fragment" />
+        <action
+            android:id="@+id/action_bottom_nav_1_to_lodgment_detail_fragment"
+            app:destination="@id/lodgment_detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
@@ -32,7 +35,7 @@
         android:id="@+id/search_fragment"
         android:name="com.mtjin.nomoneytrip.views.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_search_fragment_to_localpage_fragment"
             app:destination="@id/localpage_fragment"
@@ -43,9 +46,20 @@
         android:id="@+id/localpage_fragment"
         android:name="com.mtjin.nomoneytrip.views.localpage.LocalPageFragment"
         android:label="LocalPageFragment"
-        tools:layout="@layout/fragment_local_page" >
+        tools:layout="@layout/fragment_local_page">
         <argument
             android:name="local"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/lodgment_detail_fragment"
+        android:name="com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailFragment"
+        android:label="LodgmentDetailFragment"
+        tools:layout="@layout/fragment_lodgement_detail">
+        <argument
+            android:name="product"
+            app:argType="com.mtjin.nomoneytrip.data.home.Product" />
+    </fragment>
+
 </navigation>
