@@ -14,25 +14,32 @@ class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository
     private val _isEmailEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _isPwEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _login: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _backClick: SingleLiveEvent<Unit> = SingleLiveEvent()
 
     val isEmailEmpty: LiveData<Unit> get() = _isEmailEmpty
     val isPwEmpty: LiveData<Unit> get() = _isPwEmpty
     val login: LiveData<Unit> get() = _login
+    val backCLick: LiveData<Unit> get() = _backClick
 
     fun onEmailLoginClick() {
-        showProgress()
         val email: String = email.value.toString().trim()
         val pw: String = pw.value.toString().trim()
-        if (email.isEmpty()) {
-            _isEmailEmpty.call()
-        } else if (pw.isEmpty()) {
-            _isPwEmpty.call()
-        } else {
-            _login.call()
+
+        when {
+            email.isEmpty() -> _isEmailEmpty.call()
+            pw.isEmpty() -> _isPwEmpty.call()
+            else -> {
+                showProgress()
+                _login.call()
+            }
         }
     }
 
     fun insertUser(user: User) {
         emailLoginRepository
+    }
+
+    fun onBackButtonClick() {
+        _backClick.call()
     }
 }
