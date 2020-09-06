@@ -63,7 +63,7 @@
                         android:layout_marginEnd="@dimen/margin_16dp"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="@{item.content}"
+                        android:text="@{item.title}"
                         android:textColor="@color/colorBlack2D2D"
                         android:textSize="@dimen/text_size_14sp"
                         app:layout_constraintEnd_toEndOf="parent"

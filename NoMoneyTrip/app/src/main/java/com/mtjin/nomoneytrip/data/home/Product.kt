@@ -3,8 +3,20 @@ package com.mtjin.nomoneytrip.data.home
 data class Product(
     var id: String = "",
     var image: List<String> = ArrayList(),
+    var hashTagList: List<String> = ArrayList(),
+    var title: String = "",
     var content: String = "",
     var city: String = "",
-    var local: String = "",
-    var hashTagList: List<String> = ArrayList()
+    var address: String = "",
+    var homePage: String = "",
+    var xPos: String = "",
+    var yPos: String = "",
+    var checkIn: String = "",
+    var checkOut: String = "",
+    var phone: String = "",
+    var internet: Boolean = false,
+    var parking: Boolean = false,
+    var market: Boolean = false,
+    var animal: Boolean = false
+
 )
