@@ -21,7 +21,7 @@ class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository
     val login: LiveData<Unit> get() = _login
     val backCLick: LiveData<Unit> get() = _backClick
 
-    fun onEmailLoginClick() {
+    fun onEmailLoginClick() { // 수정
         val email: String = email.value.toString().trim()
         val pw: String = pw.value.toString().trim()
 
