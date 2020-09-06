@@ -8,6 +8,10 @@
         <variable
             name="product"
             type="com.mtjin.nomoneytrip.data.home.Product" />
+
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.reservation_phase_first.ReservationPhaseFirstViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,6 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_14dp"
+                    android:onClick="@{()-> vm.showCalendar()}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_date"
@@ -95,24 +100,18 @@
                     android:background="@color/colorWhiteGrayF4F4"
                     app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
-                <com.applikeysolutions.cosmocalendar.view.CalendarView
+                <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                     android:id="@+id/cv_calendar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:visibility="gone"
                     app:connectedDayIconPosition="top"
                     app:currentDayIconRes="@drawable/ic_select"
                     app:currentDaySelectedIconRes="@drawable/ic_select"
-                    app:currentDayTextColor="#f79256"
-                    app:firstDayOfTheWeek="sunday"
                     app:layout_constraintTop_toBottomOf="@id/view_date"
-                    app:orientation="horizontal"
-                    app:selectedDayBackgroundColor="#FFEACA"
-                    app:selectedDayBackgroundEndColor="#f79256"
-                    app:selectedDayBackgroundStartColor="#f79256"
-                    app:selectedDayTextColor="#FFFFFF"
-                    app:selectionType="range"
-                    app:weekendDayTextColor="#ef4550" />
+                    app:mcv_selectionColor="#f79256"
+                    app:mcv_selectionMode="range" />
 
                 <View
                     android:id="@+id/view_calendar"
