@@ -15,7 +15,12 @@ class LodgmentDetailFragment :
     override fun init() {
         initAdapter()
         processIntent()
+        initViewPager()
         initTmap()
+    }
+
+    private fun initViewPager() {
+        binding.vpViewpager.adapter = ProductPagerAdapter(thisContext, productArg.product.imageList)
     }
 
     private fun initAdapter() {

@@ -36,7 +36,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    bind:urlImage="@{item.image.get(0)}"
+                    bind:urlImage="@{item.imageList.get(0)}"
                     tools:src="@drawable/busan" />
 
                 <androidx.appcompat.widget.AppCompatImageView
