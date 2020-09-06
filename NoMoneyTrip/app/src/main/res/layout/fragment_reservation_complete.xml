@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,6 +9,80 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_cancel" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_44dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_cancel"
+            app:srcCompat="@drawable/ic_reservation_complete" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_reservation_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_21dp"
+            android:gravity="center"
+            android:text="무전숙박 예약 신청이\n
+완료되었습니다."
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="@dimen/text_size_20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_complete" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_reservation_explanation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:gravity="center"
+            android:text="예약이 확정되면 알림을 제공합니다.\n
+알림은 푸시알림 동의가 있어야 제공됩니다.."
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_reservation_complete" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_44dp"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:background="@drawable/bg_btn_orange_edge"
+            android:gravity="center"
+            android:text="예약 상세 보기"
+            android:textColor="@color/colorOrangeF79256"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_reservation_explanation" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_go_home"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_64dp"
+            android:background="@color/colorOrangeF79256"
+            android:gravity="center"
+            android:text="@string/reserve_text"
+            android:textColor="@color/colorWhiteFDFD"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
