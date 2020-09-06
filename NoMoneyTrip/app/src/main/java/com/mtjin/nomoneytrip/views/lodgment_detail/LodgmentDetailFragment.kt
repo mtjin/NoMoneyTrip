@@ -4,6 +4,7 @@ import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
+import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.skt.Tmap.TMapView
 import kotlinx.android.synthetic.main.fragment_lodgement_detail.*
 
@@ -12,8 +13,13 @@ class LodgmentDetailFragment :
     private val productArg: LodgmentDetailFragmentArgs by navArgs()
 
     override fun init() {
+        initAdapter()
         processIntent()
         initTmap()
+    }
+
+    private fun initAdapter() {
+        binding.rvHashTags.adapter = ProductHashTagAdapter()
     }
 
     private fun processIntent() {
