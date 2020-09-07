@@ -35,6 +35,9 @@ fun String.convertHourDoubleDigit(): String = if (this.length < 2) "0$this" else
 // 분 한자리면 앞에 0 붙여주어 반환
 fun String.convertMinuteDoubleDigit(): String = if (this.length < 2) "0$this" else this
 
+// 한자리 숫자면 두자리로 변환
+fun String.convertSingleToDoubleDigit(): String = if (this.length < 2) "0$this" else this
+
 fun Long.convertTimestampToHour(): Int = DateFormat.format("HH", this).toString().toInt()
 
 fun Long.convertTimestampToMinute(): Int = DateFormat.format("mm", this).toString().toInt()
@@ -43,17 +46,25 @@ fun Int.convertNextHour(): Int = if (this == 23) 0 else this + 1
 
 fun Int.convertNextMinute(): Int = if (this == 59) 0 else this + 1
 
-//현재 Year
+// 현재 Year
 fun getCurrentYear(): Int = Calendar.getInstance().get(Calendar.YEAR)
 
-//현재 Month
+// 현재 Month
 fun getCurrentMonth(): Int = Calendar.getInstance().get(Calendar.MONTH) + 1
 
-//현재 Day
+// 현재 Day
 fun getCurrentDay(): Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
 
 // 1시간 뒤 타임스탬프
 fun Long.convertNextHourTimestamp(): Long = this + (60 * 60 * 1000)
+
+// 2020, 1, 20 -> timestamp
+fun convertDateToTimestamp(_year: Int, _month: Int, _day: Int): Long {
+    val month = _month.toString().convertSingleToDoubleDigit().toInt()
+    val day = _day.toString().convertSingleToDoubleDigit().toInt()
+    val date = "$_year-$month-$day"
+    return date.convertDateToTimestamp()
+}
 
 // FCM 메시지로 사용
 fun convertTimeToFcmMessage(date: Long, startTime: Long): String =

@@ -12,10 +12,10 @@ import java.util.regex.Pattern
 class ReservationFragment :
     BaseFragment<FragmentReservationBinding>(R.layout.fragment_reservation) {
     override fun init() {
-        TODO("Not yet implemented")
+        initRuleText()
     }
 
-    fun initRuleText() {
+    private fun initRuleText() {
         tv_consent_rule.text =
             HtmlCompat.fromHtml(
                 getString(R.string.consent_use_text),
@@ -38,6 +38,12 @@ class ReservationFragment :
         val pattern3 = Pattern.compile("개인정보 제 3자 제공")
         Linkify.addLinks(tv_consent_rule, pattern1, "http://www.naver.com", null, transform)
         Linkify.addLinks(tv_consent_rule, pattern2, "http://www.google.com", null, transform)
-        Linkify.addLinks(tv_consent_rule, pattern3, "https://youngest-programming.tistory.com/", null, transform)
+        Linkify.addLinks(
+            tv_consent_rule,
+            pattern3,
+            "https://youngest-programming.tistory.com/",
+            null,
+            transform
+        )
     }
 }

@@ -3,19 +3,24 @@ package com.mtjin.nomoneytrip.views.reservation_phase_first
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
+import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 
 class ReservationPhaseFirstViewModel : BaseViewModel() {
     var isDateSelected = false
+    var startDateTimestamp: Long = 0
+    var endDateTimestamp: Long = 0
 
     private val _showCalendar = MutableLiveData<Boolean>(false)
+    private val _goReservation = SingleLiveEvent<Unit>()
     private val _date = MutableLiveData<String>("")
     private val _num = MutableLiveData<String>("1")
     private val _option1 = MutableLiveData<Boolean>(false)
     private val _option2 = MutableLiveData<Boolean>(false)
     private val _allSelected = MutableLiveData<Boolean>(false)
-    private val _isAllSelected: Boolean get() = (isDateSelected && (option1.value == true || option2.value == true))
+    private val isAllSelected: Boolean get() = (isDateSelected && (option1.value == true || option2.value == true))
 
     val showCalendar: LiveData<Boolean> get() = _showCalendar
+    val goReservation: LiveData<Unit> get() = _goReservation
     val date: LiveData<String> get() = _date
     val num: LiveData<String> get() = _num
     val option1: LiveData<Boolean> get() = _option1
@@ -56,8 +61,12 @@ class ReservationPhaseFirstViewModel : BaseViewModel() {
         checkAllSelected()
     }
 
-    fun checkAllSelected(){
-        _allSelected.value = _isAllSelected
+    fun checkAllSelected() {
+        _allSelected.value = isAllSelected
+    }
+
+    fun goReservation() {
+        if (isAllSelected) _goReservation.call()
     }
 
 }

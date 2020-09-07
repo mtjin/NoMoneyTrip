@@ -3,9 +3,11 @@ package com.mtjin.nomoneytrip.views.reservation_phase_first
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
+import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.databinding.FragmentReservationPhaseFirstBinding
 import com.mtjin.nomoneytrip.utils.*
 import com.prolificinteractive.materialcalendarview.CalendarDay
@@ -58,6 +60,21 @@ class ReservationPhaseFirstFragment :
             option2.observe(this@ReservationPhaseFirstFragment, Observer {
                 binding.cbOption2.isChecked = it
             })
+            goReservation.observe(this@ReservationPhaseFirstFragment, Observer {
+                val reservation = Reservation(
+                    id = startDateTimestamp,
+                    userId = uuid,
+                    productId = productArgs.product.id,
+                    startDateTimestamp = viewModel.startDateTimestamp,
+                    endDateTimestamp = viewModel.endDateTimestamp
+                )
+                findNavController().navigate(
+                    ReservationPhaseFirstFragmentDirections.actionReservationFirstFragmentToReservationFragment(
+                        productArgs.product,
+                        reservation
+                    )
+                )
+            })
         }
     }
 
@@ -82,10 +99,24 @@ class ReservationPhaseFirstFragment :
             Log.d(TAG, "ReservationPhaseFirstFragment  YEAR-> " + dates[0].year.toString())
             Log.d(TAG, "ReservationPhaseFirstFragment  MONTH-> " + dates[0].month.toString())
             Log.d(TAG, "ReservationPhaseFirstFragment  DAY-> " + dates[0].day.toString())
-            Log.d(
-                TAG,
-                "ReservationPhaseFirstFragment  IS_SELCTED-> " + binding.cvCalendar.isSelected.toString()
+            viewModel.startDateTimestamp = convertDateToTimestamp(
+                _year = dates[0].year,
+                _month = dates[0].month,
+                _day = dates[0].day
             )
+            if (dates.size == 1) {
+                viewModel.endDateTimestamp = convertDateToTimestamp(
+                    _year = dates[0].year,
+                    _month = dates[0].month,
+                    _day = dates[0].day
+                )
+            } else {
+                viewModel.endDateTimestamp = convertDateToTimestamp(
+                    _year = dates[dates.size - 1].year,
+                    _month = dates[dates.size - 1].month,
+                    _day = dates[dates.size - 1].day
+                )
+            }
         }
         binding.cvCalendar.setOnDateChangedListener { widget, date, selected ->
             Log.d(TAG, "is Selected -> $selected")
