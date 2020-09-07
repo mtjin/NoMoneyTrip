@@ -9,6 +9,7 @@ class ReservationPhaseFirstViewModel : BaseViewModel() {
     var isDateSelected = false
     var startDateTimestamp: Long = 0
     var endDateTimestamp: Long = 0
+    var selectedOption: String = ""
 
     private val _showCalendar = MutableLiveData<Boolean>(false)
     private val _goReservation = SingleLiveEvent<Unit>()

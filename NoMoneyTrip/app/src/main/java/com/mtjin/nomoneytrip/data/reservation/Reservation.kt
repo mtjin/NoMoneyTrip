@@ -7,6 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class Reservation(
     var id: Long = 0,
     var userId: String = "",
+    var option: String = "",
     var productId: String = "",
     var num: String = "",
     var startDateTimestamp: Long = 0,
