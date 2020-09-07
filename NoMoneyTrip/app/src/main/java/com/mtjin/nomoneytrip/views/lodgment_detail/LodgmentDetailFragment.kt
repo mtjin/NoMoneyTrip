@@ -11,6 +11,7 @@ import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.skt.Tmap.TMapMarkerItem
 import com.skt.Tmap.TMapPoint
+import com.skt.Tmap.TMapTapi
 import com.skt.Tmap.TMapView
 import kotlinx.android.synthetic.main.fragment_lodgement_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,6 +40,15 @@ class LodgmentDetailFragment :
                         productArg.product
                     )
                 )
+            })
+            searchDirection.observe(this@LodgmentDetailFragment, Observer {
+                val tMapTapi = TMapTapi(thisContext)
+                if (tMapTapi.isTmapApplicationInstalled) tMapTapi.invokeRoute(
+                    productArg.product.address,
+                    productArg.product.yPos.toFloat(),
+                    productArg.product.xPos.toFloat()
+                )
+                else showToast(getString(R.string.please_install_tmap_text))
             })
         }
     }
