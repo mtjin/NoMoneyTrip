@@ -66,6 +66,12 @@ fun convertDateToTimestamp(_year: Int, _month: Int, _day: Int): Long {
     return date.convertDateToTimestamp()
 }
 
+// timestamp -> 9.6~9.8
+fun convertTimestampToTerm(startTimestamp: Long, endTimestamp: Long): String {
+    return DateFormat.format("MM-dd", startTimestamp)
+        .toString() + "~" + DateFormat.format("MM-dd", endTimestamp).toString()
+}
+
 // FCM 메시지로 사용
 fun convertTimeToFcmMessage(date: Long, startTime: Long): String =
     date.convertTimestampToDate() + " " + startTime.convertTimestampToTime() + "에 회의실 예약이 있습니다."

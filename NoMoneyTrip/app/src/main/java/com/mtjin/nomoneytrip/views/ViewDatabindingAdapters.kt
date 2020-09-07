@@ -2,12 +2,14 @@ package com.mtjin.nomoneytrip.views
 
 import android.widget.ImageView
 import android.widget.RatingBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
+import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
@@ -25,6 +27,13 @@ fun ImageView.setUrlImage(url: String) {
 @BindingAdapter("setRating")
 fun RatingBar.setMovieRating(score: String) {
     rating = (score.toFloatOrNull() ?: 0f)
+}
+
+
+//9.6~9.8
+@BindingAdapter("startTimestampTerm", "endTimestampTerm")
+fun TextView.setTimestampTerm(startTimestamp: Long, endTimestamp: Long) {
+    text = convertTimestampToTerm(startTimestamp, endTimestamp)
 }
 
 @BindingAdapter("setItems")

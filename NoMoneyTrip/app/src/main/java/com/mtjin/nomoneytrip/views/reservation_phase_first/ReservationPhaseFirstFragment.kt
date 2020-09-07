@@ -64,6 +64,7 @@ class ReservationPhaseFirstFragment :
                 val reservation = Reservation(
                     id = startDateTimestamp,
                     userId = uuid,
+                    num = viewModel.num.value!!,
                     productId = productArgs.product.id,
                     startDateTimestamp = viewModel.startDateTimestamp,
                     endDateTimestamp = viewModel.endDateTimestamp

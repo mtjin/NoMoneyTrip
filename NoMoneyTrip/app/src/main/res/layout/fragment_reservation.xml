@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="product"
+            type="com.mtjin.nomoneytrip.data.home.Product" />
+
+        <variable
+            name="reservation"
+            type="com.mtjin.nomoneytrip.data.reservation.Reservation" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,13 +82,15 @@
                     android:layout_marginEnd="@dimen/margin_6dp"
                     android:background="@drawable/bg_btn_orange_edge"
                     android:gravity="center"
-                    android:text="9.5~9.7"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintEnd_toStartOf="@id/tv_num"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="@id/tv_title"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    bind:endTimestampTerm="@{reservation.endDateTimestamp}"
+                    bind:startTimestampTerm="@{reservation.startDateTimestamp}"
+                    tools:text="9.5~9.7" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_num"
@@ -89,6 +99,7 @@
                     android:layout_marginEnd="@dimen/margin_28dp"
                     android:background="@drawable/bg_btn_orange_edge"
                     android:gravity="center"
+                    android:text="@{reservation.num + @string/num_unit_text}"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_date"
