@@ -7,6 +7,10 @@
     <data>
 
         <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.reservation.ReservationViewModel" />
+
+        <variable
             name="product"
             type="com.mtjin.nomoneytrip.data.home.Product" />
 
@@ -145,6 +149,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_12dp"
+                    android:text="@{reservation.option}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintBottom_toBottomOf="@id/text_volunteer"
@@ -238,6 +243,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:autoLink="phone"
                         android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@{product.phone}"
@@ -266,6 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="19dp"
+                        android:autoLink="web"
                         android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@{product.homePage}"
@@ -301,19 +308,19 @@
                     android:textColor="@color/colorBlack2D2D"
                     android:textColorLink="@color/colorOrangeF79256"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@id/iv_consent"
+                    app:layout_constraintEnd_toStartOf="@id/cb_consent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_consent_use" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_consent"
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cb_consent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="19dp"
+                    android:checked="@={vm.consentCheck}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_consent_rule"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tv_consent_rule"
-                    app:srcCompat="@drawable/ic_check_off" />
+                    app:layout_constraintTop_toTopOf="@id/tv_consent_rule" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/ib_purchase"
@@ -327,7 +334,7 @@
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintEnd_toEndOf="@id/tv_num"
                     app:layout_constraintStart_toStartOf="@id/tv_date"
-                    app:layout_constraintTop_toBottomOf="@id/iv_consent" />
+                    app:layout_constraintTop_toBottomOf="@id/cb_consent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

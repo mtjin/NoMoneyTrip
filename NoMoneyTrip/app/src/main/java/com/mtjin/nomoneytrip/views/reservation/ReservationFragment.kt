@@ -6,7 +6,6 @@ import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationBinding
-import kotlinx.android.synthetic.main.fragment_reservation.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -14,8 +13,8 @@ class ReservationFragment :
     BaseFragment<FragmentReservationBinding>(R.layout.fragment_reservation) {
     private val args: ReservationFragmentArgs by navArgs()
     override fun init() {
-        initRuleText()
         processIntent()
+        initRuleText()
     }
 
     private fun processIntent() {
@@ -24,9 +23,9 @@ class ReservationFragment :
     }
 
     private fun initRuleText() {
-        tv_consent_rule.text =
+        binding.tvConsentRule.text =
             HtmlCompat.fromHtml(
-                getString(R.string.consent_use_text),
+                getString(R.string.consent_rule_text),
                 HtmlCompat.FROM_HTML_MODE_COMPACT
             )
         val transform =
@@ -44,10 +43,10 @@ class ReservationFragment :
         val pattern1 = Pattern.compile("취소 / 이용규정")
         val pattern2 = Pattern.compile("개인 정보 수집 / 이용 방침")
         val pattern3 = Pattern.compile("개인정보 제 3자 제공")
-        Linkify.addLinks(tv_consent_rule, pattern1, "http://www.naver.com", null, transform)
-        Linkify.addLinks(tv_consent_rule, pattern2, "http://www.google.com", null, transform)
+        Linkify.addLinks(binding.tvConsentRule, pattern1, "http://www.naver.com", null, transform)
+        Linkify.addLinks(binding.tvConsentRule, pattern2, "http://www.google.com", null, transform)
         Linkify.addLinks(
-            tv_consent_rule,
+            binding.tvConsentRule,
             pattern3,
             "https://youngest-programming.tistory.com/",
             null,
