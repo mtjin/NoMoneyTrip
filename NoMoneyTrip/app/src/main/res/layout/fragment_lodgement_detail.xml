@@ -362,6 +362,7 @@
                     android:layout_marginEnd="28dp"
                     android:background="@drawable/bg_btn_orange_edge"
                     android:gravity="center"
+                    android:onClick="@{()->vm.searchDirection()}"
                     android:text="길찾기"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
