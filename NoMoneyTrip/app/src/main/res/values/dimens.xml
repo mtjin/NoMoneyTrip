@@ -60,4 +60,5 @@
     <dimen name="margin_6dp">6dp</dimen>
     <dimen name="margin_44dp">44dp</dimen>
     <dimen name="margin_21dp">21dp</dimen>
+    <dimen name="height_160dp">160dp</dimen>
 </resources>

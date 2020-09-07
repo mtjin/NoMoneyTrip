@@ -1,5 +1,6 @@
 package com.mtjin.nomoneytrip.views.lodgment_detail
 
+import android.graphics.BitmapFactory
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -8,9 +9,12 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
+import com.skt.Tmap.TMapMarkerItem
+import com.skt.Tmap.TMapPoint
 import com.skt.Tmap.TMapView
 import kotlinx.android.synthetic.main.fragment_lodgement_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class LodgmentDetailFragment :
     BaseFragment<FragmentLodgementDetailBinding>(R.layout.fragment_lodgement_detail) {
@@ -66,10 +70,29 @@ class LodgmentDetailFragment :
     }
 
     private fun initTmap() {
+        //지도 위치설정
+        val xPos = productArg.product.xPos.toDouble() //좌표
+        val yPos = productArg.product.yPos.toDouble()
         val tmapView = TMapView(context)
         tmapView.setSKTMapApiKey(getString(R.string.tmap_key))
-        val tMapView = TMapView(context)
-        tMapView.setSKTMapApiKey(getString(R.string.tmap_key))
-        tmap.addView(tMapView)
+        tmapView.setCenterPoint(
+            yPos,
+            xPos
+        )
+        tmapView.zoomLevel = 20 // 클수록 더 줌된 상태
+        tmap.addView(tmapView) //tmap(xml레이아웃)에 tmapView 동적 추가
+        //마커추가
+        val bitmap =
+            BitmapFactory.decodeResource(
+                requireActivity().resources,
+                R.drawable.ic_location_orange_12
+            )
+        val tMapPoint1 =
+            TMapPoint(xPos, yPos)
+        val markerItem1 = TMapMarkerItem()
+        markerItem1.icon = bitmap // 마커 아이콘 지정
+        markerItem1.tMapPoint = tMapPoint1 // 마커의 좌표 지정
+        markerItem1.name = getString(R.string.no_money_diary_text) // 마커의 타이틀 지정
+        tmapView.addMarkerItem("markerItem1", markerItem1) // 지도에 마커 추가
     }
 }
