@@ -1,14 +1,13 @@
 package com.mtjin.nomoneytrip.views.reservation_phase_first
 
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationPhaseFirstBinding
-import com.mtjin.nomoneytrip.utils.getCurrentDay
-import com.mtjin.nomoneytrip.utils.getCurrentMonth
-import com.mtjin.nomoneytrip.utils.getCurrentYear
+import com.mtjin.nomoneytrip.utils.*
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,8 +28,35 @@ class ReservationPhaseFirstFragment :
     private fun initViewModelCallback() {
         with(viewModel) {
             showCalendar.observe(this@ReservationPhaseFirstFragment, Observer {
-                if (it) binding.cvCalendar.visibility = View.VISIBLE
-                else binding.cvCalendar.visibility = View.GONE
+                if (it) {
+                    binding.cvCalendar.visibility = View.VISIBLE
+                    binding.ivCalendarShow.setImageResource(R.drawable.ic_scroll_up)
+                } else {
+                    binding.cvCalendar.visibility = View.GONE
+                    binding.ivCalendarShow.setImageResource(R.drawable.ic_scroll_down)
+                }
+            })
+            allSelected.observe(this@ReservationPhaseFirstFragment, Observer { isAllSelected ->
+                if (isAllSelected) {
+                    binding.tvReserve.setBackgroundColor(
+                        requireActivity().getMyColor(
+                            R.color.colorOrangeF79256
+                        )
+                    )
+                } else {
+                    binding.tvReserve.setBackgroundColor(
+                        requireActivity().getMyColor(
+                            R.color.colorGrayC8C8
+                        )
+                    )
+                }
+            })
+            option1.observe(this@ReservationPhaseFirstFragment, Observer {
+                binding.cbOption1.isChecked = it
+            })
+
+            option2.observe(this@ReservationPhaseFirstFragment, Observer {
+                binding.cbOption2.isChecked = it
             })
         }
     }
@@ -48,6 +74,24 @@ class ReservationPhaseFirstFragment :
                     getCurrentDay() + 1
                 )
             )
-            .setCalendarDisplayMode(CalendarMode.WEEKS).commit()
+            .setCalendarDisplayMode(CalendarMode.WEEKS)
+            .commit()
+
+        binding.cvCalendar.setOnRangeSelectedListener { widget, dates ->
+            Log.d(TAG, "ReservationPhaseFirstFragment DATES-> $dates")
+            Log.d(TAG, "ReservationPhaseFirstFragment  YEAR-> " + dates[0].year.toString())
+            Log.d(TAG, "ReservationPhaseFirstFragment  MONTH-> " + dates[0].month.toString())
+            Log.d(TAG, "ReservationPhaseFirstFragment  DAY-> " + dates[0].day.toString())
+            Log.d(
+                TAG,
+                "ReservationPhaseFirstFragment  IS_SELCTED-> " + binding.cvCalendar.isSelected.toString()
+            )
+        }
+        binding.cvCalendar.setOnDateChangedListener { widget, date, selected ->
+            Log.d(TAG, "is Selected -> $selected")
+            Log.d(TAG, "is Selected -> $date")
+            viewModel.isDateSelected = selected
+            viewModel.checkAllSelected()
+        }
     }
 }

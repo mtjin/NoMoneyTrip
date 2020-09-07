@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -82,6 +83,7 @@
                     tools:text="2박" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_calendar_show"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_14dp"
@@ -133,13 +135,12 @@
                     app:layout_constraintStart_toStartOf="@id/tv_date"
                     app:layout_constraintTop_toBottomOf="@id/view_calendar" />
 
-                <com.skydoves.elasticviews.ElasticImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    app:imageView_duration="300"
-                    app:imageView_scale="0.9"
+                    android:onClick="@{()->vm.numUp()}"
                     app:layout_constraintBottom_toBottomOf="@id/text_personnel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/text_personnel"
@@ -150,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/num_one_text"
+                    android:text="@{vm.num}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/text_personnel"
@@ -158,13 +159,12 @@
                     app:layout_constraintTop_toTopOf="@id/text_personnel"
                     tools:text="2" />
 
-                <com.skydoves.elasticviews.ElasticImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_down"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    app:imageView_duration="300"
-                    app:imageView_scale="0.9"
+                    android:onClick="@{()->vm.numDown()}"
                     app:layout_constraintBottom_toBottomOf="@id/text_personnel"
                     app:layout_constraintEnd_toStartOf="@id/tv_total_people_num"
                     app:layout_constraintTop_toTopOf="@id/text_personnel"
@@ -208,6 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="26dp"
+                    android:onClick="@{()->vm.option1Click()}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_option_1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_option_1" />
@@ -229,6 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="26dp"
+                    android:onClick="@{()->vm.option2Click()}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_option_2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_option_2" />
