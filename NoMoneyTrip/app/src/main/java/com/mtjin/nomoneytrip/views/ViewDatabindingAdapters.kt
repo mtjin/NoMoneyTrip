@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
+import com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory
 import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
@@ -16,6 +17,7 @@ import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
+import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryAdapter
 import java.util.concurrent.TimeUnit
 
 @BindingAdapter("urlImage")
@@ -96,6 +98,14 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as LocalProductAdapter) {
                     clear()
                     addItems(it as List<Product>)
+                }
+            }
+        }
+        is ReservationHistoryAdapter -> {
+            items?.let {
+                with(adapter as ReservationHistoryAdapter) {
+                    clear()
+                    addItems(it as List<ReservationHistory>)
                 }
             }
         }
