@@ -26,7 +26,7 @@ class ReservationHistoryFragment :
     }
 
     private fun initAdapter() {
-        val adapter = ReservationHistoryAdapter()
+        val adapter = ReservationHistoryAdapter(thisContext)
         binding.rvReservationHistories.adapter = adapter
     }
 }

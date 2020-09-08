@@ -132,6 +132,7 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_left"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -146,6 +147,7 @@
                         android:background="@color/colorGrayC8C8" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_right"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
