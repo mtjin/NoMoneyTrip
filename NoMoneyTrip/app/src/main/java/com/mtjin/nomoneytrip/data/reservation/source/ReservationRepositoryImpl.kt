@@ -1,4 +1,18 @@
 package com.mtjin.nomoneytrip.data.reservation.source
 
-class ReservationRepositoryImpl : ReservationRepository {
+import com.google.firebase.database.DatabaseReference
+import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.utils.RESERVATION
+import io.reactivex.Completable
+
+class ReservationRepositoryImpl(private val database: DatabaseReference) : ReservationRepository {
+    override fun requestReservation(reservation: Reservation): Completable {
+        return Completable.create { emitter ->
+            database.child(RESERVATION).push().setValue(reservation).addOnSuccessListener {
+                emitter.onComplete()
+            }.addOnFailureListener {
+                emitter.onError(it)
+            }
+        }
+    }
 }
