@@ -33,36 +33,37 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
                                 productList.add(it)
                             }
                         }
+                        database.child(RESERVATION).orderByChild(USER_ID).equalTo(uuid)
+                            .addValueEventListener(object : ValueEventListener {
+                                override fun onCancelled(error: DatabaseError) {
+                                    emitter.onError(error.toException())
+                                }
+
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    val list = ArrayList<ReservationHistory>()
+                                    for (reserveSnapShot: DataSnapshot in snapshot.children) {
+                                        reserveSnapShot.getValue(Reservation::class.java)?.let {
+                                            for (product in productList) {
+                                                if (product.id == it.productId) {
+                                                    list.add(
+                                                        ReservationHistory(
+                                                            reservation = it,
+                                                            product = product
+                                                        )
+                                                    )
+                                                    break
+                                                }
+                                            }
+                                        }
+                                    }
+                                    emitter.onNext(list)
+                                }
+
+                            })
                     }
 
                 })
-                database.child(RESERVATION).orderByChild(uuid).equalTo(USER_ID, uuid)
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onCancelled(error: DatabaseError) {
-                            emitter.onError(error.toException())
-                        }
 
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            val list = ArrayList<ReservationHistory>()
-                            for (reserveSnapShot: DataSnapshot in snapshot.children) {
-                                reserveSnapShot.getValue(Reservation::class.java)?.let {
-                                    for (product in productList) {
-                                        if (product.id == it.productId) {
-                                            list.add(
-                                                ReservationHistory(
-                                                    reservation = it,
-                                                    product = product
-                                                )
-                                            )
-                                            break
-                                        }
-                                    }
-                                }
-                            }
-                            emitter.onNext(list)
-                        }
-
-                    })
             }, BackpressureStrategy.BUFFER
         )
     }

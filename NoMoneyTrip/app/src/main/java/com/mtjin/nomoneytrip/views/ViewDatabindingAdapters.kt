@@ -46,7 +46,7 @@ fun TextView.setTimestampPointFullDate(timestamp: Long) {
     text = timestamp.convertTimestampToPointFullDate()
 }
 
-// 2박, 일손 8시간
+// timestamp(1599663600000), time(일손 4시간) -> 2박, 일손 8시간
 @BindingAdapter("startTimestamp", "endTimestamp", "time")
 fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) {
     var time1 = startTimestamp
@@ -54,8 +54,8 @@ fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) 
     val MILLIS_PER_DAY = 1000 * 60 * 60 * 24.toLong()
     time1 -= time1 % MILLIS_PER_DAY
     time2 -= time2 % MILLIS_PER_DAY
-    val day = TimeUnit.DAYS.convert(time1 - time2, TimeUnit.MILLISECONDS).toString()
-    text = (day + "박, 일손 " + time + "시간")
+    val day = TimeUnit.DAYS.convert(time2 - time1, TimeUnit.MILLISECONDS).toString()
+    text = (day + "박, " + time)
 }
 
 @BindingAdapter("setItems")

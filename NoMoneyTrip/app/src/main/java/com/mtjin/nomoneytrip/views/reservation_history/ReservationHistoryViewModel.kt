@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
-import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepository
 import com.mtjin.nomoneytrip.utils.TAG
