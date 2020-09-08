@@ -64,7 +64,7 @@ class ReservationPhaseFirstFragment :
             })
             goReservation.observe(this@ReservationPhaseFirstFragment, Observer {
                 val reservation = Reservation(
-                    id = startDateTimestamp,
+                    id = "",//Reservation DataSource 에서 파베 키값으로 넣어줌
                     userId = uuid,
                     option = viewModel.selectedOption,
                     num = viewModel.num.value!!,

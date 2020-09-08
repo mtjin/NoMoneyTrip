@@ -48,7 +48,7 @@ class LodgmentDetailFragment :
                     productArg.product.yPos.toFloat(),
                     productArg.product.xPos.toFloat()
                 )
-                else showToast(getString(R.string.please_install_tmap_text))
+                else showToast(getString(R.string.please_install_tmap_msg))
             })
         }
     }

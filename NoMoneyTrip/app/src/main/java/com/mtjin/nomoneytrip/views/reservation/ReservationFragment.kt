@@ -1,22 +1,25 @@
 package com.mtjin.nomoneytrip.views.reservation
 
 import android.text.util.Linkify
+import android.util.Log
 import androidx.core.text.HtmlCompat
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 class ReservationFragment :
     BaseFragment<FragmentReservationBinding>(R.layout.fragment_reservation) {
     private val args: ReservationFragmentArgs by navArgs()
-    private val viewModel: ReservationViewModel by viewModels()
+    private val viewModel: ReservationViewModel by viewModel()
 
     override fun init() {
+        binding.vm = viewModel
         processIntent()
         initRuleText()
         initViewModelCallback()
@@ -25,7 +28,20 @@ class ReservationFragment :
     private fun initViewModelCallback() {
         with(viewModel) {
             consentMsg.observe(this@ReservationFragment, Observer {
-                showToast(getString(R.string.please_consent_text))
+                showToast(getString(R.string.please_consent_msg))
+            })
+
+            successReservation.observe(this@ReservationFragment, Observer {
+                Log.d("AAAAA", it.toString())
+                if (it) {
+                    findNavController().navigate(
+                        ReservationFragmentDirections.actionReservationFragmentToReservationCompleteFragment(
+                            reservation
+                        )
+                    )
+                } else {
+                    showToast(getString(R.string.reservation_fail_msg))
+                }
             })
         }
     }
@@ -33,6 +49,7 @@ class ReservationFragment :
     private fun processIntent() {
         binding.product = args.product
         binding.reservation = args.reservation
+        viewModel.reservation = args.reservation
     }
 
     private fun initRuleText() {

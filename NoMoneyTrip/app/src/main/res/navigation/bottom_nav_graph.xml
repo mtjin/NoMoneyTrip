@@ -92,6 +92,20 @@
         <argument
             android:name="reservation"
             app:argType="com.mtjin.nomoneytrip.data.reservation.Reservation" />
+        <action
+            android:id="@+id/action_reservation_fragment_to_reservation_complete_fragment"
+            app:destination="@id/reservation_complete_fragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/bottom_nav_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservation_complete_fragment"
+        android:name="com.mtjin.nomoneytrip.views.reservation_complete.ReservationCompleteFragment"
+        android:label="ReservationCompleteFragment"
+        tools:layout="@layout/fragment_reservation_complete">
+        <argument
+            android:name="reservation"
+            app:argType="com.mtjin.nomoneytrip.data.reservation.Reservation" />
     </fragment>
 
 </navigation>

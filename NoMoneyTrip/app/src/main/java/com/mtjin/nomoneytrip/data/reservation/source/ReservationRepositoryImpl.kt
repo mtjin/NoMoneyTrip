@@ -8,11 +8,14 @@ import io.reactivex.Completable
 class ReservationRepositoryImpl(private val database: DatabaseReference) : ReservationRepository {
     override fun requestReservation(reservation: Reservation): Completable {
         return Completable.create { emitter ->
-            database.child(RESERVATION).push().setValue(reservation).addOnSuccessListener {
-                emitter.onComplete()
-            }.addOnFailureListener {
-                emitter.onError(it)
-            }
+            val key = database.push().key
+            reservation.id = key.toString()
+            database.child(RESERVATION).child(key.toString()).setValue(reservation)
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
         }
     }
 }
