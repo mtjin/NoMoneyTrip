@@ -12,6 +12,7 @@ import com.mtjin.nomoneytrip.utils.RESERVATION
 import com.mtjin.nomoneytrip.utils.USER_ID
 import com.mtjin.nomoneytrip.utils.uuid
 import io.reactivex.BackpressureStrategy
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) :
@@ -66,5 +67,15 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
 
             }, BackpressureStrategy.BUFFER
         )
+    }
+
+    override fun cancelReservation(reservation: Reservation): Completable {
+        return Completable.create { emitter ->
+            database.child(RESERVATION).child(reservation.id).removeValue().addOnSuccessListener {
+                emitter.onComplete()
+            }.addOnFailureListener {
+                emitter.onError(it)
+            }
+        }
     }
 }
