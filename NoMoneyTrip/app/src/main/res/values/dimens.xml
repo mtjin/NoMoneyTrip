@@ -61,4 +61,8 @@
     <dimen name="margin_44dp">44dp</dimen>
     <dimen name="margin_21dp">21dp</dimen>
     <dimen name="height_160dp">160dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="size_66dp">66dp</dimen>
+    <dimen name="margin_34dp">34dp</dimen>
+    <dimen name="height_48dp">48dp</dimen>
 </resources>
