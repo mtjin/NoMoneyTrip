@@ -1,6 +1,9 @@
 # NoMoneyTrip
 2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
 
+# 구조
+MVVM 적용 : 시간 관계상 DataSource 쪽 대부분을 Local, Remote 로 따로 나누지 않고 Repository 만 사용합니다. (대부분 서버의 데이터만 불러오도록 합니다.)
+
 Commit 메세지
 -----------
 **규칙 (2020-07-01 추가) :** [행동] 내용(한글) , 출처 : https://blog.ull.im/engineering/2019/03/10/logs-on-git.html
