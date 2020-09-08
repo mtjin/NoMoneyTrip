@@ -17,7 +17,7 @@
     </style>
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bg_white_radius_8dp</item>
+        <item name="android:background">@drawable/bg_white_top_radius_16dp</item>
     </style>
 
     <!-- Toolbar theme. -->
