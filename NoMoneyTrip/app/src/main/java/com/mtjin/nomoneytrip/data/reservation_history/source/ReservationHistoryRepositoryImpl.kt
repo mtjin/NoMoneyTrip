@@ -69,7 +69,7 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
         )
     }
 
-    override fun cancelReservation(reservation: Reservation): Completable {
+    override fun deleteReservation(reservation: Reservation): Completable {
         return Completable.create { emitter ->
             database.child(RESERVATION).child(reservation.id).removeValue().addOnSuccessListener {
                 emitter.onComplete()

@@ -7,5 +7,5 @@ import io.reactivex.Flowable
 
 interface ReservationHistoryRepository {
     fun requestReservations(): Flowable<List<ReservationHistory>>
-    fun cancelReservation(reservation: Reservation): Completable
+    fun deleteReservation(reservation: Reservation): Completable
 }
