@@ -112,4 +112,5 @@
     <string name="reservation_hisotry_text">예약 내역</string>
     <string name="reservation_cancel_success_msg">예약이 취소되었습니다.</string>
     <string name="reservation_cancel_fail_tmsg">예약취소를 실패하였습니다.</string>
+    <string name="no_product_yet_text">아직 예약하신 상품이 없습니다.</string>
 </resources>
