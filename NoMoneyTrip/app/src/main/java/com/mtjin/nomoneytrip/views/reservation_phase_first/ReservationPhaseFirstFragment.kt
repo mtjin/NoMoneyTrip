@@ -126,6 +126,17 @@ class ReservationPhaseFirstFragment :
             Log.d(TAG, "is Selected -> $selected")
             Log.d(TAG, "is Selected -> $date")
             viewModel.isDateSelected = selected
+            viewModel.startDateTimestamp = convertDateToTimestamp(
+                _year = date.year,
+                _month = date.month,
+                _day = date.day
+            )
+            viewModel.endDateTimestamp = convertDateToTimestamp(
+                _year = date.year,
+                _month = date.month,
+                _day = date.day
+            )
+
             viewModel.checkAllSelected()
         }
     }
