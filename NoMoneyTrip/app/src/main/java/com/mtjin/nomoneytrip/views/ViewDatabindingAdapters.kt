@@ -9,12 +9,14 @@ import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
+import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
+import java.util.concurrent.TimeUnit
 
 @BindingAdapter("urlImage")
 fun ImageView.setUrlImage(url: String) {
@@ -34,6 +36,24 @@ fun RatingBar.setMovieRating(score: String) {
 @BindingAdapter("startTimestampTerm", "endTimestampTerm")
 fun TextView.setTimestampTerm(startTimestamp: Long, endTimestamp: Long) {
     text = convertTimestampToTerm(startTimestamp, endTimestamp)
+}
+
+//timestamp -> 2020.01.02
+@BindingAdapter("timestampPointFullDate")
+fun TextView.setTimestampPointFullDate(timestamp: Long) {
+    text = timestamp.convertTimestampToPointFullDate()
+}
+
+// 2박, 일손 8시간
+@BindingAdapter("startTimestamp", "endTimestamp", "time")
+fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) {
+    var time1 = startTimestamp
+    var time2 = endTimestamp
+    val MILLIS_PER_DAY = 1000 * 60 * 60 * 24.toLong()
+    time1 -= time1 % MILLIS_PER_DAY
+    time2 -= time2 % MILLIS_PER_DAY
+    val day = TimeUnit.DAYS.convert(time1 - time2, TimeUnit.MILLISECONDS).toString()
+    text = (day + "박, 일손 " + time + "시간")
 }
 
 @BindingAdapter("setItems")

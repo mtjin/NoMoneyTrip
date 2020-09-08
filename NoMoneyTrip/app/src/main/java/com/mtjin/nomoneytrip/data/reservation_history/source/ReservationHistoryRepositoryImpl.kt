@@ -1,6 +1,69 @@
 package com.mtjin.nomoneytrip.data.reservation_history.source
 
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.mtjin.nomoneytrip.data.home.Product
+import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory
+import com.mtjin.nomoneytrip.utils.PRODUCT
+import com.mtjin.nomoneytrip.utils.RESERVATION
+import com.mtjin.nomoneytrip.utils.USER_ID
+import com.mtjin.nomoneytrip.utils.uuid
+import io.reactivex.BackpressureStrategy
+import io.reactivex.Flowable
 
 class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) :
-    ReservationHistoryRepository
+    ReservationHistoryRepository {
+    private val productList = ArrayList<Product>()
+
+    override fun requestReservations(): Flowable<List<ReservationHistory>> {
+        return Flowable.create<List<ReservationHistory>>(
+            { emitter ->
+                database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        emitter.onError(error.toException())
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        productList.clear()
+                        for (snapshot2: DataSnapshot in snapshot.children) {
+                            snapshot2.getValue(Product::class.java)?.let {
+                                productList.add(it)
+                            }
+                        }
+                    }
+
+                })
+                database.child(RESERVATION).orderByChild(uuid).equalTo(USER_ID, uuid)
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onCancelled(error: DatabaseError) {
+                            emitter.onError(error.toException())
+                        }
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val list = ArrayList<ReservationHistory>()
+                            for (reserveSnapShot: DataSnapshot in snapshot.children) {
+                                reserveSnapShot.getValue(Reservation::class.java)?.let {
+                                    for (product in productList) {
+                                        if (product.id == it.productId) {
+                                            list.add(
+                                                ReservationHistory(
+                                                    reservation = it,
+                                                    product = product
+                                                )
+                                            )
+                                            break
+                                        }
+                                    }
+                                }
+                            }
+                            emitter.onNext(list)
+                        }
+
+                    })
+            }, BackpressureStrategy.BUFFER
+        )
+    }
+}
