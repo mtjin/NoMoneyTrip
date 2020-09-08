@@ -8,6 +8,7 @@ import com.mtjin.nomoneytrip.views.localpage.LocalPageViewModel
 import com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailViewModel
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
 import com.mtjin.nomoneytrip.views.reservation.ReservationViewModel
+import com.mtjin.nomoneytrip.views.reservation_complete.ReservationCompleteViewModel
 import com.mtjin.nomoneytrip.views.reservation_phase_first.ReservationPhaseFirstViewModel
 import com.mtjin.nomoneytrip.views.search.SearchViewModel
 import com.mtjin.nomoneytrip.views.tour_write.TourWriteViewModel
@@ -27,4 +28,5 @@ val viewModelModule: Module = module {
     viewModel { LodgmentDetailViewModel() }
     viewModel { ReservationPhaseFirstViewModel() }
     viewModel { ReservationViewModel(get()) }
+    viewModel { ReservationCompleteViewModel() }
 }

@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.reservation_complete.ReservationCompleteViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,8 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_21dp"
             android:gravity="center"
-            android:text="무전숙박 예약 신청이\n
-완료되었습니다."
+            android:text="@string/reservation_complete_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_12dp"
             android:gravity="center"
-            android:text="예약이 확정되면 알림을 제공합니다.\n
-알림은 푸시알림 동의가 있어야 제공됩니다.."
+            android:text="@string/reservation_complete_notice_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +67,8 @@
             android:layout_marginEnd="@dimen/margin_28dp"
             android:background="@drawable/bg_btn_orange_edge"
             android:gravity="center"
-            android:text="예약 상세 보기"
+            android:onClick="@{()->vm.goReservationDetail()}"
+            android:text="@string/see_reservation_detail_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +81,8 @@
             android:layout_height="@dimen/height_64dp"
             android:background="@color/colorOrangeF79256"
             android:gravity="center"
-            android:text="@string/reserve_text"
+            android:onClick="@{()->vm.goHome()}"
+            android:text="@string/go_home_text"
             android:textColor="@color/colorWhiteFDFD"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toBottomOf="parent" />
