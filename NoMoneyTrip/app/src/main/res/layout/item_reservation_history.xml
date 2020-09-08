@@ -58,6 +58,7 @@
                 app:layout_constraintTop_toTopOf="@id/iv_logo" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16dp"
@@ -82,14 +83,17 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_12dp"
                 android:layout_marginBottom="@dimen/margin_4dp"
+                android:ellipsize="end"
+                android:singleLine="true"
                 android:text="@{item.product.title}"
                 android:textColor="@color/colorBlack2D2D"
                 android:textSize="@dimen/text_size_16sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_time"
+                app:layout_constraintEnd_toEndOf="@id/tv_state"
                 app:layout_constraintStart_toEndOf="@id/iv_image"
                 app:layout_constraintTop_toTopOf="@id/iv_image"
                 app:layout_constraintVertical_chainStyle="packed"
