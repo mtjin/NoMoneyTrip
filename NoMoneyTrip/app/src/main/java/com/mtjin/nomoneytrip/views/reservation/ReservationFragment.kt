@@ -2,6 +2,8 @@ package com.mtjin.nomoneytrip.views.reservation
 
 import android.text.util.Linkify
 import androidx.core.text.HtmlCompat
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
@@ -12,9 +14,20 @@ import java.util.regex.Pattern
 class ReservationFragment :
     BaseFragment<FragmentReservationBinding>(R.layout.fragment_reservation) {
     private val args: ReservationFragmentArgs by navArgs()
+    private val viewModel: ReservationViewModel by viewModels()
+
     override fun init() {
         processIntent()
         initRuleText()
+        initViewModelCallback()
+    }
+
+    private fun initViewModelCallback() {
+        with(viewModel) {
+            consentMsg.observe(this@ReservationFragment, Observer {
+                showToast(getString(R.string.please_consent_text))
+            })
+        }
     }
 
     private fun processIntent() {
