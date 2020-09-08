@@ -43,3 +43,4 @@ const val PRODUCT = "product" // 상품
 const val CITY = "city" // 지역
 const val ID = "id" // 아이디
 const val FCM = "fcm" // fcm
+const val RESERVATION = "reservation" // fcm
