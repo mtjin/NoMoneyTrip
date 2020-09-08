@@ -18,7 +18,7 @@
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_36dp"
             android:fontFamily="@font/goyang_ilsan_regular"
-            android:text="예약 내역"
+            android:text="@string/reservation_hisotry_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
