@@ -110,4 +110,6 @@
     <string name="reservation_complete_notice_text">예약이 확정되면 알림을 제공합니다.\n 알림은 푸시알림 동의가 있어야 제공됩니다..</string>
     <string name="reservation_complete_text">무전숙박 예약 신청이\n 완료되었습니다.</string>
     <string name="reservation_hisotry_text">예약 내역</string>
+    <string name="reservation_cancel_success_msg">예약이 취소되었습니다.</string>
+    <string name="reservation_cancel_fail_tmsg">예약취소를 실패하였습니다.</string>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/padding_20dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/behavior_height_56dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_36dp"
+        tools:text="질문입니까?"
+        android:textSize="@dimen/text_size_24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_yes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_12dp"
+        android:paddingBottom="@dimen/padding_12dp"
+        android:text="@string/yes_text"
+        android:textColor="@color/colorWhiteBlue"
+        android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintTop_toBottomOf="@id/text_question" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding_12dp"
+        android:paddingBottom="@dimen/padding_12dp"
+        android:text="@string/no_text"
+        android:textColor="@color/colorRed"
+        app:layout_constraintTop_toBottomOf="@id/tv_yes" />
+</androidx.constraintlayout.widget.ConstraintLayout>

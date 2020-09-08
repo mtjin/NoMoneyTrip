@@ -12,7 +12,11 @@ import com.mtjin.nomoneytrip.databinding.ItemReservationHistoryBinding
 import com.mtjin.nomoneytrip.utils.getMyColor
 import com.mtjin.nomoneytrip.utils.getTimestamp
 
-class ReservationHistoryAdapter(private val context: Context) :
+class ReservationHistoryAdapter(
+    private val context: Context,
+    private val leftClick: (ReservationHistory) -> Unit,
+    private val rightClick: (ReservationHistory) -> Unit
+) :
     RecyclerView.Adapter<ReservationHistoryAdapter.ViewHolder>() {
     private val items: ArrayList<ReservationHistory> = ArrayList()
 
@@ -23,7 +27,14 @@ class ReservationHistoryAdapter(private val context: Context) :
             parent,
             false
         )
-        return ViewHolder(binding)
+        val viewHolder = ViewHolder(binding)
+        binding.tvLeft.setOnClickListener {
+            leftClick(items[viewHolder.adapterPosition])
+        }
+        binding.tvRight.setOnClickListener {
+            rightClick(items[viewHolder.adapterPosition])
+        }
+        return viewHolder
     }
 
     override fun getItemCount(): Int = items.size
@@ -40,20 +51,20 @@ class ReservationHistoryAdapter(private val context: Context) :
         fun bind(reservation: ReservationHistory) {
             binding.run {
                 item = reservation
-                when{
-                    !reservation.reservation.state ->{
+                when {
+                    !reservation.reservation.state -> {
                         llLinear.visibility = View.GONE
                         tvState.text = "예약 취소"
                         tvState.setTextColor(context.getMyColor(R.color.colorRedEF4550))
                     }
-                    reservation.reservation.endDateTimestamp < getTimestamp() ->{
+                    reservation.reservation.endDateTimestamp < getTimestamp() -> {
                         llLinear.visibility = View.VISIBLE
                         tvState.text = "여행 완료"
                         tvState.setTextColor(context.getMyColor(R.color.colorOrangeF79256))
                         tvLeft.text = "봉사 인증"
                         tvRight.text = "리뷰 작성"
                     }
-                    else ->{
+                    else -> {
                         llLinear.visibility = View.VISIBLE
                         tvState.text = "여행 접수"
                         tvState.setTextColor(context.getMyColor(R.color.colorOrangeF79256))

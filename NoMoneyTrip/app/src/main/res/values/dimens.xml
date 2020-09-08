@@ -65,4 +65,7 @@
     <dimen name="size_66dp">66dp</dimen>
     <dimen name="margin_34dp">34dp</dimen>
     <dimen name="height_48dp">48dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="behavior_height_56dp">56dp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
 </resources>

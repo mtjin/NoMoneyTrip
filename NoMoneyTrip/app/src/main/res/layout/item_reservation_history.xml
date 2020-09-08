@@ -154,7 +154,7 @@
                         android:gravity="center"
                         android:textColor="@color/colorBlack2D2D"
                         android:textSize="@dimen/text_size_14sp"
-                        tools:text="예약 변경" />
+                        tools:text="예약 취소" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
