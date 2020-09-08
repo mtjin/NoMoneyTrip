@@ -21,13 +21,13 @@ class ReservationViewModel(private val repository: ReservationRepository) : Base
     val consentMsg: LiveData<Unit> get() = _consentMsg
     val successReservation: LiveData<Boolean> get() = _successReservation
 
-    fun requestReservation() {
+    fun insertReservation() {
         Log.d("EEEEEE", "requestReservation()")
         if (consentCheck.value == false) {
             _consentMsg.call()
         } else {
             compositeDisposable.add(
-                repository.requestReservation(reservation)
+                repository.insertReservation(reservation)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeBy(

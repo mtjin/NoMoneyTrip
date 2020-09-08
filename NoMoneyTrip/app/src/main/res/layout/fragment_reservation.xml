@@ -329,7 +329,7 @@
                     android:layout_marginTop="36dp"
                     android:background="@drawable/bg_btn_solid_orange_radius_8dp"
                     android:gravity="center"
-                    android:onClick="@{()->vm.requestReservation()}"
+                    android:onClick="@{()->vm.insertReservation()}"
                     android:text="@string/reserve_text"
                     android:textColor="@color/colorWhiteFDFD"
                     android:textSize="@dimen/text_size_14sp"
