@@ -16,7 +16,7 @@ class ReservationViewModel : BaseViewModel() {
         if (consentCheck.value == false) {
             _consentMsg.call()
         } else {
-            
+
         }
     }
 }
