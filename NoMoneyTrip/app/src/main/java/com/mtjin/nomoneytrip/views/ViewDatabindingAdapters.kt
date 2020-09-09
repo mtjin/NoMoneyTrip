@@ -63,9 +63,9 @@ fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) 
 //timestamp -> 2020.01.02
 @BindingAdapter("onNextBackground")
 fun TextView.setOnNextBackground(isCompleted: Boolean) {
-    if (isCompleted) background =
-        this.context.getMyDrawable(R.drawable.bg_orange_stroke_garyf4f4_solid_radius_8dp)
-    else background = this.context.getMyDrawable(R.drawable.bg_solid_grayf4f4_radius_8dp)
+    background =
+        if (isCompleted) context.getMyDrawable(R.drawable.bg_orange_stroke_garyf4f4_solid_radius_8dp)
+        else context.getMyDrawable(R.drawable.bg_solid_grayf4f4_radius_8dp)
 }
 
 @BindingAdapter("setItems")
