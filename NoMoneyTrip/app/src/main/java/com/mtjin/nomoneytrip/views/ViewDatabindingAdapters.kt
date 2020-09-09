@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
-import com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory
+import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
@@ -105,7 +105,7 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
             items?.let {
                 with(adapter as ReservationHistoryAdapter) {
                     clear()
-                    addItems(it as List<ReservationHistory>)
+                    addItems(it as List<ReservationProduct>)
                 }
             }
         }

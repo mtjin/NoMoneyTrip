@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
-import com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory
+import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.databinding.ItemReservationHistoryBinding
 import com.mtjin.nomoneytrip.utils.getMyColor
 import com.mtjin.nomoneytrip.utils.getTimestamp
 
 class ReservationHistoryAdapter(
     private val context: Context,
-    private val leftClick: (ReservationHistory) -> Unit,
-    private val rightClick: (ReservationHistory) -> Unit
+    private val leftClick: (ReservationProduct) -> Unit,
+    private val rightClick: (ReservationProduct) -> Unit
 ) :
     RecyclerView.Adapter<ReservationHistoryAdapter.ViewHolder>() {
-    private val items: ArrayList<ReservationHistory> = ArrayList()
+    private val items: ArrayList<ReservationProduct> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemReservationHistoryBinding = DataBindingUtil.inflate(
@@ -48,7 +48,7 @@ class ReservationHistoryAdapter(
     inner class ViewHolder(private val binding: ItemReservationHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(reservation: ReservationHistory) {
+        fun bind(reservation: ReservationProduct) {
             binding.run {
                 item = reservation
                 when {
@@ -77,12 +77,12 @@ class ReservationHistoryAdapter(
         }
     }
 
-    fun addItems(items: List<ReservationHistory>) {
+    fun addItems(items: List<ReservationProduct>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun addItem(item: ReservationHistory) {
+    fun addItem(item: ReservationProduct) {
         this.items.add(item)
         notifyDataSetChanged()
     }

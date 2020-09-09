@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory" />
+            type="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

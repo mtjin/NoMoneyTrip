@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.community.source.CommunityRepository
-import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import com.mtjin.nomoneytrip.utils.getTimestamp
@@ -14,10 +14,10 @@ import io.reactivex.schedulers.Schedulers
 
 class CommunityViewModel(private val repository: CommunityRepository) : BaseViewModel() {
 
-    private val _goTourHistory = SingleLiveEvent<List<Reservation>>()
+    private val _goTourHistory = SingleLiveEvent<List<ReservationProduct>>()
     private val _goTourNoHistory = SingleLiveEvent<Unit>()
 
-    val goTourHistory: LiveData<List<Reservation>> get() = _goTourHistory
+    val goTourHistory: LiveData<List<ReservationProduct>> get() = _goTourHistory
     val goTourNoHistory: LiveData<Unit> get() = _goTourNoHistory
 
     fun goReview() {
@@ -25,7 +25,7 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
             repository.requestMyReservations()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { it.filter { reservation -> !reservation.isReviewed && reservation.endDateTimestamp <= getTimestamp() } }
+                .map { it.filter { item -> !item.reservation.isReviewed && item.reservation.endDateTimestamp <= getTimestamp() } }
                 .subscribeBy(
                     onSuccess = {
                         if (it.isEmpty()) _goTourNoHistory.call()

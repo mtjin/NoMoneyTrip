@@ -6,7 +6,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
-import com.mtjin.nomoneytrip.data.reservation_history.ReservationHistory
+import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.PRODUCT
 import com.mtjin.nomoneytrip.utils.RESERVATION
 import com.mtjin.nomoneytrip.utils.USER_ID
@@ -19,8 +19,8 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
     ReservationHistoryRepository {
     private val productList = ArrayList<Product>()
 
-    override fun requestReservations(): Flowable<List<ReservationHistory>> {
-        return Flowable.create<List<ReservationHistory>>(
+    override fun requestReservations(): Flowable<List<ReservationProduct>> {
+        return Flowable.create<List<ReservationProduct>>(
             { emitter ->
                 database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
@@ -41,13 +41,13 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
                                 }
 
                                 override fun onDataChange(snapshot: DataSnapshot) {
-                                    val list = ArrayList<ReservationHistory>()
+                                    val list = ArrayList<ReservationProduct>()
                                     for (reserveSnapShot: DataSnapshot in snapshot.children) {
                                         reserveSnapShot.getValue(Reservation::class.java)?.let {
                                             for (product in productList) {
                                                 if (product.id == it.productId) {
                                                     list.add(
-                                                        ReservationHistory(
+                                                        ReservationProduct(
                                                             reservation = it,
                                                             product = product
                                                         )
