@@ -1,14 +1,14 @@
 package com.mtjin.nomoneytrip.views.community
 
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentCommunityBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragment_community) {
-    private val viewModel: CommunityViewModel by viewModels()
+    private val viewModel: CommunityViewModel by viewModel()
     override fun init() {
         binding.vm = viewModel
         initViewModelCallback()
