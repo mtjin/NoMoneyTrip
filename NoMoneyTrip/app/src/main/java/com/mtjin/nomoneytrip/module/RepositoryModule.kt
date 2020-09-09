@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.module
 
+import com.mtjin.nomoneytrip.data.community.source.CommunityRepository
+import com.mtjin.nomoneytrip.data.community.source.CommunityRepositoryImpl
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepositoryImpl
 import com.mtjin.nomoneytrip.data.home.source.HomeRepository
@@ -29,4 +31,5 @@ val repositoryModule: Module = module {
     single<ReservationRepository> { ReservationRepositoryImpl(get()) }
     single<ReservationHistoryRepository> { ReservationHistoryRepositoryImpl(get()) }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
+    single<CommunityRepository> { CommunityRepositoryImpl(get()) }
 }

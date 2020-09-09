@@ -6,7 +6,7 @@ import com.mtjin.nomoneytrip.databinding.FragmentCommunityBinding
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragment_community) {
     override fun init() {
-
+        binding
     }
 
 }

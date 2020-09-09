@@ -1,6 +1,7 @@
 package com.mtjin.nomoneytrip.module
 
 import com.mtjin.nomoneytrip.views.alarm.AlarmViewModel
+import com.mtjin.nomoneytrip.views.community.CommunityViewModel
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginViewModel
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpViewModel
 import com.mtjin.nomoneytrip.views.home.HomeViewModel
@@ -31,4 +32,5 @@ val viewModelModule: Module = module {
     viewModel { ReservationViewModel(get()) }
     viewModel { ReservationCompleteViewModel() }
     viewModel { ReservationHistoryViewModel(get()) }
+    viewModel { CommunityViewModel(get()) }
 }

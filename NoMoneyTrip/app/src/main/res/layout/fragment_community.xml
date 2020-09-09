@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.community.CommunityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,10 +20,11 @@
             android:layout_marginEnd="28dp"
             android:layout_marginBottom="24dp"
             android:backgroundTint="@color/colorWhiteFDFD"
+            android:onClick="@{()->vm.goReview()}"
             android:src="@drawable/ic_pencil"
             app:backgroundTint="@color/colorWhiteFDFD"
-            app:imageView_duration="300"
-            app:imageView_scale="0.9"
+            app:fabutton_duration="200"
+            app:fabutton_scale="0.9"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
