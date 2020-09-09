@@ -13,6 +13,7 @@ import com.mtjin.nomoneytrip.views.reservation_complete.ReservationCompleteViewM
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryViewModel
 import com.mtjin.nomoneytrip.views.reservation_phase_first.ReservationPhaseFirstViewModel
 import com.mtjin.nomoneytrip.views.search.SearchViewModel
+import com.mtjin.nomoneytrip.views.tour_history.TourHistoryViewModel
 import com.mtjin.nomoneytrip.views.tour_write.TourWriteViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -33,4 +34,5 @@ val viewModelModule: Module = module {
     viewModel { ReservationCompleteViewModel() }
     viewModel { ReservationHistoryViewModel(get()) }
     viewModel { CommunityViewModel(get()) }
+    viewModel { TourHistoryViewModel() }
 }
