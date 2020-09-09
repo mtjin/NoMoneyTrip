@@ -17,9 +17,10 @@
         android:layout_marginTop="@dimen/margin_8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_constraint"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_100dp"
-            android:background="@drawable/bg_garyf4f4f4"
+            android:background="@drawable/bg_solid_garyf4f4f4_radius_8dp"
             app:layout_constraintTop_toTopOf="parent">
 
 

@@ -18,7 +18,9 @@ class TourHistoryFragment :
     }
 
     private fun initAdapter() {
-        val adapter = TourHistoryAdapter()
+        val adapter = TourHistoryAdapter(context = thisContext) {
+
+        }
         binding.rvProducts.adapter = adapter
     }
 
