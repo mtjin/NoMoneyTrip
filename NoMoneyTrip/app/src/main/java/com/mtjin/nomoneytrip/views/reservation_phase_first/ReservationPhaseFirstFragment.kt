@@ -40,21 +40,6 @@ class ReservationPhaseFirstFragment :
                     binding.ivCalendarShow.setImageResource(R.drawable.ic_scroll_down)
                 }
             })
-            allSelected.observe(this@ReservationPhaseFirstFragment, Observer { isAllSelected ->
-                if (isAllSelected) {
-                    binding.tvReserve.setBackgroundColor(
-                        requireActivity().getMyColor(
-                            R.color.colorOrangeF79256
-                        )
-                    )
-                } else {
-                    binding.tvReserve.setBackgroundColor(
-                        requireActivity().getMyColor(
-                            R.color.colorGrayC8C8
-                        )
-                    )
-                }
-            })
             option1.observe(this@ReservationPhaseFirstFragment, Observer {
                 binding.cbOption1.isChecked = it
                 viewModel.selectedOption = binding.tvOption1.text.toString()
@@ -145,7 +130,11 @@ class ReservationPhaseFirstFragment :
             val calList = ArrayList<CalendarDay>()
             calList.add(date)
             when {
-                !selected -> viewModel.initDateRange()
+                !selected -> {
+                    viewModel.initDateRange()
+                    viewModel.isDateSelected = false
+                    viewModel.setAllSelected()
+                }
                 !viewModel.checkDatesAvailable(calList) -> {
                     showToast(getString(R.string.date_can_not_selected_msg))
                     binding.cvCalendar.clearSelection()
