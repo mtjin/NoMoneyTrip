@@ -6,7 +6,7 @@ import com.mtjin.nomoneytrip.data.reservation.Reservation
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class ReservationHistory(
+data class ReservationProduct(
     var reservation: Reservation = Reservation(),
     var product: Product = Product()
 ) : Parcelable
