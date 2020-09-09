@@ -46,3 +46,6 @@ const val FCM = "fcm" // fcm
 const val RESERVATION = "reservation"
 const val USER_ID = "userId"
 const val PRODUCT_ID = "productId"
+
+// 시간
+const val TIMESTAMP_PER_DAY = 86400000

@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.views.reservation_phase_first
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -82,26 +81,30 @@ class ReservationPhaseFirstFragment :
             })
 
             dateList.observe(this@ReservationPhaseFirstFragment, Observer { reservations ->
-                val calList = ArrayList<CalendarDay>()
-                for (reservation in reservations) { //하루당 86400000
-                    val res = reservation.copy()
-                    res.run {
-                        while (endDateTimestamp > startDateTimestamp) {
-                            calList.add(
-                                CalendarDay.from(
-                                    endDateTimestamp.convertTimestampToYear(),
-                                    endDateTimestamp.convertTimestampToMonth(),
-                                    endDateTimestamp.convertTimestampToDay()
-                                )
-                            )
-                            endDateTimestamp -= 86400000
-                        }
-                    }
-                }
-                for (calDay in calList) {
-                    binding.cvCalendar.addDecorators(CurrentDayDecorator(requireActivity(), calDay))
-                }
+                initDisableDates(reservations)
             })
+        }
+    }
+
+    private fun initDisableDates(reservations: List<Reservation>) {
+        val calList = ArrayList<CalendarDay>()
+        for (reservation in reservations) { //하루당 86400000
+            val res = reservation.copy()
+            res.run {
+                while (endDateTimestamp > startDateTimestamp) {
+                    calList.add(
+                        CalendarDay.from(
+                            endDateTimestamp.convertTimestampToYear(),
+                            endDateTimestamp.convertTimestampToMonth(),
+                            endDateTimestamp.convertTimestampToDay()
+                        )
+                    )
+                    endDateTimestamp -= TIMESTAMP_PER_DAY
+                }
+            }
+        }
+        for (calDay in calList) {
+            binding.cvCalendar.addDecorators(CurrentDayDecorator(requireActivity(), calDay))
         }
     }
 
@@ -120,69 +123,30 @@ class ReservationPhaseFirstFragment :
             ).commit()
 
         binding.cvCalendar.setOnRangeSelectedListener { widget, dates ->
-            for (date in dates) {
-                for (reservedDate in viewModel.dateList.value!!) {
-                    convertDateToTimestamp(
-                        _year = date.year,
-                        _month = date.month,
-                        _day = date.day
-                    ).let {
-                        if (it <= reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
-                            showToast(getString(R.string.date_can_not_selected_msg))
-                            binding.cvCalendar.clearSelection()
-                            viewModel.isDateSelected = false
-                            viewModel.checkAllSelected()
-                            return@setOnRangeSelectedListener
-                        }
-                    }
-                }
+            if (!viewModel.checkDatesAvailable(dates)) {
+                showToast(getString(R.string.date_can_not_selected_msg))
+                binding.cvCalendar.clearSelection()
+                return@setOnRangeSelectedListener
             }
-            Log.d("AAAAAA", "AAAAAA")
-            viewModel.startDateTimestamp = convertDateToTimestamp(
-                _year = dates[0].year,
-                _month = dates[0].month,
-                _day = dates[0].day
-            )
+            viewModel.setStartDateTimestamp(dates[0])
             if (dates.size == 0) {
-                viewModel.endDateTimestamp = convertDateToTimestamp(
-                    _year = dates[dates.size].year,
-                    _month = dates[dates.size].month,
-                    _day = dates[dates.size].day
-                )
+                viewModel.setEndDateTimestamp(dates[dates.size])
             } else if (dates.size != 1) {
-                viewModel.endDateTimestamp = convertDateToTimestamp(
-                    _year = dates[dates.size - 1].year,
-                    _month = dates[dates.size - 1].month,
-                    _day = dates[dates.size - 1].day
-                )
+                viewModel.setEndDateTimestamp(dates[dates.size - 1])
             }
         }
         binding.cvCalendar.setOnDateChangedListener { widget, date, selected ->
-            for (reservedDate in viewModel.dateList.value!!) {
-                convertDateToTimestamp(
-                    _year = date.year,
-                    _month = date.month,
-                    _day = date.day
-                ).let {
-                    if (it <= reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
-                        showToast(getString(R.string.date_can_not_selected_msg))
-                        binding.cvCalendar.clearSelection()
-                        return@setOnDateChangedListener
-                    }
-                }
+            val calList = ArrayList<CalendarDay>()
+            calList.add(date)
+            if (!viewModel.checkDatesAvailable(calList)) {
+                showToast(getString(R.string.date_can_not_selected_msg))
+                binding.cvCalendar.clearSelection()
+            } else {
+                viewModel.setStartDateTimestamp(date)
+                viewModel.setEndDateTimestamp(date)
+                viewModel.isDateSelected = selected
+                viewModel.checkAllSelected()
             }
-            viewModel.isDateSelected = selected
-            viewModel.startDateTimestamp = convertDateToTimestamp(
-                _year = date.year,
-                _month = date.month,
-                _day = date.day
-            )
-            viewModel.endDateTimestamp = convertDateToTimestamp(
-                _year = date.year,
-                _month = date.month,
-                _day = date.day
-            )
-            viewModel.checkAllSelected()
         }
     }
 }

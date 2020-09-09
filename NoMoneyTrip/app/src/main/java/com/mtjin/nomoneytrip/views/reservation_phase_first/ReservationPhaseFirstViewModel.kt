@@ -9,6 +9,8 @@ import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
+import com.mtjin.nomoneytrip.utils.convertDateToTimestamp
+import com.prolificinteractive.materialcalendarview.CalendarDay
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -23,7 +25,6 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
     private val _showCalendar = MutableLiveData<Boolean>(false)
     private val _dateList = MutableLiveData<ArrayList<Reservation>>()
     private val _goReservation = SingleLiveEvent<Unit>()
-    private val _date = MutableLiveData<String>("")
     private val _num = MutableLiveData<String>("1")
     private val _option1 = MutableLiveData<Boolean>(false)
     private val _option2 = MutableLiveData<Boolean>(false)
@@ -33,7 +34,6 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
     val showCalendar: LiveData<Boolean> get() = _showCalendar
     val dateList: LiveData<ArrayList<Reservation>> get() = _dateList
     val goReservation: LiveData<Unit> get() = _goReservation
-    val date: LiveData<String> get() = _date
     val num: LiveData<String> get() = _num
     val option1: LiveData<Boolean> get() = _option1
     val option2: LiveData<Boolean> get() = _option2
@@ -100,4 +100,38 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
         )
     }
 
+    fun checkDatesAvailable(dates: List<CalendarDay>): Boolean {
+        for (date in dates) {
+            for (reservedDate in dateList.value!!) {
+                convertDateToTimestamp(
+                    _year = date.year,
+                    _month = date.month,
+                    _day = date.day
+                ).let {
+                    if (it <= reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
+                        isDateSelected = false
+                        checkAllSelected()
+                        return false
+                    }
+                }
+            }
+        }
+        return true
+    }
+
+    fun setStartDateTimestamp(date: CalendarDay) {
+        startDateTimestamp = convertDateToTimestamp(
+            _year = date.year,
+            _month = date.month,
+            _day = date.day
+        )
+    }
+
+    fun setEndDateTimestamp(date: CalendarDay) {
+        endDateTimestamp = convertDateToTimestamp(
+            _year = date.year,
+            _month = date.month,
+            _day = date.day
+        )
+    }
 }
