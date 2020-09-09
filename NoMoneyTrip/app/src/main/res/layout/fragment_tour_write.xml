@@ -102,7 +102,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="28dp"
-                    android:background="@drawable/bg_grayf4f4_radius_8dp"
+                    android:background="@drawable/bg_solid_grayf4f4_radius_8dp"
                     android:drawableStart="@drawable/logo_20dp"
                     android:drawablePadding="8dp"
                     android:ellipsize="end"

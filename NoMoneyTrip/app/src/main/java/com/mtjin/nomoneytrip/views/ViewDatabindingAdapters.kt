@@ -12,7 +12,7 @@ import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.getMyColor
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
@@ -60,12 +60,11 @@ fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) 
     text = (day + "박, " + time)
 }
 
-//timestamp -> 2020.01.02
+// 하단 다음버튼 필수선택 여부에 따른 배경 색
 @BindingAdapter("onNextBackground")
 fun TextView.setOnNextBackground(isCompleted: Boolean) {
-    background =
-        if (isCompleted) context.getMyDrawable(R.drawable.bg_orange_stroke_garyf4f4_solid_radius_8dp)
-        else context.getMyDrawable(R.drawable.bg_solid_grayf4f4_radius_8dp)
+    if (isCompleted) setBackgroundColor(context.getMyColor(R.color.colorOrangeF79256))
+    else setBackgroundColor(context.getMyColor(R.color.colorGrayC8C8))
 }
 
 @BindingAdapter("setItems")

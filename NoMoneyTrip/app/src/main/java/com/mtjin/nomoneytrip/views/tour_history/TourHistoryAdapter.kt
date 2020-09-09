@@ -33,7 +33,7 @@ class TourHistoryAdapter(
             for (view in viewList) {
                 if (view.item?.reservation?.id != binding.item?.reservation?.id) {
                     view.clConstraint.background =
-                        context.getMyDrawable(R.drawable.bg_grayf4f4_radius_8dp)
+                        context.getMyDrawable(R.drawable.bg_solid_grayf4f4_radius_8dp)
                 }
             }
         }

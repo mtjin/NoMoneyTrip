@@ -19,7 +19,8 @@ class TourHistoryFragment :
 
     private fun initAdapter() {
         val adapter = TourHistoryAdapter(context = thisContext) {
-
+            viewModel.setOnNext(true)
+            viewModel.selectedReservationProduct = it
         }
         binding.rvProducts.adapter = adapter
     }

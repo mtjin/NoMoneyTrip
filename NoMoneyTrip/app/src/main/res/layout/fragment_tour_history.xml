@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.tour_history.TourHistoryViewModel" />
@@ -72,7 +74,8 @@
             android:text="@string/next_text"
             android:textColor="@color/colorWhiteFDFD"
             android:textSize="@dimen/text_size_14sp"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            bind:onNextBackground="@{vm.onNext}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
