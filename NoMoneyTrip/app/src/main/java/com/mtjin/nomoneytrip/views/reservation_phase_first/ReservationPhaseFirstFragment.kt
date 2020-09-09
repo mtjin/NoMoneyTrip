@@ -10,6 +10,7 @@ import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.databinding.FragmentReservationPhaseFirstBinding
 import com.mtjin.nomoneytrip.utils.*
 import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.CalendarMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -31,9 +32,11 @@ class ReservationPhaseFirstFragment :
             showCalendar.observe(this@ReservationPhaseFirstFragment, Observer {
                 if (it) {
                     binding.cvCalendar.visibility = View.VISIBLE
+                    binding.viewCalendar.visibility = View.VISIBLE
                     binding.ivCalendarShow.setImageResource(R.drawable.ic_scroll_up)
                 } else {
                     binding.cvCalendar.visibility = View.GONE
+                    binding.viewCalendar.visibility = View.GONE
                     binding.ivCalendarShow.setImageResource(R.drawable.ic_scroll_down)
                 }
             })
@@ -114,6 +117,7 @@ class ReservationPhaseFirstFragment :
 
     private fun initCalendar() {
         binding.cvCalendar.state().edit()
+            .setCalendarDisplayMode(CalendarMode.MONTHS)
             .setMinimumDate(
                 CalendarDay.from(
                     getCurrentYear(),
@@ -126,6 +130,7 @@ class ReservationPhaseFirstFragment :
             if (!viewModel.checkDatesAvailable(dates)) {
                 showToast(getString(R.string.date_can_not_selected_msg))
                 binding.cvCalendar.clearSelection()
+                viewModel.initDateRange()
                 return@setOnRangeSelectedListener
             }
             viewModel.setStartDateTimestamp(dates[0])
@@ -134,18 +139,25 @@ class ReservationPhaseFirstFragment :
             } else if (dates.size != 1) {
                 viewModel.setEndDateTimestamp(dates[dates.size - 1])
             }
+            viewModel.setDateRange()
         }
         binding.cvCalendar.setOnDateChangedListener { widget, date, selected ->
             val calList = ArrayList<CalendarDay>()
             calList.add(date)
-            if (!viewModel.checkDatesAvailable(calList)) {
-                showToast(getString(R.string.date_can_not_selected_msg))
-                binding.cvCalendar.clearSelection()
-            } else {
-                viewModel.setStartDateTimestamp(date)
-                viewModel.setEndDateTimestamp(date)
-                viewModel.isDateSelected = selected
-                viewModel.checkAllSelected()
+            when {
+                !selected -> viewModel.initDateRange()
+                !viewModel.checkDatesAvailable(calList) -> {
+                    showToast(getString(R.string.date_can_not_selected_msg))
+                    binding.cvCalendar.clearSelection()
+                    viewModel.initDateRange()
+                }
+                else -> {
+                    viewModel.setStartDateTimestamp(date)
+                    viewModel.setEndDateTimestamp(date)
+                    viewModel.isDateSelected = selected
+                    viewModel.setAllSelected()
+                    viewModel.setSingleDateRange()
+                }
             }
         }
     }

@@ -63,19 +63,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_28dp"
                     android:layout_marginTop="@dimen/margin_15dp"
+                    android:text="@{vm.dateRange}"
                     android:textColor="@color/colorBlack2D2D"
-                    android:textSize="@dimen/text_size_18sp"
+                    android:textSize="@dimen/text_size_16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="2020.7.2 - 7.4" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_12dp"
+                    android:text="@{vm.dayRange}"
                     android:textColor="@color/colorOrangeF79256"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/text_size_16sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_date"
                     app:layout_constraintStart_toEndOf="@id/tv_date"
                     app:layout_constraintTop_toTopOf="@id/tv_date"
@@ -116,8 +117,7 @@
                     android:id="@+id/view_calendar"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/colorWhiteFDFD"
+                    android:background="@color/colorWhiteGrayF4F4"
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/cv_calendar" />
 

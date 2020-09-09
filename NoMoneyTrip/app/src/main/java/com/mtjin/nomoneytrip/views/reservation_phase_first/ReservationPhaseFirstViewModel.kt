@@ -7,9 +7,7 @@ import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepository
-import com.mtjin.nomoneytrip.utils.SingleLiveEvent
-import com.mtjin.nomoneytrip.utils.TAG
-import com.mtjin.nomoneytrip.utils.convertDateToTimestamp
+import com.mtjin.nomoneytrip.utils.*
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -23,6 +21,8 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
     var selectedOption: String = ""
 
     private val _showCalendar = MutableLiveData<Boolean>(false)
+    private val _dateRange = MutableLiveData<String>("날짜를 선택해주세요")
+    private val _dayRange = MutableLiveData<String>("")
     private val _dateList = MutableLiveData<ArrayList<Reservation>>()
     private val _goReservation = SingleLiveEvent<Unit>()
     private val _num = MutableLiveData<String>("1")
@@ -32,6 +32,8 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
     private val isAllSelected: Boolean get() = (isDateSelected && (option1.value == true || option2.value == true))
 
     val showCalendar: LiveData<Boolean> get() = _showCalendar
+    val dateRange: LiveData<String> get() = _dateRange
+    val dayRange: LiveData<String> get() = _dayRange
     val dateList: LiveData<ArrayList<Reservation>> get() = _dateList
     val goReservation: LiveData<Unit> get() = _goReservation
     val num: LiveData<String> get() = _num
@@ -60,7 +62,7 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
             _option1.value = true
             _option2.value = false
         }
-        checkAllSelected()
+        setAllSelected()
     }
 
     fun option2Click() {
@@ -70,10 +72,10 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
             _option2.value = true
             _option1.value = false
         }
-        checkAllSelected()
+        setAllSelected()
     }
 
-    fun checkAllSelected() {
+    fun setAllSelected() {
         _allSelected.value = isAllSelected
     }
 
@@ -110,7 +112,7 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
                 ).let {
                     if (it < reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
                         isDateSelected = false
-                        checkAllSelected()
+                        setAllSelected()
                         return false
                     }
                 }
@@ -133,5 +135,23 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
             _month = date.month,
             _day = date.day
         )
+    }
+
+    fun setSingleDateRange() {
+        _dateRange.value =
+            startDateTimestamp.convertTimestampToPointFullDate()
+        _dayRange.value = "0박"
+    }
+
+    fun setDateRange() {
+        _dateRange.value =
+            startDateTimestamp.convertTimestampToPointFullDate() + "~" + endDateTimestamp.convertTimestampToPointFullDate()
+        _dayRange.value =
+            (endDateTimestamp.convertTimestampToDay() - startDateTimestamp.convertTimestampToDay()).toString() + "박"
+    }
+
+    fun initDateRange() {
+        _dateRange.value = "날짜를 선택해주세요"
+        _dayRange.value = ""
     }
 }
