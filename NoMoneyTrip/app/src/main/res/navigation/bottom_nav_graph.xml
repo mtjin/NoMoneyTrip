@@ -21,7 +21,16 @@
         android:id="@+id/bottom_nav_2"
         android:name="com.mtjin.nomoneytrip.views.community.CommunityFragment"
         android:label="BottomNavFragment2"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_community" >
+        <action
+            android:id="@+id/action_bottom_nav_2_to_tour_history_fragment"
+            app:destination="@id/tour_history_fragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_2_to_tour_no_history_fragment"
+            app:destination="@id/tour_no_history_fragment"
+            app:launchSingleTop="true" />
+    </fragment>
     <fragment
         android:id="@+id/bottom_nav_3"
         android:name="com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryFragment"
@@ -113,5 +122,22 @@
             app:popUpTo="@id/reservation_complete_fragment"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <fragment
+        android:id="@+id/tour_no_history_fragment"
+        android:name="com.mtjin.nomoneytrip.views.tour_no_history.TourNoHistoryFragment"
+        android:label="TourNoHistoryFragment"
+        tools:layout="@layout/fragment_tour_no_history" />
+
+    <fragment
+        android:id="@+id/tour_history_fragment"
+        android:name="com.mtjin.nomoneytrip.views.tour_history.TourHistoryFragment"
+        android:label="TourHistoryFragment"
+        tools:layout="@layout/fragment_tour_history">
+        <argument
+            android:name="reservation"
+            app:argType="com.mtjin.nomoneytrip.data.reservation.Reservation[]" />
+    </fragment>
+
 
 </navigation>
