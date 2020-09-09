@@ -11,7 +11,6 @@ import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.databinding.FragmentReservationPhaseFirstBinding
 import com.mtjin.nomoneytrip.utils.*
 import com.prolificinteractive.materialcalendarview.CalendarDay
-import com.prolificinteractive.materialcalendarview.CalendarMode
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -25,6 +24,7 @@ class ReservationPhaseFirstFragment :
         processIntent()
         initCalendar()
         initViewModelCallback()
+        viewModel.requestReservations(product = productArgs.product)
     }
 
     private fun initViewModelCallback() {
@@ -62,6 +62,7 @@ class ReservationPhaseFirstFragment :
                 binding.cbOption2.isChecked = it
                 viewModel.selectedOption = binding.tvOption2.text.toString()
             })
+
             goReservation.observe(this@ReservationPhaseFirstFragment, Observer {
                 val reservation = Reservation(
                     id = "",//Reservation DataSource 에서 파베 키값으로 넣어줌
@@ -79,6 +80,31 @@ class ReservationPhaseFirstFragment :
                     )
                 )
             })
+
+            dateList.observe(this@ReservationPhaseFirstFragment, Observer { reservations ->
+                val calList = ArrayList<CalendarDay>()
+                for (reservation in reservations) { //하루당 86400000
+                    reservation.run {
+                        Log.d(
+                            "AAAAAAA",
+                            "" + reservation.id + " --> " + endDateTimestamp + "  ///  " + startDateTimestamp
+                        )
+                        while (endDateTimestamp > startDateTimestamp) {
+                            calList.add(
+                                CalendarDay.from(
+                                    endDateTimestamp.convertTimestampToYear(),
+                                    endDateTimestamp.convertTimestampToMonth(),
+                                    endDateTimestamp.convertTimestampToDay()
+                                )
+                            )
+                            endDateTimestamp -= 86400000
+                        }
+                    }
+                }
+                for (calDay in calList) {
+                    binding.cvCalendar.addDecorators(CurrentDayDecorator(requireActivity(), calDay))
+                }
+            })
         }
     }
 
@@ -94,9 +120,7 @@ class ReservationPhaseFirstFragment :
                     getCurrentMonth(),
                     getCurrentDay() + 1
                 )
-            )
-            .setCalendarDisplayMode(CalendarMode.WEEKS)
-            .commit()
+            ).commit()
 
         binding.cvCalendar.setOnRangeSelectedListener { widget, dates ->
             Log.d(TAG, "ReservationPhaseFirstFragment DATES-> $dates")

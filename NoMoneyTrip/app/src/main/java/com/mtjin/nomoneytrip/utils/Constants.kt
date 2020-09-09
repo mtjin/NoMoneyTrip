@@ -45,3 +45,4 @@ const val ID = "id" // 아이디
 const val FCM = "fcm" // fcm
 const val RESERVATION = "reservation"
 const val USER_ID = "userId"
+const val PRODUCT_ID = "productId"

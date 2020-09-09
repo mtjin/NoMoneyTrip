@@ -107,10 +107,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone"
-                    app:connectedDayIconPosition="top"
-                    app:currentDayIconRes="@drawable/ic_select"
-                    app:currentDaySelectedIconRes="@drawable/ic_select"
                     app:layout_constraintTop_toBottomOf="@id/view_date"
+                    app:mcv_calendarMode="week"
                     app:mcv_selectionColor="#f79256"
                     app:mcv_selectionMode="range" />
 

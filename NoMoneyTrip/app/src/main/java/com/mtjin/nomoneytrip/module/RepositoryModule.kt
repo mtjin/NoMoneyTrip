@@ -12,6 +12,8 @@ import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepository
 import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepository
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepositoryImpl
+import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepository
+import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepositoryImpl
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepository
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepositoryImpl
 import org.koin.core.module.Module
@@ -26,4 +28,5 @@ val repositoryModule: Module = module {
     single<TourWriteRepository> { TourWriteRepositoryImpl(get()) }
     single<ReservationRepository> { ReservationRepositoryImpl(get()) }
     single<ReservationHistoryRepository> { ReservationHistoryRepositoryImpl(get()) }
+    single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
 }

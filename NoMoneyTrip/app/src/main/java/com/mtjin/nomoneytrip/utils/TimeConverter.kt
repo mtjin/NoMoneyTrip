@@ -58,6 +58,28 @@ fun getCurrentMonth(): Int = Calendar.getInstance().get(Calendar.MONTH) + 1
 // 현재 Day
 fun getCurrentDay(): Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
 
+// timestamp -> year
+fun Long.convertTimestampToYear(): Int {
+    val cal: Calendar = Calendar.getInstance()
+    cal.timeInMillis = this
+    return cal[Calendar.YEAR]
+}
+
+// timestamp -> month
+fun Long.convertTimestampToMonth(): Int {
+    val cal: Calendar = Calendar.getInstance()
+    cal.timeInMillis = this
+    return cal[Calendar.MONTH] + 1
+}
+
+// timestamp -> day
+fun Long.convertTimestampToDay(): Int {
+    val cal: Calendar = Calendar.getInstance()
+    cal.timeInMillis = this
+    return cal[Calendar.DAY_OF_MONTH]
+}
+
+
 // 1시간 뒤 타임스탬프
 fun Long.convertNextHourTimestamp(): Long = this + (60 * 60 * 1000)
 

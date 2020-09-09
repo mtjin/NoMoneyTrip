@@ -27,7 +27,7 @@ val viewModelModule: Module = module {
     viewModel { LocalPageViewModel(get()) }
     viewModel { TourWriteViewModel(get()) }
     viewModel { LodgmentDetailViewModel() }
-    viewModel { ReservationPhaseFirstViewModel() }
+    viewModel { ReservationPhaseFirstViewModel(get()) }
     viewModel { ReservationViewModel(get()) }
     viewModel { ReservationCompleteViewModel() }
     viewModel { ReservationHistoryViewModel(get()) }

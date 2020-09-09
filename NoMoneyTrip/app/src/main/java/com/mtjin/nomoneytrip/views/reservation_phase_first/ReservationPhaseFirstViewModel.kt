@@ -1,17 +1,27 @@
 package com.mtjin.nomoneytrip.views.reservation_phase_first
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
+import com.mtjin.nomoneytrip.data.home.Product
+import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
+import com.mtjin.nomoneytrip.utils.TAG
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
-class ReservationPhaseFirstViewModel : BaseViewModel() {
+class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFirstRepository) :
+    BaseViewModel() {
     var isDateSelected = false
     var startDateTimestamp: Long = 0
     var endDateTimestamp: Long = 0
     var selectedOption: String = ""
 
     private val _showCalendar = MutableLiveData<Boolean>(false)
+    private val _dateList = MutableLiveData<ArrayList<Reservation>>()
     private val _goReservation = SingleLiveEvent<Unit>()
     private val _date = MutableLiveData<String>("")
     private val _num = MutableLiveData<String>("1")
@@ -21,6 +31,7 @@ class ReservationPhaseFirstViewModel : BaseViewModel() {
     private val isAllSelected: Boolean get() = (isDateSelected && (option1.value == true || option2.value == true))
 
     val showCalendar: LiveData<Boolean> get() = _showCalendar
+    val dateList: LiveData<ArrayList<Reservation>> get() = _dateList
     val goReservation: LiveData<Unit> get() = _goReservation
     val date: LiveData<String> get() = _date
     val num: LiveData<String> get() = _num
@@ -68,6 +79,25 @@ class ReservationPhaseFirstViewModel : BaseViewModel() {
 
     fun goReservation() {
         if (isAllSelected) _goReservation.call()
+    }
+
+    fun requestReservations(product: Product) {
+        compositeDisposable.add(
+            repository.requestReservations(product)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onNext = {
+                        _dateList.value = it as ArrayList<Reservation>
+                    },
+                    onError = {
+                        Log.d(
+                            TAG,
+                            "ReservationPhaseFirstViewModel requestReservations() Error -> $it"
+                        )
+                    }
+                )
+        )
     }
 
 }
