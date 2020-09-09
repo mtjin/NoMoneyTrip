@@ -11,6 +11,7 @@ data class Reservation(
     var productId: String = "",
     var num: String = "",
     var state: Boolean = true, //예약취소시 false
+    val isReviewed: Boolean = false, //리뷰 남김 유무
     var startDateTimestamp: Long = 0,
     var endDateTimestamp: Long = 0
 ) : Parcelable
