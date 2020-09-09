@@ -18,6 +18,7 @@ import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryAdapter
+import com.mtjin.nomoneytrip.views.tour_history.TourHistoryAdapter
 import java.util.concurrent.TimeUnit
 
 @BindingAdapter("urlImage")
@@ -104,6 +105,14 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
         is ReservationHistoryAdapter -> {
             items?.let {
                 with(adapter as ReservationHistoryAdapter) {
+                    clear()
+                    addItems(it as List<ReservationProduct>)
+                }
+            }
+        }
+        is TourHistoryAdapter -> {
+            items?.let {
+                with(adapter as TourHistoryAdapter) {
                     clear()
                     addItems(it as List<ReservationProduct>)
                 }

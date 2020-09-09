@@ -12,7 +12,14 @@ class TourHistoryFragment :
     private val args: TourHistoryFragmentArgs by navArgs()
     private val viewModel: TourHistoryViewModel by viewModel()
     override fun init() {
+        binding.vm = viewModel
+        initAdapter()
         processIntent()
+    }
+
+    private fun initAdapter() {
+        val adapter = TourHistoryAdapter()
+        binding.rvProducts.adapter = adapter
     }
 
     private fun processIntent() {

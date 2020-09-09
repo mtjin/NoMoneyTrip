@@ -5,20 +5,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
-import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
-import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
-import com.mtjin.nomoneytrip.databinding.ItemTourHistoryBinding
-import com.mtjin.nomoneytrip.databinding.ItemTourIntroduceBinding
+import com.mtjin.nomoneytrip.databinding.ItemTourWriteHistoryBinding
 
 class TourHistoryAdapter :
     RecyclerView.Adapter<TourHistoryAdapter.ViewHolder>() {
     private val items: ArrayList<ReservationProduct> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemTourHistoryBinding = DataBindingUtil.inflate(
+        val binding: ItemTourWriteHistoryBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_tour_history,
+            R.layout.item_tour_write_history,
             parent,
             false
         )
@@ -33,7 +30,7 @@ class TourHistoryAdapter :
         }
     }
 
-    class ViewHolder(private val binding: ItemTourHistoryBinding) :
+    class ViewHolder(private val binding: ItemTourWriteHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ReservationProduct) {
