@@ -26,8 +26,8 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                     onSuccess = {
-                        if (it.isEmpty()) _goTourHistory.value = it
-                        else _goTourNoHistory.call()
+                        if (it.isEmpty()) _goTourNoHistory.call()
+                        else _goTourHistory.value = it
 
                     },
                     onError = {
