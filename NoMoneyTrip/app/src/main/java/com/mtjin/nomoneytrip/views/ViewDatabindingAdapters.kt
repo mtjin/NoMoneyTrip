@@ -12,6 +12,7 @@ import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
+import com.mtjin.nomoneytrip.utils.getMyDrawable
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
@@ -57,6 +58,14 @@ fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) 
     time2 -= time2 % MILLIS_PER_DAY
     val day = TimeUnit.DAYS.convert(time2 - time1, TimeUnit.MILLISECONDS).toString()
     text = (day + "박, " + time)
+}
+
+//timestamp -> 2020.01.02
+@BindingAdapter("onNextBackground")
+fun TextView.setOnNextBackground(isCompleted: Boolean) {
+    if (isCompleted) background =
+        this.context.getMyDrawable(R.drawable.bg_orange_stroke_garyf4f4_solid_radius_8dp)
+    else background = this.context.getMyDrawable(R.drawable.bg_solid_grayf4f4_radius_8dp)
 }
 
 @BindingAdapter("setItems")
