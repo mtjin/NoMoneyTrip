@@ -7,6 +7,7 @@ import com.mtjin.nomoneytrip.data.community.source.CommunityRepository
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
+import com.mtjin.nomoneytrip.utils.getTimestamp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -24,6 +25,7 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
             repository.requestMyReservations()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .map { it.filter { reservation -> !reservation.isReviewed && reservation.endDateTimestamp <= getTimestamp() } }
                 .subscribeBy(
                     onSuccess = {
                         if (it.isEmpty()) _goTourNoHistory.call()
