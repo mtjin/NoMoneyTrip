@@ -84,11 +84,8 @@ class ReservationPhaseFirstFragment :
             dateList.observe(this@ReservationPhaseFirstFragment, Observer { reservations ->
                 val calList = ArrayList<CalendarDay>()
                 for (reservation in reservations) { //하루당 86400000
-                    reservation.run {
-                        Log.d(
-                            "AAAAAAA",
-                            "" + reservation.id + " --> " + endDateTimestamp + "  ///  " + startDateTimestamp
-                        )
+                    val res = reservation.copy()
+                    res.run {
                         while (endDateTimestamp > startDateTimestamp) {
                             calList.add(
                                 CalendarDay.from(
@@ -123,22 +120,36 @@ class ReservationPhaseFirstFragment :
             ).commit()
 
         binding.cvCalendar.setOnRangeSelectedListener { widget, dates ->
-            Log.d(TAG, "ReservationPhaseFirstFragment DATES-> $dates")
-            Log.d(TAG, "ReservationPhaseFirstFragment  YEAR-> " + dates[0].year.toString())
-            Log.d(TAG, "ReservationPhaseFirstFragment  MONTH-> " + dates[0].month.toString())
-            Log.d(TAG, "ReservationPhaseFirstFragment  DAY-> " + dates[0].day.toString())
+            for (date in dates) {
+                for (reservedDate in viewModel.dateList.value!!) {
+                    convertDateToTimestamp(
+                        _year = date.year,
+                        _month = date.month,
+                        _day = date.day
+                    ).let {
+                        if (it <= reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
+                            showToast(getString(R.string.date_can_not_selected_msg))
+                            binding.cvCalendar.clearSelection()
+                            viewModel.isDateSelected = false
+                            viewModel.checkAllSelected()
+                            return@setOnRangeSelectedListener
+                        }
+                    }
+                }
+            }
+            Log.d("AAAAAA", "AAAAAA")
             viewModel.startDateTimestamp = convertDateToTimestamp(
                 _year = dates[0].year,
                 _month = dates[0].month,
                 _day = dates[0].day
             )
-            if (dates.size == 1) {
+            if (dates.size == 0) {
                 viewModel.endDateTimestamp = convertDateToTimestamp(
-                    _year = dates[0].year,
-                    _month = dates[0].month,
-                    _day = dates[0].day
+                    _year = dates[dates.size].year,
+                    _month = dates[dates.size].month,
+                    _day = dates[dates.size].day
                 )
-            } else {
+            } else if (dates.size != 1) {
                 viewModel.endDateTimestamp = convertDateToTimestamp(
                     _year = dates[dates.size - 1].year,
                     _month = dates[dates.size - 1].month,
@@ -147,8 +158,19 @@ class ReservationPhaseFirstFragment :
             }
         }
         binding.cvCalendar.setOnDateChangedListener { widget, date, selected ->
-            Log.d(TAG, "is Selected -> $selected")
-            Log.d(TAG, "is Selected -> $date")
+            for (reservedDate in viewModel.dateList.value!!) {
+                convertDateToTimestamp(
+                    _year = date.year,
+                    _month = date.month,
+                    _day = date.day
+                ).let {
+                    if (it <= reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
+                        showToast(getString(R.string.date_can_not_selected_msg))
+                        binding.cvCalendar.clearSelection()
+                        return@setOnDateChangedListener
+                    }
+                }
+            }
             viewModel.isDateSelected = selected
             viewModel.startDateTimestamp = convertDateToTimestamp(
                 _year = date.year,
@@ -160,7 +182,6 @@ class ReservationPhaseFirstFragment :
                 _month = date.month,
                 _day = date.day
             )
-
             viewModel.checkAllSelected()
         }
     }
