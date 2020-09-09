@@ -1,7 +1,6 @@
 package com.mtjin.nomoneytrip.views.reservation
 
 import android.text.util.Linkify
-import android.util.Log
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -32,7 +31,6 @@ class ReservationFragment :
             })
 
             successReservation.observe(this@ReservationFragment, Observer {
-                Log.d("AAAAA", it.toString())
                 if (it) {
                     findNavController().navigate(
                         ReservationFragmentDirections.actionReservationFragmentToReservationCompleteFragment(
@@ -43,12 +41,17 @@ class ReservationFragment :
                     showToast(getString(R.string.reservation_fail_msg))
                 }
             })
+
+            duplicateDateMsg.observe(this@ReservationFragment, Observer {
+                showToast(getString(R.string.duplicate_date_select_another_date_msg))
+            })
         }
     }
 
     private fun processIntent() {
         binding.product = args.product
         binding.reservation = args.reservation
+        viewModel.product = args.product
         viewModel.reservation = args.reservation
     }
 

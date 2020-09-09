@@ -114,4 +114,5 @@
     <string name="reservation_cancel_fail_tmsg">예약취소를 실패하였습니다.</string>
     <string name="no_product_yet_text">아직 예약하신 상품이 없습니다.</string>
     <string name="date_can_not_selected_msg">해당 날짜는 선택할 수 없습니다.</string>
+    <string name="duplicate_date_select_another_date_msg">해당 날짜에 예약이 있습니다. 다른 날짜를 선택해주세요</string>
 </resources>

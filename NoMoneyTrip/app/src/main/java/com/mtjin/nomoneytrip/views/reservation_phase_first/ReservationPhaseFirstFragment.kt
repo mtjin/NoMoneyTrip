@@ -92,6 +92,7 @@ class ReservationPhaseFirstFragment :
             val res = reservation.copy()
             res.run {
                 while (endDateTimestamp > startDateTimestamp) {
+                    endDateTimestamp -= TIMESTAMP_PER_DAY
                     calList.add(
                         CalendarDay.from(
                             endDateTimestamp.convertTimestampToYear(),
@@ -99,7 +100,6 @@ class ReservationPhaseFirstFragment :
                             endDateTimestamp.convertTimestampToDay()
                         )
                     )
-                    endDateTimestamp -= TIMESTAMP_PER_DAY
                 }
             }
         }

@@ -49,3 +49,6 @@ const val PRODUCT_ID = "productId"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000
+
+//에러
+const val ERR_DUPLICATE_DATE = "ERR_DUPLICATE_DATE"
