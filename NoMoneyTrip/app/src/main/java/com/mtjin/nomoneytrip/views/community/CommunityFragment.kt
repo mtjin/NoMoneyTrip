@@ -12,6 +12,12 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
     override fun init() {
         binding.vm = viewModel
         initViewModelCallback()
+        initAdapter()
+        viewModel.requestReviews()
+    }
+
+    private fun initAdapter() {
+        binding.rvReviews.adapter = CommunityAdapter()
     }
 
     private fun initViewModelCallback() {

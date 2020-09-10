@@ -68,4 +68,5 @@
     <dimen name="padding_20dp">20dp</dimen>
     <dimen name="behavior_height_56dp">56dp</dimen>
     <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="padding_48dp">48dp</dimen>
 </resources>

@@ -13,18 +13,30 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_14dp">
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_1dp"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:background="@color/colorWhiteGrayF4F4"
+            app:layout_constraintEnd_toEndOf="@id/tv_product_title"
+            app:layout_constraintStart_toStartOf="@id/tv_product_title"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@id/civ_image"
             android:layout_width="@dimen/width_44dp"
             android:layout_height="@dimen/width_44dp"
             android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_16dp"
             android:src="@drawable/img_product"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:urlImage="@{item.userImage}" />
+            app:layout_constraintTop_toBottomOf="@id/view_top"
+            bind:urlImage="@{item.user.image}" />
 
 
         <TextView
@@ -32,12 +44,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_12dp"
-            android:text="@{item.name}"
+            android:text="@{item.user.name}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_time"
             app:layout_constraintStart_toEndOf="@id/civ_image"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/civ_image"
             tools:text="김종훈" />
 
         <TextView
@@ -78,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                bind:urlImage="@{item.image}"
+                bind:urlImage="@{item.review.image}"
                 tools:src="@drawable/img_product" />
         </androidx.cardview.widget.CardView>
 
@@ -98,7 +110,7 @@
             android:paddingEnd="@dimen/padding_12dp"
             android:paddingBottom="@dimen/padding_8dp"
             android:singleLine="true"
-            android:text="@{item.title}"
+            android:text="@{item.product.title}"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +125,7 @@
             android:layout_marginTop="@dimen/margin_14dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@{item.content}"
+            android:text="@{item.review.content}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="@id/cv_cardview"
@@ -128,7 +140,7 @@
             android:layout_marginTop="@dimen/margin_12dp"
             android:layout_marginEnd="@dimen/margin_36dp"
             android:gravity="center_vertical"
-            android:text="@{Long.toString(item.recommend)}"
+            android:text="@{Long.toString(item.review.recommend)}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:drawableStartCompat="@drawable/ic_community_good_off"
@@ -146,18 +158,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv_heart"
             app:layout_constraintTop_toTopOf="@id/tv_heart"
             app:srcCompat="@drawable/ic_share" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_1dp"
-            android:layout_marginStart="@dimen/margin_28dp"
-            android:layout_marginTop="@dimen/margin_16dp"
-            android:layout_marginEnd="@dimen/margin_28dp"
-            android:layout_marginBottom="@dimen/margin_20dp"
-            android:background="@color/colorWhiteGrayF4F4"
-            app:layout_constraintEnd_toEndOf="@id/tv_product_title"
-            app:layout_constraintStart_toStartOf="@id/tv_product_title"
-            app:layout_constraintTop_toBottomOf="@id/iv_share" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

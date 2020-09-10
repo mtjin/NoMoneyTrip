@@ -7,12 +7,14 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
 import com.mtjin.nomoneytrip.utils.getMyColor
+import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
@@ -123,6 +125,14 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as TourHistoryAdapter) {
                     clear()
                     addItems(it as List<ReservationProduct>)
+                }
+            }
+        }
+        is CommunityAdapter -> {
+            items?.let {
+                with(adapter as CommunityAdapter) {
+                    clear()
+                    addItems(it as List<UserReview>)
                 }
             }
         }
