@@ -1,31 +1,32 @@
 package com.mtjin.nomoneytrip.views.tour_no_history
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.viewpager.widget.PagerAdapter
-import com.mtjin.nomoneytrip.R
-import com.mtjin.nomoneytrip.data.home.Product
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 
-class TourNoHistoryPagerAdapter(private val items: ArrayList<Product>) : PagerAdapter() {
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val inflater = LayoutInflater.from(container.context)
-        val view = inflater.inflate(R.layout.item_product, container, false)
-        container.addView(view)
-        return view
+class TourNoHistoryPagerAdapter(fm: FragmentManager?) :
+    FragmentPagerAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private var fragments = ArrayList<Fragment>()
+    fun addItem(item: Fragment) {
+        fragments.add(item)
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, obj: Any) {
-        container.removeView(obj as View?)
+    fun addItems(items: List<Fragment>) {
+        fragments.addAll(items)
+        notifyDataSetChanged()
     }
 
-    override fun isViewFromObject(view: View, obj: Any): Boolean {
-        return view == obj
+    override fun getItem(position: Int): Fragment {
+        return fragments[position]
+    }
+
+    fun clear() {
+        fragments.clear()
+        notifyDataSetChanged()
     }
 
     override fun getCount(): Int {
-        //return list.size
-        return 3
+        return fragments.size
     }
 }
