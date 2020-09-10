@@ -49,12 +49,15 @@
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_290dp"
             android:layout_marginTop="@dimen/margin_80dp"
             android:clipToPadding="false"
-            app:layout_constraintBottom_toTopOf="@id/tv_next"
-            app:layout_constraintTop_toBottomOf="@id/text_question" />
+            app:layout_constraintBottom_toTopOf="@id/piv_page_indicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_question"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <com.rd.PageIndicatorView
             android:id="@+id/piv_page_indicator"
@@ -62,9 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginBottom="@dimen/margin_43dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_next"
             app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
             app:layout_constraintStart_toStartOf="@id/vp_viewpager"
-            app:layout_constraintTop_toBottomOf="@id/vp_viewpager"
+            app:layout_constraintTop_toBottomOf="@+id/vp_viewpager"
             app:piv_animationType="scale"
             app:piv_dynamicCount="true"
             app:piv_interactiveAnimation="true"

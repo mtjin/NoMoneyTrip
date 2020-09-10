@@ -16,6 +16,5 @@ class TourNoHistoryRecommendFragment(private val product: Product) :
     private fun initAdapter() {
         val hashTagAdapter = ProductHashTagAdapter()
         binding.rvHashTags.adapter = hashTagAdapter
-        hashTagAdapter.addItems(product.hashTagList)
     }
 }
