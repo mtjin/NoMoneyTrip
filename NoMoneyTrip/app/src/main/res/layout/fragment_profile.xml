@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="user"
+            type="com.mtjin.nomoneytrip.data.login.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,6 +68,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    bind:urlImage="@{user.image}"
                     tools:srcCompat="@drawable/img_product" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -73,6 +78,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="23dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
+                    android:text="@{user.name}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@id/iv_image"
@@ -84,6 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:text="@{user.email}"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@id/tv_id"
