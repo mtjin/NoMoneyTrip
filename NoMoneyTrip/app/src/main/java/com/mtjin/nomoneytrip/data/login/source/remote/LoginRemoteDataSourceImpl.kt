@@ -13,11 +13,27 @@ class LoginRemoteDataSourceImpl(private val database: DatabaseReference) : Login
     override fun kakaoLogin(): Session = Session.getCurrentSession()
     override fun insertUser(user: User): Completable {
         return Completable.create { emitter ->
-            database.child(USER).child(user.id).setValue(user).addOnSuccessListener {
-                emitter.onComplete()
-            }.addOnFailureListener {
-                emitter.onError(it)
-            }
+            database.child(USER).child(uuid)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        emitter.onError(error.toException())
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (!snapshot.exists()) {
+                            database.child(USER).child(user.id).setValue(user)
+                                .addOnSuccessListener {
+                                    emitter.onComplete()
+                                }.addOnFailureListener {
+                                    emitter.onError(it)
+                                }
+                        } else {
+                            emitter.onComplete()
+                        }
+                    }
+
+                })
+
         }
 
     }

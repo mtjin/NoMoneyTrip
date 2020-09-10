@@ -133,6 +133,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         viewModel.insertUser(
                             User(
                                 id = uuid,
+                                name = email,
                                 fcm = fcm,
                                 email = email,
                                 pw = password,
@@ -162,6 +163,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                 viewModel.insertUser(
                                                     User(
                                                         id = uuid,
+                                                        name = email,
                                                         fcm = fcm,
                                                         email = email,
                                                         pw = password,
