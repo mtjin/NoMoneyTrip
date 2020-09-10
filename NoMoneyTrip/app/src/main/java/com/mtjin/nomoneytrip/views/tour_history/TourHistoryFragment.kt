@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.views.tour_history
 
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
@@ -15,6 +17,19 @@ class TourHistoryFragment :
         binding.vm = viewModel
         initAdapter()
         processIntent()
+        initViewModelCallback()
+    }
+
+    private fun initViewModelCallback() {
+        with(viewModel) {
+            goTourWrite.observe(this@TourHistoryFragment, Observer {
+                findNavController().navigate(
+                    TourHistoryFragmentDirections.actionTourHistoryFragmentToTourWriteFragment(
+                        it
+                    )
+                )
+            })
+        }
     }
 
     private fun initAdapter() {

@@ -137,6 +137,19 @@
         <argument
             android:name="reservation"
             app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct[]" />
+        <action
+            android:id="@+id/action_tour_history_fragment_to_tour_write_fragment"
+            app:destination="@id/tour_write_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tour_write_fragment"
+        android:name="com.mtjin.nomoneytrip.views.tour_write.TourWriteFragment"
+        android:label="TourWriteFragment"
+        tools:layout="@layout/fragment_tour_write">
+        <argument
+            android:name="reservation"
+            app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
     </fragment>
 
 

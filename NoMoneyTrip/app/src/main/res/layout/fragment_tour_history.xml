@@ -71,6 +71,7 @@
             android:layout_height="@dimen/height_64dp"
             android:background="@color/colorGrayC8C8"
             android:gravity="center"
+            android:onClick="@{()->vm.goTourWrite()}"
             android:text="@string/next_text"
             android:textColor="@color/colorWhiteFDFD"
             android:textSize="@dimen/text_size_14sp"
