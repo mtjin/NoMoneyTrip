@@ -115,4 +115,7 @@
     <string name="no_product_yet_text">아직 예약하신 상품이 없습니다.</string>
     <string name="date_can_not_selected_msg">해당 날짜는 선택할 수 없습니다.</string>
     <string name="duplicate_date_select_another_date_msg">해당 날짜에 예약이 있습니다. 다른 날짜를 선택해주세요</string>
+    <string name="tour_write_question_hint">여행은 어떠셨나요?\n숨겨진 국내 여행 팁을 나눠주세요.</string>
+    <string name="please_upload_image_msg">이미지를 업로드해주세요</string>
+    <string name="tour_write_upload_fail_msg">작성물 게시를 실패했습니다</string>
 </resources>

@@ -23,9 +23,9 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
     fun goReview() {
         compositeDisposable.add(
             repository.requestMyReservations()
+                .map { it.filter { item -> !item.reservation.reviewed && item.reservation.endDateTimestamp <= getTimestamp() && item.reservation.state } }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { it.filter { item -> !item.reservation.isReviewed && item.reservation.endDateTimestamp <= getTimestamp() } }
                 .subscribeBy(
                     onSuccess = {
                         if (it.isEmpty()) _goTourNoHistory.call()

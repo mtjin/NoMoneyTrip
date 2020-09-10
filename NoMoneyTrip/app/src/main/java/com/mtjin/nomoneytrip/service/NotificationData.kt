@@ -1,4 +1,4 @@
-package com.mtjin.nomoneytrip.fcm
+package com.mtjin.nomoneytrip.service
 
 data class NotificationData(
     val title: String,

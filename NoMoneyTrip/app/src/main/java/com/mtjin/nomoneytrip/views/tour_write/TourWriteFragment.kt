@@ -3,19 +3,29 @@ package com.mtjin.nomoneytrip.views.tour_write
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentTourWriteBinding
 import com.mtjin.nomoneytrip.utils.RC_PICK_IMAGE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragment_tour_write) {
 
     private val viewModel: TourWriteViewModel by viewModel()
+    private val args: TourWriteFragmentArgs by navArgs()
 
     override fun init() {
         binding.vm = viewModel
+        processIntent()
         initViewModelCallback()
+    }
+
+    private fun processIntent() {
+        binding.item = args.reservationProduct
+        viewModel.reservationProduct = args.reservationProduct
     }
 
     private fun initViewModelCallback() {
@@ -29,13 +39,25 @@ class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragme
             contentEmptyMsg.observe(this@TourWriteFragment, Observer {
                 showToast(getString(R.string.input_content_text))
             })
+
+            imageEmptyMsg.observe(this@TourWriteFragment, Observer {
+                showToast(getString(R.string.please_upload_image_msg))
+            })
+
+            writeSuccess.observe(this@TourWriteFragment, Observer { success ->
+                if (success) findNavController().navigate(TourWriteFragmentDirections.actionTourWriteFragmentToBottomNav2())
+                else showToast(getString(R.string.tour_write_upload_fail_msg))
+            })
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == RC_PICK_IMAGE) {
-            binding.ivImage.setImageURI(data?.data)
+            data?.data?.let {
+                binding.ivImage.setImageURI(it)
+                viewModel.imageUri = it
+            }
         }
     }
 }

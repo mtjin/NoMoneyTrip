@@ -46,9 +46,12 @@ const val FCM = "fcm" // fcm
 const val RESERVATION = "reservation"
 const val USER_ID = "userId"
 const val PRODUCT_ID = "productId"
+const val REVIEW = "review"
+const val REVIEWED = "reviewed"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000
 
 //에러
 const val ERR_DUPLICATE_DATE = "ERR_DUPLICATE_DATE"
+const val ERR_UPLOAD_IMAGE = "ERR_UPLOAD_IMAGE"

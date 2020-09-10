@@ -139,7 +139,8 @@
             app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct[]" />
         <action
             android:id="@+id/action_tour_history_fragment_to_tour_write_fragment"
-            app:destination="@id/tour_write_fragment" />
+            app:destination="@id/tour_write_fragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
@@ -148,8 +149,14 @@
         android:label="TourWriteFragment"
         tools:layout="@layout/fragment_tour_write">
         <argument
-            android:name="reservation"
+            android:name="reservationProduct"
             app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
+        <action
+            android:id="@+id/action_tour_write_fragment_to_bottom_nav_2"
+            app:destination="@id/bottom_nav_2"
+            app:popUpTo="@id/tour_write_fragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
     </fragment>
 
 

@@ -4,6 +4,7 @@ package com.mtjin.nomoneytrip.data.community
 class UserReview(
     var id: String = "",
     var userId: String = "",
+    var productId: String = "",
     var timestamp: Long = 0,
     var image: String = "",
     var title: String = "",

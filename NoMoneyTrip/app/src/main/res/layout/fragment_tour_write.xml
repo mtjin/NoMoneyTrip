@@ -5,6 +5,12 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
+
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.tour_write.TourWriteViewModel" />
@@ -49,6 +55,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,6 +71,7 @@
                     android:layout_marginTop="80dp"
                     android:background="@drawable/button_add_pic"
                     android:onClick="@{()->vm.pickImage()}"
+                    android:scaleType="fitXY"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_content" />
 
@@ -75,7 +83,8 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="49dp"
                     android:background="@android:color/transparent"
-                    android:hint="여행은 어떠셨나요?\n숨겨진 국내 여행 팁을 나눠주세요."
+                    android:hint="@string/tour_write_question_hint"
+                    android:maxLines="200"
                     android:text="@={vm.content}"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
@@ -111,6 +120,7 @@
                     android:paddingEnd="12dp"
                     android:paddingBottom="10dp"
                     android:singleLine="true"
+                    android:text="@{item.product.title}"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -118,5 +128,16 @@
                     tools:text="상품제목이고 한줄까지 가능합니다." />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

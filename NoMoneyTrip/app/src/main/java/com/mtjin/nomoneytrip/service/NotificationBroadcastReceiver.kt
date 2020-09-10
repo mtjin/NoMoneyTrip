@@ -1,4 +1,4 @@
-package com.mtjin.nomoneytrip.fcm
+package com.mtjin.nomoneytrip.service
 
 import android.content.BroadcastReceiver
 import android.content.Context
