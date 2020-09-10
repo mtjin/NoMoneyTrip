@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.views.tour_no_history
 
-import android.util.Log
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.data.home.Product
@@ -12,11 +11,11 @@ class TourNoHistoryRecommendFragment(private val product: Product) :
     override fun init() {
         initAdapter()
         binding.item = product
-        binding.executePendingBindings()
     }
 
     private fun initAdapter() {
         val hashTagAdapter = ProductHashTagAdapter()
         binding.rvHashTags.adapter = hashTagAdapter
+        hashTagAdapter.addItems(product.hashTagList)
     }
 }

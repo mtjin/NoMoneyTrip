@@ -1,9 +1,11 @@
 package com.mtjin.nomoneytrip.views.tour_no_history
 
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentTourNoHistoryBinding
+import com.mtjin.nomoneytrip.views.tour_write.TourWriteFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TourNoHistoryFragment :
@@ -12,13 +14,14 @@ class TourNoHistoryFragment :
     lateinit var pagerAdapter: TourNoHistoryPagerAdapter
 
     override fun init() {
+        binding.vm = viewModel
         initViewPager()
         initViewModelCallback()
         viewModel.requestProducts()
     }
 
     private fun initViewPager() {
-        binding.vpViewpager.offscreenPageLimit = 5 //캐시해놓을 페이지 수
+        //binding.vpViewpager.offscreenPageLimit = 5 //캐시해놓을 페이지 수
         pagerAdapter = TourNoHistoryPagerAdapter(requireActivity().supportFragmentManager)
         binding.vpViewpager.adapter = pagerAdapter
         val dpValue = 54
@@ -38,6 +41,10 @@ class TourNoHistoryFragment :
                 }
                 binding.pivPageIndicator.count = products.size
                 pagerAdapter.addItems(list)
+            })
+
+            goHome.observe(this@TourNoHistoryFragment, Observer {
+                findNavController().navigate(TourNoHistoryFragmentDirections.actionTourNoHistoryFragmentToBottomNav1())
             })
         }
     }

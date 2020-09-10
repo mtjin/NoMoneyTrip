@@ -127,7 +127,14 @@
         android:id="@+id/tour_no_history_fragment"
         android:name="com.mtjin.nomoneytrip.views.tour_no_history.TourNoHistoryFragment"
         android:label="TourNoHistoryFragment"
-        tools:layout="@layout/fragment_tour_no_history" />
+        tools:layout="@layout/fragment_tour_no_history" >
+        <action
+            android:id="@+id/action_tour_no_history_fragment_to_bottom_nav_1"
+            app:destination="@id/bottom_nav_1"
+            app:popUpTo="@id/bottom_nav_2"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/tour_history_fragment"

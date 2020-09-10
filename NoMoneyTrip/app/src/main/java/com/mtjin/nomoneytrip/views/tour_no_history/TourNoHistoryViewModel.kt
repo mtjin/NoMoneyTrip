@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.tour_no_history.source.TourNoHistoryRepository
+import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -13,8 +14,10 @@ import io.reactivex.schedulers.Schedulers
 
 class TourNoHistoryViewModel(private val repository: TourNoHistoryRepository) : BaseViewModel() {
     private val _productList = MutableLiveData<List<Product>>()
+    private val _goHome = SingleLiveEvent<Unit>()
 
     val productList: LiveData<List<Product>> get() = _productList
+    val goHome: LiveData<Unit> get() = _goHome
 
     fun requestProducts() {
         compositeDisposable.add(
@@ -30,5 +33,9 @@ class TourNoHistoryViewModel(private val repository: TourNoHistoryRepository) : 
                     }
                 )
         )
+    }
+
+    fun goHome() {
+        _goHome.call()
     }
 }

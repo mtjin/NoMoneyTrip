@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.tour_no_history.TourNoHistoryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,9 +51,9 @@
             android:id="@+id/vp_viewpager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_next"
             android:layout_marginTop="@dimen/margin_80dp"
             android:clipToPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/tv_next"
             app:layout_constraintTop_toBottomOf="@id/text_question" />
 
         <com.rd.PageIndicatorView
@@ -77,6 +80,7 @@
             android:layout_height="@dimen/height_64dp"
             android:background="@color/colorOrangeF79256"
             android:gravity="center"
+            android:onClick="@{()->vm.goHome()}"
             android:text="@string/go_home_text"
             android:textColor="@color/colorWhiteFDFD"
             android:textSize="@dimen/text_size_14sp"
