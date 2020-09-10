@@ -56,7 +56,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/padding_16dp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_date"
@@ -217,6 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="25dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
                     android:text="@{product.optionList.get(1)}"
                     android:textColor="@color/colorBlack2D2D"
                     app:layout_constraintStart_toStartOf="parent"
