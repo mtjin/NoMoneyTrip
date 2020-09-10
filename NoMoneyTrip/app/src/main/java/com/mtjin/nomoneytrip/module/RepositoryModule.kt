@@ -16,6 +16,8 @@ import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryR
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepository
 import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepositoryImpl
+import com.mtjin.nomoneytrip.data.tour_no_history.source.TourNoHistoryRepository
+import com.mtjin.nomoneytrip.data.tour_no_history.source.TourNoHistoryRepositoryImpl
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepository
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepositoryImpl
 import com.mtjin.nomoneytrip.utils.REVIEW
@@ -33,4 +35,5 @@ val repositoryModule: Module = module {
     single<ReservationHistoryRepository> { ReservationHistoryRepositoryImpl(get()) }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
     single<CommunityRepository> { CommunityRepositoryImpl(get()) }
+    single<TourNoHistoryRepository> { TourNoHistoryRepositoryImpl(get()) }
 }
