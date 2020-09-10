@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="user"
-            type="com.mtjin.nomoneytrip.data.login.User" />
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.profile.ProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,19 +68,21 @@
                     android:scaleType="fitXY"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    bind:urlImage="@{user.image}"
+                    bind:urlImage="@{vm.user.image ?? ``}"
                     tools:srcCompat="@drawable/img_product" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_id"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="23dp"
+                    android:layout_marginEnd="@dimen/margin_28dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
-                    android:text="@{user.name}"
+                    android:text="@{vm.user.name ?? ``}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_image"
                     app:layout_constraintTop_toTopOf="@id/iv_image"
                     tools:text="UMINYOUNG" />
@@ -90,9 +92,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="@{user.email}"
+                    android:layout_marginEnd="@dimen/margin_28dp"
+                    android:text="@{vm.user.email ?? ``}"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/tv_id"
                     app:layout_constraintTop_toBottomOf="@id/tv_id"
                     tools:text="dvsvp@kakao.com" />
