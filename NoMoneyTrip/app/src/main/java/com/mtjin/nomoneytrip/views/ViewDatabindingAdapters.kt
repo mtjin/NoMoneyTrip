@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterInside
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
@@ -29,6 +31,15 @@ fun ImageView.setUrlImage(url: String) {
     Glide.with(this).load(url)
         .thumbnail(0.1f)
         .error(R.drawable.img_product)
+        .into(this)
+}
+
+@BindingAdapter("urlImageRadius")
+fun ImageView.setUrlImageRadius(url: String) {
+    Glide.with(this).load(url)
+        .thumbnail(0.1f)
+        .error(R.drawable.img_product)
+        .transform(RoundedCorners(16))
         .into(this)
 }
 
