@@ -11,6 +11,7 @@ import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityEmailLoginBinding
 import com.mtjin.nomoneytrip.utils.fcm
+import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -57,7 +58,7 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
                     viewModel.insertUser(
                         User(
                             id = uuid,
-                            name = email,
+                            name = "무전" + getTimestamp(),
                             fcm = fcm,
                             email = email,
                             pw = password,

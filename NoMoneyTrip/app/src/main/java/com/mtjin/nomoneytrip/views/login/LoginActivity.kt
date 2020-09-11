@@ -24,6 +24,7 @@ import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityLoginBinding
 import com.mtjin.nomoneytrip.utils.fcm
+import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpActivity
@@ -133,7 +134,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         viewModel.insertUser(
                             User(
                                 id = uuid,
-                                name = email,
+                                name = "무전" + getTimestamp(),
                                 fcm = fcm,
                                 email = email,
                                 pw = password,
@@ -163,7 +164,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                 viewModel.insertUser(
                                                     User(
                                                         id = uuid,
-                                                        name = email,
+                                                        name = "무전" + getTimestamp(),
                                                         fcm = fcm,
                                                         email = email,
                                                         pw = password,
