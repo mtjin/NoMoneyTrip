@@ -110,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/bg_orange_border_radius_8dp"
+                    android:onClick="@{()->vm.goProfileEdit()}"
                     android:paddingStart="55dp"
                     android:paddingTop="8dp"
                     android:paddingEnd="55dp"

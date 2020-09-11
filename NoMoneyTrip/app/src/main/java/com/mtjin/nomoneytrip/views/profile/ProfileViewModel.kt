@@ -14,8 +14,10 @@ import io.reactivex.schedulers.Schedulers
 class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseViewModel() {
 
     private val _user = SingleLiveEvent<User>()
+    private val _goProfileEdit = SingleLiveEvent<Unit>()
 
     val user: LiveData<User> get() = _user
+    val goProfileEdit: LiveData<Unit> get() = _goProfileEdit
 
     fun requestProfile() {
         compositeDisposable.add(
@@ -32,5 +34,9 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                     }
                 )
         )
+    }
+
+    fun goProfileEdit() {
+        _goProfileEdit.call()
     }
 }
