@@ -75,7 +75,7 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
                         _userReviewList.value = it
                     },
                     onError = {
-                        Log.d(TAG, "CommunityViewModel requestReviews() -> $it")
+                        Log.d(TAG, "LocalPageViewModel requestReviews() -> $it")
                     }
                 )
         )

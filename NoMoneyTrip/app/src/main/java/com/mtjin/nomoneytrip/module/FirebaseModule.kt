@@ -16,6 +16,6 @@ import org.koin.dsl.module
 val firebaseModule: Module = module {
     single<FirebaseAuth> { Firebase.auth }
     single<DatabaseReference> { Firebase.database.reference }
-    single<StorageReference>(named(REVIEW)) { Firebase.storage.reference }
+    single<StorageReference>(named(REVIEW)) { Firebase.storage.reference.child(REVIEW) }
     single<StorageReference>(named(USER)) { Firebase.storage.reference.child(USER) }
 }

@@ -8,6 +8,8 @@ import com.mtjin.nomoneytrip.data.home.source.HomeRepository
 import com.mtjin.nomoneytrip.data.home.source.HomeRepositoryImpl
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepositoryImpl
+import com.mtjin.nomoneytrip.data.lodgment_detail.source.LodgmentDetailRepository
+import com.mtjin.nomoneytrip.data.lodgment_detail.source.LodgmentDetailRepositoryImpl
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
 import com.mtjin.nomoneytrip.data.login.source.LoginRepositoryImpl
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
@@ -43,4 +45,5 @@ val repositoryModule: Module = module {
     single<TourNoHistoryRepository> { TourNoHistoryRepositoryImpl(get()) }
     single<ProfileRepository> { ProfileRepositoryImpl(get()) }
     single<ProfileEditRepository> { ProfileEditRepositoryImpl(get(), get(named(USER))) }
+    single<LodgmentDetailRepository> { LodgmentDetailRepositoryImpl(get()) }
 }

@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
+import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.skt.Tmap.TMapMarkerItem
 import com.skt.Tmap.TMapPoint
@@ -57,8 +58,10 @@ class LodgmentDetailFragment :
     }
 
     private fun initReviewAdapter() {
-        binding.rvReviews.adapter = ReviewAdapter()
-        // TODO :: 아이템 추가작업 추후 구현
+        viewModel.page = 2
+        val adapter = CommunityAdapter()
+        binding.rvReviews.adapter = adapter
+        viewModel.requestReviews()
     }
 
     private fun initViewPager() {
@@ -80,6 +83,7 @@ class LodgmentDetailFragment :
 
     private fun processIntent() {
         binding.product = productArg.product
+        viewModel.productId = productArg.product.id
     }
 
     private fun initTmap() {

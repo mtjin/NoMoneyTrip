@@ -128,4 +128,5 @@
     <string name="tour_history_question_text">어떤 여행을 다녀오셨나요?\n다녀온 여행지를 선택해주세요.</string>
     <string name="local_popular_review_text">이 지역 인기 여행기</string>
     <string name="aleready_reviewed_product_msg">이미 리뷰를 남긴 상품입니다.</string>
+    <string name="local_tour_review_more_text">이 지역 여행기 더 보기</string>
 </resources>

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1">
@@ -34,8 +34,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
-                    android:onClick="@{()->vm.onBackClick()}"
                     android:layout_marginTop="@dimen/margin_32dp"
+                    android:onClick="@{()->vm.onBackClick()}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_back_title" />
@@ -519,11 +519,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_20dp"
+                    android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_tour_review"
+                    bind:setItems="@{vm.userReviewList}"
                     tools:itemCount="1"
                     tools:listitem="@layout/item_lodgement_review" />
 
@@ -536,7 +538,8 @@
                     android:layout_marginBottom="@dimen/margin_40dp"
                     android:background="@drawable/bg_btn_orange_edge"
                     android:gravity="center"
-                    android:text="이 지역 여행기 전체보기"
+                    android:onClick="@{()->vm.requestReviews()}"
+                    android:text="@string/local_tour_review_more_text"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -545,7 +548,7 @@
                     app:layout_constraintTop_toBottomOf="@id/rv_reviews" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
