@@ -7,6 +7,7 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLocalPageBinding
 import com.mtjin.nomoneytrip.utils.*
+import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragment_local_page) {
@@ -15,6 +16,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     private lateinit var tourIntroduceAdapter: LocalPageAdapter
     private lateinit var restaurantIntroduceAdapter: LocalPageAdapter
     private lateinit var productAdapter: LocalProductAdapter
+    private lateinit var reviewAdapter: CommunityAdapter
 
     override fun init() {
         initAdapter()
@@ -26,9 +28,11 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
         tourIntroduceAdapter = LocalPageAdapter()
         restaurantIntroduceAdapter = LocalPageAdapter()
         productAdapter = LocalProductAdapter()
+        reviewAdapter = CommunityAdapter()
         binding.rvTours.adapter = tourIntroduceAdapter
         binding.rvRestaurants.adapter = restaurantIntroduceAdapter
         binding.rvProducts.adapter = productAdapter
+        binding.rvReviews.adapter = reviewAdapter
 
     }
 
@@ -224,6 +228,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 viewModel.requestRestaurantIntroduces(JEJU_CODE)
             }
         }
+        viewModel.requestReviews(local)
         viewModel.requestProducts(local)
         binding.tvLocalTitle.text = local
 

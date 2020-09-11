@@ -61,44 +61,46 @@ class CommunityRepositoryImpl(private val database: DatabaseReference) : Communi
     }
 
     override fun requestReviews(): Single<List<UserReview>> {
-        var user: User
+        var userList = ArrayList<User>()
         var productList = ArrayList<Product>()
         var userReviewList = ArrayList<UserReview>()
         return Single.create<List<UserReview>> { emitter ->
-            database.child(USER).child(uuid)
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onCancelled(error: DatabaseError) {
-                        emitter.onError(error.toException())
+            database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    emitter.onError(error.toException())
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (productSnapshot in snapshot.children) {
+                        productSnapshot.getValue(Product::class.java)?.let {
+                            productList.add(it)
+                        }
                     }
+                    database.child(USER)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(error: DatabaseError) {
+                                emitter.onError(error.toException())
+                            }
 
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        snapshot.getValue(User::class.java)?.let {
-                            user = it
-                            database.child(PRODUCT)
-                                .addListenerForSingleValueEvent(object : ValueEventListener {
-                                    override fun onCancelled(error: DatabaseError) {
-                                        emitter.onError(error.toException())
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                for (userSnapshot in snapshot.children) {
+                                    userSnapshot.getValue(User::class.java)?.let {
+                                        userList.add(it)
                                     }
-
-                                    override fun onDataChange(snapshot: DataSnapshot) {
-                                        for (snapshot2 in snapshot.children) {
-                                            snapshot2.getValue(Product::class.java)?.let {
-                                                productList.add(it)
-                                            }
+                                }
+                                database.child(REVIEW)
+                                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                                        override fun onCancelled(error: DatabaseError) {
+                                            emitter.onError(error.toException())
                                         }
-                                        database.child(REVIEW)
-                                            .addListenerForSingleValueEvent(object :
-                                                ValueEventListener {
-                                                override fun onCancelled(error: DatabaseError) {
-                                                    emitter.onError(error.toException())
-                                                }
-
-                                                override fun onDataChange(snapshot: DataSnapshot) {
-                                                    for (snapshot2 in snapshot.children) {
-                                                        snapshot2.getValue(Review::class.java)
-                                                            ?.let { review ->
-                                                                for (product in productList) {
-                                                                    if (review.productId == product.id) {
+                                        override fun onDataChange(snapshot: DataSnapshot) {
+                                            for (reviewSnapshot in snapshot.children) {
+                                                reviewSnapshot.getValue(Review::class.java)
+                                                    ?.let { review ->
+                                                        for (product in productList) {
+                                                            if (product.id == review.productId) {
+                                                                for (user in userList) {
+                                                                    if (user.id == review.userId) {
                                                                         userReviewList.add(
                                                                             UserReview(
                                                                                 user = user,
@@ -108,18 +110,21 @@ class CommunityRepositoryImpl(private val database: DatabaseReference) : Communi
                                                                         )
                                                                     }
                                                                 }
+                                                                break
                                                             }
+                                                        }
                                                     }
-                                                    emitter.onSuccess(userReviewList)
-                                                }
-                                            })
-                                    }
+                                            }
+                                            emitter.onSuccess(userReviewList)
+                                        }
 
-                                })
-                        }
-                    }
+                                    })
+                            }
 
-                })
+                        })
+                }
+
+            })
         }
     }
 }

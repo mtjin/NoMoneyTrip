@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_36dp"
-                    android:text="이 지역 인기 여행기"
+                    android:text="@string/local_popular_review_text"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
                     android:textStyle="bold"
@@ -168,13 +168,14 @@
                     app:layout_constraintTop_toBottomOf="@id/rv_restaurants" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_local_popular_tours"
+                    android:id="@+id/rv_reviews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_22dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour"
+                    bind:setItems="@{vm.userReviewList}"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_user_review" />
 
@@ -185,7 +186,7 @@
                     android:layout_marginBottom="@dimen/margin_36dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rv_local_popular_tours"
+                    app:layout_constraintTop_toBottomOf="@id/rv_reviews"
                     app:srcCompat="@drawable/every_view" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
