@@ -78,7 +78,9 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="23dp"
                     android:layout_marginEnd="@dimen/margin_28dp"
+                    android:ellipsize="end"
                     android:fontFamily="@font/goyang_ilsan_regular"
+                    android:singleLine="true"
                     android:text="@{vm.user.name ?? ``}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
@@ -89,10 +91,12 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_email"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginEnd="@dimen/margin_28dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="@{vm.user.email ?? ``}"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="14sp"
