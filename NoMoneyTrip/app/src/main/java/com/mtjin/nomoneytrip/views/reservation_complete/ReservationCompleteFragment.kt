@@ -31,6 +31,10 @@ class ReservationCompleteFragment :
             goReservationDetail.observe(this@ReservationCompleteFragment, Observer {
                 //TODO :: 상세화면생기면 구현
             })
+
+            backClick.observe(this@ReservationCompleteFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 

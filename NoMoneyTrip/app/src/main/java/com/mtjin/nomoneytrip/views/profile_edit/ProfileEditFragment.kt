@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.views.profile_edit
 import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
@@ -39,6 +40,9 @@ class ProfileEditFragment :
 
             nameErrMsg.observe(this@ProfileEditFragment, Observer {
                 showToast(getString(R.string.name_blank_msg))
+            })
+            backClick.observe(this@ProfileEditFragment, Observer {
+                findNavController().popBackStack()
             })
         }
     }

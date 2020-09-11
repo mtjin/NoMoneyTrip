@@ -23,6 +23,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                     SearchFragmentDirections.actionSearchFragmentToLocalpageFragment(it)
                 )
             })
+
+            backClick.observe(this@SearchFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 }

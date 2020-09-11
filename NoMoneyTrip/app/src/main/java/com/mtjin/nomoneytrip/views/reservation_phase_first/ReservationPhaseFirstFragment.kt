@@ -71,6 +71,10 @@ class ReservationPhaseFirstFragment :
             dateList.observe(this@ReservationPhaseFirstFragment, Observer { reservations ->
                 initDisableDates(reservations)
             })
+
+            backClick.observe(this@ReservationPhaseFirstFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 

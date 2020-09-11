@@ -29,6 +29,10 @@ class TourHistoryFragment :
                     )
                 )
             })
+
+            backClick.observe(this@TourHistoryFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 

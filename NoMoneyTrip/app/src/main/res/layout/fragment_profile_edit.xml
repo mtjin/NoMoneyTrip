@@ -21,8 +21,9 @@
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:onClick="@{()->vm.onBackClick()}"
+            android:layout_marginTop="@dimen/margin_32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back_title" />
@@ -30,9 +31,9 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/my_page_text"
+            android:text="@string/profile_edit_text"
             android:textColor="@color/colorBlack2D2D"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_20sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_back"
             app:layout_constraintStart_toEndOf="@id/iv_back"
             app:layout_constraintTop_toTopOf="@id/iv_back" />

@@ -36,6 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
+                android:onClick="@{()->vm.onBackClick()}"
                 app:layout_constraintBottom_toBottomOf="@id/text_top_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/text_top_title"
@@ -95,8 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:onClick="@{()->vm.goLocation(`incheon`)}"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`incheon`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_seoul">
 
@@ -143,8 +144,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
-                android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`daejeon`)}"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_incheon">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -190,8 +191,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
-                android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`daegu`)}"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_daejeon">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -237,8 +238,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
-                android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`gwangju`)}"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_daegu">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -284,8 +285,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
-                android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`busan`)}"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gwangju">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -331,8 +332,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
-                android:orientation="horizontal"
                 android:onClick="@{()->vm.goLocation(`ulsan`)}"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_busan">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -376,9 +377,9 @@
                 android:id="@+id/ll_sejong"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:onClick="@{()->vm.goLocation(`sejong`)}"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`sejong`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_ulsan">
 
@@ -421,11 +422,11 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/ll_gyeungi"
-                android:onClick="@{()->vm.goLocation(`gyeungi`)}"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`gyeungi`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_sejong">
 
@@ -470,9 +471,9 @@
                 android:id="@+id/ll_kangwon"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:onClick="@{()->vm.goLocation(`kangwon`)}"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`kangwon`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gyeungi">
 
@@ -518,8 +519,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:onClick="@{()->vm.goLocation(`choongbuk`)}"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`choongbuk`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_kangwon">
 
@@ -564,9 +565,9 @@
                 android:id="@+id/ll_choongnam"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:onClick="@{()->vm.goLocation(`choongnam`)}"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`choongnam`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_choongbuk">
 
@@ -611,9 +612,9 @@
                 android:id="@+id/ll_gyungbuk"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:onClick="@{()->vm.goLocation(`gyungbuk`)}"
                 android:layout_marginTop="4dp"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`gyungbuk`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_choongnam">
 
@@ -659,8 +660,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:onClick="@{()->vm.goLocation(`gyungnam`)}"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`gyungnam`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gyungbuk">
 
@@ -706,8 +707,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="4dp"
-                android:onClick="@{()->vm.goLocation(`jeonbuk`)}"
                 android:background="@color/colorWhiteFDFD"
+                android:onClick="@{()->vm.goLocation(`jeonbuk`)}"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/view_gyungnam">
 

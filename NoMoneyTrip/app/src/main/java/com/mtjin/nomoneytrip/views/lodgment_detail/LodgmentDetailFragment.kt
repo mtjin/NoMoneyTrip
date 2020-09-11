@@ -50,6 +50,9 @@ class LodgmentDetailFragment :
                 )
                 else showToast(getString(R.string.please_install_tmap_msg))
             })
+            backClick.observe(this@LodgmentDetailFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 

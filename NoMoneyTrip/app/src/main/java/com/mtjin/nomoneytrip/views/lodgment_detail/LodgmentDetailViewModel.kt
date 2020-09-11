@@ -18,5 +18,4 @@ class LodgmentDetailViewModel : BaseViewModel() {
     fun searchDirection() {
         _searchDirection.call()
     }
-
 }

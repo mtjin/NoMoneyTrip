@@ -5,7 +5,6 @@ import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentTourNoHistoryBinding
-import com.mtjin.nomoneytrip.views.tour_write.TourWriteFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TourNoHistoryFragment :
@@ -45,6 +44,10 @@ class TourNoHistoryFragment :
 
             goHome.observe(this@TourNoHistoryFragment, Observer {
                 findNavController().navigate(TourNoHistoryFragmentDirections.actionTourNoHistoryFragmentToBottomNav1())
+            })
+
+            backClick.observe(this@TourNoHistoryFragment, Observer {
+                findNavController().popBackStack()
             })
         }
     }

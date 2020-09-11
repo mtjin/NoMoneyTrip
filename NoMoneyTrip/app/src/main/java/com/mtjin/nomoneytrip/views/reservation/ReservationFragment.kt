@@ -45,6 +45,10 @@ class ReservationFragment :
             duplicateDateMsg.observe(this@ReservationFragment, Observer {
                 showToast(getString(R.string.duplicate_date_select_another_date_msg))
             })
+
+            backClick.observe(this@ReservationFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 

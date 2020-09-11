@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.views.alarm
 
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentAlarmBinding
@@ -10,6 +12,15 @@ class AlarmFragment : BaseFragment<FragmentAlarmBinding>(R.layout.fragment_alarm
 
     override fun init() {
         binding.vm = viewModel
+        initViewModelCallback()
+    }
+
+    private fun initViewModelCallback() {
+        with(viewModel) {
+            backClick.observe(this@AlarmFragment, Observer {
+                findNavController().popBackStack()
+            })
+        }
     }
 
 }

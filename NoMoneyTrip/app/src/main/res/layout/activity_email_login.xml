@@ -15,7 +15,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="16dp"
         tools:context=".views.email_login.EmailLoginActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -23,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
             android:onClick="@{() -> vm.onBackButtonClick()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -62,8 +62,8 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="28dp"
-            android:inputType="textPassword"
             android:hint="@string/pw_input_hint"
+            android:inputType="textPassword"
             android:paddingBottom="20dp"
             android:singleLine="true"
             android:text="@={vm.pw}"

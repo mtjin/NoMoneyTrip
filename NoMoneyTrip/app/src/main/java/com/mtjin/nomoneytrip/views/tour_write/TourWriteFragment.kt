@@ -48,6 +48,9 @@ class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragme
                 if (success) findNavController().navigate(TourWriteFragmentDirections.actionTourWriteFragmentToBottomNav2())
                 else showToast(getString(R.string.tour_write_upload_fail_msg))
             })
+            backClick.observe(this@TourWriteFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
     }
 

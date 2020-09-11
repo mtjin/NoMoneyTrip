@@ -124,4 +124,6 @@
     <string name="profile_edit_fail_msg">프로필 수정 실패</string>
     <string name="duplicate_name_exist_msg">중복 이름 존재</string>
     <string name="name_blank_msg">이름 공백</string>
+    <string name="profile_edit_text">프로필 수정</string>
+    <string name="tour_history_question_text">어떤 여행을 다녀오셨나요?\n다녀온 여행지를 선택해주세요.</string>
 </resources>
