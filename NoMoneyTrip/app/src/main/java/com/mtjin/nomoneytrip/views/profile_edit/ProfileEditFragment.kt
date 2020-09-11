@@ -36,6 +36,10 @@ class ProfileEditFragment :
             nameDuplicateMsg.observe(this@ProfileEditFragment, Observer {
                 showToast(getString(R.string.duplicate_name_exist_msg))
             })
+
+            nameErrMsg.observe(this@ProfileEditFragment, Observer {
+                showToast(getString(R.string.name_blank_msg))
+            })
         }
     }
 

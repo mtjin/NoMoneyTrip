@@ -123,4 +123,5 @@
     <string name="profile_edit_success_msg">프로필 수정 완료</string>
     <string name="profile_edit_fail_msg">프로필 수정 실패</string>
     <string name="duplicate_name_exist_msg">중복 이름 존재</string>
+    <string name="name_blank_msg">이름 공백</string>
 </resources>
