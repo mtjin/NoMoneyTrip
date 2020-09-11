@@ -12,6 +12,8 @@ import com.mtjin.nomoneytrip.data.login.source.LoginRepository
 import com.mtjin.nomoneytrip.data.login.source.LoginRepositoryImpl
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepositoryImpl
+import com.mtjin.nomoneytrip.data.profile_edit.source.ProfileEditRepository
+import com.mtjin.nomoneytrip.data.profile_edit.source.ProfileEditRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepository
 import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepository
@@ -23,6 +25,7 @@ import com.mtjin.nomoneytrip.data.tour_no_history.source.TourNoHistoryRepository
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepository
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepositoryImpl
 import com.mtjin.nomoneytrip.utils.REVIEW
+import com.mtjin.nomoneytrip.utils.USER
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -39,4 +42,5 @@ val repositoryModule: Module = module {
     single<CommunityRepository> { CommunityRepositoryImpl(get()) }
     single<TourNoHistoryRepository> { TourNoHistoryRepositoryImpl(get()) }
     single<ProfileRepository> { ProfileRepositoryImpl(get()) }
+    single<ProfileEditRepository> { ProfileEditRepositoryImpl(get(), get(named(USER))) }
 }

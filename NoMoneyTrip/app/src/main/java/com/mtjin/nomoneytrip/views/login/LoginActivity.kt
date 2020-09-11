@@ -134,7 +134,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         viewModel.insertUser(
                             User(
                                 id = uuid,
-                                name = "무전" + getTimestamp(),
+                                name = "무전" + getTimestamp().toString()
+                                    .subSequence(0, 6),
                                 fcm = fcm,
                                 email = email,
                                 pw = password,
@@ -164,7 +165,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                 viewModel.insertUser(
                                                     User(
                                                         id = uuid,
-                                                        name = "무전" + getTimestamp(),
+                                                        name = "무전" + getTimestamp().toString()
+                                                            .subSequence(0, 6),
                                                         fcm = fcm,
                                                         email = email,
                                                         pw = password,

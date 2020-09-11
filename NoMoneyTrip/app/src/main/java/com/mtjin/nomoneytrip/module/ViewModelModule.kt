@@ -40,5 +40,5 @@ val viewModelModule: Module = module {
     viewModel { TourHistoryViewModel() }
     viewModel { TourNoHistoryViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
-    viewModel { ProfileEditViewModel() }
+    viewModel { ProfileEditViewModel(get()) }
 }

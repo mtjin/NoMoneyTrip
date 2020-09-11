@@ -5,6 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.profile_edit.ProfileEditViewModel" />
@@ -39,6 +42,7 @@
             android:layout_width="110dp"
             android:layout_height="120dp"
             android:layout_marginTop="80dp"
+            android:onClick="@{()->vm.reviseImage()}"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +57,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp"
             app:counterEnabled="true"
-            app:counterMaxLength="20"
+            app:counterMaxLength="16"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +85,7 @@
             android:layout_marginEnd="28dp"
             android:background="@drawable/bg_btn_solid_orange_radius_8dp"
             android:gravity="center"
-            android:onClick="@{()->vm.requestReviseProfile()}"
+            android:onClick="@{()->vm.updateProfile()}"
             android:paddingTop="11dp"
             android:paddingBottom="12dp"
             android:text="@string/modify_complete_text"
@@ -90,6 +94,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_input_layout" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

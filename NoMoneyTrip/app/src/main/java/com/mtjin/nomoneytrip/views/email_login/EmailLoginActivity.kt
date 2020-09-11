@@ -58,7 +58,8 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
                     viewModel.insertUser(
                         User(
                             id = uuid,
-                            name = "무전" + getTimestamp(),
+                            name = "무전" + getTimestamp().toString()
+                                .subSequence(0, 6),
                             fcm = fcm,
                             email = email,
                             pw = password,

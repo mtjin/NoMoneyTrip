@@ -120,4 +120,7 @@
     <string name="tour_write_upload_fail_msg">작성물 게시를 실패했습니다</string>
     <string name="tour_no_history_recommend_text">다녀온 여행지가 없습니다.\n인기있는 무전 여행을 추천해드릴게요.</string>
     <string name="where_to_go_no_money_trip_question_text">무전여행\n어디로 가볼까요?</string>
+    <string name="profile_edit_success_msg">프로필 수정 완료</string>
+    <string name="profile_edit_fail_msg">프로필 수정 실패</string>
+    <string name="duplicate_name_exist_msg">중복 이름 존재</string>
 </resources>

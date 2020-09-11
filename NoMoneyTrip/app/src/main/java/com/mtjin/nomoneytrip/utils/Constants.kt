@@ -48,6 +48,8 @@ const val USER_ID = "userId"
 const val PRODUCT_ID = "productId"
 const val REVIEW = "review"
 const val REVIEWED = "reviewed"
+const val NAME = "name"
+const val IMAGE = "image"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000
@@ -55,3 +57,4 @@ const val TIMESTAMP_PER_DAY = 86400000
 //에러
 const val ERR_DUPLICATE_DATE = "ERR_DUPLICATE_DATE"
 const val ERR_UPLOAD_IMAGE = "ERR_UPLOAD_IMAGE"
+const val ERR_DUPLICATE_NAME = "ERR_DUPLICATE_NAME"
