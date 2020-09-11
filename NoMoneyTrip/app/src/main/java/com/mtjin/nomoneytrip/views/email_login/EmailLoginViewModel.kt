@@ -1,11 +1,16 @@
 package com.mtjin.nomoneytrip.views.email_login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
+import com.mtjin.nomoneytrip.utils.TAG
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository) :
     BaseViewModel() {
@@ -15,11 +20,13 @@ class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository
     private val _isPwEmpty: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _login: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _backClick: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _loginSuccess: SingleLiveEvent<Unit> = SingleLiveEvent()
 
     val isEmailEmpty: LiveData<Unit> get() = _isEmailEmpty
     val isPwEmpty: LiveData<Unit> get() = _isPwEmpty
     val login: LiveData<Unit> get() = _login
     val backCLick: LiveData<Unit> get() = _backClick
+    val loginSuccess: LiveData<Unit> get() = _loginSuccess
 
     fun onEmailLoginClick() {
         val email: String = email.value.toString().trim()
@@ -36,7 +43,15 @@ class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository
     }
 
     fun insertUser(user: User) {
-        emailLoginRepository
+        compositeDisposable.add(
+            emailLoginRepository.insertUser(user)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onComplete = { _loginSuccess.call() },
+                    onError = { Log.d(TAG, "EmailLoginViewModel insertUser() error -> $it") }
+                )
+        )
     }
 
     fun onBackButtonClick() {

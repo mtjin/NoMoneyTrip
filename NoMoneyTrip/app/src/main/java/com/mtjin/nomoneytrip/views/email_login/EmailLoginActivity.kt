@@ -40,6 +40,12 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
             backCLick.observe(this@EmailLoginActivity, Observer {
                 finish()
             })
+            loginSuccess.observe(this@EmailLoginActivity, Observer {
+                startActivity(Intent(this@EmailLoginActivity, MainActivity::class.java))
+                showToast("로그인 성공")
+                viewModel.hideProgress()
+                finish()
+            })
         }
     }
 
@@ -51,16 +57,13 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
                     viewModel.insertUser(
                         User(
                             id = uuid,
+                            name = email,
                             fcm = fcm,
                             email = email,
                             pw = password,
-                            image = ""
+                            image = "https://firebasestorage.googleapis.com/v0/b/nomoneytrip-63056.appspot.com/o/logo.PNG?alt=media&token=af7fe080-92fa-4fba-bab9-e9c1c3b85380"
                         )
                     )
-                    startActivity(Intent(this, MainActivity::class.java))
-                    showToast("로그인 성공")
-                    viewModel.hideProgress()
-                    finish()
                 } else {
                     showToast("로그인 실패")
                     viewModel.hideProgress()
