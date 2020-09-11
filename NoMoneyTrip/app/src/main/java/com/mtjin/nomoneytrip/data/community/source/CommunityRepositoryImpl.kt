@@ -93,6 +93,7 @@ class CommunityRepositoryImpl(private val database: DatabaseReference) : Communi
                                         override fun onCancelled(error: DatabaseError) {
                                             emitter.onError(error.toException())
                                         }
+
                                         override fun onDataChange(snapshot: DataSnapshot) {
                                             for (reviewSnapshot in snapshot.children) {
                                                 reviewSnapshot.getValue(Review::class.java)
@@ -115,6 +116,7 @@ class CommunityRepositoryImpl(private val database: DatabaseReference) : Communi
                                                         }
                                                     }
                                             }
+                                            userReviewList.sortByDescending { it.review.timestamp }
                                             emitter.onSuccess(userReviewList)
                                         }
 
