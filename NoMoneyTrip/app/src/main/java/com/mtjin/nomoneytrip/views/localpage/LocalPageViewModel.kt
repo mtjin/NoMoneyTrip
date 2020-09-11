@@ -14,6 +14,8 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class LocalPageViewModel(private val repository: LocalPageRepository) : BaseViewModel() {
+    var page = 2 //리뷰 페이징
+    lateinit var city: String
     private val _tourIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _restaurantIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _productList = MutableLiveData<ArrayList<Product>>()
@@ -50,7 +52,7 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
         )
     }
 
-    fun requestProducts(city: String) {
+    fun requestProducts() {
         compositeDisposable.add(
             repository.requestProducts(city)
                 .subscribeOn(Schedulers.io())
@@ -63,9 +65,9 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
         )
     }
 
-    fun requestReviews(city: String) {
+    fun requestReviews() {
         compositeDisposable.add(
-            repository.requestReviews(city)
+            repository.requestReviews(city, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
@@ -77,5 +79,6 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
                     }
                 )
         )
+        page += 5
     }
 }

@@ -59,10 +59,10 @@ class LocalPageRepositoryImpl(
         }
     }
 
-    override fun requestReviews(city: String): Single<List<UserReview>> {
-        var userList = ArrayList<User>()
-        var productList = ArrayList<Product>()
-        var userReviewList = ArrayList<UserReview>()
+    override fun requestReviews(city: String, page: Int): Single<List<UserReview>> {
+        val userList = ArrayList<User>()
+        val productList = ArrayList<Product>()
+        val userReviewList = ArrayList<UserReview>()
         return Single.create<List<UserReview>> { emitter ->
             database.child(PRODUCT).orderByChild(CITY).equalTo(city)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -89,6 +89,7 @@ class LocalPageRepositoryImpl(
                                         }
                                     }
                                     database.child(REVIEW).orderByChild(CITY).equalTo(city)
+                                        .limitToLast(page)
                                         .addListenerForSingleValueEvent(object :
                                             ValueEventListener {
                                             override fun onCancelled(error: DatabaseError) {
@@ -117,6 +118,7 @@ class LocalPageRepositoryImpl(
                                                             }
                                                         }
                                                 }
+                                                userReviewList.sortByDescending { it.review.timestamp }
                                                 emitter.onSuccess(userReviewList)
                                             }
 

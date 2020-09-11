@@ -19,12 +19,13 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     private lateinit var reviewAdapter: CommunityAdapter
 
     override fun init() {
+        binding.vm = viewModel
+        viewModel.page = 2
         initAdapter()
         processIntent()
     }
 
     private fun initAdapter() {
-        binding.vm = viewModel
         tourIntroduceAdapter = LocalPageAdapter()
         restaurantIntroduceAdapter = LocalPageAdapter()
         productAdapter = LocalProductAdapter()
@@ -228,8 +229,9 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 viewModel.requestRestaurantIntroduces(JEJU_CODE)
             }
         }
-        viewModel.requestReviews(local)
-        viewModel.requestProducts(local)
+        viewModel.city = local
+        viewModel.requestReviews()
+        viewModel.requestProducts()
         binding.tvLocalTitle.text = local
 
     }

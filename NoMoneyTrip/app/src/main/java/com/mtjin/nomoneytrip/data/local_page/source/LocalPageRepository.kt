@@ -9,5 +9,5 @@ interface LocalPageRepository {
     fun requestTourIntroduces(areaCode: Int): Single<List<TourIntroduce>>
     fun requestRestaurantIntroduces(areaCode: Int): Single<List<TourIntroduce>>
     fun requestProducts(city: String): Single<List<Product>>
-    fun requestReviews(city: String) : Single<List<UserReview>>
+    fun requestReviews(city: String, page : Int) : Single<List<UserReview>>
 }

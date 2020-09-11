@@ -45,18 +45,24 @@ class ReservationHistoryFragment :
 
                 }
             }, { reservationHistory ->
-                if (reservationHistory.reservation.endDateTimestamp >= getTimestamp()) { //예약 취소
-                    val dialog =
-                        BottomDialogFragment.newInstance(question = "예약을 취소 하시겠습니까?", itemClick = {
-                            if (it) viewModel.deleteReservation(reservationHistory.reservation)
-                        })
-                    dialog.show(requireActivity().supportFragmentManager, dialog.tag)
-                } else {// 봉사리뷰
-                    findNavController().navigate(
-                        ReservationHistoryFragmentDirections.actionBottomNav3ToTourWriteFragment(
-                            reservationHistory
+                when {
+                    reservationHistory.reservation.endDateTimestamp >= getTimestamp() -> {
+                        val dialog =
+                            BottomDialogFragment.newInstance(
+                                question = "예약을 취소 하시겠습니까?",
+                                itemClick = {
+                                    if (it) viewModel.deleteReservation(reservationHistory.reservation)
+                                })
+                        dialog.show(requireActivity().supportFragmentManager, dialog.tag)
+                    }
+                    else -> {
+                        if (reservationHistory.reservation.reviewed) showToast(getString(R.string.aleready_reviewed_product_msg)) //이미 리뷰 남긴거
+                        else findNavController().navigate(
+                            ReservationHistoryFragmentDirections.actionBottomNav3ToTourWriteFragment(
+                                reservationHistory
+                            )
                         )
-                    )
+                    }
                 }
             })
         binding.rvReservationHistories.adapter = adapter
