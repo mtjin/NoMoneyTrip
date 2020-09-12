@@ -14,6 +14,8 @@ import com.mtjin.nomoneytrip.utils.uuid
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) :
     ReservationHistoryRepository {
@@ -57,6 +59,9 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
                                             }
                                         }
                                     }
+                                    list.sortWith(Comparator { t, t2 ->
+                                        t2.reservation.startDateTimestamp.toInt() - t.reservation.startDateTimestamp.toInt()
+                                    })
                                     emitter.onNext(list)
                                 }
 
