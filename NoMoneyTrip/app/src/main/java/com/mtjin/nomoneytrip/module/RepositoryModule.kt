@@ -38,7 +38,7 @@ val repositoryModule: Module = module {
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
     single<TourWriteRepository> { TourWriteRepositoryImpl(get(), get(named(REVIEW))) }
-    single<ReservationRepository> { ReservationRepositoryImpl(get()) }
+    single<ReservationRepository> { ReservationRepositoryImpl(get(), get()) }
     single<ReservationHistoryRepository> { ReservationHistoryRepositoryImpl(get()) }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
     single<CommunityRepository> { CommunityRepositoryImpl(get()) }

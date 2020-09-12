@@ -98,8 +98,8 @@ fun convertTimestampToTerm(startTimestamp: Long, endTimestamp: Long): String {
 }
 
 // FCM 메시지로 사용
-fun convertTimeToFcmMessage(date: Long, startTime: Long): String =
-    date.convertTimestampToDate() + " " + startTime.convertTimestampToTime() + "에 회의실 예약이 있습니다."
+fun convertTimeToFcmMessage(date: Long, time: String): String =
+    date.convertTimestampToDate() + " " + time + "에 예약이 있습니다."
 
 fun combineTimestamp(x: Long, y: Long) = (x.toString() + y.toString()).toLong()
 

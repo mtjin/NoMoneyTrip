@@ -6,4 +6,5 @@ import io.reactivex.Completable
 
 interface ReservationRepository {
     fun insertReservation(reservation: Reservation, product: Product): Completable
+    fun sendNotification(reservation: Reservation, product: Product)
 }

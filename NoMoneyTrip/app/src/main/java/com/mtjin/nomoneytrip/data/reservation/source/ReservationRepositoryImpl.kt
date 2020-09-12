@@ -1,15 +1,25 @@
 package com.mtjin.nomoneytrip.data.reservation.source
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.service.NotificationBroadcastReceiver
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
+import java.util.concurrent.TimeUnit
 
-class ReservationRepositoryImpl(private val database: DatabaseReference) : ReservationRepository {
+class ReservationRepositoryImpl(
+    private val database: DatabaseReference,
+    private val context: Context
+) : ReservationRepository {
     override fun insertReservation(reservation: Reservation, product: Product): Completable {
         return Completable.create { emitter ->
             database.child(RESERVATION).orderByChild(PRODUCT_ID).equalTo(product.id)
@@ -46,12 +56,42 @@ class ReservationRepositoryImpl(private val database: DatabaseReference) : Reser
                         reservation.id = key.toString()
                         database.child(RESERVATION).child(key.toString()).setValue(reservation)
                             .addOnSuccessListener {
+                                sendNotification(reservation = reservation, product = product)
                                 emitter.onComplete()
                             }.addOnFailureListener {
                                 emitter.onError(it)
                             }
                     }
                 })
+        }
+    }
+
+    override fun sendNotification(reservation: Reservation, product: Product) {
+        val title = product.title
+        val message = convertTimeToFcmMessage(
+            date = reservation.startDateTimestamp,
+            time = product.checkIn
+        )
+        val scheduledTime = reservation.startDateTimestamp
+        val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val alarmIntent =
+            Intent(context, NotificationBroadcastReceiver::class.java).let { intent ->
+                intent.putExtra(EXTRA_NOTIFICATION_TITLE, title)
+                intent.putExtra(EXTRA_NOTIFICATION_MESSAGE, message)
+                PendingIntent.getBroadcast(context, 0, intent, 0)
+            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmMgr.setAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                scheduledTime - TimeUnit.HOURS.toMillis(7),// 5시간전알림(전날 17시알림)
+                alarmIntent
+            )
+        } else {
+            alarmMgr.setExact(
+                AlarmManager.RTC_WAKEUP,
+                scheduledTime - TimeUnit.HOURS.toMillis(7),// 5시간전알림(전날 17시알림)
+                alarmIntent
+            )
         }
     }
 }
