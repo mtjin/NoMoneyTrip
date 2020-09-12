@@ -51,6 +51,7 @@ const val REVIEWED = "reviewed"
 const val NAME = "name"
 const val IMAGE = "image"
 const val TIMESTAMP = "timestamp"
+const val RECOMMEND_LIST = "recommendList"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

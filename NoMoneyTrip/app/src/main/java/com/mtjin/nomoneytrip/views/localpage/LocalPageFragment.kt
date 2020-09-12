@@ -42,7 +42,9 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
             )
         }
         productAdapter = LocalProductAdapter()
-        reviewAdapter = CommunityAdapter()
+        reviewAdapter = CommunityAdapter(context = thisContext) {
+            viewModel.updateReviewRecommend(it)
+        }
         binding.rvTours.adapter = tourIntroduceAdapter
         binding.rvRestaurants.adapter = restaurantIntroduceAdapter
         binding.rvProducts.adapter = productAdapter

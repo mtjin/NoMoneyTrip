@@ -9,6 +9,7 @@ import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.utils.*
+import io.reactivex.Completable
 import io.reactivex.Single
 
 class LodgmentDetailRepositoryImpl(
@@ -85,6 +86,19 @@ class LodgmentDetailRepositoryImpl(
                     }
 
                 })
+        }
+    }
+
+    override fun updateReviewRecommend(userReview: UserReview): Completable {
+        return Completable.create { emitter ->
+            val recommendMap = HashMap<String, Any>()
+            recommendMap[RECOMMEND_LIST] = userReview.review.recommendList
+            database.child(REVIEW).child(userReview.review.id).updateChildren(recommendMap)
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
         }
     }
 }

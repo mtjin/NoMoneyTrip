@@ -17,7 +17,9 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
     }
 
     private fun initAdapter() {
-        binding.rvReviews.adapter = CommunityAdapter()
+        binding.rvReviews.adapter = CommunityAdapter(context = thisContext) {
+            viewModel.updateReviewRecommend(it)
+        }
     }
 
     private fun initViewModelCallback() {

@@ -52,7 +52,7 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
                             timestamp = getTimestamp(),
                             image = "",
                             content = content.value.toString(),
-                            recommend = 0,
+                            recommendList = ArrayList<String>(),
                             city = reservationProduct.product.city
                         )
                     ).subscribeOn(Schedulers.io())

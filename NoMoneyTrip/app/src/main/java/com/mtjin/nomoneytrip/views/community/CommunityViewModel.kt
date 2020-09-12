@@ -58,4 +58,16 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
                 )
         )
     }
+
+    fun updateReviewRecommend(userReview: UserReview) {
+        compositeDisposable.add(
+            repository.updateReviewRecommend(userReview)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onComplete = {},
+                    onError = { Log.d(TAG, it.toString()) }
+                )
+        )
+    }
 }

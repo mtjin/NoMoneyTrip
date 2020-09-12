@@ -140,7 +140,7 @@
             android:layout_marginTop="@dimen/margin_12dp"
             android:layout_marginEnd="@dimen/margin_36dp"
             android:gravity="center_vertical"
-            android:text="@{Long.toString(item.review.recommend)}"
+            android:text="@{Long.toString(item.review.recommendList.size())}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:drawableStartCompat="@drawable/ic_community_good_off"

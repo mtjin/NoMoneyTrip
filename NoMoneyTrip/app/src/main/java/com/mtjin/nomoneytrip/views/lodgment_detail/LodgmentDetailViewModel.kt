@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 
 class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) : BaseViewModel() {
     var page = 2 //리뷰 페이징
-    lateinit var productId : String
+    lateinit var productId: String
 
     private val _goReservationFirst = SingleLiveEvent<Unit>()
     private val _searchDirection = SingleLiveEvent<Unit>()
@@ -48,5 +48,17 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
                 )
         )
         page += 5
+    }
+
+    fun updateReviewRecommend(userReview: UserReview) {
+        compositeDisposable.add(
+            repository.updateReviewRecommend(userReview)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onComplete = {},
+                    onError = { Log.d(TAG, it.toString()) }
+                )
+        )
     }
 }
