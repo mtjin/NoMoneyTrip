@@ -8,7 +8,7 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.databinding.ItemTourIntroduceBinding
 
-class LocalPageAdapter :
+class LocalPageAdapter(private val itemClick: (TourIntroduce) -> Unit) :
     RecyclerView.Adapter<LocalPageAdapter.ViewHolder>() {
     private val items: ArrayList<TourIntroduce> = ArrayList()
 
@@ -19,7 +19,11 @@ class LocalPageAdapter :
             parent,
             false
         )
-        return ViewHolder(binding)
+        val viewHolder = ViewHolder(binding)
+        binding.root.setOnClickListener {
+            itemClick(items[viewHolder.adapterPosition])
+        }
+        return viewHolder
     }
 
     override fun getItemCount(): Int = items.size

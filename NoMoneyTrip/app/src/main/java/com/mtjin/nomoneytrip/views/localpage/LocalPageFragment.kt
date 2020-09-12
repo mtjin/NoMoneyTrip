@@ -2,6 +2,7 @@ package com.mtjin.nomoneytrip.views.localpage
 
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
@@ -26,8 +27,20 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     }
 
     private fun initAdapter() {
-        tourIntroduceAdapter = LocalPageAdapter()
-        restaurantIntroduceAdapter = LocalPageAdapter()
+        tourIntroduceAdapter = LocalPageAdapter {
+            findNavController().navigate(
+                LocalPageFragmentDirections.actionLocalpageFragmentToWebViewFragment(
+                    "http://api.visitkorea.or.kr/guide/tourDetail.do?contentId=" + it.contentid + "&langtype=KOR&oper=area&burl=&contentTypeId=" + it.contenttypeid + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A"
+                )
+            )
+        }
+        restaurantIntroduceAdapter = LocalPageAdapter {
+            findNavController().navigate(
+                LocalPageFragmentDirections.actionLocalpageFragmentToWebViewFragment(
+                    "http://api.visitkorea.or.kr/guide/tourDetail.do?contentId=" + it.contentid + "&langtype=KOR&oper=area&burl=&contentTypeId=" + it.contenttypeid + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A"
+                )
+            )
+        }
         productAdapter = LocalProductAdapter()
         reviewAdapter = CommunityAdapter()
         binding.rvTours.adapter = tourIntroduceAdapter
