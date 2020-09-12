@@ -14,8 +14,8 @@ class TourNoHistoryFragment :
 
     override fun init() {
         binding.vm = viewModel
-        initViewPager()
         initViewModelCallback()
+        initViewPager()
         viewModel.requestProducts()
     }
 
@@ -38,7 +38,6 @@ class TourNoHistoryFragment :
                 for (product in products) {
                     list.add(TourNoHistoryRecommendFragment(product))
                 }
-                binding.pivPageIndicator.count = products.size
                 pagerAdapter.addItems(list)
             })
 

@@ -26,7 +26,7 @@ class TourNoHistoryRepositoryImpl(private val database: DatabaseReference) :
                             productList.add(it)
                         }
                     }
-                    val seed = System.nanoTime()
+                    val seed = System.currentTimeMillis()
                     productList.shuffle(Random(seed))
                     emitter.onSuccess(productList)
                 }

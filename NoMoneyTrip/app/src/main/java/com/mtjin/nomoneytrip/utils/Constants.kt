@@ -52,6 +52,8 @@ const val NAME = "name"
 const val IMAGE = "image"
 const val TIMESTAMP = "timestamp"
 const val RECOMMEND_LIST = "recommendList"
+const val FAVORITE_LIST = "favoriteList"
+const val FAVORITE = "favorite"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

@@ -28,13 +28,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.rvHashTags.adapter = hashTagAdapter
 
         //상품 리스트 어댑터
-        homeAdapter = HomeProductAdapter { product ->
+        homeAdapter = HomeProductAdapter(context = thisContext, itemClick = {
             findNavController().navigate(
                 HomeFragmentDirections.actionBottomNav1ToLodgmentDetailFragment(
-                    product
+                    it
                 )
             )
-        }
+        }, favoriteClick = {
+            viewModel.updateProductFavorite(it)
+        })
         binding.rvHomeProducts.adapter = homeAdapter
     }
 

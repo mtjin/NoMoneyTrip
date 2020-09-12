@@ -5,7 +5,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
+import com.mtjin.nomoneytrip.utils.FAVORITE
+import com.mtjin.nomoneytrip.utils.FAVORITE_LIST
 import com.mtjin.nomoneytrip.utils.PRODUCT
+import com.mtjin.nomoneytrip.utils.uuid
+import io.reactivex.Completable
 import io.reactivex.Single
 
 class HomeRepositoryImpl(private val database: DatabaseReference) : HomeRepository {
@@ -50,6 +54,24 @@ class HomeRepositoryImpl(private val database: DatabaseReference) : HomeReposito
                 }
 
             })
+        }
+    }
+
+    override fun updateProductFavorite(product: Product): Completable {
+        return Completable.create { emitter ->
+            val updateMap = HashMap<String, Any>()
+            updateMap.put(FAVORITE_LIST, product.favoriteList)
+            database.child(PRODUCT).child(product.id).updateChildren(updateMap)
+                .addOnSuccessListener {
+                    database.child(FAVORITE).child(uuid).child(product.id).setValue(product.id)
+                        .addOnSuccessListener {
+                            emitter.onComplete()
+                        }.addOnFailureListener {
+                        emitter.onError(it)
+                    }
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
         }
     }
 }

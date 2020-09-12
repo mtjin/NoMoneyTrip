@@ -9,6 +9,7 @@ import com.mtjin.nomoneytrip.data.home.source.HomeRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel() {
@@ -55,5 +56,20 @@ class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel(
                     Log.d(TAG, "HomeViewModel requestHashTagProducts() Error -> $it")
                 })
         )
+    }
+
+    fun updateProductFavorite(product: Product) {
+        compositeDisposable.add(
+            homeRepository.updateProductFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onError = {
+                        Log.d(TAG, it.toString())
+                    },
+                    onComplete = {
+
+                    }
+                ))
     }
 }

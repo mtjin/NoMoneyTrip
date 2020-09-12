@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.views.home
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -7,8 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.databinding.ItemProductBinding
+import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.uuid
 
-class HomeProductAdapter(private val itemClick: (Product) -> Unit) :
+class HomeProductAdapter(
+    private val context: Context,
+    private val itemClick: (Product) -> Unit,
+    private val favoriteClick: (Product) -> Unit
+) :
     RecyclerView.Adapter<HomeProductAdapter.ViewHolder>() {
     private val items: ArrayList<Product> = ArrayList()
 
@@ -23,6 +31,20 @@ class HomeProductAdapter(private val itemClick: (Product) -> Unit) :
         binding.root.setOnClickListener {
             itemClick(items[viewHolder.adapterPosition])
         }
+        binding.ivFavorite.setOnClickListener {
+            items[viewHolder.adapterPosition].let {
+                if (it.favoriteList.contains(uuid)) {
+                    val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_white_off)
+                    binding.ivFavorite.setImageDrawable(img)
+                    items[viewHolder.adapterPosition].favoriteList.remove(uuid)
+                } else {
+                    val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_on)
+                    items[viewHolder.adapterPosition].favoriteList.add(uuid)
+                    binding.ivFavorite.setImageDrawable(img)
+                }
+                favoriteClick(items[viewHolder.adapterPosition])
+            }
+        }
         return viewHolder
     }
 
@@ -34,13 +56,17 @@ class HomeProductAdapter(private val itemClick: (Product) -> Unit) :
         }
     }
 
-    class ViewHolder(private val binding: ItemProductBinding) :
+    inner class ViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Product) {
             val adapter = ProductHashTagAdapter()
             binding.rvHashTags.adapter = adapter
             binding.item = item
+            if (item.favoriteList.contains(uuid)) {
+                val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_on)
+                binding.ivFavorite.setImageDrawable(img)
+            }
             binding.executePendingBindings()
         }
     }

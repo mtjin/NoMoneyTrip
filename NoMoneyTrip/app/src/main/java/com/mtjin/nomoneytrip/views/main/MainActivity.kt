@@ -46,6 +46,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                             "https://firebasestorage.googleapis.com/v0/b/nomoneytrip-63056.appspot.com/o/1.PNG?alt=media&token=7dc1ae5d-d32a-422b-8ebe-3c4cfcabae9b",
                             "https://firebasestorage.googleapis.com/v0/b/nomoneytrip-63056.appspot.com/o/2.PNG?alt=media&token=874f89c0-d134-4981-8be4-4f690deaf510"
                         ),
+                        favoriteList = ArrayList(),
                         internet = true,
                         market = true,
                         optionList = listOf("농촌 벼농사", "할매 할부지 앞에서 장기자랑"),
