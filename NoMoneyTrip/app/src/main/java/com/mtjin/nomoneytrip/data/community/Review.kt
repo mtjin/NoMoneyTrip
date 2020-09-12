@@ -8,6 +8,6 @@ data class Review(
     var timestamp: Long = 0,
     var image: String = "",
     var content: String = "",
-    var recommend: Long = 0,
-    var city: String = ""
+    var city: String = "",
+    var recommendList: ArrayList<String> = ArrayList<String>()
 )
