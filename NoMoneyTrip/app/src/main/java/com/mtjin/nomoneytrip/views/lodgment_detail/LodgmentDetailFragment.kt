@@ -1,6 +1,8 @@
 package com.mtjin.nomoneytrip.views.lodgment_detail
 
+import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -49,7 +51,16 @@ class LodgmentDetailFragment :
                     productArg.product.yPos.toFloat(),
                     productArg.product.xPos.toFloat()
                 )
-                else showToast(getString(R.string.please_install_tmap_msg))
+                else {
+                    showToast(getString(R.string.please_install_tmap_msg))
+                    val result = tMapTapi.tMapDownUrl
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse(result[0])
+                        )
+                    )
+                }
             })
             backClick.observe(this@LodgmentDetailFragment, Observer {
                 findNavController().popBackStack()
