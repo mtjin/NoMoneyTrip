@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.views.lodgment_detail
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -10,6 +11,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
+import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.skt.Tmap.TMapMarkerItem
@@ -30,9 +33,17 @@ class LodgmentDetailFragment :
         initHashTagAdapter()
         processIntent()
         initViewPager()
+        initView()
         initReviewAdapter()
         initTmap()
         initViewModelCallback()
+    }
+
+    private fun initView() {
+        if (productArg.product.favoriteList.contains(uuid)) binding.ivFavorite.setImageDrawable(
+            thisContext.getMyDrawable(R.drawable.ic_good_on)
+        )
+        else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
     }
 
     private fun initViewModelCallback() {
@@ -62,6 +73,15 @@ class LodgmentDetailFragment :
                     )
                 }
             })
+
+            updateFavoriteResult.observe(this@LodgmentDetailFragment, Observer { favoriteOn ->
+                Log.d("AAAAA", favoriteOn.toString())
+                if (favoriteOn) binding.ivFavorite.setImageDrawable(
+                    thisContext.getMyDrawable(R.drawable.ic_good_on)
+                )
+                else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
+            })
+
             backClick.observe(this@LodgmentDetailFragment, Observer {
                 findNavController().popBackStack()
             })
@@ -95,8 +115,11 @@ class LodgmentDetailFragment :
     }
 
     private fun processIntent() {
-        binding.product = productArg.product
-        viewModel.productId = productArg.product.id
+        productArg.product.let {
+            binding.product = it
+            viewModel.productId = it.id
+            viewModel.product = it
+        }
     }
 
     private fun initTmap() {

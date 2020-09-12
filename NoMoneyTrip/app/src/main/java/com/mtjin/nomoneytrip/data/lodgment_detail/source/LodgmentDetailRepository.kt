@@ -9,4 +9,5 @@ import io.reactivex.Single
 interface LodgmentDetailRepository {
     fun requestReviews(productId: String, page : Int) : Single<List<UserReview>>
     fun updateReviewRecommend(userReview: UserReview): Completable
+    fun updateProductFavorite(product: Product): Completable
 }
