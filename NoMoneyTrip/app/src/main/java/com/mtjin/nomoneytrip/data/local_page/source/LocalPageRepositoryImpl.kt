@@ -145,4 +145,17 @@ class LocalPageRepositoryImpl(
                 }
         }
     }
+
+    override fun updateProductFavorite(product: Product): Completable {
+        return Completable.create { emitter ->
+            val updateMap = HashMap<String, Any>()
+            updateMap[FAVORITE_LIST] = product.favoriteList
+            database.child(PRODUCT).child(product.id).updateChildren(updateMap)
+                .addOnSuccessListener {
+                    database.child(FAVORITE).child(uuid).child(product.id).setValue(product.id)
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
+        }
+    }
 }

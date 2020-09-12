@@ -12,4 +12,5 @@ interface LocalPageRepository {
     fun requestProducts(city: String): Single<List<Product>>
     fun requestReviews(city: String, page: Int): Single<List<UserReview>>
     fun updateReviewRecommend(userReview: UserReview): Completable
+    fun updateProductFavorite(product: Product): Completable
 }

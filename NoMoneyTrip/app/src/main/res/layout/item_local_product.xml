@@ -41,6 +41,7 @@
                     tools:src="@drawable/busan" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_12dp"

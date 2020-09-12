@@ -41,7 +41,15 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 )
             )
         }
-        productAdapter = LocalProductAdapter()
+        productAdapter = LocalProductAdapter(context = thisContext, itemClick = {
+            findNavController().navigate(
+                LocalPageFragmentDirections.actionLocalpageFragmentToLodgmentDetailFragment(
+                    it
+                )
+            )
+        }, favoriteClick = {
+            viewModel.updateProductFavorite(it)
+        })
         reviewAdapter = CommunityAdapter(context = thisContext) {
             viewModel.updateReviewRecommend(it)
         }
