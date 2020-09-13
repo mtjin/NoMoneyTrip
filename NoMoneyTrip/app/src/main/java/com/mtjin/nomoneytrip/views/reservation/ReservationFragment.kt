@@ -90,7 +90,7 @@ class ReservationFragment :
         Linkify.addLinks(
             binding.tvConsentRule,
             pattern3,
-            "https://youngest-programming.tistory.com/",
+            "http://www.naver.com",
             null,
             transform
         )
