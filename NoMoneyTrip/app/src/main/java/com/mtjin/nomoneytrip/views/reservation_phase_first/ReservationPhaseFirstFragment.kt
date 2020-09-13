@@ -107,6 +107,7 @@ class ReservationPhaseFirstFragment :
     private fun initCalendar() {
         viewModel.isDateSelected = false
         viewModel.setAllSelected()
+        viewModel.initDateRange()
         binding.cvCalendar.state().edit()
             .setCalendarDisplayMode(CalendarMode.MONTHS)
             .setMinimumDate(
