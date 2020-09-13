@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NoMoneyTrip</string>
+    <string name="app_name">무전일기</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="tmap_key">l7xxb33343042e394ae68af011ca74411a30</string>
     <string name="kakao_app_key">541c8caff279c6e6019cd20dde7951d5</string>

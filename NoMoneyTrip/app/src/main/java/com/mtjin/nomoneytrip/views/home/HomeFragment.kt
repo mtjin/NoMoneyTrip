@@ -51,6 +51,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                     HomeFragmentDirections.actionBottomNav1ToSearchFragment()
                 findNavController().navigate(direction)
             })
+
+            goAlarm.observe(this@HomeFragment, Observer {
+                val direction: NavDirections =
+                    HomeFragmentDirections.actionBottomNav1ToAlarmFragment()
+                findNavController().navigate(direction)
+            })
         }
     }
 

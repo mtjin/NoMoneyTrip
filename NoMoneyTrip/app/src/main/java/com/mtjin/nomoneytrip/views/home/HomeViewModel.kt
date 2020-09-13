@@ -13,11 +13,13 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel() {
-    private val _goSearch: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _goSearch = SingleLiveEvent<Unit>()
+    private val _goAlarm = SingleLiveEvent<Unit>()
     private val _productList = MutableLiveData<ArrayList<Product>>()
     private val _hashTagList = MutableLiveData<ArrayList<String>>()
 
     val goSearch: LiveData<Unit> get() = _goSearch
+    val goAlarm: LiveData<Unit> get() = _goAlarm
     val productList: LiveData<ArrayList<Product>> get() = _productList
     val hashTagList: LiveData<ArrayList<String>> get() = _hashTagList
 
@@ -71,5 +73,9 @@ class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel(
 
                     }
                 ))
+    }
+
+    fun goAlarm() {
+        _goAlarm.call()
     }
 }
