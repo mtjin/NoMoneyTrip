@@ -25,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         initNavigation()
         getHashKey()
-        insertProductTestData()
+        //insertProductTestData()
     }
 
     private fun insertProductTestData() {
