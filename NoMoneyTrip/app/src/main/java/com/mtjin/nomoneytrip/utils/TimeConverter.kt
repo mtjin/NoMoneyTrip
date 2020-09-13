@@ -16,6 +16,9 @@ fun Long.convertTimestampToDate(): String = DateFormat.format("yyyy-MM-dd", this
 fun Long.convertTimestampToPointFullDate(): String =
     DateFormat.format("yyyy.MM.dd", this).toString()
 
+fun Long.convertTimestampToPointFullDateTime(): String =
+    DateFormat.format("yyyy.MM.dd HH:mm", this).toString()
+
 
 // 날짜,시간,분 포함된 타임스탬프 변환 2020-01-01-22-30 - timestamp
 fun String.convertDateFullToTimestamp(): Long =

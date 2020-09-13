@@ -61,7 +61,8 @@
                 android:backgroundTint="@color/colorOrangeF79256"
                 android:progressTint="@color/colorOrangeF79256"
                 app:layout_constraintStart_toStartOf="@id/tv_title"
-                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                bind:ratingListAverage="@{item.product.ratingList}" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_score"

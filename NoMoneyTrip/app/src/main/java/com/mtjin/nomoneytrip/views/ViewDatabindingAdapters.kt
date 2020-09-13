@@ -13,6 +13,7 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
+import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDateTime
 import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
 import com.mtjin.nomoneytrip.utils.getMyColor
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
@@ -24,6 +25,7 @@ import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryAdapter
 import com.mtjin.nomoneytrip.views.tour_history.TourHistoryAdapter
 import java.util.concurrent.TimeUnit
+import kotlin.math.roundToInt
 
 @BindingAdapter("urlImage")
 fun ImageView.setUrlImage(url: String) {
@@ -41,9 +43,31 @@ fun ImageView.setUrlImageRadius(url: String) {
         .into(this)
 }
 
-@BindingAdapter("setRating")
+@BindingAdapter("rating")
 fun RatingBar.setMovieRating(score: String) {
     rating = (score.toFloatOrNull() ?: 0f)
+}
+
+@BindingAdapter("ratingListAverage")
+fun RatingBar.setRatingListAverage(ratingList: List<Float>) {
+    rating = if (ratingList.isNotEmpty()) {
+        val average = ratingList.sum() / ratingList.size
+        val score: Float = ((average * 10.0).roundToInt() / 10.0).toFloat()
+        score
+    } else {
+        0f
+    }
+}
+
+@BindingAdapter("ratingListAverageText")
+fun TextView.setRatingListAverageText(ratingList: List<Float>) {
+    text = if (ratingList.isNotEmpty()) {
+        val average = ratingList.sum() / ratingList.size
+        val score = ((average * 10.0).roundToInt() / 10.0).toString()
+        score
+    } else {
+        "" + 0
+    }
 }
 
 
@@ -57,6 +81,12 @@ fun TextView.setTimestampTerm(startTimestamp: Long, endTimestamp: Long) {
 @BindingAdapter("timestampPointFullDate")
 fun TextView.setTimestampPointFullDate(timestamp: Long) {
     text = timestamp.convertTimestampToPointFullDate()
+}
+
+//timestamp -> 2020.01.02 23:00
+@BindingAdapter("timestampPointFullDateTime")
+fun TextView.setTimestampPointFullDateTime(timestamp: Long) {
+    text = timestamp.convertTimestampToPointFullDateTime()
 }
 
 // timestamp(1599663600000), time(일손 4시간) -> 2박, 일손 8시간

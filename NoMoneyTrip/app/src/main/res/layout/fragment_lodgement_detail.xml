@@ -77,7 +77,8 @@
                     android:backgroundTint="@color/colorOrangeF79256"
                     android:progressTint="@color/colorOrangeF79256"
                     app:layout_constraintStart_toStartOf="@id/tv_lodgment_name"
-                    app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name"
+                    bind:ratingListAverage="@{vm.product.ratingList}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_score"
@@ -89,6 +90,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/rb_rating"
                     app:layout_constraintStart_toEndOf="@id/rb_rating"
                     app:layout_constraintTop_toTopOf="@id/rb_rating"
+                    bind:ratingListAverageText="@{vm.product.ratingList}"
                     tools:text="6" />
 
                 <androidx.viewpager2.widget.ViewPager2
@@ -211,7 +213,6 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_work_hour"
                     bind:setItems="@{product.hashTagList}"
                     tools:listitem="@layout/item_product_hash_tag" />
-
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_explanation"

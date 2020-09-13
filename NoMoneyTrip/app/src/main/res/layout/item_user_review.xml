@@ -61,6 +61,7 @@
             app:layout_constraintBottom_toBottomOf="@id/civ_image"
             app:layout_constraintStart_toEndOf="@id/civ_image"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
+            bind:timestampPointFullDateTime="@{item.review.timestamp}"
             tools:text="39분 전" />
 
         <androidx.appcompat.widget.AppCompatImageView
