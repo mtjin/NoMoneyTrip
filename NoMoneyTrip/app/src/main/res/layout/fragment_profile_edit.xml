@@ -31,6 +31,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/goyang_ilsan_regular"
             android:text="@string/profile_edit_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_20sp"

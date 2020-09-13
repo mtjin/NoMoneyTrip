@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="12dp"
+            android:fontFamily="@font/goyang_ilsan_regular"
             android:text="@string/email_signup_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="20sp"

@@ -131,4 +131,6 @@
     <string name="local_tour_review_more_text">이 지역 여행기 더 보기</string>
     <string name="rating_then_next_text">평가를 하면 다음으로 넘어갑니다.</string>
     <string name="update_later_text">업데이트 예정</string>
+    <string name="teen_tour_text">청춘 여행기</string>
+    <string name="country_entire_text">국내 전체</string>
 </resources>
