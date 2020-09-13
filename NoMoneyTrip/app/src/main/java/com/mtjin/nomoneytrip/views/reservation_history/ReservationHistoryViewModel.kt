@@ -40,6 +40,8 @@ class ReservationHistoryViewModel(private val repository: ReservationHistoryRepo
             repository.deleteReservation(reservation = reservation)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showLottieProgress() }
+                .doAfterTerminate { hideLottieProgress() }
                 .subscribeBy(
                     onError = {
                         _deleteReservationSuccessMsg.value = false

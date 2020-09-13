@@ -39,7 +39,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         checkOut = "다음날 오전 11시",
                         city = "서울",
                         content = "청양 칠갑산 산꽃마을",
-                        hashTagList = listOf("#농촌 봉사", "#농촌 체험"),
+                        hashTagList = listOf("#농촌 봉사", "#농촌 체험$i"),
                         homePage = "https://www.naver.com/",
                         id = i.toString(),
                         imageList = listOf(
@@ -49,7 +49,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         favoriteList = ArrayList(),
                         internet = true,
                         market = true,
-                        optionList = listOf("농촌 벼농사", "할매 할부지 앞에서 장기자랑"),
+                        optionList = listOf("농촌 벼농사"+i, "할매 할부지 앞에서 장기자랑"+i),
                         parking = true,
                         phone = "041-944-2007",
                         time = "일손 4시간",

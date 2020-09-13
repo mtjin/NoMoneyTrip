@@ -43,8 +43,8 @@ class ProfileEditViewModel(private val repository: ProfileEditRepository) : Base
                     repository.updateName(name = name.value.toString())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .doOnSubscribe { showProgress() }
-                        .doAfterTerminate { hideProgress() }
+                        .doOnSubscribe { showLottieProgress() }
+                        .doAfterTerminate { hideLottieProgress() }
                         .subscribeBy(
                             onError = {
                                 if (it.localizedMessage == ERR_DUPLICATE_NAME) _nameDuplicateMsg.call()
@@ -61,8 +61,8 @@ class ProfileEditViewModel(private val repository: ProfileEditRepository) : Base
                     repository.updateProfile(name = name.value.toString(), imageUri = imageUri)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .doOnSubscribe { showProgress() }
-                        .doAfterTerminate { hideProgress() }
+                        .doOnSubscribe { showLottieProgress() }
+                        .doAfterTerminate { hideLottieProgress() }
                         .subscribeBy(
                             onError = {
                                 if (it.localizedMessage == ERR_DUPLICATE_NAME) _nameDuplicateMsg.call()

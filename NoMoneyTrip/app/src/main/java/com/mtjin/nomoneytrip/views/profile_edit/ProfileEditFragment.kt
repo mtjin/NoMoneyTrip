@@ -41,6 +41,12 @@ class ProfileEditFragment :
             nameErrMsg.observe(this@ProfileEditFragment, Observer {
                 showToast(getString(R.string.name_blank_msg))
             })
+
+            isLottieLoading.observe(this@ProfileEditFragment, Observer { loading ->
+                if (loading) showProgressDialog()
+                else hideProgressDialog()
+            })
+
             backClick.observe(this@ProfileEditFragment, Observer {
                 findNavController().popBackStack()
             })

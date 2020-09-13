@@ -46,6 +46,11 @@ class ReservationFragment :
                 showToast(getString(R.string.duplicate_date_select_another_date_msg))
             })
 
+            isLottieLoading.observe(this@ReservationFragment, Observer { loading ->
+                if (loading) showProgressDialog()
+                else hideProgressDialog()
+            })
+
             backClick.observe(this@ReservationFragment, Observer {
                 findNavController().popBackStack()
             })

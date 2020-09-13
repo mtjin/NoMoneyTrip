@@ -34,6 +34,11 @@ class ReservationHistoryFragment :
                     if (success) showToast(getString(R.string.reservation_cancel_success_msg))
                     else showToast(getString(R.string.reservation_cancel_fail_tmsg))
                 })
+
+            isLottieLoading.observe(this@ReservationHistoryFragment, Observer { loading ->
+                if (loading) showProgressDialog()
+                else hideProgressDialog()
+            })
         }
     }
 

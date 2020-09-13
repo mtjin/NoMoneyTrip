@@ -33,6 +33,8 @@ class ReservationViewModel(private val repository: ReservationRepository) : Base
                 repository.insertReservation(reservation, product)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe { showLottieProgress() }
+                    .doAfterTerminate { hideLottieProgress() }
                     .subscribeBy(
                         onComplete = { _successReservation.value = true },
                         onError = {
