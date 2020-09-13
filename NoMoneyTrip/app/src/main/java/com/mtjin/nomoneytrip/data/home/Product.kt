@@ -21,7 +21,7 @@ data class Product(
     var checkOut: String = "",
     var phone: String = "",
     var time: String = "",
-    var rating: Float = 0f,
+    var ratingList: List<Float> = ArrayList(),
     var internet: Boolean = false,
     var parking: Boolean = false,
     var market: Boolean = false,
