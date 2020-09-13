@@ -58,7 +58,7 @@ class ReservationRepositoryImpl(
                         database.child(RESERVATION).child(key.toString()).setValue(reservation)
                             .addOnSuccessListener {
                                 sendNotification(reservation = reservation, product = product)
-                                Log.d("AAAABBB","CCCCCC")
+                                Log.d("AAAABBB", "CCCCCC")
                                 emitter.onComplete()
                             }.addOnFailureListener {
                                 emitter.onError(it)

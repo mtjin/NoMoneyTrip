@@ -52,7 +52,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                     R.drawable.ic_launcher_background
                 )
             )
-            .setSmallIcon(R.mipmap.ic_launcher_round)
+            .setSmallIcon(R.drawable.logo)
             .setContentTitle(title)
             .setContentText(body)
             .setAutoCancel(true)
