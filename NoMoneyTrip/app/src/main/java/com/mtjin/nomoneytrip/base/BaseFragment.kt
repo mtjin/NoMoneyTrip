@@ -10,12 +10,14 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.mtjin.nomoneytrip.views.dialog.LottieDialogFragment
 
 abstract class BaseFragment<B : ViewDataBinding>(
     @LayoutRes val layoutId: Int
 ) : Fragment() {
     lateinit var binding: B
     protected lateinit var thisContext: Context
+    lateinit var lottieDialog: LottieDialogFragment
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +26,7 @@ abstract class BaseFragment<B : ViewDataBinding>(
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         thisContext = inflater.context
+        lottieDialog = LottieDialogFragment.newInstance()
         return binding.root
     }
 
@@ -37,4 +40,17 @@ abstract class BaseFragment<B : ViewDataBinding>(
 
     protected fun showToast(msg: String) =
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+
+    fun showProgressDialog() {
+        lottieDialog.show(
+            requireActivity().supportFragmentManager,
+            lottieDialog.tag
+        )
+    }
+
+    fun hideProgressDialog() {
+        if (lottieDialog.isAdded) {
+            lottieDialog.dismissAllowingStateLoss()
+        }
+    }
 }

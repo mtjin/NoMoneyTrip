@@ -53,6 +53,10 @@ class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragme
             backClick.observe(this@TourWriteFragment, Observer {
                 findNavController().popBackStack()
             })
+            isLottieLoading.observe(this@TourWriteFragment, Observer {loading->
+                if(loading) showProgressDialog()
+                else hideProgressDialog()
+            })
         }
     }
 

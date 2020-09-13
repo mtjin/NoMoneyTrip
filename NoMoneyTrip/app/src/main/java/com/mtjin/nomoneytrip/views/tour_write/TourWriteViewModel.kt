@@ -65,11 +65,11 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe {
                             isComplete = false
-                            showProgress()
+                            showLottieProgress()
                         }
                         .doAfterTerminate {
                             isComplete = true
-                            hideProgress()
+                            hideLottieProgress()
                             reservationProduct.product.ratingList.removeAt(reservationProduct.product.ratingList.size - 1)
                         }
                         .subscribeBy(
