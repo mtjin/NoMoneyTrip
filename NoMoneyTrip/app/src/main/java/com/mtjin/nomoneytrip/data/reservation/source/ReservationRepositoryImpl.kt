@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -57,6 +58,7 @@ class ReservationRepositoryImpl(
                         database.child(RESERVATION).child(key.toString()).setValue(reservation)
                             .addOnSuccessListener {
                                 sendNotification(reservation = reservation, product = product)
+                                Log.d("AAAABBB","CCCCCC")
                                 emitter.onComplete()
                             }.addOnFailureListener {
                                 emitter.onError(it)
@@ -83,13 +85,13 @@ class ReservationRepositoryImpl(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                scheduledTime - TimeUnit.HOURS.toMillis(7),// 5시간전알림(전날 17시알림)
+                scheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
                 alarmIntent
             )
         } else {
             alarmMgr.setExact(
                 AlarmManager.RTC_WAKEUP,
-                scheduledTime - TimeUnit.HOURS.toMillis(7),// 5시간전알림(전날 17시알림)
+                scheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
                 alarmIntent
             )
         }

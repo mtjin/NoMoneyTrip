@@ -89,13 +89,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                scheduledTime.toLong() - TimeUnit.MINUTES.toMillis(15),// 15분전알림
+                scheduledTime.toLong() - TimeUnit.HOURS.toMillis(15),// 15분전알림
                 alarmIntent
             )
         } else {
             alarmMgr.setExact(
                 AlarmManager.RTC_WAKEUP,
-                scheduledTime.toLong() - TimeUnit.MINUTES.toMillis(15),// 15분전알림
+                scheduledTime.toLong() - TimeUnit.HOURS.toMillis(15),// 15분전알림
                 alarmIntent
             )
         }

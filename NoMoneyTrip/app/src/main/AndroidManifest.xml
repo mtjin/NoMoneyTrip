@@ -3,7 +3,9 @@
     package="com.mtjin.nomoneytrip">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".di.KoinApplication"
         android:allowBackup="false"
@@ -29,6 +31,15 @@
 
         <activity android:name=".views.login.LoginActivity" />
         <activity android:name=".views.main.MainActivity" />
+
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <receiver android:name=".service.NotificationBroadcastReceiver" />
     </application>
 
 </manifest>
