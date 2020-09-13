@@ -16,6 +16,9 @@
             android:id="@+id/action_bottom_nav_1_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_1_to_alarm_fragment"
+            app:destination="@id/alarm_fragment" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
@@ -206,6 +209,12 @@
             android:name="link"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/alarm_fragment"
+        android:name="com.mtjin.nomoneytrip.views.alarm.AlarmFragment"
+        android:label="AlarmFragment"
+        tools:layout="@layout/fragment_alarm" />
 
 
 </navigation>
