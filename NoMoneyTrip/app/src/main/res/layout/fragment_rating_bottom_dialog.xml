@@ -10,15 +10,13 @@
 
     <androidx.appcompat.widget.AppCompatRatingBar
         android:id="@+id/rb_rating"
-        style="@style/Widget.AppCompat.RatingBar"
+        style="@style/RatingBarTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="@dimen/margin_20dp"
-        android:backgroundTint="@color/colorOrangeF79256"
-        android:isIndicator="true"
+        android:isIndicator="false"
         android:numStars="5"
-        android:progressTint="@color/colorOrangeF79256"
         android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

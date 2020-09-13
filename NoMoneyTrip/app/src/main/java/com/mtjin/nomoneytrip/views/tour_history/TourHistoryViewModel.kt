@@ -30,5 +30,4 @@ class TourHistoryViewModel : BaseViewModel() {
             _goTourWrite.value = selectedReservationProduct
         }
     }
-
 }

@@ -38,8 +38,13 @@ class TourWriteRepositoryImpl(
                             val updateReviewMap = hashMapOf<String, Any>(
                                 REVIEWED to true
                             )
+                            val ratingMap = hashMapOf<String, Any>(
+                                RATING_LIST to reservationProduct.product.ratingList
+                            )
                             database.child(RESERVATION).child(reservationProduct.reservation.id)
                                 .updateChildren(updateReviewMap).addOnSuccessListener {
+                                    database.child(PRODUCT).child(reservationProduct.product.id)
+                                        .updateChildren(ratingMap)
                                     emitter.onComplete()
                                 }.addOnFailureListener {
                                     emitter.onError(it)

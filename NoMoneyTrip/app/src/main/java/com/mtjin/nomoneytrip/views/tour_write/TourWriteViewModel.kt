@@ -19,6 +19,8 @@ import io.reactivex.schedulers.Schedulers
 class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) : BaseViewModel() {
     lateinit var imageUri: Uri
     lateinit var reservationProduct: ReservationProduct
+    var rating: Float = 0f
+    var isComplete: Boolean = true
 
     private val _pickImage = SingleLiveEvent<Unit>()
     private val _contentEmptyMsg = SingleLiveEvent<String>()
@@ -40,6 +42,10 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
             content.value.isNullOrBlank() -> _contentEmptyMsg.call()
             !this::imageUri.isInitialized -> _imageEmptyMsg.call()
             else -> {
+                if (!isComplete) {
+                    return
+                }
+                reservationProduct.product.ratingList.add(rating)
                 compositeDisposable.add(
                     tourWriteRepository.insertReview(
                         imageUri = imageUri,
@@ -57,8 +63,15 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
                         )
                     ).subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .doOnSubscribe { showProgress() }
-                        .doAfterTerminate { hideProgress() }
+                        .doOnSubscribe {
+                            isComplete = false
+                            showProgress()
+                        }
+                        .doAfterTerminate {
+                            isComplete = true
+                            hideProgress()
+                            reservationProduct.product.ratingList.removeAt(reservationProduct.product.ratingList.size - 1)
+                        }
                         .subscribeBy(
                             onError = {
                                 Log.d(

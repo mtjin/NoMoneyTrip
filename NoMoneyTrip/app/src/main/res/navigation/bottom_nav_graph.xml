@@ -176,6 +176,9 @@
         <argument
             android:name="reservationProduct"
             app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
+        <argument
+            android:name="rating"
+            app:argType="float" />
         <action
             android:id="@+id/action_tour_write_fragment_to_bottom_nav_2"
             app:destination="@id/bottom_nav_2"

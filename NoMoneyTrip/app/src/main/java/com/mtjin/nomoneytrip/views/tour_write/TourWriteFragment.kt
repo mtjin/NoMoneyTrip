@@ -2,6 +2,7 @@ package com.mtjin.nomoneytrip.views.tour_write
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -26,6 +27,7 @@ class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragme
     private fun processIntent() {
         binding.item = args.reservationProduct
         viewModel.reservationProduct = args.reservationProduct
+        viewModel.rating = args.rating
     }
 
     private fun initViewModelCallback() {

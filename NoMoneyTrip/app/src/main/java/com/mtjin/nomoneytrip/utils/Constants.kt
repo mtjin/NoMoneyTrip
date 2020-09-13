@@ -1,5 +1,8 @@
 package com.mtjin.nomoneytrip.utils
 
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
 const val TAG = "LOG_TAG"
 
 var FCM_KEY: String =
@@ -34,7 +37,7 @@ const val JEJU_CODE = 39
 const val RC_PICK_IMAGE = 1001
 
 // user
-var uuid = "" // 유저 고유 토큰
+var uuid = Firebase.auth.currentUser?.uid.toString() // 유저 고유 토큰
 var fcm = "" // fcm
 
 //database child
@@ -54,6 +57,7 @@ const val TIMESTAMP = "timestamp"
 const val RECOMMEND_LIST = "recommendList"
 const val FAVORITE_LIST = "favoriteList"
 const val FAVORITE = "favorite"
+const val RATING_LIST = "ratingList"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

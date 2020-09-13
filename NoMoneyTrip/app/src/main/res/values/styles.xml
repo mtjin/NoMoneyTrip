@@ -25,4 +25,12 @@
         <item name="android:textColor">@color/colorWhiteFDFD</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <!-- Ratingbar theme -->
+    <style name="RatingBarTheme" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/colorOrangeF79256</item>
+        <item name="colorControlActivated">@color/colorOrangeF79256</item>
+        <item name="android:progressTint">@color/colorOrangeF79256</item>
+        <item name="android:secondaryProgressTint">@android:color/transparent</item>
+    </style>
 </resources>

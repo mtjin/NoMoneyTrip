@@ -8,6 +8,7 @@ import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationHistoryBinding
 import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.views.dialog.BottomDialogFragment
+import com.mtjin.nomoneytrip.views.dialog.RatingBottomDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ReservationHistoryFragment :
@@ -40,9 +41,9 @@ class ReservationHistoryFragment :
         val adapter = ReservationHistoryAdapter(thisContext,
             { reservationHistory ->
                 if (reservationHistory.reservation.endDateTimestamp >= getTimestamp()) { // 예약변경
-                    //TODO :: 추후 업데이트 예정
+                    showToast(getString(R.string.update_later_text))
                 } else { //봉사인증
-
+                    showToast(getString(R.string.update_later_text))
                 }
             }, { reservationHistory ->
                 when {
@@ -57,11 +58,19 @@ class ReservationHistoryFragment :
                     }
                     else -> {
                         if (reservationHistory.reservation.reviewed) showToast(getString(R.string.aleready_reviewed_product_msg)) //이미 리뷰 남긴거
-                        else findNavController().navigate(
-                            ReservationHistoryFragmentDirections.actionBottomNav3ToTourWriteFragment(
-                                reservationHistory
-                            )
-                        )
+                        else {
+                            val dialog =
+                                RatingBottomDialogFragment.newInstance(
+                                    ratingClick = { rating ->
+                                        showToast(rating.toString())
+                                        findNavController().navigate(
+                                            ReservationHistoryFragmentDirections.actionBottomNav3ToTourWriteFragment(
+                                                reservationHistory, rating
+                                            )
+                                        )
+                                    })
+                            dialog.show(requireActivity().supportFragmentManager, dialog.tag)
+                        }
                     }
                 }
             })
