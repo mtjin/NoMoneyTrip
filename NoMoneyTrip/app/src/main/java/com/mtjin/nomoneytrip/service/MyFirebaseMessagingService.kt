@@ -49,7 +49,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setLargeIcon(
                 BitmapFactory.decodeResource(
                     resources,
-                    R.drawable.ic_launcher_background
+                    R.drawable.logo
                 )
             )
             .setSmallIcon(R.drawable.logo)
