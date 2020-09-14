@@ -6,6 +6,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
+import androidx.work.BackoffPolicy
+import androidx.work.Data
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -13,6 +17,7 @@ import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.service.NotificationBroadcastReceiver
+import com.mtjin.nomoneytrip.service.ScheduledWorker
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
 import java.util.concurrent.TimeUnit
@@ -58,7 +63,6 @@ class ReservationRepositoryImpl(
                         database.child(RESERVATION).child(key.toString()).setValue(reservation)
                             .addOnSuccessListener {
                                 sendNotification(reservation = reservation, product = product)
-                                Log.d("AAAABBB", "CCCCCC")
                                 emitter.onComplete()
                             }.addOnFailureListener {
                                 emitter.onError(it)
@@ -74,26 +78,42 @@ class ReservationRepositoryImpl(
             date = reservation.startDateTimestamp,
             time = product.checkIn
         )
-        val scheduledTime = reservation.startDateTimestamp
+        val startScheduledTime = reservation.startDateTimestamp
+        val endScheduledTime = reservation.endDateTimestamp
+        val timeDiff = endScheduledTime - System.currentTimeMillis()
         val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val alarmIntent =
+        val startAlarmIntent =
             Intent(context, NotificationBroadcastReceiver::class.java).let { intent ->
                 intent.putExtra(EXTRA_NOTIFICATION_TITLE, title)
+                intent.putExtra(EXTRA_NOTIFICATION_MESSAGE, message)
                 intent.putExtra(EXTRA_NOTIFICATION_MESSAGE, message)
                 PendingIntent.getBroadcast(context, 0, intent, 0)
             }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                scheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
-                alarmIntent
+                startScheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
+                startAlarmIntent
             )
         } else {
             alarmMgr.setExact(
                 AlarmManager.RTC_WAKEUP,
-                scheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
-                alarmIntent
+                startScheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
+                startAlarmIntent
             )
         }
+        //종료날 리뷰요청
+        val notificationData = Data.Builder()
+            .putString(EXTRA_NOTIFICATION_TITLE, title)
+            .putString(EXTRA_NOTIFICATION_MESSAGE, message)
+            .build()
+        val workRequest =
+            OneTimeWorkRequestBuilder<ScheduledWorker>()
+                .setInputData(notificationData)
+                .setInitialDelay(timeDiff, TimeUnit.MILLISECONDS)
+                .setBackoffCriteria(BackoffPolicy.LINEAR, 30000, TimeUnit.MILLISECONDS)
+                .build()
+        val workManager = WorkManager.getInstance(context)
+        workManager.enqueue(workRequest)
     }
 }
