@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.profile.ProfileViewModel" />
@@ -129,6 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_36dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
+                    android:onClick="@{()->vm.requestMyReviews()}"
                     android:text="@string/my_tour_text"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_18sp"
@@ -140,6 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_18dp"
+                    android:onClick="@{()->vm.requestMyRecommendReviews()}"
                     app:layout_constraintBottom_toBottomOf="@id/tv_mytour"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_mytour"
@@ -155,6 +159,7 @@
                     android:text="@string/save_tour_text"
                     android:textColor="@color/colorWhiteGrayF4F4"
                     android:textSize="18sp"
+                    android:visibility="invisible"
                     app:layout_constraintStart_toEndOf="@id/tv_mytour"
                     app:layout_constraintTop_toTopOf="@id/tv_mytour" />
 
@@ -164,7 +169,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/goyang_ilsan_regular"
-                    android:text="라인용"
                     android:textSize="18sp"
                     android:visibility="invisible"
                     app:layout_constraintStart_toEndOf="@id/tv_saved_tour"
@@ -208,5 +212,16 @@
                     tools:listitem="@layout/item_thank_letter" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

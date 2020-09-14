@@ -8,5 +8,6 @@ import io.reactivex.Single
 interface ProfileRepository {
     fun requestProfile(): Single<User>
     fun updateReviewRecommend(userReview: UserReview): Completable
-    fun requestReviews(): Single<List<UserReview>>
+    fun requestMyReviews(): Single<List<UserReview>>
+    fun requestMyRecommendReviews(): Single<List<UserReview>>
 }

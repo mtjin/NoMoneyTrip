@@ -44,7 +44,7 @@ class ProfileRepositoryImpl(private val database: DatabaseReference) : ProfileRe
         }
     }
 
-    override fun requestReviews(): Single<List<UserReview>> {
+    override fun requestMyReviews(): Single<List<UserReview>> {
         var user = User()
         val productList = ArrayList<Product>()
         val userReviewList = ArrayList<UserReview>()
@@ -92,6 +92,78 @@ class ProfileRepositoryImpl(private val database: DatabaseReference) : ProfileRe
                                                                     )
                                                                 }
                                                                 break
+                                                            }
+                                                        }
+                                                    }
+                                            }
+                                            userReviewList.sortByDescending { it.review.timestamp }
+                                            emitter.onSuccess(userReviewList)
+                                        }
+
+                                    })
+                            }
+
+                        })
+                }
+
+            })
+        }
+    }
+
+    override fun requestMyRecommendReviews(): Single<List<UserReview>> {
+        var userList = ArrayList<User>()
+        var productList = ArrayList<Product>()
+        var userReviewList = ArrayList<UserReview>()
+        return Single.create<List<UserReview>> { emitter ->
+            database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    emitter.onError(error.toException())
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (productSnapshot in snapshot.children) {
+                        productSnapshot.getValue(Product::class.java)?.let {
+                            productList.add(it)
+                        }
+                    }
+                    database.child(USER)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(error: DatabaseError) {
+                                emitter.onError(error.toException())
+                            }
+
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                for (userSnapshot in snapshot.children) {
+                                    userSnapshot.getValue(User::class.java)?.let {
+                                        userList.add(it)
+                                    }
+                                }
+                                database.child(REVIEW)
+                                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                                        override fun onCancelled(error: DatabaseError) {
+                                            emitter.onError(error.toException())
+                                        }
+
+                                        override fun onDataChange(snapshot: DataSnapshot) {
+                                            for (reviewSnapshot in snapshot.children) {
+                                                reviewSnapshot.getValue(Review::class.java)
+                                                    ?.let { review ->
+                                                        if (review.recommendList.contains(uuid)) {
+                                                            for (product in productList) {
+                                                                if (product.id == review.productId) {
+                                                                    for (user in userList) {
+                                                                        if (user.id == review.userId) {
+                                                                            userReviewList.add(
+                                                                                UserReview(
+                                                                                    user = user,
+                                                                                    review = review,
+                                                                                    product = product
+                                                                                )
+                                                                            )
+                                                                        }
+                                                                    }
+                                                                    break
+                                                                }
                                                             }
                                                         }
                                                     }

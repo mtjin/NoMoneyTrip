@@ -18,10 +18,14 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
     private val _user = SingleLiveEvent<User>()
     private val _goProfileEdit = SingleLiveEvent<Unit>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
+    private val _clickMyTour = SingleLiveEvent<Unit>()
+    private val _clickHeart = SingleLiveEvent<Unit>()
 
     val user: LiveData<User> get() = _user
     val goProfileEdit: LiveData<Unit> get() = _goProfileEdit
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
+    val clickMyTour: LiveData<Unit> get() = _clickMyTour
+    val clickHeart: LiveData<Unit> get() = _clickHeart
 
     fun requestProfile() {
         compositeDisposable.add(
@@ -40,9 +44,10 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
         )
     }
 
-    fun requestReviews() {
+    fun requestMyReviews() {
+        _clickMyTour.call()
         compositeDisposable.add(
-            profileRepository.requestReviews()
+            profileRepository.requestMyReviews()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
@@ -50,17 +55,37 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                         _userReviewList.value = it
                     },
                     onError = {
-                        Log.d(TAG, "ProfileViewModel requestReviews() -> $it")
+                        Log.d(TAG, "ProfileViewModel requestMyReviews() -> $it")
+                    }
+                )
+        )
+    }
+
+    fun requestMyRecommendReviews() {
+        _clickHeart.call()
+        compositeDisposable.add(
+            profileRepository.requestMyRecommendReviews()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onSuccess = {
+                        _userReviewList.value = it
+                    },
+                    onError = {
+                        Log.d(TAG, "ProfileViewModel requestMyRecommendReviews() -> $it")
                     }
                 )
         )
     }
 
     fun updateReviewRecommend(userReview: UserReview) {
+        _clickHeart.call()
         compositeDisposable.add(
             profileRepository.updateReviewRecommend(userReview)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showProgress() }
+                .doAfterTerminate { hideProgress() }
                 .subscribeBy(
                     onComplete = {},
                     onError = { Log.d(TAG, it.toString()) }

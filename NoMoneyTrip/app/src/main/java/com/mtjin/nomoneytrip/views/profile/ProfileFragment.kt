@@ -5,6 +5,8 @@ import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentProfileBinding
+import com.mtjin.nomoneytrip.utils.getMyColor
+import com.mtjin.nomoneytrip.utils.getMyDrawable
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,7 +21,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
 
     private fun requestItems() {
         viewModel.requestProfile()
-        viewModel.requestReviews()
+        viewModel.requestMyReviews()
     }
 
     private fun initAdapter() {
@@ -37,6 +39,16 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                         ProfileFragmentDirections.actionBottomNav4ToProfileEditFragment(it)
                     )
                 }
+            })
+
+            clickMyTour.observe(this@ProfileFragment, Observer {
+                binding.tvMytour.setTextColor(thisContext.getMyColor(R.color.colorBlack2D2D))
+                binding.ivHeart.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_community_good_off))
+            })
+
+            clickHeart.observe(this@ProfileFragment, Observer {
+                binding.tvMytour.setTextColor(thisContext.getMyColor(R.color.colorGrayC8C8))
+                binding.ivHeart.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_community_good))
             })
         }
     }
