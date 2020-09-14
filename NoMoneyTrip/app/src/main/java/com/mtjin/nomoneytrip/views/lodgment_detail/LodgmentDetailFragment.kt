@@ -3,7 +3,6 @@ package com.mtjin.nomoneytrip.views.lodgment_detail
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -40,10 +39,19 @@ class LodgmentDetailFragment :
     }
 
     private fun initView() {
-        if (productArg.product.favoriteList.contains(uuid)) binding.ivFavorite.setImageDrawable(
-            thisContext.getMyDrawable(R.drawable.ic_good_on)
-        )
-        else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
+        productArg.product.run {
+            if (favoriteList.contains(uuid)) binding.ivFavorite.setImageDrawable(
+                thisContext.getMyDrawable(R.drawable.ic_good_on)
+            )
+            else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
+
+            when { // 편의시설
+                !market -> binding.ivMarket.alpha = 0.3f
+                !internet -> binding.ivInternet.alpha = 0.3f
+                !parking -> binding.ivParking.alpha = 0.3f
+                !animal -> binding.ivAnimal.alpha = 0.3f
+            }
+        }
     }
 
     private fun initViewModelCallback() {
@@ -75,7 +83,6 @@ class LodgmentDetailFragment :
             })
 
             updateFavoriteResult.observe(this@LodgmentDetailFragment, Observer { favoriteOn ->
-                Log.d("AAAAA", favoriteOn.toString())
                 if (favoriteOn) binding.ivFavorite.setImageDrawable(
                     thisContext.getMyDrawable(R.drawable.ic_good_on)
                 )
