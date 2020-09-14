@@ -37,6 +37,7 @@ const val JEJU_CODE = 39
 const val RC_PICK_IMAGE = 1001
 
 // user
+@Volatile
 var uuid = Firebase.auth.currentUser?.uid.toString() // 유저 고유 토큰
 var fcm = "" // fcm
 

@@ -15,6 +15,8 @@ import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.databinding.ActivityMainBinding
 import com.mtjin.nomoneytrip.utils.PRODUCT
+import com.mtjin.nomoneytrip.utils.PreferenceManager
+import com.mtjin.nomoneytrip.utils.uuid
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -25,7 +27,28 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         initNavigation()
         getHashKey()
+        initUUID()
         //insertProductTestData()
+    }
+
+    override fun onStart() {
+        setUUID()
+        super.onStart()
+    }
+
+    private fun initUUID() {
+        if (uuid.isNotBlank()) {
+            PreferenceManager(this).uuid = uuid
+        }
+    }
+
+    private fun setUUID() {
+        if (uuid.isBlank()) {
+            uuid = PreferenceManager(this).uuid
+        }
+        if (uuid.isBlank()) {
+            finish()
+        }
     }
 
     private fun insertProductTestData() {
@@ -49,7 +72,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                         favoriteList = ArrayList(),
                         internet = true,
                         market = true,
-                        optionList = listOf("농촌 벼농사"+i, "할매 할부지 앞에서 장기자랑"+i),
+                        optionList = listOf("농촌 벼농사" + i, "할매 할부지 앞에서 장기자랑" + i),
                         parking = true,
                         phone = "041-944-2007",
                         time = "일손 4시간",
