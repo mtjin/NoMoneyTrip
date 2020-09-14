@@ -65,6 +65,7 @@
             tools:text="39분 전" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_16dp"
@@ -118,21 +119,22 @@
             app:layout_constraintTop_toBottomOf="@id/cv_cardview"
             tools:text="[충북] 상품제목" />
 
-        <TextView
+        <kr.co.prnd.readmore.ReadMoreTextView
             android:id="@+id/tv_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_14dp"
-            android:ellipsize="end"
-            android:maxLines="2"
             android:text="@{item.review.content}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="@id/cv_cardview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_product_title"
-            tools:text="사용자가 작성한 후기입니다. 사용자가 작성한 후..." />
+            app:readMoreColor="@color/colorOrangeF79256"
+            app:readMoreMaxLine="2"
+            app:readMoreText="…더보기"
+            tools:text="사용자가 작성한 후기입니다. 사용자가 작성한 후 2줄2줄2줄2줄..." />
 
         <TextView
             android:id="@+id/tv_heart"
