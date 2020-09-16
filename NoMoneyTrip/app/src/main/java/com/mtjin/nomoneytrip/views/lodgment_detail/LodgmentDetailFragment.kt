@@ -97,9 +97,10 @@ class LodgmentDetailFragment :
 
     private fun initReviewAdapter() {
         viewModel.page = 2
-        val adapter = CommunityAdapter(context = thisContext) {
+        val adapter = CommunityAdapter(context = thisContext, recommendClick = {
             viewModel.updateReviewRecommend(it)
-        }
+        }, productClick = {
+        })
         binding.rvReviews.adapter = adapter
         viewModel.requestReviews()
     }

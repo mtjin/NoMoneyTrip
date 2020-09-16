@@ -17,9 +17,15 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
     }
 
     private fun initAdapter() {
-        binding.rvReviews.adapter = CommunityAdapter(context = thisContext) {
+        binding.rvReviews.adapter = CommunityAdapter(context = thisContext, recommendClick = {
             viewModel.updateReviewRecommend(it)
-        }
+        }, productClick = {
+            findNavController().navigate(
+                CommunityFragmentDirections.actionBottomNav2ToLodgmentDetailFragment(
+                    it.product
+                )
+            )
+        })
     }
 
     private fun initViewModelCallback() {

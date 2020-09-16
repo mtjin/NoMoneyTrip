@@ -25,9 +25,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
     }
 
     private fun initAdapter() {
-        val productAdapter = CommunityAdapter(thisContext) {
+        val productAdapter = CommunityAdapter(context = thisContext, recommendClick = {
             viewModel.updateReviewRecommend(it)
-        }
+        }, productClick = {
+            findNavController().navigate(
+                ProfileFragmentDirections.actionBottomNav4ToLodgmentDetailFragment(
+                    it.product
+                )
+            )
+        })
         binding.rvTours.adapter = productAdapter
     }
 
