@@ -20,6 +20,9 @@
             android:id="@+id/action_bottom_nav_1_to_alarm_fragment"
             app:destination="@id/alarm_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_1_to_lodgment_detail_fragment2"
+            app:destination="@id/lodgment_detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
@@ -33,6 +36,10 @@
         <action
             android:id="@+id/action_bottom_nav_2_to_tour_no_history_fragment"
             app:destination="@id/tour_no_history_fragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_2_to_lodgment_detail_fragment"
+            app:destination="@id/lodgment_detail_fragment"
             app:launchSingleTop="true" />
     </fragment>
     <fragment
