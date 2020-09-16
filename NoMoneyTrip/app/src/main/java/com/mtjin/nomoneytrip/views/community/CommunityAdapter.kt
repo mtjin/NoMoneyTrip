@@ -15,7 +15,8 @@ import com.mtjin.nomoneytrip.utils.uuid
 
 class CommunityAdapter(
     private val context: Context,
-    private val recommendClick: (UserReview) -> Unit
+    private val recommendClick: (UserReview) -> Unit,
+    private val productClick: (UserReview) -> Unit
 ) :
     RecyclerView.Adapter<CommunityAdapter.ViewHolder>() {
     private val items = ArrayList<UserReview>()
@@ -44,6 +45,9 @@ class CommunityAdapter(
                     recommendClick(items[viewHolder.adapterPosition])
                 }
             }
+        }
+        binding.tvProductTitle.setOnClickListener {
+            productClick(items[viewHolder.adapterPosition])
         }
         return viewHolder
     }
