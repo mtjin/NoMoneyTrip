@@ -5,7 +5,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
 import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -80,7 +79,7 @@ class ReservationRepositoryImpl(
         )
         val startScheduledTime = reservation.startDateTimestamp
         val endScheduledTime = reservation.endDateTimestamp
-        val timeDiff = endScheduledTime - System.currentTimeMillis()
+        val timeDiff = endScheduledTime + TimeUnit.HOURS.toMillis(18) - System.currentTimeMillis()
         val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val startAlarmIntent =
             Intent(context, NotificationBroadcastReceiver::class.java).let { intent ->
@@ -92,25 +91,25 @@ class ReservationRepositoryImpl(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                startScheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
+                startScheduledTime - TimeUnit.HOURS.toMillis(11),// 전날알림(13시)
                 startAlarmIntent
             )
         } else {
             alarmMgr.setExact(
                 AlarmManager.RTC_WAKEUP,
-                startScheduledTime - TimeUnit.HOURS.toMillis(24),// 전날알림(12시)
+                startScheduledTime - TimeUnit.HOURS.toMillis(11),// 전날알림(13시)
                 startAlarmIntent
             )
         }
         //종료날 리뷰요청
         val notificationData = Data.Builder()
             .putString(EXTRA_NOTIFICATION_TITLE, title)
-            .putString(EXTRA_NOTIFICATION_MESSAGE, message)
+            .putString(EXTRA_NOTIFICATION_MESSAGE, "여행은 어떠셨나요? 리뷰를 남겨주세요 :)")
             .build()
         val workRequest =
             OneTimeWorkRequestBuilder<ScheduledWorker>()
                 .setInputData(notificationData)
-                .setInitialDelay(timeDiff, TimeUnit.MILLISECONDS)
+                .setInitialDelay(timeDiff, TimeUnit.MILLISECONDS) // 18시 알림
                 .setBackoffCriteria(BackoffPolicy.LINEAR, 30000, TimeUnit.MILLISECONDS)
                 .build()
         val workManager = WorkManager.getInstance(context)
