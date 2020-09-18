@@ -19,14 +19,16 @@
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:fitsSystemWindows="true"
             android:theme="@style/toolbarTheme">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
                 android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorPrimary"
+                app:contentScrim="@color/colorWhiteFDFD"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -37,32 +39,70 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@drawable/img_product" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_local_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="@dimen/margin_28dp"
+                    android:layout_marginBottom="@dimen/margin_20dp"
+                    android:textColor="@color/colorWhiteFDFD"
+                    tools:text="지역명입니다." />
+
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_height="@dimen/height_80dp"
+                    android:layout_gravity="top"
+                    android:background="@android:color/transparent"
+                    android:contentInsetStart="0dp"
+                    android:contentInsetLeft="0dp"
+                    android:contentInsetEnd="0dp"
+                    android:contentInsetRight="0dp"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetStart="0dp"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_local_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_28dp"
-                        android:textColor="@color/colorWhiteFDFD"
-                        android:textSize="@dimen/text_size_20sp"
-                        android:textStyle="bold"
-                        tools:text="지역 제목" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginEnd="@dimen/margin_16dp"
-                        app:srcCompat="@drawable/ic_search_black" />
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_16dp"
+                            android:layout_marginTop="@dimen/margin_32dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_back_title" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_local_toolbar_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorBlack2D2D"
+                            android:textSize="@dimen/text_size_20sp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+                            app:layout_constraintStart_toEndOf="@id/iv_back"
+                            app:layout_constraintTop_toTopOf="@id/iv_back"
+                            tools:text="지역명입니다" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_20dp"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_back"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/iv_back"
+                            app:srcCompat="@drawable/ic_search_black" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </androidx.appcompat.widget.Toolbar>
-
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>

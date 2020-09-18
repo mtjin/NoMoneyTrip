@@ -1,15 +1,18 @@
 package com.mtjin.nomoneytrip.views.localpage
 
 import android.util.Log
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.appbar.AppBarLayout
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLocalPageBinding
 import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.math.abs
 
 class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragment_local_page) {
     private val safeArgs: LocalPageFragmentArgs by navArgs()
@@ -22,8 +25,19 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     override fun init() {
         binding.vm = viewModel
         viewModel.page = 2
+        initView()
         initAdapter()
         processIntent()
+    }
+
+    private fun initView() {
+        binding.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if (abs(verticalOffset) - appBarLayout.totalScrollRange == 0) { // 접혔을때
+                binding.tvLocalToolbarTitle.visibility = View.VISIBLE
+            } else {// 펴졌을때
+                binding.tvLocalToolbarTitle.visibility = View.GONE
+            }
+        })
     }
 
     private fun initAdapter() {
@@ -75,7 +89,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.seoul
+                        R.drawable.seoul2
                     )
                 )
                 viewModel.requestTourIntroduces(SEOUL_CODE)
@@ -262,6 +276,6 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
         viewModel.requestReviews()
         viewModel.requestProducts()
         binding.tvLocalTitle.text = local
-
+        binding.tvLocalToolbarTitle.text = local
     }
 }
