@@ -20,6 +20,7 @@
         <item name="android:background">@drawable/bg_white_top_radius_16dp</item>
     </style>
 
+
     <!-- Toolbar theme. -->
     <style name="toolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColor">@color/colorWhiteFDFD</item>

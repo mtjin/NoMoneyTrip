@@ -70,4 +70,6 @@
     <dimen name="text_size_24sp">24sp</dimen>
     <dimen name="padding_48dp">48dp</dimen>
     <dimen name="size_100dp">100dp</dimen>
+    <dimen name="height_80dp">80dp</dimen>
+    <dimen name="margin_108dp">108dp</dimen>
 </resources>
