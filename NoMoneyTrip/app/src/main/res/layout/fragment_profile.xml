@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="@dimen/margin_43dp"
             android:fontFamily="@font/goyang_ilsan_regular"
             android:text="@string/my_page_text"
             android:textColor="@color/colorBlack2D2D"
