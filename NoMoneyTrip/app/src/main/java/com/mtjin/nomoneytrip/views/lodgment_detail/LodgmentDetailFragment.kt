@@ -44,12 +44,17 @@ class LodgmentDetailFragment :
                 thisContext.getMyDrawable(R.drawable.ic_good_on)
             )
             else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
-
-            when { // 편의시설
-                !market -> binding.ivMarket.alpha = 0.3f
-                !internet -> binding.ivInternet.alpha = 0.3f
-                !parking -> binding.ivParking.alpha = 0.3f
-                !animal -> binding.ivAnimal.alpha = 0.3f
+            if (!market) {// 편의시설
+                binding.ivMarket.alpha = 0.3f
+            }
+            if (!internet) {
+                binding.ivInternet.alpha = 0.3f
+            }
+            if (!parking) {
+                binding.ivParking.alpha = 0.3f
+            }
+            if (!animal) {
+                binding.ivAnimal.alpha = 0.3f
             }
         }
     }
