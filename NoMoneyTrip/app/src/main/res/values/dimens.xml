@@ -72,4 +72,10 @@
     <dimen name="size_100dp">100dp</dimen>
     <dimen name="height_80dp">80dp</dimen>
     <dimen name="margin_108dp">108dp</dimen>
+    <dimen name="paaing_55dp">55dp</dimen>
+    <dimen name="padding_7dp">7dp</dimen>
+    <dimen name="margin_23dp">23dp</dimen>
+    <dimen name="height_120dp">120dp</dimen>
+    <dimen name="width_110dp">110dp</dimen>
+    <dimen name="padding_26dp">26dp</dimen>
 </resources>

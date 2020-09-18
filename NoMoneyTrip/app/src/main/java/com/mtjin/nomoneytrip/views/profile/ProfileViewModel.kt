@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.community.UserReview
+import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
@@ -18,14 +19,18 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
     private val _user = SingleLiveEvent<User>()
     private val _goProfileEdit = SingleLiveEvent<Unit>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
+    private val _productList = MutableLiveData<List<Product>>()
     private val _clickMyTour = SingleLiveEvent<Unit>()
     private val _clickHeart = SingleLiveEvent<Unit>()
+    private val _clickFavorite = SingleLiveEvent<Unit>()
 
     val user: LiveData<User> get() = _user
     val goProfileEdit: LiveData<Unit> get() = _goProfileEdit
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
+    val productList: LiveData<List<Product>> get() = _productList
     val clickMyTour: LiveData<Unit> get() = _clickMyTour
     val clickHeart: LiveData<Unit> get() = _clickHeart
+    val clickFavorite: LiveData<Unit> get() = _clickFavorite
 
     fun requestProfile() {
         compositeDisposable.add(
@@ -78,6 +83,23 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
         )
     }
 
+    fun requestMyFavorites() {
+        _clickFavorite.call()
+        compositeDisposable.add(
+            profileRepository.requestFavorites()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onSuccess = {
+                        _productList.value = it
+                    },
+                    onError = {
+                        Log.d(TAG, "ProfileViewModel requestMyFavorites() -> $it")
+                    }
+                )
+        )
+    }
+
     fun updateReviewRecommend(userReview: UserReview) {
         _clickHeart.call()
         compositeDisposable.add(
@@ -91,6 +113,21 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                     onError = { Log.d(TAG, it.toString()) }
                 )
         )
+    }
+
+    fun updateProductFavorite(product: Product) {
+        compositeDisposable.add(
+            profileRepository.updateProductFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onError = {
+                        Log.d(TAG, it.toString())
+                    },
+                    onComplete = {
+
+                    }
+                ))
     }
 
     fun goProfileEdit() {

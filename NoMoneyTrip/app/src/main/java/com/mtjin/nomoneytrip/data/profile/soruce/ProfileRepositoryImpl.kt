@@ -181,4 +181,46 @@ class ProfileRepositoryImpl(private val database: DatabaseReference) : ProfileRe
             })
         }
     }
+
+    override fun requestFavorites(): Single<List<Product>> {
+        return Single.create { emitter ->
+            database.child(PRODUCT)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        emitter.onError(error.toException())
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val productList = ArrayList<Product>()
+                        for (productSnapShot: DataSnapshot in snapshot.children) {
+                            productSnapShot.getValue(Product::class.java)?.let {
+                                if (it.favoriteList.contains(uuid)) {
+                                    productList.add(it)
+                                }
+                            }
+                        }
+                        emitter.onSuccess(productList)
+                    }
+
+                })
+        }
+    }
+
+    override fun updateProductFavorite(product: Product): Completable {
+        return Completable.create { emitter ->
+            val updateMap = HashMap<String, Any>()
+            updateMap[FAVORITE_LIST] = product.favoriteList
+            database.child(PRODUCT).child(product.id).updateChildren(updateMap)
+                .addOnSuccessListener {
+                    database.child(FAVORITE).child(uuid).child(product.id).setValue(product.id)
+                        .addOnSuccessListener {
+                            emitter.onComplete()
+                        }.addOnFailureListener {
+                            emitter.onError(it)
+                        }
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
+        }
+    }
 }

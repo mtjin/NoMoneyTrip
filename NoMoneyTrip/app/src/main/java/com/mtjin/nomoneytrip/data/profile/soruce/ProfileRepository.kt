@@ -1,6 +1,7 @@
 package com.mtjin.nomoneytrip.data.profile.soruce
 
 import com.mtjin.nomoneytrip.data.community.UserReview
+import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -10,4 +11,6 @@ interface ProfileRepository {
     fun updateReviewRecommend(userReview: UserReview): Completable
     fun requestMyReviews(): Single<List<UserReview>>
     fun requestMyRecommendReviews(): Single<List<UserReview>>
+    fun requestFavorites(): Single<List<Product>>
+    fun updateProductFavorite(product: Product): Completable
 }
