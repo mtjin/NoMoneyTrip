@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.views.localpage
 import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.appbar.AppBarLayout
@@ -28,6 +29,21 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
         initView()
         initAdapter()
         processIntent()
+        initViewModelCallback()
+    }
+
+    private fun initViewModelCallback() {
+        with(viewModel) {
+            backClick.observe(this@LocalPageFragment, Observer {
+                findNavController().popBackStack()
+            })
+
+            goLodgeSearch.observe(this@LocalPageFragment, Observer {
+                findNavController().navigate(
+                    LocalPageFragmentDirections.actionLocalpageFragmentToSearchFragment()
+                )
+            })
+        }
     }
 
     private fun initView() {

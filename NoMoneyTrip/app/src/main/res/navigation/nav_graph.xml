@@ -93,6 +93,10 @@
             android:id="@+id/action_localpage_fragment_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_localpage_fragment_to_search_fragment"
+            app:destination="@id/search_fragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment

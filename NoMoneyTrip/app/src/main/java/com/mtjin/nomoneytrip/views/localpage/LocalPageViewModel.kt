@@ -8,6 +8,7 @@ import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
+import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -20,11 +21,13 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
     private val _restaurantIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _productList = MutableLiveData<ArrayList<Product>>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
+    private val _goLodgeSearch = SingleLiveEvent<Unit>()
 
     val tourIntroduceList: LiveData<ArrayList<TourIntroduce>> get() = _tourIntroduceList
     val restaurantIntroduceList: LiveData<ArrayList<TourIntroduce>> get() = _restaurantIntroduceList
     val productList: LiveData<ArrayList<Product>> get() = _productList
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
+    val goLodgeSearch: LiveData<Unit> get() = _goLodgeSearch
 
     fun requestTourIntroduces(areaCode: Int) {
         compositeDisposable.add(
@@ -107,5 +110,9 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
 
                     }
                 ))
+    }
+
+    fun goLodgeSearch() {
+        _goLodgeSearch.call()
     }
 }
