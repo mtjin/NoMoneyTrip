@@ -8,7 +8,8 @@ import androidx.fragment.app.DialogFragment
 import com.mtjin.nomoneytrip.R
 import kotlinx.android.synthetic.main.fragment_dialog_yes_no.view.*
 
-class YesNoDialogFragment : DialogFragment(), View.OnClickListener {
+class YesNoDialogFragment(private val yesClick: (Boolean) -> Unit) : DialogFragment(),
+    View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,17 +20,20 @@ class YesNoDialogFragment : DialogFragment(), View.OnClickListener {
 //        val bundle = arguments
 //        val notice = bundle.getParcelable<FavoriteNotice>(EXTRA_NOTICE_SAVE)
         view.tv_yes.setOnClickListener {
-
+            yesClick(true)
+            dismiss()
         }
         view.tv_no.setOnClickListener {
-
+            dismiss()
         }
 
         return view
     }
 
-    fun getInstance(): YesNoDialogFragment {
-        return YesNoDialogFragment()
+    companion object {
+        fun getInstance(yesClick: (Boolean) -> Unit): YesNoDialogFragment {
+            return YesNoDialogFragment(yesClick)
+        }
     }
 
     override fun onClick(p0: View?) {

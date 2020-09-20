@@ -7,8 +7,8 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationHistoryBinding
 import com.mtjin.nomoneytrip.utils.getTimestamp
-import com.mtjin.nomoneytrip.views.dialog.BottomDialogFragment
 import com.mtjin.nomoneytrip.views.dialog.RatingBottomDialogFragment
+import com.mtjin.nomoneytrip.views.dialog.YesNoDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ReservationHistoryFragment :
@@ -54,11 +54,9 @@ class ReservationHistoryFragment :
                 when {
                     reservationHistory.reservation.endDateTimestamp >= getTimestamp() -> {
                         val dialog =
-                            BottomDialogFragment.newInstance(
-                                question = "예약을 취소 하시겠습니까?",
-                                itemClick = {
-                                    if (it) viewModel.deleteReservation(reservationHistory.reservation)
-                                })
+                            YesNoDialogFragment.getInstance(yesClick = {
+                                if (it) viewModel.deleteReservation(reservationHistory.reservation)
+                            })
                         dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }
                     else -> {
