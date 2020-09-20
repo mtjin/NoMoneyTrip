@@ -7,8 +7,7 @@ import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.mtjin.nomoneytrip.utils.EXTRA_NOTIFICATION_MESSAGE
-import com.mtjin.nomoneytrip.utils.EXTRA_NOTIFICATION_TITLE
+import com.mtjin.nomoneytrip.utils.*
 import java.util.concurrent.TimeUnit
 
 class NotificationBroadcastReceiver : BroadcastReceiver() {
@@ -17,10 +16,18 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
         intent?.let {
             val title = it.getStringExtra(EXTRA_NOTIFICATION_TITLE).toString()
             val message = it.getStringExtra(EXTRA_NOTIFICATION_MESSAGE).toString()
+            val productId = intent.getStringExtra(EXTRA_ALARM_PRODUCT_ID).toString()
+            val userId = intent.getStringExtra(EXTRA_ALARM_USER_ID)
+            val timestamp = intent.getLongExtra(EXTRA_ALARM_TIMESTAMP, 0)
+            val case = intent.getIntExtra(EXTRA_ALARM_CASE, 0)
             // Create Notification Data
             val notificationData = Data.Builder()
                 .putString(EXTRA_NOTIFICATION_TITLE, title)
                 .putString(EXTRA_NOTIFICATION_MESSAGE, message)
+                .putString(EXTRA_ALARM_PRODUCT_ID, productId)
+                .putString(EXTRA_ALARM_USER_ID, userId)
+                .putLong(EXTRA_ALARM_TIMESTAMP, timestamp)
+                .putInt(EXTRA_ALARM_CASE, case)
                 .build()
 
             val workRequest =

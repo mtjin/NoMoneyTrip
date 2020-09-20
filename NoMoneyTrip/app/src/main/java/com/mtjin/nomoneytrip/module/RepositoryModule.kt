@@ -1,5 +1,7 @@
 package com.mtjin.nomoneytrip.module
 
+import com.mtjin.nomoneytrip.data.alarm.source.AlarmRepository
+import com.mtjin.nomoneytrip.data.alarm.source.AlarmRepositoryImpl
 import com.mtjin.nomoneytrip.data.community.source.CommunityRepository
 import com.mtjin.nomoneytrip.data.community.source.CommunityRepositoryImpl
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
@@ -46,4 +48,5 @@ val repositoryModule: Module = module {
     single<ProfileRepository> { ProfileRepositoryImpl(get()) }
     single<ProfileEditRepository> { ProfileEditRepositoryImpl(get(), get(named(USER))) }
     single<LodgmentDetailRepository> { LodgmentDetailRepositoryImpl(get()) }
+    single<AlarmRepository> { AlarmRepositoryImpl(get()) }
 }

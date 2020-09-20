@@ -13,6 +13,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
+import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.service.NotificationBroadcastReceiver
@@ -72,6 +73,7 @@ class ReservationRepositoryImpl(
     }
 
     override fun sendNotification(reservation: Reservation, product: Product) {
+
         val title = product.title
         val message = convertTimeToFcmMessage(
             date = reservation.startDateTimestamp,
@@ -85,9 +87,24 @@ class ReservationRepositoryImpl(
             Intent(context, NotificationBroadcastReceiver::class.java).let { intent ->
                 intent.putExtra(EXTRA_NOTIFICATION_TITLE, title)
                 intent.putExtra(EXTRA_NOTIFICATION_MESSAGE, message)
-                intent.putExtra(EXTRA_NOTIFICATION_MESSAGE, message)
+                intent.putExtra(EXTRA_ALARM_PRODUCT_ID, product.id)
+                intent.putExtra(EXTRA_ALARM_USER_ID, uuid)
+                intent.putExtra(EXTRA_ALARM_TIMESTAMP, reservation.startDateTimestamp)
+                intent.putExtra(EXTRA_ALARM_CASE, ALARM_START_CASE3)
                 PendingIntent.getBroadcast(context, 0, intent, 0)
             }
+        val dbKey = database.push().key.toString()
+        database.child(ALARM).child(uuid).child(dbKey).setValue(
+            Alarm(
+                id = dbKey,
+                productId = product.id,
+                userId = uuid,
+                case = ALARM_RESERVATION_COMPLETE_CASE1,
+                readState = false,
+                content = title + " 예약이 완료되었습니다. 이장님 선택을 기다리세요~",
+                timestamp = getTimestamp()
+            )
+        )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
@@ -105,6 +122,10 @@ class ReservationRepositoryImpl(
         val notificationData = Data.Builder()
             .putString(EXTRA_NOTIFICATION_TITLE, title)
             .putString(EXTRA_NOTIFICATION_MESSAGE, "여행은 어떠셨나요? 리뷰를 남겨주세요 :)")
+            .putString(EXTRA_ALARM_PRODUCT_ID, product.id)
+            .putString(EXTRA_ALARM_USER_ID, uuid)
+            .putLong(EXTRA_ALARM_TIMESTAMP, reservation.endDateTimestamp)
+            .putInt(EXTRA_ALARM_CASE, ALARM_REVIEW_CASE4)
             .build()
         val workRequest =
             OneTimeWorkRequestBuilder<ScheduledWorker>()

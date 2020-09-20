@@ -1,5 +1,6 @@
 package com.mtjin.nomoneytrip.views
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -8,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.*
+import com.mtjin.nomoneytrip.views.alarm.AlarmAdapter
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
@@ -21,6 +24,7 @@ import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryAdapter
 import com.mtjin.nomoneytrip.views.tour_history.TourHistoryAdapter
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
@@ -30,6 +34,19 @@ fun ImageView.setUrlImage(url: String) {
         .thumbnail(0.1f)
         .error(R.drawable.img_product)
         .into(this)
+}
+
+@BindingAdapter("alarmStateImage")
+fun CircleImageView.setReadState(readState: Boolean) {
+    if (readState) setImageDrawable(context.getMyDrawable(R.drawable.ic_alarm_pic))
+    else setImageDrawable(context.getMyDrawable(R.drawable.ic_alarm_pic_2))
+
+}
+
+@BindingAdapter("alarmBackground")
+fun View.setAlarmBackground(readState: Boolean) {
+    if (readState) setBackgroundColor(context.getMyColor(R.color.colorWhiteFDFD))
+    else setBackgroundColor(context.getMyColor(R.color.colorWhiteFFF5EF))
 }
 
 @BindingAdapter("urlImageRadius")
@@ -81,9 +98,9 @@ fun TextView.setTimestampPointFullDate(timestamp: Long) {
 }
 
 //timestamp -> 01.02
-@BindingAdapter("timestampPointOnlyDate")
+@BindingAdapter("timestampSlashOnlyDate")
 fun TextView.setTimestampPointOnlyDate(timestamp: Long) {
-    text = timestamp.convertTimestampToPointOnlyDate()
+    text = timestamp.convertTimestampToSlashOnlyDate()
 }
 
 //timestamp -> 2020.01.02 23:00
@@ -175,6 +192,14 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as CommunityAdapter) {
                     clear()
                     addItems(it as List<UserReview>)
+                }
+            }
+        }
+        is AlarmAdapter -> {
+            items?.let {
+                with(adapter as AlarmAdapter) {
+                    clear()
+                    addItems(it as List<Alarm>)
                 }
             }
         }

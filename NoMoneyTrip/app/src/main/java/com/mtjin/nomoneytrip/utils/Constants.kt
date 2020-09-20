@@ -13,6 +13,16 @@ var TOUR_API_KEY: String =
 
 const val EXTRA_NOTIFICATION_TITLE = "EXTRA_NOTIFICATION_TITLE"
 const val EXTRA_NOTIFICATION_MESSAGE = "EXTRA_NOTIFICATION_MESSAGE"
+const val EXTRA_ALARM_PRODUCT_ID = "EXTRA_ALARM_PRODUCT_ID"
+const val EXTRA_ALARM_USER_ID = "EXTRA_ALARM_USER_ID"
+const val EXTRA_ALARM_TIMESTAMP = "EXTRA_ALARM_TIMESTAMP"
+const val EXTRA_ALARM_CASE = "EXTRA_ALARM_CASE"
+
+//alarm case
+const val ALARM_RESERVATION_COMPLETE_CASE1 = 1 //사용자예약 완료
+const val ALARM_RESERVATION_ACCEPT_CASE2 = 2 //이장님 수락
+const val ALARM_START_CASE3 = 3 //여행하루전알람
+const val ALARM_REVIEW_CASE4 = 4 // 여행끝 리뷰 알람
 
 // area code
 const val SEOUL_CODE = 1
@@ -59,6 +69,7 @@ const val RECOMMEND_LIST = "recommendList"
 const val FAVORITE_LIST = "favoriteList"
 const val FAVORITE = "favorite"
 const val RATING_LIST = "ratingList"
+const val ALARM = "alarm"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,17 +14,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_constraint"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="104dp"
+        bind:alarmBackground="@{item.readState}">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/civ_image"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="18dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/ic_alarm_pic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            bind:alarmStateImage="@{item.readState}" />
 
         <TextView
             android:id="@+id/tv_content"
@@ -31,11 +34,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="46dp"
-            android:ellipsize="middle"
-            android:maxLines="2"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="2"
             android:text="@{item.content}"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/civ_image"
             app:layout_constraintTop_toTopOf="@id/civ_image"
@@ -49,16 +54,17 @@
             android:layout_marginTop="8dp"
             android:textColor="@color/colorGray8C8C"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/civ_image"
             app:layout_constraintStart_toStartOf="@id/tv_content"
             app:layout_constraintTop_toBottomOf="@id/tv_content"
+            bind:timestampSlashOnlyDate="@{item.timestamp}"
             tools:text="3시간 전" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="18dp"
             android:background="@color/colorWhiteGrayF4F4"
-            app:layout_constraintTop_toBottomOf="@id/tv_date" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
