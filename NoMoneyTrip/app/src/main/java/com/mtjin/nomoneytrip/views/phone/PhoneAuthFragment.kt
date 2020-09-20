@@ -6,6 +6,6 @@ import com.mtjin.nomoneytrip.databinding.FragmentPhoneAuthBinding
 
 class PhoneAuthFragment : BaseFragment<FragmentPhoneAuthBinding>(R.layout.fragment_phone_auth) {
     override fun init() {
-        
+
     }
 }

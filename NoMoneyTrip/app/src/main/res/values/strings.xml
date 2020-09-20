@@ -133,4 +133,10 @@
     <string name="update_later_text">업데이트 예정</string>
     <string name="teen_tour_text">청춘 여행기</string>
     <string name="country_entire_text">국내 전체</string>
+    <string name="self_auth_text">본인 인증</string>
+    <string name="need_self_auth_for_app_text">무전 여행을 위해 본인 인증이 필요합니다.</string>
+    <string name="name_text">이름</string>
+    <string name="enter_phone_text">휴대전화번호 (하이폰없이 입력)</string>
+    <string name="auth_request_text">인증요청</string>
+    <string name="try_auth_text">인증하기</string>
 </resources>

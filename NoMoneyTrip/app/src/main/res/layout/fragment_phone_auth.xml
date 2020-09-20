@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,6 +9,148 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_self_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:fontFamily="@font/goyang_ilsan_regular"
+            android:text="@string/self_auth_text"
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="@dimen/text_size_20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_self_auth_need"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:text="@string/need_self_auth_for_app_text"
+            android:textColor="@color/colorOrangeF79256"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/text_self_auth" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_36dp"
+            android:text="@string/name_text"
+            android:textColor="@color/colorGray8C8C"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/text_self_auth_need" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginTop="@dimen/margin_6dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:background="@drawable/bg_edit_stroke_gray_c8c8_radius_2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/enter_phone_text"
+            android:textColor="@color/colorGray8C8C"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_phone"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginTop="@dimen/margin_6dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:background="@drawable/bg_edit_stroke_gray_c8c8_radius_2dp"
+            app:layout_constraintEnd_toStartOf="@id/tv_auth_request"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/text_phone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_auth_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:text="@string/auth_request_text"
+            android:textColor="@color/colorOrangeF79256"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/et_phone"
+            app:layout_constraintTop_toTopOf="@id/et_phone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_enter_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/enter_phone_text"
+            android:textColor="@color/colorGray8C8C"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_enter_phone"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginTop="@dimen/margin_6dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:background="@drawable/bg_edit_solid_gray_f4f4_radius_2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/text_enter_phone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_retry_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:text="인증 번호 재전송"
+            android:textColor="@color/colorOrangeF79256"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintStart_toStartOf="@id/text_self_auth"
+            app:layout_constraintTop_toBottomOf="@id/et_enter_phone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:layout_marginEnd="@dimen/margin_28dp"
+            android:background="@drawable/bg_btn_solid_gray_c8c8_radius_8dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/padding_11dp"
+            android:paddingBottom="@dimen/padding_12dp"
+            android:text="@string/try_auth_text"
+            android:textColor="@color/colorWhiteFDFD"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_retry_auth" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

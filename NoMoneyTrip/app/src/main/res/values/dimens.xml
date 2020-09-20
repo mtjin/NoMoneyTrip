@@ -78,4 +78,8 @@
     <dimen name="height_120dp">120dp</dimen>
     <dimen name="width_110dp">110dp</dimen>
     <dimen name="padding_26dp">26dp</dimen>
+    <dimen name="height_40dp">40dp</dimen>
+    <dimen name="radius_2dp">2dp</dimen>
+    <dimen name="margin_96dp">96dp</dimen>
+    <dimen name="padding_11dp">11dp</dimen>
 </resources>
