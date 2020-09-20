@@ -26,6 +26,7 @@ class TourWriteFragment : BaseFragment<FragmentTourWriteBinding>(R.layout.fragme
 
     private fun processIntent() {
         binding.item = args.reservationProduct
+        binding.rbRating.rating = args.rating
         viewModel.reservationProduct = args.reservationProduct
         viewModel.rating = args.rating
     }
