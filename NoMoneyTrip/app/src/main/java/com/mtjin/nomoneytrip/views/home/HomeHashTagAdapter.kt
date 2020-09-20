@@ -33,7 +33,7 @@ open class HomeHashTagAdapter(
             for (view in viewList) {
                 if (view == it.tv_hash_tag) {
                     binding.tvHashTag.background =
-                        context.getMyDrawable(R.drawable.bg_btn_solid_orange_radius_8dp)
+                        context.getMyDrawable(R.drawable.bg_hash_tag_solid_orange_radius_8dp)
                     binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorWhite))
                 } else {
                     view.tv_hash_tag.background =
