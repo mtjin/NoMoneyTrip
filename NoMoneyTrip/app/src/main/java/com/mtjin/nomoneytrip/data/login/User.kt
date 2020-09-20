@@ -10,5 +10,6 @@ data class User(
     var fcm: String = "",
     var email: String = "",
     var pw: String = "",
-    var image: String = ""
+    var image: String = "",
+    var tel: String = ""
 ) : Parcelable
