@@ -70,6 +70,7 @@ const val FAVORITE_LIST = "favoriteList"
 const val FAVORITE = "favorite"
 const val RATING_LIST = "ratingList"
 const val ALARM = "alarm"
+const val TEL = "tel"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

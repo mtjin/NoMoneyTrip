@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.phone.PhoneAuthViewModel" />
@@ -19,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16dp"
             android:layout_marginTop="@dimen/margin_32dp"
+            android:onClick="@{()->vm.onBackClick()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back_title" />
@@ -65,10 +67,11 @@
             android:layout_marginTop="@dimen/margin_6dp"
             android:layout_marginEnd="@dimen/margin_16dp"
             android:background="@drawable/bg_edit_stroke_gray_c8c8_radius_2dp"
-            android:maxLength="11"
+            android:inputType="numberDecimal"
+            android:maxLength="10"
             android:padding="@dimen/padding_8dp"
             android:singleLine="true"
-            android:text="@={vm.phoneNum}"
+            android:text="@={vm.etPhoneNum}"
             app:layout_constraintEnd_toStartOf="@id/tv_auth_request"
             app:layout_constraintStart_toStartOf="@id/text_self_auth"
             app:layout_constraintTop_toBottomOf="@id/text_phone" />
@@ -99,18 +102,21 @@
             app:layout_constraintTop_toBottomOf="@id/et_phone" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_enter_phone"
+            android:id="@+id/et_enter_code"
             android:layout_width="0dp"
             android:layout_height="@dimen/height_40dp"
             android:layout_marginTop="@dimen/margin_6dp"
             android:layout_marginEnd="@dimen/margin_28dp"
             android:background="@drawable/bg_edit_solid_gray_f4f4_radius_2dp"
+            android:enabled="false"
+            android:inputType="numberDecimal"
             android:padding="@dimen/padding_8dp"
             android:singleLine="true"
-            android:text="@={vm.authNum}"
+            android:text="@={vm.etAuthNum}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/text_self_auth"
-            app:layout_constraintTop_toBottomOf="@id/text_enter_phone" />
+            app:layout_constraintTop_toBottomOf="@id/text_enter_phone"
+            bind:onEnterBackground="@{vm.authState}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_retry_auth"
@@ -121,16 +127,19 @@
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_12sp"
             app:layout_constraintStart_toStartOf="@id/text_self_auth"
-            app:layout_constraintTop_toBottomOf="@id/et_enter_phone" />
+            app:layout_constraintTop_toBottomOf="@id/et_enter_code" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_auth_next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_32dp"
             android:layout_marginEnd="@dimen/margin_28dp"
             android:background="@drawable/bg_btn_solid_gray_c8c8_radius_8dp"
+            android:enabled="false"
             android:gravity="center"
+            android:onClick="@{()->vm.authUser()}"
             android:paddingTop="@dimen/padding_11dp"
             android:paddingBottom="@dimen/padding_12dp"
             android:text="@string/try_auth_text"
@@ -138,8 +147,19 @@
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_retry_auth" />
+            app:layout_constraintTop_toBottomOf="@id/tv_retry_auth"
+            bind:onRequestBackground="@{vm.authState}" />
 
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,9 +1,12 @@
 package com.mtjin.nomoneytrip.views
 
+import android.os.Build
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -126,6 +129,23 @@ fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) 
 fun TextView.setOnNextBackground(isCompleted: Boolean) {
     if (isCompleted) setBackgroundColor(context.getMyColor(R.color.colorOrangeF79256))
     else setBackgroundColor(context.getMyColor(R.color.colorGrayC8C8))
+}
+
+// 인증하기 배경색
+@RequiresApi(Build.VERSION_CODES.O)
+@BindingAdapter("onRequestBackground")
+fun TextView.setOnRequestBackground(isCompleted: Boolean) {
+    if (isCompleted) {
+        background = context.getMyDrawable(R.drawable.bg_btn_solid_orange_f792_radius_8dp)
+    } else context.getMyDrawable(R.drawable.bg_btn_solid_gray_c8c8_radius_8dp)
+}
+
+// 인증하기 화면 인증번호 입력 EditText
+@BindingAdapter("onEnterBackground")
+fun EditText.setOnEnterBackground(isCompleted: Boolean) {
+    background =
+        if (isCompleted) context.getMyDrawable(R.drawable.bg_edit_stroke_gray_c8c8_radius_2dp)
+        else context.getMyDrawable(R.drawable.bg_edit_solid_gray_f4f4_radius_2dp)
 }
 
 @BindingAdapter("setItems")
