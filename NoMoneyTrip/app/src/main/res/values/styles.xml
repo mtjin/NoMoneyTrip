@@ -10,6 +10,8 @@
         <item name="android:textCursorDrawable">@color/colorOrangeF79256</item>
         <item name="android:windowBackground">@color/colorWhiteFDFD</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
