@@ -140,4 +140,6 @@
     <string name="auth_request_text">인증요청</string>
     <string name="try_auth_text">인증하기</string>
     <string name="retry_request_auth_phone_text">인증 번호 재전송</string>
+    <string name="please_enter_phone_err">전화번호를 입력해주세요</string>
+    <string name="enter_auth_num_text">인증 번호 입력</string>
 </resources>

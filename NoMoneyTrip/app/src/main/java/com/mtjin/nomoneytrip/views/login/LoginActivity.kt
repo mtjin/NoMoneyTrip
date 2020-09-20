@@ -8,6 +8,10 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
 import com.google.firebase.ktx.Firebase
@@ -23,12 +27,14 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityLoginBinding
+import com.mtjin.nomoneytrip.utils.USER
 import com.mtjin.nomoneytrip.utils.fcm
 import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpActivity
 import com.mtjin.nomoneytrip.views.main.MainActivity
+import com.mtjin.nomoneytrip.views.phone.PhoneAuthActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -70,6 +76,28 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
             goEmailLogin.observe(this@LoginActivity, Observer {
                 startActivity(Intent(this@LoginActivity, EmailLoginActivity::class.java))
+            })
+
+            insertUserResult.observe(this@LoginActivity, Observer { success ->
+                if (!success) {
+                    showToast("오류가 발생했습니다")
+                } else {
+                    Firebase.database.reference.child(USER).child(uuid)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(error: DatabaseError) {
+                                showToast("오류가 발생했습니다")
+                            }
+
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                if (snapshot.exists()) {
+                                    snapshot.getValue(User::class.java)?.let { user ->
+                                        if (user.tel.isNotBlank()) goMain()
+                                        else goPhoneAuth()
+                                    }
+                                }
+                            }
+                        })
+                }
             })
         }
     }
@@ -117,7 +145,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
                     override fun onSuccess(result: MeV2Response) {
                         Log.i(TAG, "사용자 아이디: " + result.id)
-
                         val email: String = "" + result.id + "@mujeon.com"
                         val password: String = "111111"
                         //구글이메일 로그인
@@ -142,14 +169,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                 image = image
                             )
                         )
-                        val intent: Intent = Intent(
-                            this@LoginActivity,
-                            MainActivity::class.java
-                        )
-                        startActivity(intent)
-                        showToast("로그인 성공")
-                        viewModel.hideProgress()
-                        finish()
                     } else {
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this@LoginActivity) { task ->
@@ -173,10 +192,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                         image = image
                                                     )
                                                 )
-                                                startActivity(intent)
-                                                showToast("로그인 성공")
-                                                viewModel.hideProgress()
-                                                finish()
                                             } else {
                                                 showToast("로그인 실패")
                                                 viewModel.hideProgress()
@@ -205,6 +220,18 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                     }
                 }
             })
+    }
+
+    fun goPhoneAuth() {
+        startActivity(Intent(this, PhoneAuthActivity::class.java))
+        viewModel.hideProgress()
+    }
+
+    fun goMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+        showToast("로그인 성공")
+        viewModel.hideProgress()
+        finish()
     }
 
     companion object {

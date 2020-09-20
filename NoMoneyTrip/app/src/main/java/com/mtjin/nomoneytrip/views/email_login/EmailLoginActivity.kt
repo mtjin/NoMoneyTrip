@@ -5,15 +5,21 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityEmailLoginBinding
+import com.mtjin.nomoneytrip.utils.USER
 import com.mtjin.nomoneytrip.utils.fcm
 import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.main.MainActivity
+import com.mtjin.nomoneytrip.views.phone.PhoneAuthActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.activity_email_login) {
@@ -42,10 +48,21 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
                 finish()
             })
             loginSuccess.observe(this@EmailLoginActivity, Observer {
-                startActivity(Intent(this@EmailLoginActivity, MainActivity::class.java))
-                showToast("로그인 성공")
-                viewModel.hideProgress()
-                finish()
+                Firebase.database.reference.child(USER).child(uuid)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(error: DatabaseError) {
+                            showToast("오류가 발생했습니다")
+                        }
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if (snapshot.exists()) {
+                                snapshot.getValue(User::class.java)?.let { user ->
+                                    if (user.tel.isNotBlank()) goMain()
+                                    else goPhoneAuth()
+                                }
+                            }
+                        }
+                    })
             })
         }
     }
@@ -71,5 +88,17 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(R.layout.acti
                     viewModel.hideProgress()
                 }
             }
+    }
+
+    fun goPhoneAuth() {
+        startActivity(Intent(this, PhoneAuthActivity::class.java))
+        viewModel.hideProgress()
+    }
+
+    fun goMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+        showToast("로그인 성공")
+        viewModel.hideProgress()
+        finish()
     }
 }
