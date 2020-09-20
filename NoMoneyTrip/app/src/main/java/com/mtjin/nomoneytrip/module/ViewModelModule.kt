@@ -8,6 +8,7 @@ import com.mtjin.nomoneytrip.views.home.HomeViewModel
 import com.mtjin.nomoneytrip.views.localpage.LocalPageViewModel
 import com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailViewModel
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
+import com.mtjin.nomoneytrip.views.phone.PhoneAuthViewModel
 import com.mtjin.nomoneytrip.views.profile.ProfileViewModel
 import com.mtjin.nomoneytrip.views.profile_edit.ProfileEditViewModel
 import com.mtjin.nomoneytrip.views.reservation.ReservationViewModel
@@ -41,4 +42,5 @@ val viewModelModule: Module = module {
     viewModel { TourNoHistoryViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
     viewModel { ProfileEditViewModel(get()) }
+    viewModel { PhoneAuthViewModel(get()) }
 }
