@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.views.tour_history
 
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -28,7 +27,6 @@ class TourHistoryFragment :
                 val dialog =
                     RatingBottomDialogFragment.newInstance(
                         ratingClick = { rating ->
-                            showToast(rating.toString())
                             findNavController().navigate(
                                 TourHistoryFragmentDirections.actionTourHistoryFragmentToTourWriteFragment(
                                     reservationProduct, rating
