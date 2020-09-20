@@ -31,6 +31,7 @@
 
         <activity android:name=".views.login.LoginActivity" />
         <activity android:name=".views.main.MainActivity" />
+        <activity android:name=".views.phone.PhoneAuthActivity" />
 
         <service
             android:name=".service.MyFirebaseMessagingService"

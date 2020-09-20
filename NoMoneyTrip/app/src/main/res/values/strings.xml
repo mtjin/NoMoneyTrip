@@ -139,4 +139,5 @@
     <string name="enter_phone_text">휴대전화번호 (하이폰없이 입력)</string>
     <string name="auth_request_text">인증요청</string>
     <string name="try_auth_text">인증하기</string>
+    <string name="retry_request_auth_phone_text">인증 번호 재전송</string>
 </resources>

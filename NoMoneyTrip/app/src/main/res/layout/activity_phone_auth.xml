@@ -128,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_4dp"
-            android:text="인증 번호 재전송"
+            android:text="@string/retry_request_auth_phone_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_12sp"
             app:layout_constraintStart_toStartOf="@id/text_self_auth"
