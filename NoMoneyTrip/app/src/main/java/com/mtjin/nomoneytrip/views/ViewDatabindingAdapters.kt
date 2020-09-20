@@ -12,10 +12,7 @@ import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
-import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDate
-import com.mtjin.nomoneytrip.utils.convertTimestampToPointFullDateTime
-import com.mtjin.nomoneytrip.utils.convertTimestampToTerm
-import com.mtjin.nomoneytrip.utils.getMyColor
+import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
@@ -81,6 +78,12 @@ fun TextView.setTimestampTerm(startTimestamp: Long, endTimestamp: Long) {
 @BindingAdapter("timestampPointFullDate")
 fun TextView.setTimestampPointFullDate(timestamp: Long) {
     text = timestamp.convertTimestampToPointFullDate()
+}
+
+//timestamp -> 01.02
+@BindingAdapter("timestampPointOnlyDate")
+fun TextView.setTimestampPointOnlyDate(timestamp: Long) {
+    text = timestamp.convertTimestampToPointOnlyDate()
 }
 
 //timestamp -> 2020.01.02 23:00
