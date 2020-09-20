@@ -32,7 +32,7 @@
                 app:contentScrim="@color/colorWhiteFDFD"
                 app:expandedTitleTextAppearance="@android:color/transparent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:scrimAnimationDuration="10">
+                app:scrimAnimationDuration="0">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

@@ -6,6 +6,6 @@ import com.mtjin.nomoneytrip.databinding.FragmentSettingBinding
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_setting) {
     override fun init() {
-        
+
     }
 }
