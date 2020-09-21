@@ -105,8 +105,8 @@ fun convertTimestampToTerm(startTimestamp: Long, endTimestamp: Long): String {
 
 // timestamp -> 9.6~9.8
 fun convertTimestampOnlyDateMinusTerm(startTimestamp: Long, endTimestamp: Long): String {
-    return DateFormat.format("MM-dd", startTimestamp)
-        .toString() + " - " + DateFormat.format("MM-dd", endTimestamp).toString()
+    return DateFormat.format("yyyy.MM.dd", startTimestamp)
+        .toString() + " - " + DateFormat.format("MM.dd", endTimestamp).toString()
 }
 
 // FCM 메시지로 사용
@@ -116,6 +116,7 @@ fun convertTimeToFcmMessage(date: Long, time: String): String =
 // FCM 메시지로 사용(수락)
 fun convertTimeToAcceptFcmMessage(date: Long, time: String): String =
     date.convertTimestampToDate() + " " + time + "에 예약을 이장님이 수락했습니다."
+
 // FCM 메시지로 사용(거절)
 fun convertTimeToDenyFcmMessage(date: Long, time: String): String =
     date.convertTimestampToDate() + " " + time + "에 예약을 이장님이 취소했습니다."

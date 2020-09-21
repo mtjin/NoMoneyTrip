@@ -5,7 +5,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
-import com.mtjin.nomoneytrip.api.ApiInterface
 import com.mtjin.nomoneytrip.api.FcmInterface
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
@@ -19,6 +18,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class MasterMainRepositoryImpl(
     private val database: DatabaseReference,
@@ -57,7 +57,7 @@ class MasterMainRepositoryImpl(
                                     val masterProductList = ArrayList<MasterProduct>()
                                     for (reservation in reservationList) {
                                         for (user in userList) {
-                                            if (user.id == reservation.userId) {
+                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(10)) {
                                                 masterProductList.add(
                                                     MasterProduct(
                                                         reservation = reservation,
@@ -67,6 +67,7 @@ class MasterMainRepositoryImpl(
                                             }
                                         }
                                     }
+                                    masterProductList.sortBy { it.reservation.startDateTimestamp }
                                     emitter.onSuccess(masterProductList)
                                 }
 
@@ -110,7 +111,7 @@ class MasterMainRepositoryImpl(
                                     val masterProductList = ArrayList<MasterProduct>()
                                     for (reservation in reservationList) {
                                         for (user in userList) {
-                                            if (user.id == reservation.userId) {
+                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(10)) {
                                                 masterProductList.add(
                                                     MasterProduct(
                                                         reservation = reservation,
@@ -120,6 +121,7 @@ class MasterMainRepositoryImpl(
                                             }
                                         }
                                     }
+                                    masterProductList.sortBy { it.reservation.startDateTimestamp }
                                     emitter.onSuccess(masterProductList)
                                 }
 
