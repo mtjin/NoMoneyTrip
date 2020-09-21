@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.email_login.EmailLoginViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.email_login.EmailLoginActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:onClick="@{() -> vm.onBackButtonClick()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/goyang_ilsan_regular"
+            android:text="@string/master_login_text"
+            android:textColor="@color/colorBlack2D2D"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="28dp"
+            android:hint="@string/enter_id_text"
+            android:inputType="textEmailAddress"
+            android:paddingBottom="20dp"
+            android:singleLine="true"
+            android:text="@={vm.email}"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_text" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="28dp"
+            android:hint="@string/pw_input_hint"
+            android:inputType="textPassword"
+            android:paddingBottom="20dp"
+            android:singleLine="true"
+            android:text="@={vm.pw}"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/iv_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/bg_btn_normal_orange_radius_8dp"
+            android:gravity="center"
+            android:onClick="@{()->vm.onEmailLoginClick()}"
+            android:text="@string/login_text"
+            android:textColor="@color/colorWhiteFDFD"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_pw" />
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
