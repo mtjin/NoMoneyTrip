@@ -10,7 +10,7 @@ class PhoneAuthRepositoryImpl(private val database: DatabaseReference) : PhoneAu
     override fun updateUserTel(tel: String): Completable {
         return Completable.create { emitter ->
             val map = HashMap<String, Any>()
-            map[TEL] = tel
+            map[TEL] = "0" + tel
             database.child(USER).child(uuid).updateChildren(map).addOnSuccessListener {
                 emitter.onComplete()
             }.addOnFailureListener {
