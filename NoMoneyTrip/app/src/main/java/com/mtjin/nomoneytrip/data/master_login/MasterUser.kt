@@ -1,4 +1,4 @@
-package com.mtjin.nomoneytrip.data.email_login
+package com.mtjin.nomoneytrip.data.master_login
 
 data class MasterUser(
     var id: String = "",
