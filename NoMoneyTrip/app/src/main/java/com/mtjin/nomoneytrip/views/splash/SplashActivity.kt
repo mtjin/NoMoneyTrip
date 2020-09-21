@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
@@ -23,11 +24,13 @@ import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.login.LoginActivity
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
 import com.mtjin.nomoneytrip.views.main.MainActivity
+import com.mtjin.nomoneytrip.views.master_login.MasterLoginViewModel
 import com.mtjin.nomoneytrip.views.phone.PhoneAuthActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashActivity : AppCompatActivity() {
-    private val viewModel: LoginViewModel by viewModel()
+    private val loginViewModel: LoginViewModel by viewModel()
+    private val masterViewModel: MasterLoginViewModel by viewModel()
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +74,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun goPhoneAuth() {
-        viewModel.updateFCM()
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             startActivity(Intent(this, PhoneAuthActivity::class.java))
             finish()
@@ -79,7 +81,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun goMain() {
-        viewModel.updateFCM()
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -103,6 +104,8 @@ class SplashActivity : AppCompatActivity() {
                     // Get new Instance ID token
                     task.result?.let {
                         fcm = it.token
+                        loginViewModel.updateFCM()
+                        masterViewModel.updateMasterFCM()
                     }
                 }
             })

@@ -54,5 +54,5 @@ val repositoryModule: Module = module {
     single<LodgmentDetailRepository> { LodgmentDetailRepositoryImpl(get()) }
     single<AlarmRepository> { AlarmRepositoryImpl(get()) }
     single<PhoneAuthRepository> { PhoneAuthRepositoryImpl(get()) }
-    single<MasterLoginRepository> { MasterLoginRepositoryImpl(get()) }
+    single<MasterLoginRepository> { MasterLoginRepositoryImpl(get(), get()) }
 }

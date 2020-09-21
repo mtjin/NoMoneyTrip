@@ -15,6 +15,7 @@ class MasterLoginActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
+        viewModel.requestIdPw()
         initViewModelCallback()
     }
 

@@ -40,6 +40,15 @@ class MasterLoginViewModel(private val repository: MasterLoginRepository) : Base
         }
     }
 
+    fun requestIdPw() {
+        email.value = repository.masterIdInput
+        pw.value = repository.masterPwInput
+    }
+
+    fun updateMasterFCM() {
+        repository.updateFCM()
+    }
+
     fun requestMasterLogin() {
         compositeDisposable.add(
             repository.requestMasterLogin(id = email.value.toString(), pw = pw.value.toString())

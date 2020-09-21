@@ -23,9 +23,28 @@ class PreferenceManager(context: Context) {
             editor.apply()
         }
 
+    var masterIdInput: String
+        get() = sharedPref.getString(MASTER_ID_KEY, "").toString()
+        set(value) {
+            val editor = sharedPref.edit()
+            editor.putString(MASTER_ID_KEY, value)
+            editor.apply()
+        }
+
+    var masterPwInput: String
+        get() = sharedPref.getString(MASTER_PW_KEY, "").toString()
+        set(value) {
+            val editor = sharedPref.edit()
+            editor.putString(MASTER_PW_KEY, value)
+            editor.apply()
+        }
+
+
     companion object {
         private const val RESERVATION_APP = "NO_MONEY_TRIP_APP"
         private const val UUID_KEY = "UUID_KEY"
         private const val ALARM_SETTING_KEY = "ALARM_SETTING_KEY"
+        private const val MASTER_ID_KEY = "MASTER_ID_KEY"
+        private const val MASTER_PW_KEY = "MASTER_PW_KEY"
     }
 }

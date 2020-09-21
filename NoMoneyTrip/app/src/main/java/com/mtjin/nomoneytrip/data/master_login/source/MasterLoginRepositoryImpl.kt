@@ -9,19 +9,31 @@ import com.mtjin.nomoneytrip.data.master_login.MasterUser
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
 
-class MasterLoginRepositoryImpl(private val database: DatabaseReference) : MasterLoginRepository {
+class MasterLoginRepositoryImpl(
+    private val database: DatabaseReference,
+    private val preferenceManager: PreferenceManager
+) : MasterLoginRepository {
+    override var masterIdInput: String
+        get() = preferenceManager.masterIdInput
+        set(value) {
+            preferenceManager.masterIdInput = value
+        }
+
+    override var masterPwInput: String
+        get() = preferenceManager.masterPwInput
+        set(value) {
+            preferenceManager.masterPwInput = value
+        }
+
     override fun requestMasterLogin(id: String, pw: String): Completable {
         return Completable.create { emitter ->
-            Log.d("AAAAAA", "????")
             database.child(MASTER_USER).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
-                    Log.d("AAAAAA", "000000")
                     emitter.onError(error.toException())
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.hasChild(id)) {
-                        Log.d("AAAAAA", "AAAAA1111")
                         snapshot.child(id).getValue(MasterUser::class.java)?.let {
                             if (it.pw != pw) {
                                 emitter.onError(Throwable("비번 불일치"))
@@ -33,20 +45,47 @@ class MasterLoginRepositoryImpl(private val database: DatabaseReference) : Maste
                                 database.child(PRODUCT).child(masterProductId)
                                     .updateChildren(fcmMap)
                                 database.child(MASTER_USER).child(id).updateChildren(fcmMap)
+                                masterIdInput = id
+                                masterPwInput = pw
                                 emitter.onComplete()
                                 return
                             }
                         }
                         emitter.onError(Throwable("오류"))
                     } else {
-                        Log.d("AAAAAA", "3333333")
                         emitter.onError(Throwable("없는 아이디"))
                     }
                 }
 
             })
         }
-
     }
 
+    override fun updateFCM() {
+        database.child(MASTER_USER).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (masterIdInput.isBlank() || masterPwInput.isBlank()) {
+                    return
+                }
+                if (snapshot.hasChild(masterIdInput)) {
+                    snapshot.child(masterIdInput).getValue(MasterUser::class.java)?.let {
+                        if (it.pw != masterPwInput) {
+                            return
+                        } else {
+                            masterProductId = it.productId
+                            val fcmMap = HashMap<String, Any>()
+                            fcmMap[FCM] = fcm
+                            database.child(PRODUCT).child(masterProductId)
+                                .updateChildren(fcmMap)
+                            database.child(MASTER_USER).child(masterIdInput).updateChildren(fcmMap)
+                        }
+                    }
+                }
+            }
+
+        })
+    }
 }
