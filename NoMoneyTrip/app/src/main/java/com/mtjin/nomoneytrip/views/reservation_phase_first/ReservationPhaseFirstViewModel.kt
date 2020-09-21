@@ -110,7 +110,7 @@ class ReservationPhaseFirstViewModel(private val repository: ReservationPhaseFir
                     _month = date.month,
                     _day = date.day
                 ).let {
-                    if (it < reservedDate.endDateTimestamp && it > reservedDate.startDateTimestamp) {
+                    if (it < reservedDate.endDateTimestamp && it >= reservedDate.startDateTimestamp) {
                         isDateSelected = false
                         setAllSelected()
                         return false
