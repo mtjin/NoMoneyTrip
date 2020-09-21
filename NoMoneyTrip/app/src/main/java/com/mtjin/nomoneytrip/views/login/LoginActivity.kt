@@ -34,6 +34,7 @@ import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpActivity
 import com.mtjin.nomoneytrip.views.main.MainActivity
+import com.mtjin.nomoneytrip.views.master_login.MasterLoginActivity
 import com.mtjin.nomoneytrip.views.phone.PhoneAuthActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -76,6 +77,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
             goEmailLogin.observe(this@LoginActivity, Observer {
                 startActivity(Intent(this@LoginActivity, EmailLoginActivity::class.java))
+            })
+
+            goMasterLogin.observe(this@LoginActivity, Observer {
+                startActivity(Intent(this@LoginActivity, MasterLoginActivity::class.java))
             })
 
             insertUserResult.observe(this@LoginActivity, Observer { success ->

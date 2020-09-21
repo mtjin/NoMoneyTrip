@@ -86,6 +86,7 @@
             android:layout_height="wrap_content"
             android:text="@string/master_login_text"
             android:textSize="@dimen/text_size_14sp"
+            android:onClick="@{()->vm.goMasterLogin()}"
             app:layout_constraintBottom_toBottomOf="@id/tv_signup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/view_bottom"

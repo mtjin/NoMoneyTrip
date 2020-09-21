@@ -15,11 +15,13 @@ class LoginViewModel(private val loginRepository: LoginRepository) :
     private val _kakaoLogin = SingleLiveEvent<Session>()
     private val _goEmailSignUp: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _goEmailLogin: SingleLiveEvent<Unit> = SingleLiveEvent()
+    private val _goMasterLogin: SingleLiveEvent<Unit> = SingleLiveEvent()
     private val _insertUserResult: SingleLiveEvent<Boolean> = SingleLiveEvent()
 
     val kakaoLogin: LiveData<Session> get() = _kakaoLogin
     val goEmailSignUp: LiveData<Unit> get() = _goEmailSignUp
     val goEmailLogin: LiveData<Unit> get() = _goEmailLogin
+    val goMasterLogin: LiveData<Unit> get() = _goMasterLogin
     val insertUserResult: LiveData<Boolean> get() = _insertUserResult
 
     fun kakaoLogin() {
@@ -29,6 +31,10 @@ class LoginViewModel(private val loginRepository: LoginRepository) :
 
     fun goEmailSignUp() {
         _goEmailSignUp.call()
+    }
+
+    fun goMasterLogin(){
+        _goMasterLogin.call()
     }
 
     fun insertUser(user: User) {
