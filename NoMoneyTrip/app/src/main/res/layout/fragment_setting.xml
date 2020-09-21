@@ -19,6 +19,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_back"
+                android:onClick="@{()->vm.onBackClick()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16dp"
@@ -81,6 +82,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_app_info"
+                android:onClick="@{()->vm.onInfoClick()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16dp"
@@ -117,6 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16dp"
+                android:onClick="@{()->vm.onRuleClick()}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_app_rule"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_app_rule"
@@ -130,7 +133,7 @@
                 android:background="@color/colorWhiteGrayF4F4"
                 app:layout_constraintEnd_toEndOf="@id/iv_app_info"
                 app:layout_constraintStart_toStartOf="@id/tv_app_info"
-                app:layout_constraintTop_toBottomOf="@id/iv_app_rule" />
+                app:layout_constraintTop_toBottomOf="@id/tv_app_rule" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_app_personal_info"
@@ -151,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16dp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_app_personal_info"
+                android:onClick="@{()->vm.onPersonalInfoClick()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_app_personal_info"
                 app:srcCompat="@drawable/ic_next" />
@@ -163,7 +167,7 @@
                 android:background="@color/colorWhiteGrayF4F4"
                 app:layout_constraintEnd_toEndOf="@id/iv_app_info"
                 app:layout_constraintStart_toStartOf="@id/tv_app_info"
-                app:layout_constraintTop_toBottomOf="@id/iv_app_personal_info" />
+                app:layout_constraintTop_toBottomOf="@id/tv_app_personal_info" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_app_location_info"
@@ -185,6 +189,7 @@
                 android:layout_marginEnd="@dimen/margin_16dp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_app_location_info"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="@{()->vm.onLocationInfoClick()}"
                 app:layout_constraintTop_toTopOf="@id/tv_app_location_info"
                 app:srcCompat="@drawable/ic_next" />
 
@@ -196,7 +201,7 @@
                 android:background="@color/colorWhiteGrayF4F4"
                 app:layout_constraintEnd_toEndOf="@id/iv_app_info"
                 app:layout_constraintStart_toStartOf="@id/tv_app_info"
-                app:layout_constraintTop_toBottomOf="@id/iv_app_location_info" />
+                app:layout_constraintTop_toBottomOf="@id/tv_app_location_info" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_app_logout"
@@ -217,6 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16dp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_app_logout"
+                android:onClick="@{()->vm.onLogoutClick()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_app_logout"
                 app:srcCompat="@drawable/ic_next" />
@@ -229,7 +235,7 @@
                 android:background="@color/colorWhiteGrayF4F4"
                 app:layout_constraintEnd_toEndOf="@id/iv_app_info"
                 app:layout_constraintStart_toStartOf="@id/tv_app_info"
-                app:layout_constraintTop_toBottomOf="@id/iv_app_logout" />
+                app:layout_constraintTop_toBottomOf="@id/tv_app_logout" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_app_delete_auth"
@@ -250,6 +256,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16dp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_app_delete_auth"
+                android:onClick="@{()->vm.onDeleteAuthClick()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_app_delete_auth"
                 app:srcCompat="@drawable/ic_next" />
@@ -262,7 +269,7 @@
                 android:background="@color/colorWhiteGrayF4F4"
                 app:layout_constraintEnd_toEndOf="@id/iv_app_info"
                 app:layout_constraintStart_toStartOf="@id/tv_app_info"
-                app:layout_constraintTop_toBottomOf="@id/iv_app_delete_auth" />
+                app:layout_constraintTop_toBottomOf="@id/tv_app_delete_auth" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

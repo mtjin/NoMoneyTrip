@@ -1,8 +1,12 @@
 package com.mtjin.nomoneytrip.views.setting
 
+import android.content.Intent
+import androidx.lifecycle.Observer
+import com.google.firebase.auth.FirebaseAuth
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentSettingBinding
+import com.mtjin.nomoneytrip.views.login.LoginActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_setting) {
@@ -22,8 +26,12 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
 
     private fun initViewModelCallback() {
         with(viewModel) {
-
-
+            goLogout.observe(this@SettingFragment, Observer {
+                FirebaseAuth.getInstance().signOut()
+                showToast(getString(R.string.logout_text))
+                requireActivity().startActivity(Intent(requireContext(), LoginActivity::class.java))
+                requireActivity().finish()
+            })
         }
     }
 }
