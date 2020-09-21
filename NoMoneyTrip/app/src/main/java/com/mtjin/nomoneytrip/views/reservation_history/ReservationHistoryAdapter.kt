@@ -69,7 +69,7 @@ class ReservationHistoryAdapter(
                         llLinear.visibility = View.VISIBLE
                         tvState.text = "여행 접수"
                         tvState.setTextColor(context.getMyColor(R.color.colorOrangeF79256))
-                        tvLeft.text = "예약 변경"
+                        tvLeft.text = "문의"
                         tvRight.text = "예약 취소"
                     }
                 }

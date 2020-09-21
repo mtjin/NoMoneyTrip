@@ -35,6 +35,13 @@ class ReservationHistoryFragment :
                     else showToast(getString(R.string.reservation_cancel_fail_tmsg))
                 })
 
+            updateReservationCancelSuccessMsg.observe(
+                this@ReservationHistoryFragment,
+                Observer { success ->
+                    if (success) showToast(getString(R.string.reservation_cancel_success_msg))
+                    else showToast(getString(R.string.reservation_cancel_fail_tmsg))
+                })
+
             isLottieLoading.observe(this@ReservationHistoryFragment, Observer { loading ->
                 if (loading) showProgressDialog()
                 else hideProgressDialog()
@@ -55,7 +62,7 @@ class ReservationHistoryFragment :
                     reservationHistory.reservation.endDateTimestamp >= getTimestamp() -> {
                         val dialog =
                             YesNoDialogFragment.getInstance(yesClick = {
-                                if (it) viewModel.deleteReservation(reservationHistory.reservation)
+                                if (it) viewModel.updateReservationCancel(reservationHistory.reservation)
                             })
                         dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }

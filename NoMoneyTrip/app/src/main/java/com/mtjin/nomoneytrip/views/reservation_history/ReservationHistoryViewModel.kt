@@ -17,9 +17,11 @@ class ReservationHistoryViewModel(private val repository: ReservationHistoryRepo
     BaseViewModel() {
     private val _reservationList = MutableLiveData<ArrayList<ReservationProduct>>()
     private val _deleteReservationSuccessMsg = SingleLiveEvent<Boolean>()
+    private val _updateReservationCancelSuccessMsg = SingleLiveEvent<Boolean>()
 
     val reservationList: LiveData<ArrayList<ReservationProduct>> get() = _reservationList
     val deleteReservationSuccessMsg: LiveData<Boolean> get() = _deleteReservationSuccessMsg
+    val updateReservationCancelSuccessMsg: LiveData<Boolean> get() = _updateReservationCancelSuccessMsg
 
     fun requestReservations() {
         compositeDisposable.add(
@@ -49,6 +51,25 @@ class ReservationHistoryViewModel(private val repository: ReservationHistoryRepo
                     },
                     onComplete = {
                         _deleteReservationSuccessMsg.value = true
+                    }
+                )
+        )
+    }
+
+    fun updateReservationCancel(reservation: Reservation) {
+        compositeDisposable.add(
+            repository.updateReservationCancel(reservation = reservation)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showLottieProgress() }
+                .doAfterTerminate { hideLottieProgress() }
+                .subscribeBy(
+                    onError = {
+                        _updateReservationCancelSuccessMsg.value = false
+                        Log.d(TAG, "updateReservationCancel() error")
+                    },
+                    onComplete = {
+                        _updateReservationCancelSuccessMsg.value = true
                     }
                 )
         )

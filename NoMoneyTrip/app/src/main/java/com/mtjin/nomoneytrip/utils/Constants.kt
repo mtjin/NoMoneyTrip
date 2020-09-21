@@ -76,6 +76,7 @@ const val ALARM = "alarm"
 const val TEL = "tel"
 const val MASTER_USER = "masterUser"
 const val MASTER_STATE = "masterState"
+const val STATE = "state"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

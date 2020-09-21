@@ -7,15 +7,13 @@ import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
-import com.mtjin.nomoneytrip.utils.PRODUCT
-import com.mtjin.nomoneytrip.utils.RESERVATION
-import com.mtjin.nomoneytrip.utils.USER_ID
-import com.mtjin.nomoneytrip.utils.uuid
+import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) :
     ReservationHistoryRepository {
@@ -81,6 +79,20 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
             }.addOnFailureListener {
                 emitter.onError(it)
             }
+        }
+    }
+
+    override fun updateReservationCancel(reservation: Reservation): Completable {
+        return Completable.create { emitter ->
+            val map = HashMap<String, Any>()
+            map[STATE] = false
+            database.child(RESERVATION).child(reservation.id).updateChildren(map)
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                emitter.onError(it)
+            }
+
         }
     }
 }
