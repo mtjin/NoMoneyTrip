@@ -112,17 +112,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_28dp"
                     android:background="@drawable/bg_orange_border_radius_8dp"
+                    android:gravity="center"
                     android:onClick="@{()->vm.goProfileEdit()}"
-                    android:paddingStart="@dimen/paaing_55dp"
                     android:paddingTop="@dimen/padding_8dp"
-                    android:paddingEnd="@dimen/paaing_55dp"
                     android:paddingBottom="@dimen/padding_7dp"
                     android:text="@string/profile_revise_text"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/iv_image"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_image" />
 
                 <androidx.appcompat.widget.AppCompatTextView
