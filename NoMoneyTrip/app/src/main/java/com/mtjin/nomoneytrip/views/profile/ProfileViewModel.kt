@@ -18,6 +18,7 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
 
     private val _user = SingleLiveEvent<User>()
     private val _goProfileEdit = SingleLiveEvent<Unit>()
+    private val _goSetting = SingleLiveEvent<Unit>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
     private val _productList = MutableLiveData<List<Product>>()
     private val _clickMyTour = SingleLiveEvent<Unit>()
@@ -26,6 +27,7 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
 
     val user: LiveData<User> get() = _user
     val goProfileEdit: LiveData<Unit> get() = _goProfileEdit
+    val goSetting: LiveData<Unit> get() = _goSetting
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
     val productList: LiveData<List<Product>> get() = _productList
     val clickMyTour: LiveData<Unit> get() = _clickMyTour
@@ -132,5 +134,9 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
 
     fun goProfileEdit() {
         _goProfileEdit.call()
+    }
+
+    fun goSetting() {
+        _goSetting.call()
     }
 }

@@ -62,6 +62,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 }
             })
 
+            goSetting.observe(this@ProfileFragment, Observer {
+                findNavController().navigate(
+                    ProfileFragmentDirections.actionBottomNav4ToSettingFragment()
+                )
+            })
+
             clickMyTour.observe(this@ProfileFragment, Observer {
                 binding.rvProducts.visibility = View.GONE
                 binding.rvTours.visibility = View.VISIBLE
