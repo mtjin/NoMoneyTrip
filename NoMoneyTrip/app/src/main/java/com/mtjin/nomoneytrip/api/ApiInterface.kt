@@ -13,7 +13,7 @@ interface ApiInterface {
     * */
     @GET("rest/KorService/areaBasedList")
     fun getTourIntroduce(
-        @Query("serviceKey") serviceKey: String= URLDecoder.decode(TOUR_API_KEY, "UTF-8"),
+        @Query("serviceKey") serviceKey: String = URLDecoder.decode(TOUR_API_KEY, "UTF-8"),
         @Query("areaCode") areaCode: Int,
         @Query("contentTypeId") contentTypeId: Int = 12,
         @Query("listYN") listYN: String = "Y",
@@ -38,4 +38,5 @@ interface ApiInterface {
         @Query("pageNo") pageNo: Int = 1,
         @Query("_type") _type: String = "json"
     ): Single<TourIntroduceResponseBody>
+
 }
