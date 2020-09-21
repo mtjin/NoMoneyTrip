@@ -1,12 +1,9 @@
 package com.mtjin.nomoneytrip.views.master_main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mtjin.nomoneytrip.R
+import com.mtjin.nomoneytrip.base.BaseActivity
+import com.mtjin.nomoneytrip.databinding.ActivityMasterLoginBinding
 
-class MasterMainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_master_main)
-    }
+class MasterMainActivity : BaseActivity<ActivityMasterLoginBinding>(R.layout.activity_master_main) {
 }
