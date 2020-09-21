@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.data.master_login.source
 
-import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -20,6 +19,12 @@ class MasterLoginRepositoryImpl(
         }
 
     override var masterPwInput: String
+        get() = preferenceManager.masterPwInput
+        set(value) {
+            preferenceManager.masterPwInput = value
+        }
+
+    override var masterProductIdPref: String
         get() = preferenceManager.masterPwInput
         set(value) {
             preferenceManager.masterPwInput = value
@@ -76,6 +81,7 @@ class MasterLoginRepositoryImpl(
                             return
                         } else {
                             masterProductId = it.productId
+                            masterProductIdPref = it.productId
                             val fcmMap = HashMap<String, Any>()
                             fcmMap[FCM] = fcm
                             database.child(PRODUCT).child(masterProductId)

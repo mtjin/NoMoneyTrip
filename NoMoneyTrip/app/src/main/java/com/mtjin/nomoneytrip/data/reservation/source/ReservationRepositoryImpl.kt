@@ -1,10 +1,12 @@
 package com.mtjin.nomoneytrip.data.reservation.source
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -13,17 +15,24 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
+import com.mtjin.nomoneytrip.api.FcmInterface
 import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.service.NotificationBody
 import com.mtjin.nomoneytrip.service.NotificationBroadcastReceiver
+import com.mtjin.nomoneytrip.service.NotificationData
 import com.mtjin.nomoneytrip.service.ScheduledWorker
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 class ReservationRepositoryImpl(
     private val database: DatabaseReference,
+    private val fcmInterface: FcmInterface,
     private val context: Context
 ) : ReservationRepository {
     override fun insertReservation(reservation: Reservation, product: Product): Completable {
@@ -72,6 +81,7 @@ class ReservationRepositoryImpl(
         }
     }
 
+    @SuppressLint("CheckResult")
     override fun sendNotification(reservation: Reservation, product: Product) {
 
         val title = product.title
@@ -91,6 +101,7 @@ class ReservationRepositoryImpl(
                 intent.putExtra(EXTRA_ALARM_USER_ID, uuid)
                 intent.putExtra(EXTRA_ALARM_TIMESTAMP, reservation.startDateTimestamp)
                 intent.putExtra(EXTRA_ALARM_CASE, ALARM_START_CASE3)
+                intent.putExtra(EXTRA_RESERVATION_ID, reservation.id)
                 PendingIntent.getBroadcast(context, 0, intent, 0)
             }
         val dbKey = database.push().key.toString()
@@ -101,7 +112,7 @@ class ReservationRepositoryImpl(
                 userId = uuid,
                 case = ALARM_RESERVATION_COMPLETE_CASE1,
                 readState = false,
-                content = title + " 예약이 완료되었습니다. 이장님 선택을 기다리세요~",
+                content = "$title 예약이 완료되었습니다. 이장님 수락을 기다려주세요~",
                 timestamp = getTimestamp()
             )
         )
@@ -118,6 +129,7 @@ class ReservationRepositoryImpl(
                 startAlarmIntent
             )
         }
+
         //종료날 리뷰요청
         val notificationData = Data.Builder()
             .putString(EXTRA_NOTIFICATION_TITLE, title)
@@ -126,6 +138,7 @@ class ReservationRepositoryImpl(
             .putString(EXTRA_ALARM_USER_ID, uuid)
             .putLong(EXTRA_ALARM_TIMESTAMP, reservation.endDateTimestamp)
             .putInt(EXTRA_ALARM_CASE, ALARM_REVIEW_CASE4)
+            .putString(EXTRA_RESERVATION_ID, reservation.id)
             .build()
         val workRequest =
             OneTimeWorkRequestBuilder<ScheduledWorker>()
@@ -135,5 +148,27 @@ class ReservationRepositoryImpl(
                 .build()
         val workManager = WorkManager.getInstance(context)
         workManager.enqueue(workRequest)
+
+        //이장님께 FCM 전송
+        fcmInterface.sendNotification(
+            NotificationBody(
+                product.fcm,
+                NotificationData(
+                    title = product.title,
+                    message = "사용자 예약이 있습니다 :)",
+                    productId = product.id,
+                    uuid = uuid,
+                    alarmTimestamp = getTimestamp(),
+                    alarmCase = ALARM_RESERVATION_REQUEST_CASE5,
+                    isScheduled = "false",
+                    reservationId = reservation.id
+                )
+            )
+        ).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onSuccess = { Log.d(TAG, "SUCCESS") },
+                onError = { Log.d(TAG, "FAIL") }
+            )
     }
 }

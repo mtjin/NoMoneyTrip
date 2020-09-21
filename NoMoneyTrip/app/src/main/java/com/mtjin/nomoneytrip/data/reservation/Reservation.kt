@@ -14,6 +14,5 @@ data class Reservation(
     val reviewed: Boolean = false, //리뷰 남김 유무
     var startDateTimestamp: Long = 0,
     var endDateTimestamp: Long = 0,
-    var isAccepted: Boolean = false, //false: 새로신청한 여행자, true : 방문할 여행자 구분
-    var masterState: Int = 0 //0:기본, 1: 예약거절, 2:예약수락 구분
+    var masterState: Int = 0 //0:기본(미정), 1: 예약거절, 2:예약수락 구분
 ) : Parcelable

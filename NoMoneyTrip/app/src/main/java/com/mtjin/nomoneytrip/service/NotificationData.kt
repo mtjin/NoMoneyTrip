@@ -2,7 +2,11 @@ package com.mtjin.nomoneytrip.service
 
 data class NotificationData(
     val title: String,
-    val body: String,
+    val message: String,
+    val productId: String,
+    val uuid: String,
+    val alarmTimestamp: Long,
+    val alarmCase: Int,
     var isScheduled: String = "false",
-    var scheduledTime: String = ""
+    var reservationId: String = ""
 )

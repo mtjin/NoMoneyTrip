@@ -1,9 +1,13 @@
 package com.mtjin.nomoneytrip.api
 
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduceResponseBody
+import com.mtjin.nomoneytrip.service.NotificationBody
 import com.mtjin.nomoneytrip.utils.TOUR_API_KEY
 import io.reactivex.Single
+import okhttp3.ResponseBody
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 import java.net.URLDecoder
 
@@ -38,5 +42,4 @@ interface ApiInterface {
         @Query("pageNo") pageNo: Int = 1,
         @Query("_type") _type: String = "json"
     ): Single<TourIntroduceResponseBody>
-
 }

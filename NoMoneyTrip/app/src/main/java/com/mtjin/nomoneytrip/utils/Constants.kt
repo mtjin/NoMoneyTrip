@@ -6,7 +6,7 @@ import com.google.firebase.ktx.Firebase
 const val TAG = "LOG_TAG"
 
 var FCM_KEY: String =
-    "AAAALELZg6I:APA91bGJ2xRqylwmLpnsKGDPhfKh9JRBU5cqTenTlZuCKfphWOjuft10tlouHuSfN4QUJjJ0dyyayVhkOEITr8kGHzN3oAvW5Hipn5UlhcF7GDaUE1XmnL9MKImvbjOtdAvcEiG-UAgy"
+    "AAAAfpllS3k:APA91bG1UIo_4vhP-q5H83_N-zdnNXnM4wzdtW2hbLNJdh-qJKeVl5BpYvAsvC4iNg-55VWUwfSebiV5v3obFxSUuuMIp8nHQFrX8B3dojCV1_5i2FWbpmPkSkHCv8ocA_yXZ-Xsy63e"
 
 var TOUR_API_KEY: String =
     "GU7pI9Qe5kD1WOmPjAuxSGYzbLGkUJXMnQmy8EyV18c%2FdMkdvBBO1gpgrNoX30AOF%2FyKVxQkdZ45c7hMLOBfzQ%3D%3D"
@@ -17,12 +17,14 @@ const val EXTRA_ALARM_PRODUCT_ID = "EXTRA_ALARM_PRODUCT_ID"
 const val EXTRA_ALARM_USER_ID = "EXTRA_ALARM_USER_ID"
 const val EXTRA_ALARM_TIMESTAMP = "EXTRA_ALARM_TIMESTAMP"
 const val EXTRA_ALARM_CASE = "EXTRA_ALARM_CASE"
+const val EXTRA_RESERVATION_ID = "EXTRA_RESERVATION_ID"
 
 //alarm case
 const val ALARM_RESERVATION_COMPLETE_CASE1 = 1 //사용자예약 완료
 const val ALARM_RESERVATION_ACCEPT_CASE2 = 2 //이장님 수락
 const val ALARM_START_CASE3 = 3 //여행하루전알람
 const val ALARM_REVIEW_CASE4 = 4 // 여행끝 리뷰 알람
+const val ALARM_RESERVATION_REQUEST_CASE5 = 5 // 여행예약 이장님께 알림
 
 // area code
 const val SEOUL_CODE = 1
@@ -73,6 +75,7 @@ const val RATING_LIST = "ratingList"
 const val ALARM = "alarm"
 const val TEL = "tel"
 const val MASTER_USER = "masterUser"
+const val MASTER_STATE = "masterState"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000

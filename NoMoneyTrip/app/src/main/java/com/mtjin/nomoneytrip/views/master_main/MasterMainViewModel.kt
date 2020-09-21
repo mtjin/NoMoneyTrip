@@ -50,4 +50,25 @@ class MasterMainViewModel(private val repository: MasterMainRepository) : BaseVi
                 )
         )
     }
+
+    fun updateReservationState(masterProduct: MasterProduct, masterState: Int) {
+        compositeDisposable.add(
+            repository.updateReservationState(
+                masterProduct = masterProduct,
+                masterState = masterState
+            ).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showProgress() }
+                .doAfterTerminate { hideProgress() }
+                .subscribeBy(
+                    onError = {
+                        Log.d(TAG, it.toString())
+                    },
+                    onComplete = {
+                        requestNewMasterProducts()
+                        requestAcceptedMasterProducts()
+                    }
+                )
+        )
+    }
 }

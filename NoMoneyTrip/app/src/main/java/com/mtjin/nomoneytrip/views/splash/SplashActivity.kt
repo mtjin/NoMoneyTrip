@@ -18,9 +18,8 @@ import com.google.firebase.iid.InstanceIdResult
 import com.google.firebase.ktx.Firebase
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.login.User
-import com.mtjin.nomoneytrip.utils.USER
-import com.mtjin.nomoneytrip.utils.fcm
-import com.mtjin.nomoneytrip.utils.uuid
+import com.mtjin.nomoneytrip.data.master_login.MasterUser
+import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.views.login.LoginActivity
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
 import com.mtjin.nomoneytrip.views.main.MainActivity
@@ -103,11 +102,73 @@ class SplashActivity : AppCompatActivity() {
                     }
                     // Get new Instance ID token
                     task.result?.let {
+                        Log.d(TAG, "새 토큰 -> " + it.token)
                         fcm = it.token
-                        loginViewModel.updateFCM()
-                        masterViewModel.updateMasterFCM()
+                        updateUserFcm()
+                        updateMasterFCM()
                     }
                 }
+            })
+    }
+
+    fun updateUserFcm() {
+        Firebase.database.reference.child(USER)
+            .orderByChild(ID)
+            .equalTo(uuid)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        val map = HashMap<String, Any>()
+                        map[FCM] = fcm
+                        Firebase.database.reference.child(USER).child(uuid)
+                            .updateChildren(map).addOnSuccessListener {
+                            }.addOnFailureListener {
+                            }
+                    }
+                }
+            })
+    }
+
+    fun updateMasterFCM() {
+        Firebase.database.reference.child(USER).child(uuid)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    snapshot.getValue(User::class.java)?.let {
+                        if (it.tel.isNotBlank()) {
+                            val fcmMap = HashMap<String, Any>()
+                            fcmMap[FCM] = fcm
+                            Firebase.database.reference.child(MASTER_USER)
+                                .addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onCancelled(error: DatabaseError) {
+
+                                    }
+
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        if (snapshot.hasChild(it.tel)) {
+                                            Firebase.database.reference.child(MASTER_USER)
+                                                .child(it.tel)
+                                                .updateChildren(fcmMap)
+                                            snapshot.child(it.tel).getValue(MasterUser::class.java)
+                                                ?.let { master ->
+                                                    Firebase.database.reference.child(PRODUCT)
+                                                        .child(master.productId)
+                                                        .updateChildren(fcmMap)
+                                                }
+                                        }
+                                    }
+
+                                })
+                        }
+                    }
+                }
+
             })
     }
 }

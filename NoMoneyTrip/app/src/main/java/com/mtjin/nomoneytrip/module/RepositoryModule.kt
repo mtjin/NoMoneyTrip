@@ -46,7 +46,7 @@ val repositoryModule: Module = module {
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
     single<TourWriteRepository> { TourWriteRepositoryImpl(get(), get(named(REVIEW))) }
-    single<ReservationRepository> { ReservationRepositoryImpl(get(), get()) }
+    single<ReservationRepository> { ReservationRepositoryImpl(get(), get(named("fcm")), get()) }
     single<ReservationHistoryRepository> { ReservationHistoryRepositoryImpl(get()) }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
     single<CommunityRepository> { CommunityRepositoryImpl(get()) }
@@ -57,5 +57,5 @@ val repositoryModule: Module = module {
     single<AlarmRepository> { AlarmRepositoryImpl(get()) }
     single<PhoneAuthRepository> { PhoneAuthRepositoryImpl(get()) }
     single<MasterLoginRepository> { MasterLoginRepositoryImpl(get(), get()) }
-    single<MasterMainRepository> { MasterMainRepositoryImpl(get()) }
+    single<MasterMainRepository> { MasterMainRepositoryImpl(get(), get(named("fcm"))) }
 }

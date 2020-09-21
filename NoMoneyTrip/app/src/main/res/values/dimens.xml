@@ -88,4 +88,5 @@
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_19dp">19dp</dimen>
     <dimen name="padding_19dp">19dp</dimen>
+    <dimen name="margin_120dp">120dp</dimen>
 </resources>

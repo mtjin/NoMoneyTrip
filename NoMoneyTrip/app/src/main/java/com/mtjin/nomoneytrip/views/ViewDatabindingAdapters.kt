@@ -54,9 +54,9 @@ fun View.setAlarmBackground(readState: Boolean) {
     else setBackgroundColor(context.getMyColor(R.color.colorWhiteFFF5EF))
 }
 
-@BindingAdapter("acceptState")
-fun View.setAcceptState(acceptState: Boolean) {
-    if (acceptState) visibility = View.GONE
+@BindingAdapter("masterState")
+fun View.setMasterState(masterState: Int) {
+    if (masterState != 0) visibility = View.GONE
     else visibility = View.VISIBLE
 }
 

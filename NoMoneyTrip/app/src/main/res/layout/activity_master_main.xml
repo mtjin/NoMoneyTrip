@@ -11,7 +11,7 @@
             type="com.mtjin.nomoneytrip.views.master_main.MasterMainViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -165,18 +165,20 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_accepted_applicants"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_28dp"
                 android:layout_marginTop="@dimen/margin_4dp"
                 android:layout_marginEnd="@dimen/margin_28dp"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/padding_36dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_accepted_applicant"
                 app:layout_constraintTop_toBottomOf="@id/text_accepted_applicant"
                 bind:setItems="@{vm.acceptedProductList}"
                 tools:itemCount="2"
                 tools:listitem="@layout/item_master_reservation" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>
