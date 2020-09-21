@@ -18,6 +18,7 @@ import com.mtjin.nomoneytrip.views.reservation_complete.ReservationCompleteViewM
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryViewModel
 import com.mtjin.nomoneytrip.views.reservation_phase_first.ReservationPhaseFirstViewModel
 import com.mtjin.nomoneytrip.views.search.SearchViewModel
+import com.mtjin.nomoneytrip.views.setting.SettingViewModel
 import com.mtjin.nomoneytrip.views.tour_history.TourHistoryViewModel
 import com.mtjin.nomoneytrip.views.tour_no_history.TourNoHistoryViewModel
 import com.mtjin.nomoneytrip.views.tour_write.TourWriteViewModel
@@ -47,4 +48,5 @@ val viewModelModule: Module = module {
     viewModel { PhoneAuthViewModel(get()) }
     viewModel { MasterLoginViewModel(get()) }
     viewModel { MasterMainViewModel(get()) }
+    viewModel { SettingViewModel(get()) }
 }

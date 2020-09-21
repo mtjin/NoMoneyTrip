@@ -30,6 +30,8 @@ import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryR
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepository
 import com.mtjin.nomoneytrip.data.reservation_phase_first.source.ReservationPhaseFirstRepositoryImpl
+import com.mtjin.nomoneytrip.data.setting.source.SettingRepository
+import com.mtjin.nomoneytrip.data.setting.source.SettingRepositoryImpl
 import com.mtjin.nomoneytrip.data.tour_no_history.source.TourNoHistoryRepository
 import com.mtjin.nomoneytrip.data.tour_no_history.source.TourNoHistoryRepositoryImpl
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepository
@@ -58,4 +60,5 @@ val repositoryModule: Module = module {
     single<PhoneAuthRepository> { PhoneAuthRepositoryImpl(get()) }
     single<MasterLoginRepository> { MasterLoginRepositoryImpl(get(), get()) }
     single<MasterMainRepository> { MasterMainRepositoryImpl(get(), get(named("fcm"))) }
+    single<SettingRepository> { SettingRepositoryImpl(get()) }
 }
