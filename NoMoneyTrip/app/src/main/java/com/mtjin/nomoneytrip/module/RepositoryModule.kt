@@ -14,6 +14,8 @@ import com.mtjin.nomoneytrip.data.lodgment_detail.source.LodgmentDetailRepositor
 import com.mtjin.nomoneytrip.data.lodgment_detail.source.LodgmentDetailRepositoryImpl
 import com.mtjin.nomoneytrip.data.login.source.LoginRepository
 import com.mtjin.nomoneytrip.data.login.source.LoginRepositoryImpl
+import com.mtjin.nomoneytrip.data.master_login.source.MasterLoginRepository
+import com.mtjin.nomoneytrip.data.master_login.source.MasterLoginRepositoryImpl
 import com.mtjin.nomoneytrip.data.phone.source.PhoneAuthRepository
 import com.mtjin.nomoneytrip.data.phone.source.PhoneAuthRepositoryImpl
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
@@ -52,4 +54,5 @@ val repositoryModule: Module = module {
     single<LodgmentDetailRepository> { LodgmentDetailRepositoryImpl(get()) }
     single<AlarmRepository> { AlarmRepositoryImpl(get()) }
     single<PhoneAuthRepository> { PhoneAuthRepositoryImpl(get()) }
+    single<MasterLoginRepository> { MasterLoginRepositoryImpl(get()) }
 }

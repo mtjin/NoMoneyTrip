@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.mtjin.nomoneytrip.views.email_login.EmailLoginViewModel" />
+            type="com.mtjin.nomoneytrip.views.master_login.MasterLoginViewModel" />
 
         <import type="android.view.View" />
     </data>

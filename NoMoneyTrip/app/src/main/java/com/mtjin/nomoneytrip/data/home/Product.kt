@@ -25,6 +25,7 @@ data class Product(
     var internet: Boolean = false,
     var parking: Boolean = false,
     var market: Boolean = false,
-    var animal: Boolean = false
+    var animal: Boolean = false,
+    var fcm: String = ""
 
 ) : Parcelable

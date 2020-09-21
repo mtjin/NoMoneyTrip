@@ -50,6 +50,7 @@ const val RC_PICK_IMAGE = 1001
 @Volatile
 var uuid = Firebase.auth.currentUser?.uid.toString() // 유저 고유 토큰
 var fcm = "" // fcm
+var masterProductId = "" // 이장님 상품 아이디
 
 //database child
 const val USER = "user" // 유저프로필
@@ -71,6 +72,7 @@ const val FAVORITE = "favorite"
 const val RATING_LIST = "ratingList"
 const val ALARM = "alarm"
 const val TEL = "tel"
+const val MASTER_USER = "masterUser"
 
 // 시간
 const val TIMESTAMP_PER_DAY = 86400000
