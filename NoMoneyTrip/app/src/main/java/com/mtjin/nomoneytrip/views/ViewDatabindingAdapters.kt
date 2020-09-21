@@ -16,6 +16,7 @@ import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
+import com.mtjin.nomoneytrip.data.master_main.MasterProduct
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.views.alarm.AlarmAdapter
@@ -25,6 +26,7 @@ import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
+import com.mtjin.nomoneytrip.views.master_main.MasterMainAdapter
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryAdapter
 import com.mtjin.nomoneytrip.views.tour_history.TourHistoryAdapter
 import de.hdodenhof.circleimageview.CircleImageView
@@ -50,6 +52,12 @@ fun CircleImageView.setReadState(readState: Boolean) {
 fun View.setAlarmBackground(readState: Boolean) {
     if (readState) setBackgroundColor(context.getMyColor(R.color.colorWhiteFDFD))
     else setBackgroundColor(context.getMyColor(R.color.colorWhiteFFF5EF))
+}
+
+@BindingAdapter("acceptState")
+fun View.setAcceptState(acceptState: Boolean) {
+    if (acceptState) visibility = View.GONE
+    else visibility = View.VISIBLE
 }
 
 @BindingAdapter("urlImageRadius")
@@ -87,11 +95,28 @@ fun TextView.setRatingListAverageText(ratingList: List<Float>) {
     }
 }
 
+// num -> 외 1명, 1명일 경우는 안보이게
+@BindingAdapter("numHowManyExceptMe")
+fun TextView.setNumHowManyExceptMe(num: String) {
+    if (num == "1" || num == "0") {
+        visibility = View.GONE
+    } else {
+        visibility = View.VISIBLE
+        text = ("외 " + num + "명")
+    }
+}
+
 
 //9.6~9.8
 @BindingAdapter("startTimestampTerm", "endTimestampTerm")
 fun TextView.setTimestampTerm(startTimestamp: Long, endTimestamp: Long) {
     text = convertTimestampToTerm(startTimestamp, endTimestamp)
+}
+
+//09.06 - 09.08
+@BindingAdapter("startTimestampOnlyDateMinusTerm", "endTimestampOnlyDateMinusTerm")
+fun TextView.setTimestampOnlyDateMinusTerm(startTimestamp: Long, endTimestamp: Long) {
+    text = convertTimestampOnlyDateMinusTerm(startTimestamp, endTimestamp)
 }
 
 //timestamp -> 2020.01.02
@@ -122,6 +147,18 @@ fun TextView.setDayTime(startTimestamp: Long, endTimestamp: Long, time: String) 
     time2 -= time2 % MILLIS_PER_DAY
     val day = TimeUnit.DAYS.convert(time2 - time1, TimeUnit.MILLISECONDS).toString()
     text = (day + "박, " + time)
+}
+
+// timestamp(1599663600000) -> 2박
+@BindingAdapter("startTimestampNight", "endTimestampNight")
+fun TextView.setTimestampNight(startTimestamp: Long, endTimestamp: Long) {
+    var time1 = startTimestamp
+    var time2 = endTimestamp
+    val MILLIS_PER_DAY = 1000 * 60 * 60 * 24.toLong()
+    time1 -= time1 % MILLIS_PER_DAY
+    time2 -= time2 % MILLIS_PER_DAY
+    val day = TimeUnit.DAYS.convert(time2 - time1, TimeUnit.MILLISECONDS).toString()
+    text = (day + "박")
 }
 
 // 하단 다음버튼 필수선택 여부에 따른 배경 색
@@ -220,6 +257,14 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as AlarmAdapter) {
                     clear()
                     addItems(it as List<Alarm>)
+                }
+            }
+        }
+        is MasterMainAdapter -> {
+            items?.let {
+                with(adapter as MasterMainAdapter) {
+                    clear()
+                    addItems(it as List<MasterProduct>)
                 }
             }
         }

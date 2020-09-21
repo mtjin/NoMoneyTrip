@@ -103,6 +103,12 @@ fun convertTimestampToTerm(startTimestamp: Long, endTimestamp: Long): String {
         .toString() + "~" + DateFormat.format("MM-dd", endTimestamp).toString()
 }
 
+// timestamp -> 9.6~9.8
+fun convertTimestampOnlyDateMinusTerm(startTimestamp: Long, endTimestamp: Long): String {
+    return DateFormat.format("MM-dd", startTimestamp)
+        .toString() + " - " + DateFormat.format("MM-dd", endTimestamp).toString()
+}
+
 // FCM 메시지로 사용
 fun convertTimeToFcmMessage(date: Long, time: String): String =
     date.convertTimestampToDate() + " " + time + "에 예약이 있습니다."

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="item"
-            type="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
+            type="com.mtjin.nomoneytrip.data.master_main.MasterProduct" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,13 +38,15 @@
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:src="@drawable/img_product"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:urlImage="@{item.user.image}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_10dp"
+                    android:text="@{item.user.name}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_16sp"
                     app:layout_constraintBottom_toBottomOf="@id/iv_image"
@@ -60,6 +63,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/tv_name"
                     app:layout_constraintStart_toEndOf="@id/tv_name"
                     app:layout_constraintTop_toTopOf="@id/tv_name"
+                    bind:numHowManyExceptMe="@{item.reservation.num}"
                     tools:text="외 4명" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -106,6 +110,8 @@
                     app:layout_constraintBottom_toBottomOf="@id/text_date"
                     app:layout_constraintStart_toEndOf="@id/text_date"
                     app:layout_constraintTop_toTopOf="@id/text_date"
+                    bind:endTimestampOnlyDateMinusTerm="@{item.reservation.endDateTimestamp}"
+                    bind:startTimestampOnlyDateMinusTerm="@{item.reservation.startDateTimestamp}"
                     tools:text="00.00 - 00.00" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -113,12 +119,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_8dp"
-                    android:text="1박"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_16sp"
                     app:layout_constraintBottom_toBottomOf="@id/text_date"
                     app:layout_constraintStart_toEndOf="@id/tv_date"
-                    app:layout_constraintTop_toTopOf="@id/text_date" />
+                    app:layout_constraintTop_toTopOf="@id/text_date"
+                    bind:endTimestampNight="@{item.reservation.endDateTimestamp}"
+                    bind:startTimestampNight="@{item.reservation.startDateTimestamp}"
+                    tools:text="1박" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/text_option"
@@ -140,6 +148,7 @@
                     android:layout_marginEnd="@dimen/margin_12dp"
                     android:ellipsize="end"
                     android:singleLine="true"
+                    android:text="@{item.reservation.option}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_16sp"
                     app:layout_constraintBottom_toBottomOf="@id/text_option"
@@ -155,7 +164,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cl_constraint2">
+                app:layout_constraintTop_toBottomOf="@id/cl_constraint2"
+                bind:acceptState="@{item.reservation.accepted}">
 
                 <View
                     android:id="@+id/view_bottom"
