@@ -82,4 +82,6 @@
     <dimen name="radius_2dp">2dp</dimen>
     <dimen name="margin_96dp">96dp</dimen>
     <dimen name="padding_11dp">11dp</dimen>
+    <dimen name="margin_9dp">9dp</dimen>
+    <dimen name="text_size_28sp">28sp</dimen>
 </resources>

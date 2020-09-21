@@ -1,9 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.master_main.MasterMainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".views.master_main.MasterMainActivity">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_logo"
+                app:srcCompat="@drawable/ic_alarm_off" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:background="@color/colorWhiteFFF5EF"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_free_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_28dp"
+                    android:layout_marginTop="@dimen/margin_9dp"
+                    android:layout_marginBottom="@dimen/margin_15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_big_free" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_waiting_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신청 대기"
+                    android:textColor="@color/colorGray8C8C"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_wating_num"
+                    app:layout_constraintEnd_toStartOf="@id/text_completed_num"
+                    app:layout_constraintStart_toEndOf="@id/iv_free_logo"
+                    app:layout_constraintTop_toTopOf="@id/iv_free_logo"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_wating_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_28sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_free_logo"
+                    app:layout_constraintEnd_toEndOf="@id/text_waiting_num"
+                    app:layout_constraintStart_toStartOf="@id/text_waiting_num"
+                    app:layout_constraintTop_toBottomOf="@id/text_waiting_num"
+                    tools:text="2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_completed_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="여행 확정"
+                    android:textColor="@color/colorGray8C8C"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_completed_num"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_waiting_num"
+                    app:layout_constraintTop_toTopOf="@id/iv_free_logo"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_completed_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_28sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_free_logo"
+                    app:layout_constraintEnd_toEndOf="@id/text_completed_num"
+                    app:layout_constraintStart_toStartOf="@id/text_completed_num"
+                    app:layout_constraintTop_toBottomOf="@id/text_completed_num"
+                    tools:text="3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_new_applicant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="새로 신청한 여행자"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_18sp"
+                app:layout_constraintStart_toStartOf="@id/iv_logo"
+                app:layout_constraintTop_toBottomOf="@id/cl_top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_all_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_28dp"
+                android:text="전체 승인"
+                android:textColor="@color/colorOrangeF79256"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintBottom_toBottomOf="@id/text_new_applicant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_new_applicant" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_new_applicants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/text_new_applicant" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_accepted_applicant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_36dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="방문할 여행자"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_18sp"
+                app:layout_constraintStart_toStartOf="@id/iv_logo"
+                app:layout_constraintTop_toBottomOf="@id/rv_new_applicants" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_accepted_applicants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/text_accepted_applicant" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
