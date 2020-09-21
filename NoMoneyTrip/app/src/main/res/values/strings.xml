@@ -147,4 +147,12 @@
     <string name="enter_id_text">아이디 입력</string>
     <string name="resercation_cancel_text">예약 취소</string>
     <string name="reservation_approval_text">예약 승인</string>
+    <string name="setting_text">설정</string>
+    <string name="alarm_receive_agree_text">알람 수신 동의</string>
+    <string name="app_info_text">앱 정보</string>
+    <string name="app_rule_text">이용약관</string>
+    <string name="app_personal_info_text">개인정보 처리방침</string>
+    <string name="location_info_text">위치정보 이용약관</string>
+    <string name="logout_text">로그아웃</string>
+    <string name="delete_auth_text">회원탈퇴</string>
 </resources>

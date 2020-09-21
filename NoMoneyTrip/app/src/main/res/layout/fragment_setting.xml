@@ -1,13 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/setting_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_back"
+                app:layout_constraintStart_toEndOf="@id/iv_back"
+                app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_28dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:text="@string/alarm_receive_agree_text"
+                android:textColor="@color/colorGray8C8C"
+                android:textSize="@dimen/text_size_12sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_back"
+                app:layout_constraintEnd_toStartOf="@id/sw_alarm"
+                app:layout_constraintTop_toTopOf="@id/iv_back" />
+
+            <View
+                android:id="@+id/view_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_app_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/app_info_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_top" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_app_info"
+                app:srcCompat="@drawable/ic_next" />
+
+            <View
+                android:id="@+id/view_below_app_info"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintEnd_toEndOf="@id/iv_app_info"
+                app:layout_constraintStart_toStartOf="@id/tv_app_info"
+                app:layout_constraintTop_toBottomOf="@id/tv_app_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_app_rule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/app_rule_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_below_app_info" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_rule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_rule"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_app_rule"
+                app:srcCompat="@drawable/ic_next" />
+
+            <View
+                android:id="@+id/view_below_app_rule"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintEnd_toEndOf="@id/iv_app_info"
+                app:layout_constraintStart_toStartOf="@id/tv_app_info"
+                app:layout_constraintTop_toBottomOf="@id/iv_app_rule" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_app_personal_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/app_personal_info_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_below_app_rule" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_personal_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_personal_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_app_personal_info"
+                app:srcCompat="@drawable/ic_next" />
+
+            <View
+                android:id="@+id/view_below_app_personal_info"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintEnd_toEndOf="@id/iv_app_info"
+                app:layout_constraintStart_toStartOf="@id/tv_app_info"
+                app:layout_constraintTop_toBottomOf="@id/iv_app_personal_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_app_location_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/location_info_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_below_app_personal_info" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_location_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_location_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_app_location_info"
+                app:srcCompat="@drawable/ic_next" />
+
+            <View
+                android:id="@+id/view_below_app_location_info"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintEnd_toEndOf="@id/iv_app_info"
+                app:layout_constraintStart_toStartOf="@id/tv_app_info"
+                app:layout_constraintTop_toBottomOf="@id/iv_app_location_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_app_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/logout_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_below_app_location_info" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_logout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_app_logout"
+                app:srcCompat="@drawable/ic_next" />
+
+            <View
+                android:id="@+id/view_below_app_logout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintEnd_toEndOf="@id/iv_app_info"
+                app:layout_constraintStart_toStartOf="@id/tv_app_info"
+                app:layout_constraintTop_toBottomOf="@id/iv_app_logout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_app_delete_auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="@string/delete_auth_text"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_below_app_logout" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_app_delete_auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_app_delete_auth"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_app_delete_auth"
+                app:srcCompat="@drawable/ic_next" />
+
+            <View
+                android:id="@+id/view_below_app_delete_auth"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_26dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintEnd_toEndOf="@id/iv_app_info"
+                app:layout_constraintStart_toStartOf="@id/tv_app_info"
+                app:layout_constraintTop_toBottomOf="@id/iv_app_delete_auth" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
