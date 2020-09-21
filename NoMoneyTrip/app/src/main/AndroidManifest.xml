@@ -15,8 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.master_main.MasterMainActivity"></activity>
-        <activity android:name=".views.master_login.MasterLoginActivity" />
+        <activity
+            android:name=".views.master_main.MasterMainActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.master_login.MasterLoginActivity"
+            android:launchMode="singleTop" />
         <activity android:name=".views.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,16 +28,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.email_signup.EmailSignUpActivity" />
-        <activity android:name=".views.email_login.EmailLoginActivity" />
+        <activity
+            android:name=".views.email_signup.EmailSignUpActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.email_login.EmailLoginActivity"
+            android:launchMode="singleTop" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".views.login.LoginActivity" />
-        <activity android:name=".views.main.MainActivity" />
-        <activity android:name=".views.phone.PhoneAuthActivity" />
+        <activity
+            android:name=".views.login.LoginActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.main.MainActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.phone.PhoneAuthActivity"
+            android:launchMode="singleTop" />
 
         <service
             android:name=".service.MyFirebaseMessagingService"

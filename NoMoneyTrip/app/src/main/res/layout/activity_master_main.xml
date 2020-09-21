@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.master_main.MasterMainViewModel" />
     </data>
 
     <ScrollView
@@ -13,7 +17,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:context=".views.master_main.MasterMainActivity">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -72,6 +76,7 @@
                     android:id="@+id/tv_wating_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(vm.newProductList.size())}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_28sp"
                     app:layout_constraintBottom_toBottomOf="@id/iv_free_logo"
@@ -97,6 +102,7 @@
                     android:id="@+id/tv_completed_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(vm.acceptedProductList.size())}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="@dimen/text_size_28sp"
                     app:layout_constraintBottom_toBottomOf="@id/iv_free_logo"
@@ -132,14 +138,16 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_new_applicants"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_28dp"
                 android:layout_marginTop="@dimen/margin_4dp"
                 android:layout_marginEnd="@dimen/margin_28dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_new_applicant"
                 app:layout_constraintTop_toBottomOf="@id/text_new_applicant"
+                bind:setItems="@{vm.newProductList}"
                 tools:itemCount="2"
                 tools:listitem="@layout/item_master_reservation" />
 
@@ -163,8 +171,10 @@
                 android:layout_marginTop="@dimen/margin_4dp"
                 android:layout_marginEnd="@dimen/margin_28dp"
                 android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_36dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/text_accepted_applicant"
+                bind:setItems="@{vm.acceptedProductList}"
                 tools:itemCount="2"
                 tools:listitem="@layout/item_master_reservation" />
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,9 @@ class MasterMainActivity : BaseActivity<ActivityMasterMainBinding>(R.layout.acti
     private val viewModel: MasterMainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.requestNewApplicants()
-        viewModel.requestCompletedApplications()
+        binding.vm = viewModel
+        viewModel.requestNewMasterProducts()
+        viewModel.requestAcceptedMasterProducts()
         initAdapter()
     }
 

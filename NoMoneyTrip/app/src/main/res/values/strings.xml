@@ -145,4 +145,6 @@
     <string name="sign_up_text">회원가입</string>
     <string name="master_login_text">이장님 로그인</string>
     <string name="enter_id_text">아이디 입력</string>
+    <string name="resercation_cancel_text">예약 취소</string>
+    <string name="reservation_approval_text">예약 승인</string>
 </resources>

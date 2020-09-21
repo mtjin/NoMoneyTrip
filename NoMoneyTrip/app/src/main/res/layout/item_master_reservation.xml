@@ -184,9 +184,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:text="@string/resercation_cancel_text"
                         android:textColor="@color/colorBlack2D2D"
-                        android:textSize="@dimen/text_size_14sp"
-                        tools:text="예약 변경" />
+                        android:textSize="@dimen/text_size_14sp" />
 
                     <View
                         android:layout_width="@dimen/width_1dp"
@@ -199,9 +199,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:text="@string/reservation_approval_text"
                         android:textColor="@color/colorBlack2D2D"
-                        android:textSize="@dimen/text_size_14sp"
-                        tools:text="예약 취소" />
+                        android:textSize="@dimen/text_size_14sp" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
