@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.setting.SettingViewModel" />
     </data>
 
     <ScrollView
