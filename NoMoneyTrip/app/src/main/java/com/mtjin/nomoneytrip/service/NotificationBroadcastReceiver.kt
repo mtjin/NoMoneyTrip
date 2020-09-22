@@ -20,6 +20,7 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
             val userId = intent.getStringExtra(EXTRA_ALARM_USER_ID)
             val timestamp = intent.getLongExtra(EXTRA_ALARM_TIMESTAMP, 0)
             val case = intent.getIntExtra(EXTRA_ALARM_CASE, 0)
+            val reservationId = intent.getStringExtra(EXTRA_RESERVATION_ID).toString()
             // Create Notification Data
             val notificationData = Data.Builder()
                 .putString(EXTRA_NOTIFICATION_TITLE, title)
@@ -28,6 +29,7 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
                 .putString(EXTRA_ALARM_USER_ID, userId)
                 .putLong(EXTRA_ALARM_TIMESTAMP, timestamp)
                 .putInt(EXTRA_ALARM_CASE, case)
+                .putString(EXTRA_RESERVATION_ID, reservationId)
                 .build()
 
             val workRequest =

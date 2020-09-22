@@ -83,7 +83,6 @@ class ReservationRepositoryImpl(
 
     @SuppressLint("CheckResult")
     override fun sendNotification(reservation: Reservation, product: Product) {
-
         val title = product.title
         val message = convertTimeToFcmMessage(
             date = reservation.startDateTimestamp,
@@ -116,6 +115,7 @@ class ReservationRepositoryImpl(
                 timestamp = getTimestamp()
             )
         )
+        //시작날 알림요청
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
