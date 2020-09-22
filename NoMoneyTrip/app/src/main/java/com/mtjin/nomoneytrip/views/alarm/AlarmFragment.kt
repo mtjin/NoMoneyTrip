@@ -1,5 +1,6 @@
 package com.mtjin.nomoneytrip.views.alarm
 
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
@@ -28,6 +29,9 @@ class AlarmFragment : BaseFragment<FragmentAlarmBinding>(R.layout.fragment_alarm
         with(viewModel) {
             backClick.observe(this@AlarmFragment, Observer {
                 findNavController().popBackStack()
+            })
+            requestNotificationsResult.observe(this@AlarmFragment, Observer {
+                binding.clConstraintBasicAlarm.visibility = View.VISIBLE
             })
         }
     }

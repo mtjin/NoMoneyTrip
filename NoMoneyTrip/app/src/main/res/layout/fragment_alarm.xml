@@ -11,7 +11,7 @@
             type="com.mtjin.nomoneytrip.views.alarm.AlarmViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -62,9 +62,10 @@
                 tools:listitem="@layout/item_alarm" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_constraint"
+                android:id="@+id/cl_constraint_basic_alarm"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/rv_alarms">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -85,8 +86,7 @@
                     android:layout_marginEnd="46dp"
                     android:ellipsize="end"
                     android:lines="2"
-                    android:text="1. 처음에 회원이 되고 반갑다는 알림
-무전여행을 등록해보세요~~"
+                    android:text="@string/welcom_no_money_trip_text"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@id/tv_date"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="운영진"
+                    android:text="@string/app_operator_text"
                     android:textColor="@color/colorGray8C8C"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/civ_image"
@@ -115,5 +115,5 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>
