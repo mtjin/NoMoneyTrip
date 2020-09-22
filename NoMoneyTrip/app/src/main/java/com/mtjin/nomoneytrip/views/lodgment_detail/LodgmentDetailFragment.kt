@@ -1,8 +1,12 @@
 package com.mtjin.nomoneytrip.views.lodgment_detail
 
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.BitmapFactory
+import android.graphics.Rect
 import android.net.Uri
+import android.view.View
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -57,6 +61,14 @@ class LodgmentDetailFragment :
                 binding.ivAnimal.alpha = 0.3f
             }
         }
+
+        binding.svScrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (isVisible(binding.tvTopReservation)) binding.clBottomReservation.visibility =
+                View.GONE
+            else binding.clBottomReservation.visibility = View.VISIBLE
+
+
+        })
     }
 
     private fun initViewModelCallback() {
@@ -121,6 +133,24 @@ class LodgmentDetailFragment :
                     ((position + 1).toString() + " / " + productArg.product.imageList.size.toString())
             }
         })
+    }
+
+    fun isVisible(view: View?): Boolean {
+        if (view == null) {
+            return false
+        }
+        if (!view.isShown) {
+            return false
+        }
+        val actualPosition = Rect()
+        view.getGlobalVisibleRect(actualPosition)
+        val screen = Rect(
+            0,
+            0,
+            Resources.getSystem().displayMetrics.widthPixels,
+            Resources.getSystem().displayMetrics.heightPixels
+        )
+        return actualPosition.intersect(screen)
     }
 
     private fun initHashTagAdapter() {

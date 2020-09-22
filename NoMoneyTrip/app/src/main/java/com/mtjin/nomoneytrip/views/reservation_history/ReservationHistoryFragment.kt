@@ -1,6 +1,8 @@
 package com.mtjin.nomoneytrip.views.reservation_history
 
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
@@ -51,22 +53,19 @@ class ReservationHistoryFragment :
 
     private fun initAdapter() {
         val adapter = ReservationHistoryAdapter(thisContext,
-            { reservationHistory ->
-                if (reservationHistory.reservation.endDateTimestamp >= getTimestamp()) { // 예약변경
-                    showToast(getString(R.string.update_later_text))
-                } else { //봉사인증
-                    showToast(getString(R.string.update_later_text))
-                }
+            {   //문의
+                val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + it.product.phone))
+                thisContext.startActivity(callIntent)
             }, { reservationHistory ->
                 when {
-                    reservationHistory.reservation.endDateTimestamp >= getTimestamp() -> {
+                    reservationHistory.reservation.masterState == 2 && reservationHistory.reservation.startDateTimestamp >= getTimestamp() -> { //이장님예약수락상태 : 예약취소
                         val dialog =
                             YesNoDialogFragment.getInstance(yesClick = {
                                 if (it) viewModel.updateReservationCancel(reservationHistory.reservation)
                             })
                         dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }
-                    else -> {
+                    reservationHistory.reservation.endDateTimestamp < getTimestamp() -> {//여행완료상태 : 리뷰
                         if (reservationHistory.reservation.reviewed) showToast(getString(R.string.aleready_reviewed_product_msg)) //이미 리뷰 남긴거
                         else {
                             val dialog =
@@ -81,6 +80,13 @@ class ReservationHistoryFragment :
                                     })
                             dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                         }
+                    }
+                    else -> { //여행 접수 상태 : 예약취소
+                        val dialog =
+                            YesNoDialogFragment.getInstance(yesClick = {
+                                if (it) viewModel.updateReservationCancel(reservationHistory.reservation)
+                            })
+                        dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }
                 }
             })

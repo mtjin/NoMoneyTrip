@@ -8,6 +8,8 @@ import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationBinding
+import com.mtjin.nomoneytrip.utils.APP_PERSONAL_INFO_RULE
+import com.mtjin.nomoneytrip.utils.APP_RULE_URL
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -88,21 +90,21 @@ class ReservationFragment :
         Linkify.addLinks(
             binding.tvConsentRule,
             pattern1,
-            getString(R.string.app_usage_rule_text),
+            APP_RULE_URL,
             null,
             transform
         )
         Linkify.addLinks(
             binding.tvConsentRule,
             pattern2,
-            getString(R.string.app_personal_usage_rule_text),
+            APP_PERSONAL_INFO_RULE,
             null,
             transform
         )
         Linkify.addLinks(
             binding.tvConsentRule,
             pattern3,
-            getString(R.string.app_personal_usage_rule_text),
+            APP_PERSONAL_INFO_RULE,
             null,
             transform
         )

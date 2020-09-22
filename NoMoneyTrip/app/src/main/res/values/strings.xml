@@ -155,6 +155,4 @@
     <string name="location_info_text">위치정보 이용약관</string>
     <string name="logout_text">로그아웃</string>
     <string name="delete_auth_text">회원탈퇴</string>
-    <string name="app_usage_rule_text"><![CDATA[https://blog.naver.com/PostView.nhn?blogId=kjhumal94&logNo=222094537906&parentCategoryNo=&categoryNo=1&viewDate=&isShowPopularPosts=false&from=postView]]></string>
-    <string name="app_personal_usage_rule_text"><![CDATA[https://blog.naver.com/PostView.nhn?blogId=kjhumal94&logNo=222094541233&parentCategoryNo=&categoryNo=1&viewDate=&isShowPopularPosts=false&from=postView]]></string>
 </resources>
