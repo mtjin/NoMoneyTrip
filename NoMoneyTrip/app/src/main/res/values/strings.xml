@@ -145,7 +145,7 @@
     <string name="sign_up_text">회원가입</string>
     <string name="master_login_text">이장님 로그인</string>
     <string name="enter_id_text">아이디 입력</string>
-    <string name="resercation_cancel_text">예약 취소</string>
+    <string name="reservation_cancel_text">예약 취소</string>
     <string name="reservation_approval_text">예약 승인</string>
     <string name="setting_text">설정</string>
     <string name="alarm_receive_agree_text">알람 수신 동의</string>
@@ -155,4 +155,10 @@
     <string name="location_info_text">위치정보 이용약관</string>
     <string name="logout_text">로그아웃</string>
     <string name="delete_auth_text">회원탈퇴</string>
+    <string name="lodgment_info_text">숙소 정보</string>
+    <string name="hope_volunteer_text">희망 봉사</string>
+    <string name="reservation_detail_history_text">예약 상세 내역</string>
+    <string name="per_day_text">1박 기준</string>
+    <string name="search_road_text">길찾기</string>
+    <string name="check_out_text">체크아웃</string>
 </resources>

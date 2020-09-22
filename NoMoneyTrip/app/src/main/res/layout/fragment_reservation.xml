@@ -67,14 +67,16 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
+                    android:layout_marginEnd="@dimen/margin_44dp"
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="무전숙박 제목 두줄까지가능" />
