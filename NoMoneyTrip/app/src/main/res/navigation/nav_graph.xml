@@ -4,6 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/bottom_nav_1">
 
+    <activity
+        android:id="@+id/main_activity"
+        android:name="com.mtjin.nomoneytrip.views.main.MainActivity"
+        android:label="MainActivity"
+        tools:layout="@layout/activity_main" />
+
+    <activity
+        android:id="@+id/master_main_activity"
+        android:name="com.mtjin.nomoneytrip.views.master_main.MasterMainActivity"
+        android:label="MasterMainActivity"
+        tools:layout="@layout/activity_master_main" />
+
+    <activity
+        android:id="@+id/master_login_activity"
+        android:name="com.mtjin.nomoneytrip.views.master_login.MasterLoginActivity"
+        android:label="MasterLoginActivity"
+        tools:layout="@layout/activity_master_login" />
+
+    <activity
+        android:id="@+id/login_activity"
+        android:name="com.mtjin.nomoneytrip.views.login.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/activity_login" />
+
+    <activity
+        android:id="@+id/email_login_activity"
+        android:name="com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity"
+        android:label="EmailLoginActivity"
+        tools:layout="@layout/activity_email_login" />
+
+    <activity
+        android:id="@+id/email_sign_up_activity"
+        android:name="com.mtjin.nomoneytrip.views.email_signup.EmailSignUpActivity"
+        android:label="EmailSignUpActivity"
+        tools:layout="@layout/activity_email_signup" />
+
+
     <fragment
         android:id="@+id/bottom_nav_1"
         android:name="com.mtjin.nomoneytrip.views.home.HomeFragment"
@@ -243,13 +280,18 @@
         android:id="@+id/setting_fragment"
         android:name="com.mtjin.nomoneytrip.views.setting.SettingFragment"
         android:label="SettingFragment"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_setting_fragment_to_web_view_fragment"
+            app:destination="@id/web_view_fragment"
+            app:launchSingleTop="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/reservation_detail_fragment"
         android:name="com.mtjin.nomoneytrip.views.reservation_detail.ReservationDetailFragment"
         android:label="ReservationDetailFragment"
-        tools:layout="@layout/fragment_reservation_detail" >
+        tools:layout="@layout/fragment_reservation_detail">
         <argument
             android:name="reservationProduct"
             app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
