@@ -85,12 +85,24 @@ class ReservationFragment :
         val pattern1 = Pattern.compile("취소 / 이용규정")
         val pattern2 = Pattern.compile("개인 정보 수집 / 이용 방침")
         val pattern3 = Pattern.compile("개인정보 제 3자 제공")
-        Linkify.addLinks(binding.tvConsentRule, pattern1, "http://www.naver.com", null, transform)
-        Linkify.addLinks(binding.tvConsentRule, pattern2, "http://www.google.com", null, transform)
+        Linkify.addLinks(
+            binding.tvConsentRule,
+            pattern1,
+            getString(R.string.app_usage_rule_text),
+            null,
+            transform
+        )
+        Linkify.addLinks(
+            binding.tvConsentRule,
+            pattern2,
+            getString(R.string.app_personal_usage_rule_text),
+            null,
+            transform
+        )
         Linkify.addLinks(
             binding.tvConsentRule,
             pattern3,
-            "http://www.naver.com",
+            getString(R.string.app_personal_usage_rule_text),
             null,
             transform
         )
