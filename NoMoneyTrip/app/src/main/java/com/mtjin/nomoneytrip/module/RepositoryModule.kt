@@ -49,7 +49,12 @@ val repositoryModule: Module = module {
     single<HomeRepository> { HomeRepositoryImpl(get()) }
     single<TourWriteRepository> { TourWriteRepositoryImpl(get(), get(named(REVIEW))) }
     single<ReservationRepository> { ReservationRepositoryImpl(get(), get(named("fcm")), get()) }
-    single<ReservationHistoryRepository> { ReservationHistoryRepositoryImpl(get()) }
+    single<ReservationHistoryRepository> {
+        ReservationHistoryRepositoryImpl(
+            get(),
+            get(named("fcm"))
+        )
+    }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
     single<CommunityRepository> { CommunityRepositoryImpl(get()) }
     single<TourNoHistoryRepository> { TourNoHistoryRepositoryImpl(get()) }

@@ -56,9 +56,9 @@ class ReservationHistoryViewModel(private val repository: ReservationHistoryRepo
         )
     }
 
-    fun updateReservationCancel(reservation: Reservation) {
+    fun updateReservationCancel(reservationProduct: ReservationProduct) {
         compositeDisposable.add(
-            repository.updateReservationCancel(reservation = reservation)
+            repository.updateReservationCancel(reservationProduct = reservationProduct)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { showLottieProgress() }

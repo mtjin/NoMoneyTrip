@@ -1,21 +1,29 @@
 package com.mtjin.nomoneytrip.data.reservation_history.source
 
+import android.annotation.SuppressLint
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
+import com.mtjin.nomoneytrip.api.FcmInterface
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
+import com.mtjin.nomoneytrip.service.NotificationBody
+import com.mtjin.nomoneytrip.service.NotificationData
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
-class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) :
+class ReservationHistoryRepositoryImpl(
+    private val database: DatabaseReference,
+    private val fcmInterface: FcmInterface
+) :
     ReservationHistoryRepository {
     private val productList = ArrayList<Product>()
 
@@ -80,17 +88,43 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
         }
     }
 
-    override fun updateReservationCancel(reservation: Reservation): Completable {
+    override fun updateReservationCancel(reservationProduct: ReservationProduct): Completable {
         return Completable.create { emitter ->
             val map = HashMap<String, Any>()
             map[STATE] = false
-            database.child(RESERVATION).child(reservation.id).updateChildren(map)
+            database.child(RESERVATION).child(reservationProduct.reservation.id).updateChildren(map)
                 .addOnSuccessListener {
+                    sendFCM(reservationProduct = reservationProduct)
                     emitter.onComplete()
                 }.addOnFailureListener {
-                emitter.onError(it)
-            }
+                    emitter.onError(it)
+                }
 
         }
+    }
+
+    @SuppressLint("CheckResult")
+    override fun sendFCM(reservationProduct: ReservationProduct) {
+        //이장님께 FCM 전송
+        fcmInterface.sendNotification(
+            NotificationBody(
+                reservationProduct.product.fcm,
+                NotificationData(
+                    title = reservationProduct.product.title,
+                    message = "사용자가 예약을 취소했습니다. :(",
+                    productId = reservationProduct.product.id,
+                    uuid = uuid,
+                    alarmTimestamp = getTimestamp(),
+                    alarmCase = ALARM_RESERVATION_REQUEST_CASE5,
+                    isScheduled = "false",
+                    reservationId = reservationProduct.reservation.id
+                )
+            )
+        ).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onSuccess = { Log.d(TAG, "SUCCESS") },
+                onError = { Log.d(TAG, "FAIL") }
+            )
     }
 }

@@ -61,7 +61,7 @@ class ReservationHistoryFragment :
                     reservationHistory.reservation.masterState == 2 && reservationHistory.reservation.startDateTimestamp >= getTimestamp() -> { //이장님예약수락상태 : 예약취소
                         val dialog =
                             YesNoDialogFragment.getInstance(yesClick = {
-                                if (it) viewModel.updateReservationCancel(reservationHistory.reservation)
+                                if (it) viewModel.updateReservationCancel(reservationProduct = reservationHistory)
                             })
                         dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }
@@ -71,7 +71,6 @@ class ReservationHistoryFragment :
                             val dialog =
                                 RatingBottomDialogFragment.newInstance(
                                     ratingClick = { rating ->
-                                        showToast(rating.toString())
                                         findNavController().navigate(
                                             ReservationHistoryFragmentDirections.actionBottomNav3ToTourWriteFragment(
                                                 reservationHistory, rating
@@ -84,7 +83,7 @@ class ReservationHistoryFragment :
                     else -> { //여행 접수 상태 : 예약취소
                         val dialog =
                             YesNoDialogFragment.getInstance(yesClick = {
-                                if (it) viewModel.updateReservationCancel(reservationHistory.reservation)
+                                if (it) viewModel.updateReservationCancel(reservationHistory)
                             })
                         dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }
