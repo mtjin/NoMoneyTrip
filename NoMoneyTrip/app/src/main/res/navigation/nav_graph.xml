@@ -51,6 +51,10 @@
             android:id="@+id/action_bottom_nav_3_to_tour_write_fragment"
             app:destination="@id/tour_write_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_3_to_reservation_detail_fragment"
+            app:destination="@id/reservation_detail_fragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_4"
@@ -245,7 +249,11 @@
         android:id="@+id/reservation_detail_fragment"
         android:name="com.mtjin.nomoneytrip.views.reservation_detail.ReservationDetailFragment"
         android:label="ReservationDetailFragment"
-        tools:layout="@layout/fragment_reservation_detail" />
+        tools:layout="@layout/fragment_reservation_detail" >
+        <argument
+            android:name="reservationProduct"
+            app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
+    </fragment>
 
 
 </navigation>

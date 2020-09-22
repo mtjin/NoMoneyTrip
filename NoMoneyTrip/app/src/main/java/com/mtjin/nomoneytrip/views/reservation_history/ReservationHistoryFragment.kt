@@ -89,7 +89,11 @@ class ReservationHistoryFragment :
                     }
                 }
             }, layoutClick = {
-
+                findNavController().navigate(
+                    ReservationHistoryFragmentDirections.actionBottomNav3ToReservationDetailFragment(
+                        it
+                    )
+                )
             })
         binding.rvReservationHistories.adapter = adapter
     }
