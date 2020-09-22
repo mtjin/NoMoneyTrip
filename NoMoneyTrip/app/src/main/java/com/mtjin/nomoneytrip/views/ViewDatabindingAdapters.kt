@@ -60,6 +60,55 @@ fun View.setMasterState(masterState: Int) {
     else visibility = View.VISIBLE
 }
 
+//예약취소 보이기 유무
+@BindingAdapter("reservationVisibility")
+fun TextView.setReservationVisibility(reservationProduct: ReservationProduct) {
+    when {
+        !reservationProduct.reservation.state -> { //사용자 취소한 경우
+            visibility = View.GONE
+        }
+        reservationProduct.reservation.masterState == 1 -> { //이장님 거절한 경우
+            visibility = View.GONE
+        }
+        reservationProduct.reservation.masterState == 2 && reservationProduct.reservation.startDateTimestamp >= getTimestamp() -> {//이장님 수락하고 아직 여행전인 경우
+            visibility = View.VISIBLE
+        }
+        reservationProduct.reservation.endDateTimestamp < getTimestamp() -> { //이미 여행 끝난 경우
+            visibility = View.GONE
+        }
+        else -> {
+            visibility = View.VISIBLE
+        }
+    }
+}
+
+//예약상태별 텍스트
+@BindingAdapter("reservationStateText")
+fun TextView.setReservationStateText(reservationProduct: ReservationProduct) {
+    when {
+        !reservationProduct.reservation.state -> { //사용자 취소한 경우
+            text ="예약이 취소되었습니다."
+            setTextColor(context.getMyColor(R.color.colorRedEF4550))
+        }
+        reservationProduct.reservation.masterState == 1 -> { //이장님 거절한 경우
+            text ="이장님이 예약을 거절했습니다."
+            setTextColor(context.getMyColor(R.color.colorRedEF4550))
+        }
+        reservationProduct.reservation.masterState == 2 && reservationProduct.reservation.startDateTimestamp >= getTimestamp() -> {//이장님 수락하고 아직 여행전인 경우
+            text ="예약이 확정되었습니다."
+            setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+        }
+        reservationProduct.reservation.endDateTimestamp < getTimestamp() -> { //이미 여행 끝난 경우
+            text ="다녀온 여행입니다."
+            setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+        }
+        else -> {
+            text ="예약 승인을 기다리고 있습니다."
+            setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+        }
+    }
+}
+
 @BindingAdapter("urlImageRadius")
 fun ImageView.setUrlImageRadius(url: String) {
     Glide.with(this).load(url)

@@ -70,6 +70,7 @@
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    bind:reservationStateText="@{item}"
                     tools:text="예약이 취소되었습니다." />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -82,6 +83,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/goyang_ilsan_regular"
                     android:maxLines="2"
+                    android:text="@{item.product.title}"
                     android:textColor="@color/colorBlack2D2D"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -308,7 +310,8 @@
                     android:textColor="@color/colorWhiteFDFD"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cl_info" />
+                    app:layout_constraintTop_toBottomOf="@id/cl_info"
+                    bind:reservationVisibility="@{item}" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
