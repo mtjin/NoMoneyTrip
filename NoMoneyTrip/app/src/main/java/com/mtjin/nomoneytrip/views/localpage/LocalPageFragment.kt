@@ -50,8 +50,10 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
         binding.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             if (abs(verticalOffset) - appBarLayout.totalScrollRange == 0) { // 접혔을때
                 binding.tvLocalToolbarTitle.visibility = View.VISIBLE
+                binding.viewToolbarLine.visibility = View.VISIBLE
             } else {// 펴졌을때
                 binding.tvLocalToolbarTitle.visibility = View.GONE
+                binding.viewToolbarLine.visibility = View.GONE
             }
         })
     }
