@@ -57,9 +57,7 @@ class ReservationHistoryRepositoryImpl(private val database: DatabaseReference) 
                                             }
                                         }
                                     }
-                                    list.sortWith(Comparator { t, t2 ->
-                                        t2.reservation.startDateTimestamp.toInt() - t.reservation.startDateTimestamp.toInt()
-                                    })
+                                    list.sortByDescending { it.reservation.startDateTimestamp }
                                     emitter.onNext(list)
                                 }
 

@@ -57,6 +57,18 @@ class ReservationHistoryAdapter(
                         tvState.text = "예약 취소"
                         tvState.setTextColor(context.getMyColor(R.color.colorRedEF4550))
                     }
+                    reservation.reservation.masterState == 1 -> {
+                        llLinear.visibility = View.GONE
+                        tvState.text = "이장님 예약 거부"
+                        tvState.setTextColor(context.getMyColor(R.color.colorRedEF4550))
+                    }
+                    reservation.reservation.masterState == 2 && reservation.reservation.startDateTimestamp >= getTimestamp() -> {
+                        llLinear.visibility = View.VISIBLE
+                        tvState.text = "이장님 예약 수락"
+                        tvState.setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+                        tvLeft.text = "문의"
+                        tvRight.text = "예약 취소"
+                    }
                     reservation.reservation.endDateTimestamp < getTimestamp() -> {
                         llLinear.visibility = View.VISIBLE
                         tvState.text = "여행 완료"
