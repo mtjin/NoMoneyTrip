@@ -61,6 +61,15 @@ open class HomeHashTagAdapter(
 
         fun bind(item: String) {
             binding.item = item
+            if(viewList.contains(binding.root)){
+                binding.tvHashTag.background =
+                    context.getMyDrawable(R.drawable.bg_hash_tag_solid_orange_radius_8dp)
+                binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorWhite))
+            }else{
+                binding.tvHashTag.background =
+                    context.getMyDrawable(R.drawable.bg_hash_tag_orange_radius_8dp)
+                binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+            }
             binding.executePendingBindings()
         }
     }
@@ -79,4 +88,5 @@ open class HomeHashTagAdapter(
         this.items.clear()
         notifyDataSetChanged()
     }
+
 }

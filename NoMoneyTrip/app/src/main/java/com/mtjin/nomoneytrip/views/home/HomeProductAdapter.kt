@@ -66,6 +66,9 @@ class HomeProductAdapter(
             if (item.favoriteList.contains(uuid)) {
                 val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_on)
                 binding.ivFavorite.setImageDrawable(img)
+            }else{
+                val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_white_off)
+                binding.ivFavorite.setImageDrawable(img)
             }
             binding.executePendingBindings()
         }

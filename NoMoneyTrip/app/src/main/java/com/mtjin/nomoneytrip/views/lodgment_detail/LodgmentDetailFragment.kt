@@ -135,7 +135,7 @@ class LodgmentDetailFragment :
         })
     }
 
-    fun isVisible(view: View?): Boolean {
+    private fun isVisible(view: View?): Boolean {
         if (view == null) {
             return false
         }
