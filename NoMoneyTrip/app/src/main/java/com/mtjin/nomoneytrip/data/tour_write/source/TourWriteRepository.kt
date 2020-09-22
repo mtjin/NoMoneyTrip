@@ -11,4 +11,5 @@ interface TourWriteRepository {
         reservationProduct: ReservationProduct,
         review: Review
     ): Completable
+    fun sendFCM(reservationProduct: ReservationProduct)
 }
