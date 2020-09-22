@@ -111,7 +111,7 @@ class ReservationHistoryRepositoryImpl(
                 reservationProduct.product.fcm,
                 NotificationData(
                     title = reservationProduct.product.title,
-                    message = "사용자가 예약을 취소했습니다. :(",
+                    message = convertTimeToUserDenyFcmMessage(reservationProduct.reservation.startDateTimestamp),
                     productId = reservationProduct.product.id,
                     uuid = uuid,
                     alarmTimestamp = getTimestamp(),

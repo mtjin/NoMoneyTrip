@@ -58,7 +58,7 @@ class MasterMainRepositoryImpl(
                                     for (reservation in reservationList) {
                                         for (user in userList) {
                                             if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(
-                                                    10
+                                                    30
                                                 )
                                             ) {
                                                 masterProductList.add(

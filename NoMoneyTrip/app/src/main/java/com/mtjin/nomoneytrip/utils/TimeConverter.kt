@@ -115,11 +115,15 @@ fun convertTimeToFcmMessage(date: Long, time: String): String =
 
 // FCM 메시지로 사용(수락)
 fun convertTimeToAcceptFcmMessage(date: Long, time: String): String =
-    date.convertTimestampToDate() + " " + time + "에 예약을 이장님이 수락했습니다."
+    date.convertTimestampToDate() + " " + time + "에 잡힌 예약을 이장님이 수락했습니다 :)"
 
 // FCM 메시지로 사용(거절)
 fun convertTimeToDenyFcmMessage(date: Long, time: String): String =
-    date.convertTimestampToDate() + " " + time + "에 예약을 이장님이 취소했습니다."
+    date.convertTimestampToDate() + " " + time + "에 잡힌 예약을 이장님이 취소했습니다 :("
+
+// FCM 메시지로 사용(거절)
+fun convertTimeToUserDenyFcmMessage(date: Long): String =
+    date.convertTimestampToDate() + "에 잡힌 예약을 사용자가 취소했습니다 :("
 
 fun combineTimestamp(x: Long, y: Long) = (x.toString() + y.toString()).toLong()
 
