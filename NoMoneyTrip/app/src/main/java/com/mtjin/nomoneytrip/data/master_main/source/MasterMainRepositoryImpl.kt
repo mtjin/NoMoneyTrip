@@ -57,7 +57,10 @@ class MasterMainRepositoryImpl(
                                     val masterProductList = ArrayList<MasterProduct>()
                                     for (reservation in reservationList) {
                                         for (user in userList) {
-                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(10)) {
+                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(
+                                                    10
+                                                )
+                                            ) {
                                                 masterProductList.add(
                                                     MasterProduct(
                                                         reservation = reservation,
@@ -111,7 +114,10 @@ class MasterMainRepositoryImpl(
                                     val masterProductList = ArrayList<MasterProduct>()
                                     for (reservation in reservationList) {
                                         for (user in userList) {
-                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(10)) {
+                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(
+                                                    30
+                                                )
+                                            ) {
                                                 masterProductList.add(
                                                     MasterProduct(
                                                         reservation = reservation,
