@@ -37,7 +37,7 @@ class MasterMainRepositoryImpl(
                         val reservationList = ArrayList<Reservation>()
                         for (snapshot2 in snapshot.children) {
                             snapshot2.getValue(Reservation::class.java)?.let {
-                                if (it.state && it.masterState == 0) {
+                                if (it.state == 0) {
                                     reservationList.add(it)
                                 }
                             }
@@ -94,7 +94,7 @@ class MasterMainRepositoryImpl(
                         val reservationList = ArrayList<Reservation>()
                         for (snapshot2 in snapshot.children) {
                             snapshot2.getValue(Reservation::class.java)?.let {
-                                if (it.state && it.masterState == 2) {
+                                if (it.state == 2) {
                                     reservationList.add(it)
                                 }
                             }
@@ -145,7 +145,7 @@ class MasterMainRepositoryImpl(
     ): Completable {
         return Completable.create { emitter ->
             val masterStateMap = HashMap<String, Any>()
-            masterStateMap[MASTER_STATE] = masterState
+            masterStateMap[STATE] = masterState
             database.child(RESERVATION).child(masterProduct.reservation.id)
                 .updateChildren(masterStateMap).addOnSuccessListener {
                     sendFCM(masterProduct, masterState)
@@ -167,12 +167,12 @@ class MasterMainRepositoryImpl(
                 override fun onDataChange(snapshot: DataSnapshot) {
                     snapshot.getValue(Product::class.java)?.let { product ->
                         var message = ""
-                        if (masterState == 1) {
+                        if (masterState == 1) { //이장님 예약거절
                             message = convertTimeToDenyFcmMessage(
                                 date = masterProduct.reservation.startDateTimestamp,
                                 time = product.checkIn
                             )
-                        } else if (masterState == 2) {
+                        } else if (masterState == 2) { //이장님 예약수락
                             message = convertTimeToAcceptFcmMessage(
                                 date = masterProduct.reservation.startDateTimestamp,
                                 time = product.checkIn
@@ -201,10 +201,10 @@ class MasterMainRepositoryImpl(
                             )
                         var content = ""
                         var case = 0
-                        if (masterState == 3) { //수락
+                        if (masterState == 2) { //수락
                             content = product.title + " 예약을 이장님이 수락했습니다."
                             case = ALARM_RESERVATION_ACCEPT_CASE2
-                        } else if (masterState == 2) {// 거절
+                        } else if (masterState == 1) {// 거절
                             content = product.title + " 예약을 이장님이 거절했습니다."
                             case = ALARM_RESERVATION_DENY_CASE5
                         }

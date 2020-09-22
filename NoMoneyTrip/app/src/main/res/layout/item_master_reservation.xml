@@ -165,7 +165,7 @@
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cl_constraint2"
-                bind:masterState="@{item.reservation.masterState}">
+                bind:masterState="@{item.reservation.state}">
 
                 <View
                     android:id="@+id/view_bottom"

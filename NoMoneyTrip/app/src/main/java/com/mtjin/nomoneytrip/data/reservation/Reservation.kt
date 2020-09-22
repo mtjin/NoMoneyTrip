@@ -10,9 +10,8 @@ data class Reservation(
     var option: String = "",
     var productId: String = "",
     var num: String = "",
-    var state: Boolean = true, // 고객 예약취소여부 true:취소X , false : 취소
     val reviewed: Boolean = false, // 고객 리뷰 남김 유무
     var startDateTimestamp: Long = 0,
     var endDateTimestamp: Long = 0,
-    var masterState: Int = 0 // 이장님 0:기본(미정), 1: 예약거절, 2:예약수락 구분
+    var state: Int = 0 // 0:기본값 대기상태(미정), 1: 이장 예약거절, 2:이장 예약수락, 3: 사용자예약취소
 ) : Parcelable

@@ -21,6 +21,12 @@ const val EXTRA_ALARM_TIMESTAMP = "EXTRA_ALARM_TIMESTAMP"
 const val EXTRA_ALARM_CASE = "EXTRA_ALARM_CASE"
 const val EXTRA_RESERVATION_ID = "EXTRA_RESERVATION_ID"
 
+//reservation state case
+const val RESERVATION_DEFAULT_CODE = 0
+const val RESERVATION_MASTER_DENY_CODE = 1
+const val RESERVATION_MASTER_ACCEPT_CODE = 2
+const val RESERVATION_USER_DENY_CODE = 3
+
 //alarm case
 const val ALARM_RESERVATION_COMPLETE_CASE1 = 1 //사용자예약 완료
 const val ALARM_RESERVATION_ACCEPT_CASE2 = 2 //이장님 수락
@@ -78,7 +84,6 @@ const val RATING_LIST = "ratingList"
 const val ALARM = "alarm"
 const val TEL = "tel"
 const val MASTER_USER = "masterUser"
-const val MASTER_STATE = "masterState"
 const val STATE = "state"
 
 // 시간

@@ -91,7 +91,7 @@ class ReservationHistoryRepositoryImpl(
     override fun updateReservationCancel(reservationProduct: ReservationProduct): Completable {
         return Completable.create { emitter ->
             val map = HashMap<String, Any>()
-            map[STATE] = false
+            map[STATE] = RESERVATION_USER_DENY_CODE
             database.child(RESERVATION).child(reservationProduct.reservation.id).updateChildren(map)
                 .addOnSuccessListener {
                     sendFCM(reservationProduct = reservationProduct)

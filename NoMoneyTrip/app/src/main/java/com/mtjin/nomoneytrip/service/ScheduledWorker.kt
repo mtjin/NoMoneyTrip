@@ -37,7 +37,7 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters) :
 
                         override fun onDataChange(snapshot: DataSnapshot) {
                             snapshot.getValue(Reservation::class.java)?.let { reservation ->
-                                if (reservation.masterState == 2 || reservation.masterState == 0 || reservation.state) {
+                                if (reservation.state == 2 || reservation.state == 0) {
                                     Firebase.database.reference.child(ALARM).child(userId)
                                         .child(dbKey)
                                         .setValue(

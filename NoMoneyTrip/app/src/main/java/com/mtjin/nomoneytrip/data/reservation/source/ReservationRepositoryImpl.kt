@@ -155,7 +155,7 @@ class ReservationRepositoryImpl(
                 product.fcm,
                 NotificationData(
                     title = product.title,
-                    message = "사용자 예약이 있습니다 :)",
+                    message = convertTimeUserToMasterFcmMessage(date = reservation.startDateTimestamp),
                     productId = product.id,
                     uuid = uuid,
                     alarmTimestamp = getTimestamp(),

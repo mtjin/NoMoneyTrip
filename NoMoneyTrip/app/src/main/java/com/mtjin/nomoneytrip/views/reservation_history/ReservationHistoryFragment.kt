@@ -58,7 +58,7 @@ class ReservationHistoryFragment :
                 thisContext.startActivity(callIntent)
             }, rightClick = { reservationHistory ->
                 when {
-                    reservationHistory.reservation.masterState == 2 && reservationHistory.reservation.startDateTimestamp >= getTimestamp() -> { //이장님예약수락상태 : 예약취소
+                    reservationHistory.reservation.state == 2 && reservationHistory.reservation.startDateTimestamp >= getTimestamp() -> { //이장님예약수락상태 : 예약취소
                         val dialog =
                             YesNoDialogFragment.getInstance(yesClick = {
                                 if (it) viewModel.updateReservationCancel(reservationProduct = reservationHistory)
