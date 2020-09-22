@@ -72,6 +72,7 @@
             android:text="@string/see_reservation_detail_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_14sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_reservation_explanation" />

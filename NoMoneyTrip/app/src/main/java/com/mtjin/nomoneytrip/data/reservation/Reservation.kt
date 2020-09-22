@@ -10,7 +10,7 @@ data class Reservation(
     var option: String = "",
     var productId: String = "",
     var num: String = "",
-    var state: Boolean = true, // 고객 예약취소여부
+    var state: Boolean = true, // 고객 예약취소여부 true:취소X , false : 취소
     val reviewed: Boolean = false, // 고객 리뷰 남김 유무
     var startDateTimestamp: Long = 0,
     var endDateTimestamp: Long = 0,

@@ -22,13 +22,14 @@ class AlarmRepositoryImpl(private val database: DatabaseReference) : AlarmReposi
                         val alarmList = ArrayList<Alarm>()
                         for (snapshot2 in snapshot.children) {
                             snapshot2.getValue(Alarm::class.java)?.let {
-                                if(alarmList.isNotEmpty()){
-                                    alarmList.add(alarmList.size-1, it)
-                                }else{
+                                if (alarmList.isNotEmpty()) {
+                                    alarmList.add(alarmList.size - 1, it)
+                                } else {
                                     alarmList.add(it)
                                 }
                             }
                         }
+                        alarmList.sortByDescending { it.timestamp }
                         emitter.onSuccess(alarmList)
                     }
 

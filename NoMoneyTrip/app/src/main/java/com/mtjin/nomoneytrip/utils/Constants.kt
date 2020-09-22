@@ -27,6 +27,7 @@ const val ALARM_RESERVATION_ACCEPT_CASE2 = 2 //이장님 수락
 const val ALARM_START_CASE3 = 3 //여행하루전알람
 const val ALARM_REVIEW_CASE4 = 4 // 여행끝 리뷰 알람
 const val ALARM_RESERVATION_REQUEST_CASE5 = 5 // 여행예약 이장님께 알림
+const val ALARM_RESERVATION_DENY_CASE5 = 6 // 여행예약 이장님께 알림
 
 // area code
 const val SEOUL_CODE = 1
