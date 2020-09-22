@@ -68,6 +68,9 @@ class CommunityAdapter(
             if (item.review.recommendList.contains(uuid)) {
                 val img: Drawable? = context.getMyDrawable(R.drawable.ic_community_good)
                 binding.tvHeart.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null)
+            }else{
+                val img: Drawable? = context.getMyDrawable(R.drawable.ic_community_good_off)
+                binding.tvHeart.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null)
             }
             binding.executePendingBindings()
         }
