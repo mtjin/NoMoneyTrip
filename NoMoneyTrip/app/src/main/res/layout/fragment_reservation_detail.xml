@@ -7,6 +7,10 @@
     <data>
 
         <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.reservation_detail.ReservationDetailViewModel" />
+
+        <variable
             name="item"
             type="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
     </data>
@@ -304,6 +308,7 @@
                     android:layout_marginEnd="@dimen/margin_28dp"
                     android:background="@drawable/bg_btn_solid_orange_f792_radius_8dp"
                     android:gravity="center"
+                    android:onClick="@{()->vm.onClickCancelReservation()}"
                     android:paddingTop="@dimen/padding_11dp"
                     android:paddingBottom="@dimen/padding_12dp"
                     android:text="@string/reservation_cancel_text"
