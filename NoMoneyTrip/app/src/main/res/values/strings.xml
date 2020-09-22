@@ -163,4 +163,5 @@
     <string name="check_out_text">체크아웃</string>
     <string name="welcom_no_money_trip_text">무전일기에 오신 것을 환영합니다~~</string>
     <string name="app_operator_text">운영진</string>
+    <string name="app_current_version_text">현재 버전</string>
 </resources>

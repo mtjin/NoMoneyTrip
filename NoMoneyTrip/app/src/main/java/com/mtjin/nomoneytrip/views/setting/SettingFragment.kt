@@ -37,7 +37,9 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
                 requireActivity().finish()
             })
             onInfoClick.observe(this@SettingFragment, Observer {//앱정보
-
+                findNavController().navigate(
+                    SettingFragmentDirections.actionSettingFragmentToAppInfoFragment()
+                )
             })
             onRuleClick.observe(this@SettingFragment, Observer { //이용약관
                 findNavController().navigate(

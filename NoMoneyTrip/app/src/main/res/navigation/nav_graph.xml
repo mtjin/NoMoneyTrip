@@ -285,6 +285,10 @@
             android:id="@+id/action_setting_fragment_to_web_view_fragment"
             app:destination="@id/web_view_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_setting_fragment_to_app_info_fragment"
+            app:destination="@id/app_info_fragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
@@ -295,6 +299,13 @@
         <argument
             android:name="reservationProduct"
             app:argType="com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/app_info_fragment"
+        android:name="com.mtjin.nomoneytrip.views.app_info.AppInfoFragment"
+        android:label="AppInfoFragment"
+        tools:layout="@layout/fragment_app_info">
     </fragment>
 
 
