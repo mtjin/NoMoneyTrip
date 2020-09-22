@@ -32,6 +32,22 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
                 requireActivity().startActivity(Intent(requireContext(), LoginActivity::class.java))
                 requireActivity().finish()
             })
+            onInfoClick.observe(this@SettingFragment, Observer {
+                showToast("준비중")
+            })
+            onRuleClick.observe(this@SettingFragment, Observer {
+                showToast("준비중")
+            })
+            onPersonalInfoClick.observe(this@SettingFragment, Observer {
+                showToast("준비중")
+            })
+            onLocationInfoClick.observe(this@SettingFragment, Observer {
+                showToast("준비중")
+            })
+            onDeleteAuthClick.observe(this@SettingFragment, Observer {
+                showToast("준비중")
+            })
         }
+
     }
 }
