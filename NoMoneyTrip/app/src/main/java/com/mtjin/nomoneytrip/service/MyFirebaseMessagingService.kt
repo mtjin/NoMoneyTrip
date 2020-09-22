@@ -20,7 +20,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         val to = remoteMessage.to.toString()
-        Log.d("AAAAA", remoteMessage.toString())
         if (remoteMessage.data["isScheduled"] == "false") { // 즉시 전송
             sendNotification(remoteMessage)
         } else { // 예약전송

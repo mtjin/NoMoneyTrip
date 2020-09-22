@@ -27,19 +27,19 @@ class SettingViewModel(private val repository: SettingRepository) : BaseViewMode
     fun getSettingAlarm(): Boolean = repository.alarmSetting
 
     fun onInfoClick() {
-
+        _onInfoClick.call()
     }
 
     fun onRuleClick() {
-
+        _onRuleClick.call()
     }
 
     fun onPersonalInfoClick() {
-
+        _onPersonalInfoClick.call()
     }
 
     fun onLocationInfoClick() {
-
+        _onLocationInfoClick.call()
     }
 
     fun onLogoutClick() {
@@ -47,6 +47,6 @@ class SettingViewModel(private val repository: SettingRepository) : BaseViewMode
     }
 
     fun onDeleteAuthClick() {
-
+        _onDeleteAuthClick.call()
     }
 }
