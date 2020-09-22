@@ -15,7 +15,8 @@ import com.mtjin.nomoneytrip.utils.getTimestamp
 class ReservationHistoryAdapter(
     private val context: Context,
     private val leftClick: (ReservationProduct) -> Unit,
-    private val rightClick: (ReservationProduct) -> Unit
+    private val rightClick: (ReservationProduct) -> Unit,
+    private val layoutClick: (ReservationProduct) -> Unit
 ) :
     RecyclerView.Adapter<ReservationHistoryAdapter.ViewHolder>() {
     private val items: ArrayList<ReservationProduct> = ArrayList()
@@ -33,6 +34,9 @@ class ReservationHistoryAdapter(
         }
         binding.tvRight.setOnClickListener {
             rightClick(items[viewHolder.adapterPosition])
+        }
+        binding.clConstraint.setOnClickListener {
+            layoutClick(items[viewHolder.adapterPosition])
         }
         return viewHolder
     }

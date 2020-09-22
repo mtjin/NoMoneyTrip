@@ -241,6 +241,11 @@
         android:label="SettingFragment"
         tools:layout="@layout/fragment_setting" />
 
+    <fragment
+        android:id="@+id/reservation_detail_fragment"
+        android:name="com.mtjin.nomoneytrip.views.reservation_detail.ReservationDetailFragment"
+        android:label="ReservationDetailFragment"
+        tools:layout="@layout/fragment_reservation_detail" />
 
 
 </navigation>

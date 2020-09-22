@@ -53,10 +53,10 @@ class ReservationHistoryFragment :
 
     private fun initAdapter() {
         val adapter = ReservationHistoryAdapter(thisContext,
-            {   //문의
+            leftClick = {   //문의
                 val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + it.product.phone))
                 thisContext.startActivity(callIntent)
-            }, { reservationHistory ->
+            }, rightClick = { reservationHistory ->
                 when {
                     reservationHistory.reservation.masterState == 2 && reservationHistory.reservation.startDateTimestamp >= getTimestamp() -> { //이장님예약수락상태 : 예약취소
                         val dialog =
@@ -88,6 +88,8 @@ class ReservationHistoryFragment :
                         dialog.show(requireActivity().supportFragmentManager, dialog.tag)
                     }
                 }
+            }, layoutClick = {
+
             })
         binding.rvReservationHistories.adapter = adapter
     }
