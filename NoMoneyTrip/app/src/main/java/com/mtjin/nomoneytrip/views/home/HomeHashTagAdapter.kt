@@ -3,14 +3,12 @@ package com.mtjin.nomoneytrip.views.home
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.databinding.ItemHashTagBinding
 import com.mtjin.nomoneytrip.utils.getMyColor
 import com.mtjin.nomoneytrip.utils.getMyDrawable
-import kotlinx.android.synthetic.main.item_hash_tag.view.*
 
 open class HomeHashTagAdapter(
     private val hashTagClick: (String) -> Unit,
@@ -18,7 +16,8 @@ open class HomeHashTagAdapter(
 ) :
     RecyclerView.Adapter<HomeHashTagAdapter.ViewHolder>() {
     private val items = ArrayList<String>()
-    private val viewList = ArrayList<TextView>()
+    private val viewHolders = HashSet<ViewHolder>()
+    var clickItem = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemHashTagBinding = DataBindingUtil.inflate(
@@ -29,22 +28,26 @@ open class HomeHashTagAdapter(
         )
         val viewHolder = ViewHolder(binding)
         binding.root.setOnClickListener {
-            hashTagClick(items[viewHolder.adapterPosition])
-            for (view in viewList) {
-                if (view == it.tv_hash_tag) {
-                    binding.tvHashTag.background =
-                        context.getMyDrawable(R.drawable.bg_hash_tag_solid_orange_radius_8dp)
-                    binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorWhite))
-                } else {
-                    view.tv_hash_tag.background =
-                        context.getMyDrawable(R.drawable.bg_hash_tag_orange_radius_8dp)
-                    view.tv_hash_tag.setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+            if (items[viewHolder.adapterPosition] == clickItem) {
+                binding.tvHashTag.background =
+                    context.getMyDrawable(R.drawable.bg_hash_tag_orange_radius_8dp)
+                binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorOrangeF79256))
+                hashTagClick("")
+                clickItem = ""
+            } else {
+                clickItem = items[viewHolder.adapterPosition]
+                binding.tvHashTag.background =
+                    context.getMyDrawable(R.drawable.bg_hash_tag_solid_orange_radius_8dp)
+                binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorWhite))
+                for (holder in viewHolders) {
+                    if (holder.adapterPosition > -1) {
+                        holder.bind(items[holder.adapterPosition])
+                    }
                 }
+                hashTagClick(items[viewHolder.adapterPosition])
             }
         }
-        if (!viewList.contains(binding.root)) {
-            viewList.add(binding.tvHashTag)
-        }
+        viewHolders.add(viewHolder)
         return viewHolder
     }
 
@@ -61,11 +64,11 @@ open class HomeHashTagAdapter(
 
         fun bind(item: String) {
             binding.item = item
-            if(viewList.contains(binding.root)){
+            if (item == clickItem) {
                 binding.tvHashTag.background =
                     context.getMyDrawable(R.drawable.bg_hash_tag_solid_orange_radius_8dp)
                 binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorWhite))
-            }else{
+            } else {
                 binding.tvHashTag.background =
                     context.getMyDrawable(R.drawable.bg_hash_tag_orange_radius_8dp)
                 binding.tvHashTag.setTextColor(context.getMyColor(R.color.colorOrangeF79256))

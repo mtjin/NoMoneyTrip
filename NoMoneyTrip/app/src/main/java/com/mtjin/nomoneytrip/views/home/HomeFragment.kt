@@ -26,7 +26,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initAdapter() {
         //해쉬태그 어댑터
         hashTagAdapter = HomeHashTagAdapter({ hashTag ->
-            viewModel.requestHashTagProducts(hashTag)
+            if (hashTag.isNullOrBlank()) viewModel.requestProducts()
+            else viewModel.requestHashTagProducts(hashTag)
+
         }, thisContext)
         binding.rvHashTags.adapter = hashTagAdapter
 
