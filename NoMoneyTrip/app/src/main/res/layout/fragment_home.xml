@@ -125,6 +125,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/margin_8dp"
+                            android:onClick="@{()->vm.goSearch()}"
                             android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="@id/iv_alarm"
                             app:layout_constraintEnd_toStartOf="@id/iv_alarm"
