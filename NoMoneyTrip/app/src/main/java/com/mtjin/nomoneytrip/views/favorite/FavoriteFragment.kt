@@ -6,7 +6,7 @@ import com.mtjin.nomoneytrip.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment_favorite) {
     override fun init() {
-        
+
     }
 
 }
