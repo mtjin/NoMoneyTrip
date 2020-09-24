@@ -4,7 +4,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 const val TAG = "LOG_TAG"
-const val APP_RULE_URL =  "https://blog.naver.com/kjhumal94/222094541233"
+const val APP_RULE_URL = "https://blog.naver.com/kjhumal94/222094541233"
 const val APP_PERSONAL_INFO_RULE = "https://blog.naver.com/kjhumal94/222094541233"
 const val APP_LOCATION_INFO_RULE = "https://blog.naver.com/kjhumal94/222094541884"
 var FCM_KEY: String =
@@ -76,10 +76,8 @@ const val REVIEW = "review"
 const val REVIEWED = "reviewed"
 const val NAME = "name"
 const val IMAGE = "image"
-const val TIMESTAMP = "timestamp"
 const val RECOMMEND_LIST = "recommendList"
 const val FAVORITE_LIST = "favoriteList"
-const val FAVORITE = "favorite"
 const val RATING_LIST = "ratingList"
 const val ALARM = "alarm"
 const val TEL = "tel"

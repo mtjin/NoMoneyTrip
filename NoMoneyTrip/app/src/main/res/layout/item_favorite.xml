@@ -10,9 +10,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:layout_aspectRatio="100%"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_widthPercent="100%"
         app:srcCompat="@drawable/img_product" />
 
     <androidx.appcompat.widget.AppCompatImageView

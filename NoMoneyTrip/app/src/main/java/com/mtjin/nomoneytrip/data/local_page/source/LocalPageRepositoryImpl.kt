@@ -152,12 +152,7 @@ class LocalPageRepositoryImpl(
             updateMap[FAVORITE_LIST] = product.favoriteList
             database.child(PRODUCT).child(product.id).updateChildren(updateMap)
                 .addOnSuccessListener {
-                    database.child(FAVORITE).child(uuid).child(product.id).setValue(product.id)
-                        .addOnSuccessListener {
-                            emitter.onComplete()
-                        }.addOnFailureListener {
-                        emitter.onError(it)
-                    }
+                    emitter.onComplete()
                 }.addOnFailureListener {
                     emitter.onError(it)
                 }

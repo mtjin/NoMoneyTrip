@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.data.lodgment_detail.source
 
-import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -109,12 +108,7 @@ class LodgmentDetailRepositoryImpl(
             updateMap[FAVORITE_LIST] = product.favoriteList
             database.child(PRODUCT).child(product.id).updateChildren(updateMap)
                 .addOnSuccessListener {
-                    database.child(FAVORITE).child(uuid).child(product.id).setValue(product.id)
-                        .addOnSuccessListener {
-                            emitter.onComplete()
-                        }.addOnFailureListener {
-                        emitter.onError(it)
-                    }
+                    emitter.onComplete()
                 }.addOnFailureListener {
                     emitter.onError(it)
                 }
