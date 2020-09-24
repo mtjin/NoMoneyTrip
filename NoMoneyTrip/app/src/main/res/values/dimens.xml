@@ -2,23 +2,23 @@
 <resources>
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="margin_28dp">28dp</dimen>
-    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_20sp">20dp</dimen>
     <dimen name="margin_30dp">30dp</dimen>
     <dimen name="padding_6dp">6dp</dimen>
-    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_18sp">18dp</dimen>
     <dimen name="margin_22dp">22dp</dimen>
     <dimen name="margin_25dp">25dp</dimen>
     <dimen name="margin_36dp">36dp</dimen>
     <dimen name="margin_18dp">18dp</dimen>
     <dimen name="padding_28dp">28dp</dimen>
     <dimen name="margin_32dp">32dp</dimen>
-    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_16sp">16dp</dimen>
     <dimen name="height_200dp">200dp</dimen>
     <dimen name="padding_36dp">36dp</dimen>
     <dimen name="margin_20dp">20dp</dimen>
     <dimen name="margin_24dp">24dp</dimen>
     <dimen name="line_spacing_extra_size_10sp">10sp</dimen>
-    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_22sp">22dp</dimen>
     <dimen name="margin_26dp">26dp</dimen>
     <dimen name="margin_14dp">14dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
@@ -27,7 +27,7 @@
     <dimen name="height_180dp">180dp</dimen>
     <dimen name="radius_16dp">16dp</dimen>
     <dimen name="width_1dp">1dp</dimen>
-    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_14sp">14dp</dimen>
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="radius_8dp">8dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
@@ -37,7 +37,7 @@
     <dimen name="width_260dp">260dp</dimen>
     <dimen name="height_290dp">290dp</dimen>
     <dimen name="height_240do">240dp</dimen>
-    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_12sp">12dp</dimen>
     <dimen name="width_44dp">44dp</dimen>
     <dimen name="height_1dp">1dp</dimen>
     <dimen name="margin_59dp">59dp</dimen>
@@ -67,7 +67,7 @@
     <dimen name="height_48dp">48dp</dimen>
     <dimen name="padding_20dp">20dp</dimen>
     <dimen name="behavior_height_56dp">56dp</dimen>
-    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_24sp">24dp</dimen>
     <dimen name="padding_48dp">48dp</dimen>
     <dimen name="size_100dp">100dp</dimen>
     <dimen name="height_80dp">80dp</dimen>
@@ -83,7 +83,7 @@
     <dimen name="margin_96dp">96dp</dimen>
     <dimen name="padding_11dp">11dp</dimen>
     <dimen name="margin_9dp">9dp</dimen>
-    <dimen name="text_size_28sp">28sp</dimen>
+    <dimen name="text_size_28sp">28dp</dimen>
     <dimen name="size_36dp">36dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_19dp">19dp</dimen>
