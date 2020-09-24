@@ -216,6 +216,10 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/bottom_nav_2"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_tour_no_history_fragment_to_lodgment_detail_fragment"
+            app:destination="@id/lodgment_detail_fragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment

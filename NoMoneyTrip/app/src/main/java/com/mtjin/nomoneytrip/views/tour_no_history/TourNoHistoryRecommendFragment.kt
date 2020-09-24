@@ -6,11 +6,17 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.databinding.FragmentNoHistoryRecommendBinding
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 
-class TourNoHistoryRecommendFragment(private val product: Product) :
+class TourNoHistoryRecommendFragment(
+    private val product: Product,
+    private val onClick: (Product) -> Unit
+) :
     BaseFragment<FragmentNoHistoryRecommendBinding>(R.layout.fragment_no_history_recommend) {
     override fun init() {
         initAdapter()
         binding.item = product
+        binding.root.setOnClickListener {
+            onClick(product)
+        }
     }
 
     private fun initAdapter() {

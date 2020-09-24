@@ -10,7 +10,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class TourNoHistoryFragment :
     BaseFragment<FragmentTourNoHistoryBinding>(R.layout.fragment_tour_no_history) {
     private val viewModel: TourNoHistoryViewModel by viewModel()
-    lateinit var pagerAdapter: TourNoHistoryPagerAdapter
+    private lateinit var pagerAdapter: TourNoHistoryPagerAdapter
 
     override fun init() {
         binding.vm = viewModel
@@ -36,7 +36,13 @@ class TourNoHistoryFragment :
             productList.observe(this@TourNoHistoryFragment, Observer { products ->
                 val list = ArrayList<TourNoHistoryRecommendFragment>()
                 for (product in products) {
-                    list.add(TourNoHistoryRecommendFragment(product))
+                    list.add(TourNoHistoryRecommendFragment(product = product, onClick = {
+                        findNavController().navigate(
+                            TourNoHistoryFragmentDirections.actionTourNoHistoryFragmentToLodgmentDetailFragment(
+                                it
+                            )
+                        )
+                    }))
                 }
                 pagerAdapter.addItems(list)
             })
