@@ -1,6 +1,5 @@
 package com.mtjin.nomoneytrip.data.reservation.source
 
-import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
@@ -26,9 +25,11 @@ import com.mtjin.nomoneytrip.service.ScheduledWorker
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
+
 
 class ReservationRepositoryImpl(
     private val database: DatabaseReference,
@@ -81,10 +82,10 @@ class ReservationRepositoryImpl(
         }
     }
 
-    @SuppressLint("CheckResult")
+
     override fun sendNotification(reservation: Reservation, product: Product) {
         val title = product.title
-        val message = convertTimeToFcmMessage(
+        val message = convertTimeToUserStartFcmMessage(
             date = reservation.startDateTimestamp,
             time = product.checkIn
         )
@@ -150,12 +151,13 @@ class ReservationRepositoryImpl(
         workManager.enqueue(workRequest)
 
         //이장님께 FCM 전송
-        fcmInterface.sendNotification(
+        val compositeDisposable = CompositeDisposable()
+        compositeDisposable.add(fcmInterface.sendNotification(
             NotificationBody(
                 product.fcm,
                 NotificationData(
                     title = product.title,
-                    message = convertTimeUserToMasterFcmMessage(date = reservation.startDateTimestamp),
+                    message = convertTimeToMasterFcmMessage(date = reservation.startDateTimestamp),
                     productId = product.id,
                     uuid = uuid,
                     alarmTimestamp = getTimestamp(),
@@ -170,5 +172,6 @@ class ReservationRepositoryImpl(
                 onSuccess = { Log.d(TAG, "SUCCESS") },
                 onError = { Log.d(TAG, "FAIL") }
             )
+        )
     }
 }

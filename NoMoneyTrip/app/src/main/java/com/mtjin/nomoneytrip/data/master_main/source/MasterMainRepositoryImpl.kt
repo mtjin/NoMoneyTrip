@@ -168,12 +168,12 @@ class MasterMainRepositoryImpl(
                     snapshot.getValue(Product::class.java)?.let { product ->
                         var message = ""
                         if (masterState == 1) { //이장님 예약거절
-                            message = convertTimeToDenyFcmMessage(
+                            message = convertTimeToMasterDenyFcmMessage(
                                 date = masterProduct.reservation.startDateTimestamp,
                                 time = product.checkIn
                             )
                         } else if (masterState == 2) { //이장님 예약수락
-                            message = convertTimeToAcceptFcmMessage(
+                            message = convertTimeToMasterAcceptFcmMessage(
                                 date = masterProduct.reservation.startDateTimestamp,
                                 time = product.checkIn
                             )
