@@ -65,19 +65,6 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
 
     fun requestMyRecommendReviews() {
         _clickHeart.call()
-        compositeDisposable.add(
-            profileRepository.requestMyRecommendReviews()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
-                    onSuccess = {
-                        _userReviewList.value = it
-                    },
-                    onError = {
-                        Log.d(TAG, "ProfileViewModel requestMyRecommendReviews() -> $it")
-                    }
-                )
-        )
     }
 
     fun updateReviewRecommend(userReview: UserReview) {

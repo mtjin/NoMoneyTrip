@@ -10,7 +10,6 @@ interface ProfileRepository {
     fun requestProfile(): Single<User>
     fun updateReviewRecommend(userReview: UserReview): Completable
     fun requestMyReviews(): Single<List<UserReview>>
-    fun requestMyRecommendReviews(): Single<List<UserReview>>
     fun requestFavorites(): Single<List<Product>>
     fun updateProductFavorite(product: Product): Completable
 }
