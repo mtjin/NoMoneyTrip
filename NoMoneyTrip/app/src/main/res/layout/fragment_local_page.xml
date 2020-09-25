@@ -80,7 +80,7 @@
                             android:onClick="@{()->vm.onBackClick()}"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_back_title" />
+                            app:srcCompat="@drawable/ic_back_white" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_local_toolbar_title"
@@ -95,6 +95,7 @@
                             tools:text="지역명입니다" />
 
                         <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_search"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/margin_20dp"
@@ -102,7 +103,7 @@
                             app:layout_constraintBottom_toBottomOf="@id/iv_back"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="@id/iv_back"
-                            app:srcCompat="@drawable/ic_search_black" />
+                            app:srcCompat="@drawable/ic_search_white" />
 
                         <View
                             android:id="@+id/view_toolbar_line"
