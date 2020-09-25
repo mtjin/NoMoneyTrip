@@ -1,5 +1,6 @@
 # NoMoneyTrip
 2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
+https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
 
 # 구조
 MVVM 적용 : 시간 관계상 DataSource 쪽 대부분을 Local, Remote 로 따로 나누지 않고 Repository 만 사용합니다. (대부분 Repository에서 서버의 데이터만 불러오도록 합니다.)
@@ -31,3 +32,14 @@ Commit 메세지
 
 **RENAME ->**
 이름 변경이 있을 때 사용합니다.
+
+
+#사진
+------------
+<img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%84.jpg?raw=true" width="30%"></img>
+<img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%842.jpg?raw=true" width="30%"></img>
+<img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%843.jpg?raw=true" width="30%"></img>
+<img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%844.jpg?raw=true" width="30%"></img>
+<img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%845.jpg?raw=true" width="30%"></img>
+<img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%846.jpg?raw=true" width="30%"></img>
+
