@@ -165,4 +165,5 @@
     <string name="app_operator_text">운영진</string>
     <string name="app_current_version_text">현재 버전</string>
     <string name="saved_tours_text">저장한 여행</string>
+    <string name="recommend_post_text">추천한 게시물</string>
 </resources>
