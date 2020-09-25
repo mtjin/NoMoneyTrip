@@ -7,11 +7,12 @@ import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.utils.PRODUCT
 import com.mtjin.nomoneytrip.utils.uuid
-import io.reactivex.Single
+import io.reactivex.BackpressureStrategy
+import io.reactivex.Flowable
 
 class FavoriteRepositoryImpl(private val database: DatabaseReference) : FavoriteRepository {
-    override fun requestFavorites(): Single<List<Product>> {
-        return Single.create { emitter ->
+    override fun requestFavorites(): Flowable<List<Product>> {
+        return Flowable.create({ emitter ->
             database.child(PRODUCT)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
@@ -27,10 +28,10 @@ class FavoriteRepositoryImpl(private val database: DatabaseReference) : Favorite
                                 }
                             }
                         }
-                        emitter.onSuccess(productList)
+                        emitter.onNext(productList)
                     }
 
                 })
-        }
+        }, BackpressureStrategy.BUFFER)
     }
 }
