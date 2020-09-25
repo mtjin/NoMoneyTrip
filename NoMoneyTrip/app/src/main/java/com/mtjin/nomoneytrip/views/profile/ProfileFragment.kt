@@ -68,31 +68,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 )
             })
 
-            clickMyTour.observe(this@ProfileFragment, Observer {
-                binding.rvProducts.visibility = View.GONE
-                binding.rvTours.visibility = View.VISIBLE
-                binding.tvThanksLetter.visibility = View.VISIBLE
-                binding.tvMytour.setTextColor(thisContext.getMyColor(R.color.colorBlack2D2D))
-                binding.ivHeart.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_community_good_off))
-                binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_save_black_off))
-            })
-
             clickHeart.observe(this@ProfileFragment, Observer {
-                binding.rvProducts.visibility = View.GONE
-                binding.rvTours.visibility = View.VISIBLE
-                binding.tvThanksLetter.visibility = View.VISIBLE
-                binding.tvMytour.setTextColor(thisContext.getMyColor(R.color.colorGrayC8C8))
-                binding.ivHeart.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_community_good))
-                binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_save_black_off))
-            })
 
-            clickFavorite.observe(this@ProfileFragment, Observer {
-                binding.rvTours.visibility = View.GONE
-                binding.rvProducts.visibility = View.VISIBLE
-                binding.tvThanksLetter.visibility = View.GONE
-                binding.tvMytour.setTextColor(thisContext.getMyColor(R.color.colorGrayC8C8))
-                binding.ivHeart.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_community_good_off))
-                binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_save_on))
             })
         }
     }

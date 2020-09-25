@@ -21,18 +21,14 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
     private val _goSetting = SingleLiveEvent<Unit>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
     private val _productList = MutableLiveData<List<Product>>()
-    private val _clickMyTour = SingleLiveEvent<Unit>()
     private val _clickHeart = SingleLiveEvent<Unit>()
-    private val _clickFavorite = SingleLiveEvent<Unit>()
 
     val user: LiveData<User> get() = _user
     val goProfileEdit: LiveData<Unit> get() = _goProfileEdit
     val goSetting: LiveData<Unit> get() = _goSetting
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
     val productList: LiveData<List<Product>> get() = _productList
-    val clickMyTour: LiveData<Unit> get() = _clickMyTour
     val clickHeart: LiveData<Unit> get() = _clickHeart
-    val clickFavorite: LiveData<Unit> get() = _clickFavorite
 
     fun requestProfile() {
         compositeDisposable.add(
@@ -52,7 +48,6 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
     }
 
     fun requestMyReviews() {
-        _clickMyTour.call()
         compositeDisposable.add(
             profileRepository.requestMyReviews()
                 .subscribeOn(Schedulers.io())
@@ -80,23 +75,6 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                     },
                     onError = {
                         Log.d(TAG, "ProfileViewModel requestMyRecommendReviews() -> $it")
-                    }
-                )
-        )
-    }
-
-    fun requestMyFavorites() {
-        _clickFavorite.call()
-        compositeDisposable.add(
-            profileRepository.requestFavorites()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
-                    onSuccess = {
-                        _productList.value = it
-                    },
-                    onError = {
-                        Log.d(TAG, "ProfileViewModel requestMyFavorites() -> $it")
                     }
                 )
         )
