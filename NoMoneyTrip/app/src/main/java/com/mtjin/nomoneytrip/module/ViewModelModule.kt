@@ -4,6 +4,7 @@ import com.mtjin.nomoneytrip.views.alarm.AlarmViewModel
 import com.mtjin.nomoneytrip.views.community.CommunityViewModel
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginViewModel
 import com.mtjin.nomoneytrip.views.email_signup.EmailSignUpViewModel
+import com.mtjin.nomoneytrip.views.favorite.FavoriteViewModel
 import com.mtjin.nomoneytrip.views.home.HomeViewModel
 import com.mtjin.nomoneytrip.views.localpage.LocalPageViewModel
 import com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailViewModel
@@ -51,4 +52,5 @@ val viewModelModule: Module = module {
     viewModel { MasterMainViewModel(get()) }
     viewModel { SettingViewModel(get()) }
     viewModel { ReservationDetailViewModel(get()) }
+    viewModel { FavoriteViewModel(get()) }
 }

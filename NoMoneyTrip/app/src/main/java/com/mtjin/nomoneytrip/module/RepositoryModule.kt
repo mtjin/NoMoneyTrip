@@ -6,6 +6,8 @@ import com.mtjin.nomoneytrip.data.community.source.CommunityRepository
 import com.mtjin.nomoneytrip.data.community.source.CommunityRepositoryImpl
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepository
 import com.mtjin.nomoneytrip.data.email_login.source.EmailLoginRepositoryImpl
+import com.mtjin.nomoneytrip.data.favorite.source.FavoriteRepository
+import com.mtjin.nomoneytrip.data.favorite.source.FavoriteRepositoryImpl
 import com.mtjin.nomoneytrip.data.home.source.HomeRepository
 import com.mtjin.nomoneytrip.data.home.source.HomeRepositoryImpl
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
@@ -72,4 +74,5 @@ val repositoryModule: Module = module {
     single<MasterLoginRepository> { MasterLoginRepositoryImpl(get(), get()) }
     single<MasterMainRepository> { MasterMainRepositoryImpl(get(), get(named("fcm"))) }
     single<SettingRepository> { SettingRepositoryImpl(get()) }
+    single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
 }
