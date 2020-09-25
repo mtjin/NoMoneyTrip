@@ -9,6 +9,7 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.databinding.ItemFavoriteBinding
 
 class FavoriteAdapter(
+    private val onItemClick: (Product) -> Unit,
     private val onFavoriteClick: (Product) -> Unit
 ) :
     RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
@@ -22,6 +23,9 @@ class FavoriteAdapter(
             false
         )
         val viewHolder = ViewHolder(binding)
+        binding.root.setOnClickListener {
+            onItemClick(items[viewHolder.adapterPosition])
+        }
         binding.ivSave.setOnClickListener {
             onFavoriteClick(items[viewHolder.adapterPosition])
         }

@@ -34,4 +34,19 @@ class FavoriteViewModel(private val repository: FavoriteRepository) : BaseViewMo
                 )
         )
     }
+
+    fun updateProductFavorite(product: Product) {
+        compositeDisposable.add(
+            repository.updateProductFavorite(product)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onError = {
+                        Log.d(TAG, it.toString())
+                    },
+                    onComplete = {
+
+                    }
+                ))
+    }
 }

@@ -5,16 +5,18 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
+import com.mtjin.nomoneytrip.utils.FAVORITE_LIST
 import com.mtjin.nomoneytrip.utils.PRODUCT
 import com.mtjin.nomoneytrip.utils.uuid
 import io.reactivex.BackpressureStrategy
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 class FavoriteRepositoryImpl(private val database: DatabaseReference) : FavoriteRepository {
     override fun requestFavorites(): Flowable<List<Product>> {
         return Flowable.create({ emitter ->
             database.child(PRODUCT)
-                .addListenerForSingleValueEvent(object : ValueEventListener {
+                .addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
                         emitter.onError(error.toException())
                     }
@@ -33,5 +35,18 @@ class FavoriteRepositoryImpl(private val database: DatabaseReference) : Favorite
 
                 })
         }, BackpressureStrategy.BUFFER)
+    }
+
+    override fun updateProductFavorite(product: Product): Completable {
+        return Completable.create { emitter ->
+            val updateMap = HashMap<String, Any>()
+            updateMap[FAVORITE_LIST] = product.favoriteList
+            database.child(PRODUCT).child(product.id).updateChildren(updateMap)
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
+        }
     }
 }
