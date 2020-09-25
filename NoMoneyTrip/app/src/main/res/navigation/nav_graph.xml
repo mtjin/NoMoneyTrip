@@ -92,6 +92,10 @@
             android:id="@+id/action_bottom_nav_3_to_reservation_detail_fragment"
             app:destination="@id/reservation_detail_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_3_to_favorite_fragment"
+            app:destination="@id/favorite_fragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_4"
@@ -309,7 +313,14 @@
         android:id="@+id/app_info_fragment"
         android:name="com.mtjin.nomoneytrip.views.app_info.AppInfoFragment"
         android:label="AppInfoFragment"
-        tools:layout="@layout/fragment_app_info">
+        tools:layout="@layout/fragment_app_info" />
+
+    <fragment
+        android:id="@+id/favorite_fragment"
+        android:name="com.mtjin.nomoneytrip.views.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+
     </fragment>
 
 
