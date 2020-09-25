@@ -68,7 +68,6 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
     }
 
     fun updateReviewRecommend(userReview: UserReview) {
-        _clickHeart.call()
         compositeDisposable.add(
             profileRepository.updateReviewRecommend(userReview)
                 .subscribeOn(Schedulers.io())
