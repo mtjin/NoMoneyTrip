@@ -38,18 +38,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
             )
         })
 
-        val productAdapter = LocalProductAdapter(context = thisContext, itemClick = {
-            findNavController().navigate(
-                LocalPageFragmentDirections.actionLocalpageFragmentToLodgmentDetailFragment(
-                    it
-                )
-            )
-        }, favoriteClick = {
-            viewModel.updateProductFavorite(it)
-        })
-
         binding.rvTours.adapter = tourDiaryAdapter
-        binding.rvProducts.adapter = productAdapter
     }
 
     private fun initViewModelCallback() {

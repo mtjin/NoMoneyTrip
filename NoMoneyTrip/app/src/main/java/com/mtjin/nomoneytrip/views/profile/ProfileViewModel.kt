@@ -95,21 +95,6 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
         )
     }
 
-    fun updateProductFavorite(product: Product) {
-        compositeDisposable.add(
-            profileRepository.updateProductFavorite(product)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
-                    onError = {
-                        Log.d(TAG, it.toString())
-                    },
-                    onComplete = {
-
-                    }
-                ))
-    }
-
     fun goProfileEdit() {
         _goProfileEdit.call()
     }
