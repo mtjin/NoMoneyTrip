@@ -26,6 +26,8 @@ import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepositoryImpl
 import com.mtjin.nomoneytrip.data.profile_edit.source.ProfileEditRepository
 import com.mtjin.nomoneytrip.data.profile_edit.source.ProfileEditRepositoryImpl
+import com.mtjin.nomoneytrip.data.recommend_review.source.RecommendReviewRepository
+import com.mtjin.nomoneytrip.data.recommend_review.source.RecommendReviewRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepository
 import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepositoryImpl
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepository
@@ -75,4 +77,5 @@ val repositoryModule: Module = module {
     single<MasterMainRepository> { MasterMainRepositoryImpl(get(), get(named("fcm"))) }
     single<SettingRepository> { SettingRepositoryImpl(get()) }
     single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
+    single<RecommendReviewRepository> { RecommendReviewRepositoryImpl(get()) }
 }
