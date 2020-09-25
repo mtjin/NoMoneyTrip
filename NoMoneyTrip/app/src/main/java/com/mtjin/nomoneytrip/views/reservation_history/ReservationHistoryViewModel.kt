@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
-import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.data.reservation_history.source.ReservationHistoryRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
@@ -18,10 +17,12 @@ class ReservationHistoryViewModel(private val repository: ReservationHistoryRepo
     private val _reservationList = MutableLiveData<ArrayList<ReservationProduct>>()
     private val _deleteReservationSuccessMsg = SingleLiveEvent<Boolean>()
     private val _updateReservationCancelSuccessMsg = SingleLiveEvent<Boolean>()
+    private val _goFavorite = SingleLiveEvent<Unit>()
 
     val reservationList: LiveData<ArrayList<ReservationProduct>> get() = _reservationList
     val deleteReservationSuccessMsg: LiveData<Boolean> get() = _deleteReservationSuccessMsg
     val updateReservationCancelSuccessMsg: LiveData<Boolean> get() = _updateReservationCancelSuccessMsg
+    val goFavorite: LiveData<Unit> get() = _goFavorite
 
     fun requestReservations() {
         compositeDisposable.add(
@@ -37,23 +38,8 @@ class ReservationHistoryViewModel(private val repository: ReservationHistoryRepo
         )
     }
 
-    fun deleteReservation(reservation: Reservation) {
-        compositeDisposable.add(
-            repository.deleteReservation(reservation = reservation)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { showLottieProgress() }
-                .doAfterTerminate { hideLottieProgress() }
-                .subscribeBy(
-                    onError = {
-                        _deleteReservationSuccessMsg.value = false
-                        Log.d(TAG, "requestReservations() error")
-                    },
-                    onComplete = {
-                        _deleteReservationSuccessMsg.value = true
-                    }
-                )
-        )
+    fun goFavorite() {
+        _goFavorite.call()
     }
 
     fun updateReservationCancel(reservationProduct: ReservationProduct) {

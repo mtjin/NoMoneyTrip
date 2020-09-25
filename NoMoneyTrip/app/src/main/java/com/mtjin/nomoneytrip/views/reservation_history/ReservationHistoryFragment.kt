@@ -44,6 +44,10 @@ class ReservationHistoryFragment :
                     else showToast(getString(R.string.reservation_cancel_fail_tmsg))
                 })
 
+            goFavorite.observe(this@ReservationHistoryFragment, Observer {
+                findNavController().navigate(ReservationHistoryFragmentDirections.actionBottomNav3ToFavoriteFragment())
+            })
+
             isLottieLoading.observe(this@ReservationHistoryFragment, Observer { loading ->
                 if (loading) showProgressDialog()
                 else hideProgressDialog()
