@@ -321,6 +321,10 @@
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite">
 
+        <action
+            android:id="@+id/action_favorite_fragment_to_lodgment_detail_fragment"
+            app:destination="@id/lodgment_detail_fragment"
+            app:launchSingleTop="true" />
     </fragment>
 
 
