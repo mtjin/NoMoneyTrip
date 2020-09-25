@@ -1,6 +1,7 @@
 package com.mtjin.nomoneytrip.views
 
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -21,6 +22,7 @@ import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.views.alarm.AlarmAdapter
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
+import com.mtjin.nomoneytrip.views.favorite.FavoriteAdapter
 import com.mtjin.nomoneytrip.views.home.HomeHashTagAdapter
 import com.mtjin.nomoneytrip.views.home.HomeProductAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
@@ -314,6 +316,16 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 with(adapter as MasterMainAdapter) {
                     clear()
                     addItems(it as List<MasterProduct>)
+                }
+            }
+        }
+        is FavoriteAdapter -> {
+            items?.let {
+                {
+                    with(adapter as FavoriteAdapter) {
+                        clear()
+                        addItems(it as List<Product>)
+                    }
                 }
             }
         }

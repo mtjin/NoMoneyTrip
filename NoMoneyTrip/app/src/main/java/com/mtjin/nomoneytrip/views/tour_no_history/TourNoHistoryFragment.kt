@@ -22,21 +22,28 @@ class TourNoHistoryFragment :
     private fun initViewPager() {
         //binding.vpViewpager.offscreenPageLimit = 5 //캐시해놓을 페이지 수
         pagerAdapter = TourNoHistoryPagerAdapter(requireActivity().supportFragmentManager)
-        binding.vpViewpager.adapter = pagerAdapter
-        val dpValue = 54
-        val d = resources.displayMetrics.density
-        val margin = (dpValue * d).toInt()
-        binding.vpViewpager.clipToPadding = false
-        binding.vpViewpager.setPadding(margin, 0, margin, 0)
-        binding.vpViewpager.pageMargin = margin / 2
+        binding.vpViewpager.run {
+            adapter = pagerAdapter
+            val dpValue = 54
+            val d = resources.displayMetrics.density
+            val margin = (dpValue * d).toInt()
+            clipToPadding = false
+            setPadding(margin, 0, margin, 0)
+            pageMargin = margin / 2
+        }
     }
 
     private fun initViewModelCallback() {
         with(viewModel) {
             productList.observe(this@TourNoHistoryFragment, Observer { products ->
-                val list = ArrayList<TourNoHistoryRecommendFragment>()
-                for (product in products) {
-                    list.add(TourNoHistoryRecommendFragment(product = product, onClick = {
+                initViewPager()
+                var size = 0
+                for (i in 0..4) {
+                    if (products.size <= i) {
+                        break
+                    }
+                    size++
+                    pagerAdapter.addItem(TourNoHistoryRecommendFragment(product = products[i], onClick = {
                         findNavController().navigate(
                             TourNoHistoryFragmentDirections.actionTourNoHistoryFragmentToLodgmentDetailFragment(
                                 it
@@ -44,7 +51,6 @@ class TourNoHistoryFragment :
                         )
                     }))
                 }
-                pagerAdapter.addItems(list)
             })
 
             goHome.observe(this@TourNoHistoryFragment, Observer {

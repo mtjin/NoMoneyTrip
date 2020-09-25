@@ -13,7 +13,9 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class TourNoHistoryViewModel(private val repository: TourNoHistoryRepository) : BaseViewModel() {
-    private val _productList = SingleLiveEvent<List<Product>>()
+    private val productEmptyList = ArrayList<Product>()
+
+    private val _productList = MutableLiveData<List<Product>>()
     private val _goHome = SingleLiveEvent<Unit>()
 
     val productList: LiveData<List<Product>> get() = _productList
@@ -24,7 +26,7 @@ class TourNoHistoryViewModel(private val repository: TourNoHistoryRepository) : 
             repository.requestProducts()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe{showProgress()}
+                .doOnSubscribe { showProgress() }
                 .doAfterTerminate { hideProgress() }
                 .subscribeBy(
                     onSuccess = {

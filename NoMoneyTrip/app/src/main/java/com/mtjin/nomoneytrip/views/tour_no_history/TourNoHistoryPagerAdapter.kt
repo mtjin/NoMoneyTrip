@@ -9,6 +9,7 @@ class TourNoHistoryPagerAdapter(fm: FragmentManager?) :
     private var fragments = ArrayList<TourNoHistoryRecommendFragment>()
     fun addItem(item: TourNoHistoryRecommendFragment) {
         fragments.add(item)
+        notifyDataSetChanged()
     }
 
     fun addItems(items: List<TourNoHistoryRecommendFragment>) {

@@ -23,11 +23,13 @@ class FavoriteViewModel(private val repository: FavoriteRepository) : BaseViewMo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
-                    onSuccess = {
+                    onNext = {
                         _productList.value = it
                     },
                     onError = {
                         Log.d(TAG, "FavoriteViewModel requestMyFavorites() -> $it")
+                    },
+                    onComplete = {
                     }
                 )
         )
