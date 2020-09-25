@@ -10,6 +10,7 @@ import com.mtjin.nomoneytrip.databinding.FragmentSettingBinding
 import com.mtjin.nomoneytrip.utils.APP_LOCATION_INFO_RULE
 import com.mtjin.nomoneytrip.utils.APP_PERSONAL_INFO_RULE
 import com.mtjin.nomoneytrip.utils.APP_RULE_URL
+import com.mtjin.nomoneytrip.views.dialog.QuestionDialogFragment
 import com.mtjin.nomoneytrip.views.login.LoginActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -61,7 +62,16 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
                 )
             })
             onDeleteAuthClick.observe(this@SettingFragment, Observer { //회원탈퇴
-                showToast("준비중")
+                val dialog =
+                    QuestionDialogFragment.getInstance(
+                        question = "원하는 여행이 없으신가요?\n더 노력하는 무전일기가 될게요!",
+                        leftText = getString(R.string.not_delete_auth_text),
+                        rightText = getString(R.string.app_delete__user_auth_text),
+                        yesClick = {
+                            FirebaseAuth.getInstance().signOut()
+                            requireActivity().finishAffinity()
+                        })
+                dialog.show(requireActivity().supportFragmentManager, dialog.tag)
             })
         }
 

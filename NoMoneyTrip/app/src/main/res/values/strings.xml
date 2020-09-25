@@ -167,4 +167,6 @@
     <string name="saved_tours_text">저장한 여행</string>
     <string name="recommend_post_text">추천한 게시물</string>
     <string name="no_recommend_post_text">추천하신 게시물이 없습니다.</string>
+    <string name="app_delete__user_auth_text">탈퇴하기</string>
+    <string name="not_delete_auth_text">지켜보기</string>
 </resources>
