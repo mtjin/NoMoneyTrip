@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
-                android:text="@string/no_product_yet_text"
+                android:text="@string/no_recommend_post_text"
                 android:textColor="@color/colorGray8C8C"
                 android:textSize="@dimen/text_size_16sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>

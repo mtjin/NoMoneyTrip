@@ -166,4 +166,5 @@
     <string name="app_current_version_text">현재 버전</string>
     <string name="saved_tours_text">저장한 여행</string>
     <string name="recommend_post_text">추천한 게시물</string>
+    <string name="no_recommend_post_text">추천하신 게시물이 없습니다.</string>
 </resources>
