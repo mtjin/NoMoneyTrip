@@ -114,6 +114,10 @@
             android:id="@+id/action_bottom_nav_4_to_setting_fragment"
             app:destination="@id/setting_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_bottom_nav_4_to_recommend_review_fragment"
+            app:destination="@id/recommend_review_fragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/search_fragment"
@@ -326,6 +330,11 @@
             app:destination="@id/lodgment_detail_fragment"
             app:launchSingleTop="true" />
     </fragment>
+    <fragment
+        android:id="@+id/recommend_review_fragment"
+        android:name="com.mtjin.nomoneytrip.views.recommend_review.RecommendReviewFragment"
+        android:label="RecommendReviewFragment"
+        tools:layout="@layout/fragment_recommend_review" />
 
 
 </navigation>

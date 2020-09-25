@@ -53,7 +53,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
             })
 
             clickHeart.observe(this@ProfileFragment, Observer {
-
+                findNavController().navigate(
+                    ProfileFragmentDirections.actionBottomNav4ToRecommendReviewFragment()
+                )
             })
         }
     }
