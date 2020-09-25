@@ -54,7 +54,7 @@ class ReservationRepositoryImpl(
                             }
                         }
                         for (res in resList) {
-                            var start = reservation.startDateTimestamp
+                            val start = reservation.startDateTimestamp
                             var end = reservation.endDateTimestamp
                             if (res.startDateTimestamp == res.endDateTimestamp || start == end) { //무박일 경우는 패스
                                 continue

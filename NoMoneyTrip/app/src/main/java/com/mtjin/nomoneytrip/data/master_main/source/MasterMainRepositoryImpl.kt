@@ -206,7 +206,7 @@ class MasterMainRepositoryImpl(
                             case = ALARM_RESERVATION_ACCEPT_CASE2
                         } else if (masterState == 1) {// 거절
                             content = product.title + " 예약을 이장님이 거절했습니다."
-                            case = ALARM_RESERVATION_DENY_CASE5
+                            case = ALARM_RESERVATION_DENY_CASE6
                         }
                         val dbKey = database.push().key.toString()
                         database.child(ALARM).child(masterProduct.reservation.userId).child(dbKey)

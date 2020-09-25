@@ -8,7 +8,7 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.databinding.ItemAlarmBinding
 
-class AlarmAdapter :
+class AlarmAdapter(private val onItemClick: (Alarm) -> Unit) :
     RecyclerView.Adapter<AlarmAdapter.ViewHolder>() {
     private val items: ArrayList<Alarm> = ArrayList()
 
@@ -19,7 +19,12 @@ class AlarmAdapter :
             parent,
             false
         )
-        return ViewHolder(binding)
+        val viewHolder = ViewHolder(binding)
+        binding.root.setOnClickListener {
+            onItemClick(items[viewHolder.adapterPosition])
+            items[viewHolder.adapterPosition].readState = true
+        }
+        return viewHolder
     }
 
     override fun getItemCount(): Int = items.size

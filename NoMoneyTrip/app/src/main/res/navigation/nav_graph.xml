@@ -287,7 +287,20 @@
         android:id="@+id/alarm_fragment"
         android:name="com.mtjin.nomoneytrip.views.alarm.AlarmFragment"
         android:label="AlarmFragment"
-        tools:layout="@layout/fragment_alarm" />
+        tools:layout="@layout/fragment_alarm" >
+        <action
+            android:id="@+id/action_alarm_fragment_to_reservation_detail_fragment"
+            app:destination="@id/reservation_detail_fragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_alarm_fragment_to_tour_history_fragment"
+            app:destination="@id/tour_history_fragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_alarm_fragment_to_tour_no_history_fragment"
+            app:destination="@id/tour_no_history_fragment"
+            app:launchSingleTop="true" />
+    </fragment>
     <fragment
         android:id="@+id/setting_fragment"
         android:name="com.mtjin.nomoneytrip.views.setting.SettingFragment"
