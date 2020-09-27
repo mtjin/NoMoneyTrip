@@ -22,8 +22,10 @@ class MasterWriteActivity :
     private fun initViewModelCallback() {
         with(viewModel) {
             writeSuccess.observe(this@MasterWriteActivity, Observer { success ->
-                if (success) finish()
-                else showToast(getString(R.string.tour_write_letter_fail_msg))
+                if (success) {
+                    showToast(getString(R.string.thanks_letter_complete_msg))
+                    finish()
+                } else showToast(getString(R.string.tour_write_letter_fail_msg))
             })
             contentEmptyMsg.observe(this@MasterWriteActivity, Observer {
                 showToast(getString(R.string.input_content_text))
