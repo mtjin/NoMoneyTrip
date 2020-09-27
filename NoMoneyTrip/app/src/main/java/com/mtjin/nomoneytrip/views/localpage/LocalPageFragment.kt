@@ -141,7 +141,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.incheon
+                        R.drawable.incheon2
                     )
                 )
                 viewModel.requestTourIntroduces(INCHEON_CODE)
@@ -152,7 +152,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.daejeon
+                        R.drawable.daejeon2
                     )
                 )
                 viewModel.requestTourIntroduces(DAEJEON_CODE)
@@ -163,7 +163,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.daegu
+                        R.drawable.daegu2
                     )
                 )
                 viewModel.requestTourIntroduces(DAEGU_CODE)
@@ -174,7 +174,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.gwangju
+                        R.drawable.gwangju2
                     )
                 )
                 viewModel.requestTourIntroduces(GWANGJU_CODE)
@@ -185,7 +185,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.busan
+                        R.drawable.busan2
                     )
                 )
                 viewModel.requestTourIntroduces(BUSAN_CODE)
@@ -196,7 +196,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.ulsan
+                        R.drawable.ulsan2
                     )
                 )
                 viewModel.requestTourIntroduces(ULSAN_CODE)
@@ -207,7 +207,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.sejong
+                        R.drawable.sejong2
                     )
                 )
                 viewModel.requestTourIntroduces(SEJONG_CODE)
@@ -218,7 +218,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.gyeungi
+                        R.drawable.gyeungi2
                     )
                 )
                 viewModel.requestTourIntroduces(GYEUNGI_CODE)
@@ -229,7 +229,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.kangwon
+                        R.drawable.kangwon3
                     )
                 )
                 viewModel.requestTourIntroduces(KANGWON_CODE)
@@ -240,7 +240,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.choongbuk
+                        R.drawable.choongbuk2
                     )
                 )
                 viewModel.requestTourIntroduces(CHOONGBUK_CODE)
@@ -251,7 +251,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.choongnam
+                        R.drawable.choongnam2
                     )
                 )
                 viewModel.requestTourIntroduces(CHOONGNAM_CODE)
@@ -262,7 +262,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.gyungbuk
+                        R.drawable.gyungbuk3
                     )
                 )
                 viewModel.requestTourIntroduces(GYUNGBUK_CODE)
@@ -273,7 +273,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.gyungnam
+                        R.drawable.gyungnam2
                     )
                 )
                 viewModel.requestTourIntroduces(GYUNGNAM_CODE)
@@ -284,7 +284,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.jeonbuk
+                        R.drawable.jeonbuk2
                     )
                 )
                 viewModel.requestTourIntroduces(JEONBUK_CODE)
@@ -295,7 +295,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.jeonnam
+                        R.drawable.jeonnam2
                     )
                 )
                 viewModel.requestTourIntroduces(JEONNAM_CODE)
@@ -306,7 +306,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 binding.ivLocal.setImageDrawable(
                     ContextCompat.getDrawable(
                         thisContext,
-                        R.drawable.jeju
+                        R.drawable.jeju3
                     )
                 )
                 viewModel.requestTourIntroduces(JEJU_CODE)
