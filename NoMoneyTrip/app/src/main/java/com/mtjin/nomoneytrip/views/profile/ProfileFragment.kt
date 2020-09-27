@@ -7,12 +7,15 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
+import com.mtjin.nomoneytrip.data.master_write.MasterLetter
 import com.mtjin.nomoneytrip.databinding.FragmentProfileBinding
+import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
     private val viewModel: ProfileViewModel by viewModel()
+    lateinit var letterAdapter: ProfileMasterLetterAdapter
     override fun init() {
         binding.vm = viewModel
         initAdapter()
@@ -23,6 +26,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
     private fun requestItems() {
         viewModel.requestProfile()
         viewModel.requestMyReviews()
+        viewModel.requestMasterLetters()
     }
 
     private fun initAdapter() {
@@ -35,8 +39,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 )
             )
         })
+        letterAdapter = ProfileMasterLetterAdapter()
 
         binding.rvTours.adapter = tourDiaryAdapter
+        binding.rvLetters.adapter = letterAdapter
     }
 
     private fun initViewModelCallback() {
@@ -77,6 +83,21 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                         rvTours.visibility = View.VISIBLE
                         rvTours.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
                     }
+                }
+            })
+
+            masterLetterList.observe(this@ProfileFragment, Observer {
+                letterAdapter.run {
+                    clear()
+                    addItems(it as List<MasterLetter>)
+                    addItem(
+                        MasterLetter(
+                            title = "무전일기 이장",
+                            timestamp = getTimestamp(),
+                            content = "반갑습니다! 안전하고 멋진\n" +
+                                    "무전여행을 기대할게요 :)"
+                        )
+                    )
                 }
             })
         }

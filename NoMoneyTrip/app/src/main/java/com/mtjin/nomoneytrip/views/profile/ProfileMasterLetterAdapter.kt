@@ -44,6 +44,11 @@ class ProfileMasterLetterAdapter :
         notifyDataSetChanged()
     }
 
+    fun addItem(item: MasterLetter) {
+        this.items.add(item)
+        notifyDataSetChanged()
+    }
+
     fun clear() {
         this.items.clear()
         notifyDataSetChanged()

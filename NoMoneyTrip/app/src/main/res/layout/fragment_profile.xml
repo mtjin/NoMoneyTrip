@@ -214,6 +214,7 @@
                     app:layout_constraintTop_toBottomOf="@id/rv_tours" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_letters"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_18dp"
@@ -221,7 +222,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_thanks_letter"
-                    tools:itemCount="3"
+                    tools:itemCount="2"
                     tools:listitem="@layout/item_thank_letter" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

@@ -18,6 +18,7 @@ import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.master_main.MasterProduct
+import com.mtjin.nomoneytrip.data.master_write.MasterLetter
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.views.alarm.AlarmAdapter
@@ -29,6 +30,7 @@ import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalPageAdapter
 import com.mtjin.nomoneytrip.views.localpage.LocalProductAdapter
 import com.mtjin.nomoneytrip.views.master_main.MasterMainAdapter
+import com.mtjin.nomoneytrip.views.profile.ProfileMasterLetterAdapter
 import com.mtjin.nomoneytrip.views.reservation_history.ReservationHistoryAdapter
 import com.mtjin.nomoneytrip.views.tour_history.TourHistoryAdapter
 import de.hdodenhof.circleimageview.CircleImageView
@@ -329,5 +331,27 @@ fun RecyclerView.setAdapterItems(items: List<Any>?) {
                 }
             }
         }
+        is ProfileMasterLetterAdapter -> {
+            items?.let {
+                {
+                    with(adapter as ProfileMasterLetterAdapter) {
+                        clear()
+                        addItem(
+                            MasterLetter(
+                                title = "무전일기 이장",
+                                timestamp = getTimestamp(),
+                                content = "반갑습니다! 안전하고 멋진\n" +
+                                        "무전여행을 기대할게요 :)"
+                            )
+                        )
+                        addItems(it as List<MasterLetter>)
+                    }
+                }
+            }
+        }
+        else -> {
+            Log.d(TAG, "바인딩어댑터 setItems 예외 에러")
+        }
+
     }
 }
