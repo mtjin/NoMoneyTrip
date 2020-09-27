@@ -8,6 +8,7 @@ import com.mtjin.nomoneytrip.data.community.Review
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
+import com.mtjin.nomoneytrip.data.master_write.MasterLetter
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -144,6 +145,28 @@ class ProfileRepositoryImpl(private val database: DatabaseReference) : ProfileRe
                 }.addOnFailureListener {
                     emitter.onError(it)
                 }
+        }
+    }
+
+    override fun requestMasterLetters(): Single<List<MasterLetter>> {
+        return Single.create { emitter ->
+            database.child(MASTER_LETTER).child(uuid)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        emitter.onError(error.toException())
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val masterLetterList = ArrayList<MasterLetter>()
+                        for (snapshot2 in snapshot.children) {
+                            snapshot2.getValue(MasterLetter::class.java)?.let { masterLetter ->
+                                masterLetterList.add(masterLetter)
+                            }
+                        }
+                        emitter.onSuccess(masterLetterList)
+                    }
+
+                })
         }
     }
 }
