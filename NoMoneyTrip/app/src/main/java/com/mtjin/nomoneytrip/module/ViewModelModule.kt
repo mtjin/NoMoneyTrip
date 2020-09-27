@@ -11,6 +11,7 @@ import com.mtjin.nomoneytrip.views.lodgment_detail.LodgmentDetailViewModel
 import com.mtjin.nomoneytrip.views.login.LoginViewModel
 import com.mtjin.nomoneytrip.views.master_login.MasterLoginViewModel
 import com.mtjin.nomoneytrip.views.master_main.MasterMainViewModel
+import com.mtjin.nomoneytrip.views.master_write.MasterWriteViewModel
 import com.mtjin.nomoneytrip.views.phone.PhoneAuthViewModel
 import com.mtjin.nomoneytrip.views.profile.ProfileViewModel
 import com.mtjin.nomoneytrip.views.profile_edit.ProfileEditViewModel
@@ -55,4 +56,5 @@ val viewModelModule: Module = module {
     viewModel { ReservationDetailViewModel(get()) }
     viewModel { FavoriteViewModel(get()) }
     viewModel { RecommendReviewViewModel(get()) }
+    viewModel { MasterWriteViewModel(get()) }
 }

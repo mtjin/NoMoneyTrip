@@ -20,6 +20,8 @@ import com.mtjin.nomoneytrip.data.master_login.source.MasterLoginRepository
 import com.mtjin.nomoneytrip.data.master_login.source.MasterLoginRepositoryImpl
 import com.mtjin.nomoneytrip.data.master_main.source.MasterMainRepository
 import com.mtjin.nomoneytrip.data.master_main.source.MasterMainRepositoryImpl
+import com.mtjin.nomoneytrip.data.master_write.source.MasterWriteRepository
+import com.mtjin.nomoneytrip.data.master_write.source.MasterWriteRepositoryImpl
 import com.mtjin.nomoneytrip.data.phone.source.PhoneAuthRepository
 import com.mtjin.nomoneytrip.data.phone.source.PhoneAuthRepositoryImpl
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
@@ -78,4 +80,5 @@ val repositoryModule: Module = module {
     single<SettingRepository> { SettingRepositoryImpl(get()) }
     single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
     single<RecommendReviewRepository> { RecommendReviewRepositoryImpl(get()) }
+    single<MasterWriteRepository> { MasterWriteRepositoryImpl(get()) }
 }

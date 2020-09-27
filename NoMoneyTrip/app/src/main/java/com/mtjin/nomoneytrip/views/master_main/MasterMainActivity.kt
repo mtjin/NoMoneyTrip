@@ -17,8 +17,12 @@ class MasterMainActivity : BaseActivity<ActivityMasterMainBinding>(R.layout.acti
         binding.vm = viewModel
         initViewModelCallback()
         initAdapter()
+    }
+
+    override fun onStart() {
         viewModel.requestNewMasterProducts()
         viewModel.requestAcceptedMasterProducts()
+        super.onStart()
     }
 
     private fun initViewModelCallback() {
@@ -40,9 +44,13 @@ class MasterMainActivity : BaseActivity<ActivityMasterMainBinding>(R.layout.acti
 
         val acceptedAdapter =
             MasterMainAdapter(this, leftClick = {}, rightClick = {}, messageClick = {
-                val masterWriteIntent = Intent(this, MasterWriteActivity::class.java)
-                masterWriteIntent.putExtra(EXTRA_MASTER_PRODUCT, it)
-                startActivity(masterWriteIntent)
+                if (it.reservation.masterLetter) {
+                    showToast(getString(R.string.already_send_letter_text))
+                } else {
+                    val masterWriteIntent = Intent(this, MasterWriteActivity::class.java)
+                    masterWriteIntent.putExtra(EXTRA_MASTER_PRODUCT, it)
+                    startActivity(masterWriteIntent)
+                }
             })
         binding.rvNewApplicants.adapter = newAdapter
         binding.rvAcceptedApplicants.adapter = acceptedAdapter

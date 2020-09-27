@@ -118,6 +118,7 @@
     <string name="tour_write_question_hint">여행은 어떠셨나요?\n숨겨진 국내 여행 팁을 나눠주세요.</string>
     <string name="please_upload_image_msg">이미지를 업로드해주세요</string>
     <string name="tour_write_upload_fail_msg">작성물 게시를 실패했습니다</string>
+    <string name="tour_write_letter_fail_msg">감사편지 작성을 실패했습니다</string>
     <string name="tour_no_history_recommend_text">다녀온 여행지가 없습니다.\n인기있는 무전 여행을 추천해드릴게요.</string>
     <string name="where_to_go_no_money_trip_question_text">무전여행\n어디로 가볼까요?</string>
     <string name="profile_edit_success_msg">프로필 수정 완료</string>
@@ -171,4 +172,7 @@
     <string name="not_delete_auth_text">지켜보기</string>
     <string name="reservation_info_check_text">예약 정보 확인</string>
     <string name="reservation_accepted_text">예약 접수</string>
+    <string name="already_send_letter_text">이미 감사편지를 보냈습니다.</string>
+    <string name="please_write_thanks_letter_hint">5줄 이내로 감사편지 작성해주세요</string>
+    <string name="write2_text">작성하기</string>
 </resources>
