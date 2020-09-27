@@ -169,4 +169,5 @@
     <string name="no_recommend_post_text">추천하신 게시물이 없습니다.</string>
     <string name="app_delete__user_auth_text">탈퇴하기</string>
     <string name="not_delete_auth_text">지켜보기</string>
+    <string name="reservation_info_check_text">예약 정보 확인</string>
 </resources>

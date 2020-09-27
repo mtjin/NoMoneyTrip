@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/goyang_ilsan_regular"
-            android:text="예약 정보 입력"
+            android:text="@string/enter_reservation_info_text"
             android:textColor="@color/colorBlack2D2D"
             android:textSize="@dimen/text_size_20sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_back"
