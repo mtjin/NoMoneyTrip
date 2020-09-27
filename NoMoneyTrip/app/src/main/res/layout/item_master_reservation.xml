@@ -71,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="예약 접수"
+                    android:text="@string/reservation_accepted_text"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_name"
