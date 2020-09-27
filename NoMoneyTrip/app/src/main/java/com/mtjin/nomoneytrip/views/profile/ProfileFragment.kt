@@ -69,9 +69,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                             180f,
                             resources.displayMetrics
                         ).toInt()
+                        rvTours.layoutParams.height = height
                         ivNoMyTour.visibility = View.VISIBLE
                         rvTours.visibility = View.INVISIBLE
-                        rvTours.layoutParams.height = height
                     } else {
                         ivNoMyTour.visibility = View.GONE
                         rvTours.visibility = View.VISIBLE

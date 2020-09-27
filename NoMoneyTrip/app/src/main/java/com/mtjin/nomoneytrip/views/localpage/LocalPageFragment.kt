@@ -1,7 +1,9 @@
 package com.mtjin.nomoneytrip.views.localpage
 
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -42,6 +44,23 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                 findNavController().navigate(
                     LocalPageFragmentDirections.actionLocalpageFragmentToSearchFragment()
                 )
+            })
+            productList.observe(this@LocalPageFragment, Observer {
+                binding.run {
+                    if (it.isEmpty()) {
+                        val height = TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            180f,
+                            resources.displayMetrics
+                        ).toInt()
+                        rvProducts.layoutParams.height = height
+                        ivNoProducts.visibility = View.VISIBLE
+                        rvProducts.visibility = View.INVISIBLE
+                    } else {
+                        rvProducts.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                        ivNoProducts.visibility = View.GONE
+                    }
+                }
             })
         }
     }

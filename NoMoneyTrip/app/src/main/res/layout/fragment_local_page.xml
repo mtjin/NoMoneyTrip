@@ -160,6 +160,19 @@
                     bind:setItems="@{vm.productList}"
                     tools:listitem="@layout/item_local_product" />
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_no_products"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_180dp"
+                    android:layout_marginStart="@dimen/margin_28dp"
+                    android:layout_marginEnd="@dimen/margin_28dp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/rv_products"
+                    app:srcCompat="@drawable/img_nopic_local" />
+
                 <TextView
                     android:id="@+id/tv_tour_introduce"
                     android:layout_width="wrap_content"

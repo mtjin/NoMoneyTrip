@@ -63,7 +63,7 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
                 .subscribe({ products ->
                     _productList.value = products as ArrayList<Product>
                 }, {
-                    Log.d(TAG, "requestRestaurantIntroduces() -> $it")
+                    Log.d(TAG, "requestProducts() -> $it")
                 })
         )
     }

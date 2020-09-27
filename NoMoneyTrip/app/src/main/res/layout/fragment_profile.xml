@@ -198,7 +198,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/iv_image"
                     app:layout_constraintTop_toTopOf="@id/rv_tours"
-                    app:srcCompat="@drawable/img_nopic" />
+                    app:srcCompat="@drawable/img_nopic_profile" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
