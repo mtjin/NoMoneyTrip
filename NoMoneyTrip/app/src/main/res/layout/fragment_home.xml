@@ -47,6 +47,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_28dp"
                         android:lineSpacingExtra="@dimen/line_spacing_extra_size_10sp"
+                        android:fontFamily="@font/goyang_ilsan_regular"
                         android:text="@string/where_to_go_no_money_trip_question_text"
                         android:textColor="@color/colorBlack2D2D"
                         android:textSize="@dimen/text_size_22sp"
