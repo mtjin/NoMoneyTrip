@@ -42,12 +42,14 @@ class ReservationPhaseFirstFragment :
             })
             option1.observe(this@ReservationPhaseFirstFragment, Observer {
                 binding.cbOption1.isChecked = it
-                viewModel.selectedOption = binding.tvOption1.text.toString()
+                if (it) viewModel.selectedOption = binding.tvOption1.text.toString()
+
             })
 
             option2.observe(this@ReservationPhaseFirstFragment, Observer {
                 binding.cbOption2.isChecked = it
-                viewModel.selectedOption = binding.tvOption2.text.toString()
+                if (it) viewModel.selectedOption = binding.tvOption2.text.toString()
+
             })
 
             goReservation.observe(this@ReservationPhaseFirstFragment, Observer {
