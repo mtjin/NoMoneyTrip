@@ -77,7 +77,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_cardview"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_240do"
+            android:layout_height="@dimen/height_240dp"
             android:layout_marginStart="@dimen/margin_28dp"
             android:layout_marginTop="@dimen/margin_14dp"
             android:layout_marginEnd="@dimen/margin_28dp"

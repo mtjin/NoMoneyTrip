@@ -36,7 +36,7 @@
     <dimen name="height_224dp">224dp</dimen>
     <dimen name="width_260dp">260dp</dimen>
     <dimen name="height_290dp">290dp</dimen>
-    <dimen name="height_240do">240dp</dimen>
+    <dimen name="height_240dp">240dp</dimen>
     <dimen name="text_size_12sp">12dp</dimen>
     <dimen name="width_44dp">44dp</dimen>
     <dimen name="height_1dp">1dp</dimen>

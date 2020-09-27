@@ -188,6 +188,19 @@
                     bind:setItems="@{vm.userReviewList}"
                     tools:listitem="@layout/item_user_review" />
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_no_my_tour"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_180dp"
+                    android:layout_marginEnd="@dimen/margin_28dp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/iv_image"
+                    app:layout_constraintTop_toTopOf="@id/rv_tours"
+                    app:srcCompat="@drawable/img_nopic" />
+
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_thanks_letter"
                     android:layout_width="wrap_content"

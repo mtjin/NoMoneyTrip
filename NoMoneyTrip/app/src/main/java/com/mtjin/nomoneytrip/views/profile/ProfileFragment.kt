@@ -1,5 +1,8 @@
 package com.mtjin.nomoneytrip.views.profile
 
+import android.util.TypedValue
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
@@ -56,6 +59,25 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 findNavController().navigate(
                     ProfileFragmentDirections.actionBottomNav4ToRecommendReviewFragment()
                 )
+            })
+
+            userReviewList.observe(this@ProfileFragment, Observer {
+                binding.run {
+                    if (it.isEmpty()) {
+                        val height = TypedValue.applyDimension(
+                            TypedValue.COMPLEX_UNIT_DIP,
+                            180f,
+                            resources.displayMetrics
+                        ).toInt()
+                        ivNoMyTour.visibility = View.VISIBLE
+                        rvTours.visibility = View.INVISIBLE
+                        rvTours.layoutParams.height = height
+                    } else {
+                        ivNoMyTour.visibility = View.GONE
+                        rvTours.visibility = View.VISIBLE
+                        rvTours.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                    }
+                }
             })
         }
     }
