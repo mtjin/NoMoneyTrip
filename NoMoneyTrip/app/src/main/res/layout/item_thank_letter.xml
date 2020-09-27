@@ -1,76 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="28dp"
-    android:layout_marginEnd="28dp"
-    android:layout_marginBottom="12dp">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_cardview"
+    <data>
+
+        <variable
+            name="item"
+            type="com.mtjin.nomoneytrip.data.master_write.MasterLetter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/colorWhiteFFF5EF"
-        app:cardCornerRadius="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginStart="@dimen/margin_28dp"
+        android:layout_marginEnd="@dimen/margin_28dp"
+        android:layout_marginBottom="@dimen/margin_12dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_cardview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorWhiteFFF5EF"
+            app:cardCornerRadius="@dimen/radius_16dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/civ_image"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="14dp"
-                android:src="@drawable/img_product"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:textColor="@color/colorBlack2D2D"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@id/civ_image"
-                app:layout_constraintTop_toTopOf="@id/civ_image"
-                tools:text="산꽃마을 이장" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:textColor="@color/colorGray8C8C"
-                android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="@id/civ_image"
-                app:layout_constraintStart_toEndOf="@id/civ_image"
-                tools:text="2주 전" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/colorBlack2D2D"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/civ_image"
-                tools:text="어느날 까망이가 말했다.  저는 왜이렇게 까만가
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_image"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/ic_alarm_pic_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{item.title}"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/civ_image"
+                    app:layout_constraintTop_toTopOf="@id/civ_image"
+                    tools:text="산꽃마을 이장" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:textColor="@color/colorGray8C8C"
+                    android:textSize="@dimen/text_size_12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/civ_image"
+                    app:layout_constraintStart_toEndOf="@id/civ_image"
+                    bind:timestampPointFullDate="@{item.timestamp}"
+                    tools:text="2주 전" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@{item.content}"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/civ_image"
+                    app:layout_constraintTop_toBottomOf="@id/civ_image"
+                    tools:text="어느날 까망이가 말했다.  저는 왜이렇게 까만가
 요? 그러자 하양이가 말했다." />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
