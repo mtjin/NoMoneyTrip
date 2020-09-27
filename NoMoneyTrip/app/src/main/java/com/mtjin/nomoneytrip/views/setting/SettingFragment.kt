@@ -73,6 +73,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
                         })
                 dialog.show(requireActivity().supportFragmentManager, dialog.tag)
             })
+
+            backClick.observe(this@SettingFragment, Observer {
+                findNavController().popBackStack()
+            })
         }
 
     }

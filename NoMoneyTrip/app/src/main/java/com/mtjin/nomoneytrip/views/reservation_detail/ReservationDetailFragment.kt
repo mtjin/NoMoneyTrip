@@ -2,6 +2,7 @@ package com.mtjin.nomoneytrip.views.reservation_detail
 
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
@@ -44,6 +45,10 @@ class ReservationDetailFragment :
             isLottieLoading.observe(this@ReservationDetailFragment, Observer { loading ->
                 if (loading) showProgressDialog()
                 else hideProgressDialog()
+            })
+
+            backClick.observe(this@ReservationDetailFragment, Observer {
+                findNavController().popBackStack()
             })
         }
     }
