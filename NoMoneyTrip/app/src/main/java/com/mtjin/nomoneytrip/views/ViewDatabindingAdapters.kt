@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -43,6 +44,19 @@ fun ImageView.setUrlImage(url: String) {
         .thumbnail(0.1f)
         .error(R.drawable.img_product)
         .into(this)
+}
+
+@BindingAdapter("urlImageRadius16")
+fun ImageView.setUrlImageRadius16(url: String) {
+    Glide.with(this).load(url)
+        .thumbnail(0.1f)
+        .transform(RoundedCorners(16))
+        .into(this)
+}
+
+@BindingAdapter("htmlText")
+fun TextView.setHtmlText(html: String) {
+    text = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT)
 }
 
 @BindingAdapter("alarmStateImage")
@@ -111,14 +125,6 @@ fun TextView.setReservationStateText(reservationProduct: ReservationProduct) {
             setTextColor(context.getMyColor(R.color.colorOrangeF79256))
         }
     }
-}
-
-@BindingAdapter("urlImageRadius16")
-fun ImageView.setUrlImageRadius16(url: String) {
-    Glide.with(this).load(url)
-        .thumbnail(0.1f)
-        .transform(RoundedCorners(16))
-        .into(this)
 }
 
 @BindingAdapter("rating")
