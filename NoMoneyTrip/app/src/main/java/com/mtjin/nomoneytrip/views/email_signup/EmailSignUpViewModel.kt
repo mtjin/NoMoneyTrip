@@ -36,6 +36,7 @@ class EmailSignUpViewModel : BaseViewModel() {
             else -> _signUp.call()
 
         }
+        hideProgress()
     }
 
 }

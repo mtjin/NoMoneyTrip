@@ -54,12 +54,10 @@ class EmailSignUpActivity :
                         EmailLoginActivity::class.java
                     )
                     showToast("회원가입되었습니다")
-                    viewModel.hideProgress()
                     startActivity(intent)
                     finish()
                 } else {
                     showToast("회원가입 실패")
-                    viewModel.hideProgress()
                 }
             }
     }
