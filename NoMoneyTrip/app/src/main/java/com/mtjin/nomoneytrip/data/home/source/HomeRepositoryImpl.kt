@@ -29,7 +29,7 @@ class HomeRepositoryImpl(private val database: DatabaseReference) : HomeReposito
                             productList.add(it)
                         }
                     }
-                    productList.shuffle(Random(getTimestamp()))
+                    //productList.shuffle(Random(getTimestamp()))
                     emitter.onSuccess(productList)
                 }
 
