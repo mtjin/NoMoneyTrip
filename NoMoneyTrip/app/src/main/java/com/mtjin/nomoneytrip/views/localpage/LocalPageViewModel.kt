@@ -4,10 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
+import com.mtjin.nomoneytrip.data.community.Review
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.local_page.TourIntroduce
 import com.mtjin.nomoneytrip.data.local_page.source.LocalPageRepository
+import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -16,18 +18,21 @@ import io.reactivex.schedulers.Schedulers
 
 class LocalPageViewModel(private val repository: LocalPageRepository) : BaseViewModel() {
     var page = 2 //리뷰 페이징
+    private var lastUserReview: UserReview = UserReview(User(), Review(), Product())
     lateinit var city: String
     private val _tourIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _restaurantIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _productList = MutableLiveData<ArrayList<Product>>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
     private val _goLodgeSearch = SingleLiveEvent<Unit>()
+    private val _lastReviewCall = SingleLiveEvent<Unit>()
 
     val tourIntroduceList: LiveData<ArrayList<TourIntroduce>> get() = _tourIntroduceList
     val restaurantIntroduceList: LiveData<ArrayList<TourIntroduce>> get() = _restaurantIntroduceList
     val productList: LiveData<ArrayList<Product>> get() = _productList
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
     val goLodgeSearch: LiveData<Unit> get() = _goLodgeSearch
+    val lastReviewCall: LiveData<Unit> get() = _lastReviewCall
 
     fun requestTourIntroduces(areaCode: Int) {
         compositeDisposable.add(
@@ -75,7 +80,18 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                     onSuccess = {
-                        _userReviewList.value = it
+                        when {
+                            it.isNullOrEmpty() -> {
+                                _userReviewList.value = it
+                            }
+                            lastUserReview.review.id == it[it.size - 1].review.id -> {
+                                _lastReviewCall.call()
+                            }
+                            else -> {
+                                lastUserReview = it[it.size - 1]
+                                _userReviewList.value = it
+                            }
+                        }
                     },
                     onError = {
                         Log.d(TAG, "LocalPageViewModel requestReviews() -> $it")

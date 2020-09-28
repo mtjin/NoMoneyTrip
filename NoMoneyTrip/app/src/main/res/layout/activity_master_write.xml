@@ -91,6 +91,7 @@
                     android:layout_marginEnd="49dp"
                     android:background="@android:color/transparent"
                     android:hint="@string/please_write_thanks_letter_hint"
+                    android:maxLength="50"
                     android:maxLines="5"
                     android:text="@={vm.content}"
                     android:textColor="@color/colorGray8C8C"

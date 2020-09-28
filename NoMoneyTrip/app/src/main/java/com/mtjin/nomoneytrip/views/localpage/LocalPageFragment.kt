@@ -62,6 +62,13 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
                     }
                 }
             })
+
+            lastReviewCall.observe(this@LocalPageFragment, Observer {
+                binding.run {
+                    ivMore.visibility = View.GONE
+                    showToast(getString(R.string.last_tour_history_msg))
+                }
+            })
         }
     }
 

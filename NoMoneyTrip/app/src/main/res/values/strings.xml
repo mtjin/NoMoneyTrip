@@ -173,8 +173,9 @@
     <string name="reservation_info_check_text">예약 정보 확인</string>
     <string name="reservation_accepted_text">예약 접수</string>
     <string name="already_send_letter_text">이미 감사편지를 보냈습니다.</string>
-    <string name="please_write_thanks_letter_hint">5줄 이내로 감사편지 작성해주세요</string>
+    <string name="please_write_thanks_letter_hint">50자 이내로 감사편지 작성해주세요</string>
     <string name="write2_text">작성하기</string>
     <string name="thanks_letter_complete_msg">감사편지 작성 완료</string>
     <string name="no_tour_community_text">이 지역에 아직 여행기가 없습니다.</string>
+    <string name="last_tour_history_msg">마지막 여행기입니다.</string>
 </resources>
