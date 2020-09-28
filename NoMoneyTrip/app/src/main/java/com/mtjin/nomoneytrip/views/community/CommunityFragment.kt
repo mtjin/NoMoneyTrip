@@ -1,5 +1,6 @@
 package com.mtjin.nomoneytrip.views.community
 
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -19,7 +20,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
         initViewModelCallback()
         initAdapter()
         initView()
-        viewModel.requestReviews("국내 전체")
     }
 
     private fun initView() {
@@ -27,16 +27,17 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
         val cityArrayAdapter =
             ArrayAdapter(thisContext, R.layout.support_simple_spinner_dropdown_item, cities)
         binding.spCities.adapter = cityArrayAdapter
-        binding.spCities.setSelection(0)
         binding.spCities.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
-                view: View,
+                view: View?,
                 position: Int,
                 id: Long
             ) {
-                viewModel.requestReviews((parent.getChildAt(0) as TextView).text.toString())
-                (parent.getChildAt(0) as TextView).setTextColor(thisContext.getMyColor(R.color.colorOrangeF79256))
+                view?.let {
+                    viewModel.requestReviews((parent.getChildAt(0) as TextView).text.toString())
+                    (parent.getChildAt(0) as TextView).setTextColor(thisContext.getMyColor(R.color.colorOrangeF79256))
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -59,6 +60,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
     private fun initViewModelCallback() {
         with(viewModel) {
             goTourHistory.observe(this@CommunityFragment, Observer {
+                Log.d("AAAAA", it.toString())
                 findNavController().navigate(
                     CommunityFragmentDirections.actionBottomNav2ToTourHistoryFragment(it.toTypedArray())
                 )

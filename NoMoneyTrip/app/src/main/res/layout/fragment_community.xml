@@ -51,7 +51,6 @@
             android:layout_marginEnd="@dimen/margin_24dp"
             android:background="@android:color/transparent"
             android:spinnerMode="dialog"
-            android:entries="@array/cities"
             android:text="@string/country_entire_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_18sp"
