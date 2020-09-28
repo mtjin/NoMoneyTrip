@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.community.CommunityViewModel" />
@@ -73,6 +75,29 @@
             bind:setItems="@{vm.userReviewList}"
             tools:listitem="@layout/item_user_review" />
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_no_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{vm.userReviewList.empty ? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/img_reservation_none" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@string/no_tour_community_text"
+                android:textColor="@color/colorGray8C8C"
+                android:textSize="@dimen/text_size_16sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
