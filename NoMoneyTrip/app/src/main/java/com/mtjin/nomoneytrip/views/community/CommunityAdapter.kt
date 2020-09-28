@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
@@ -49,6 +50,12 @@ class CommunityAdapter(
         binding.tvProductTitle.setOnClickListener {
             productClick(items[viewHolder.adapterPosition])
         }
+        binding.ivShare.setOnClickListener {
+            Toast.makeText(context, "추후 업데이트", Toast.LENGTH_SHORT).show()
+        }
+        binding.ivOption.setOnClickListener {
+            Toast.makeText(context, "추후 업데이트", Toast.LENGTH_SHORT).show()
+        }
         return viewHolder
     }
 
@@ -68,7 +75,7 @@ class CommunityAdapter(
             if (item.review.recommendList.contains(uuid)) {
                 val img: Drawable? = context.getMyDrawable(R.drawable.ic_community_good)
                 binding.tvHeart.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null)
-            }else{
+            } else {
                 val img: Drawable? = context.getMyDrawable(R.drawable.ic_community_good_off)
                 binding.tvHeart.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null)
             }

@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.views.tour_detail
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -59,7 +60,7 @@ class TourDetailFragment : BaseFragment<FragmentTourDetailBinding>(R.layout.frag
     private fun initViewModelCallback() {
         with(viewModel) {
             requestSuccessMsg.observe(this@TourDetailFragment, Observer { success ->
-                if (!success) showToast("통신 실패")
+                if (!success) showToast("통신 오류")
             })
 
             searchDirection.observe(this@TourDetailFragment, Observer {
@@ -79,6 +80,10 @@ class TourDetailFragment : BaseFragment<FragmentTourDetailBinding>(R.layout.frag
                         )
                     )
                 }
+            })
+
+            share.observe(this@TourDetailFragment, Observer {
+                Toast.makeText(context, getString(R.string.update_later_msg), Toast.LENGTH_SHORT).show()
             })
 
             backClick.observe(this@TourDetailFragment, Observer {

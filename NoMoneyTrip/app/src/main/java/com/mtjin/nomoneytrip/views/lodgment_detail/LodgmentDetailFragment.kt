@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Rect
 import android.net.Uri
 import android.view.View
+import android.widget.Toast
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -111,6 +112,11 @@ class LodgmentDetailFragment :
                     tvMore.visibility = View.GONE
                     showToast(getString(R.string.last_tour_history_msg))
                 }
+            })
+
+            share.observe(this@LodgmentDetailFragment, Observer {
+                Toast.makeText(context, getString(R.string.update_later_msg), Toast.LENGTH_SHORT)
+                    .show()
             })
 
             backClick.observe(this@LodgmentDetailFragment, Observer {

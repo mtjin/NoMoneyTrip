@@ -55,8 +55,8 @@ fun ImageView.setUrlImageRadius16(url: String) {
 }
 
 @BindingAdapter("htmlText")
-fun TextView.setHtmlText(html: String) {
-    text = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT)
+fun TextView.setHtmlText(html: String?) {
+    text = html?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_COMPACT) }
 }
 
 @BindingAdapter("alarmStateImage")

@@ -27,12 +27,14 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
     private val _updateFavoriteResult = SingleLiveEvent<Boolean>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
     private val _lastReviewCall = SingleLiveEvent<Unit>()
+    private val _share = SingleLiveEvent<Unit>()
 
     val goReservationFirst: LiveData<Unit> get() = _goReservationFirst
     val searchDirection: LiveData<Unit> get() = _searchDirection
     val updateFavoriteResult: LiveData<Boolean> get() = _updateFavoriteResult
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
     val lastReviewCall: LiveData<Unit> get() = _lastReviewCall
+    val share: LiveData<Unit> get() = _share
 
     fun goReservationFirst() {
         _goReservationFirst.call()
@@ -97,5 +99,9 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
                         _updateFavoriteResult.value = product.favoriteList.contains(uuid)
                     }
                 ))
+    }
+
+    fun onClickShare() {
+        _share.call()
     }
 }

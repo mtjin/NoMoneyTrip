@@ -43,7 +43,6 @@ interface ApiInterface {
 
     /*관광지 상세검색
     * http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?ServiceKey=인증키&contentTypeId=39&contentId=2598695&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y*/
-    @Headers("Content-Type: application/json")
     @GET("rest/KorService/detailCommon?")
     fun getTourProductDetail(
         @Query("ServiceKey") ServiceKey: String = URLDecoder.decode(TOUR_API_KEY, "UTF-8"),
@@ -58,6 +57,7 @@ interface ApiInterface {
         @Query("addrinfoYN") addrinfoYN: String = "Y",
         @Query("mapinfoYN") mapinfoYN: String = "Y",
         @Query("overviewYN") overviewYN: String = "Y",
-        @Query("transGuideYN") transGuideYN: String = "Y"
+        @Query("transGuideYN") transGuideYN: String = "Y",
+        @Query("_type") _type: String = "json"
     ): Single<TourProductDetailBody>
 }

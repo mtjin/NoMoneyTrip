@@ -91,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:onClick="@{()->vm.onClickShare()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_map"
                 app:layout_constraintTop_toBottomOf="@id/iv_image"
@@ -111,11 +112,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16dp"
-                android:text="@{vm.tourProductDetail.overview}"
                 android:textColor="@color/colorBlack2D2D"
                 app:layout_constraintEnd_toEndOf="@id/iv_image"
                 app:layout_constraintStart_toStartOf="@id/iv_image"
                 app:layout_constraintTop_toBottomOf="@id/view"
+                bind:htmlText="@{vm.tourProductDetail.overview}"
                 tools:text="상품 설명 상세  설명 상품 설명 상세 설명 상품 설명
 상품 설명 상세 설명 상품 설명 상세 설명 상품 설명
 상품 설명 상세 설명 상품 설명 상세 설명 상품 설명" />
@@ -189,33 +190,6 @@
 줄입니다." />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_tel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_12dp"
-                    android:text="@string/telephone_text"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="@dimen/text_size_14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/cl_info"
-                    app:layout_constraintTop_toBottomOf="@id/tv_address" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_tel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:autoLink="phone"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:textColor="@color/colorBlack2D2D"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/text_tel"
-                    app:layout_constraintTop_toTopOf="@id/text_tel"
-                    tools:text="+821012345677" />
-
-                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/text_homepage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -226,7 +200,7 @@
                     android:textSize="@dimen/text_size_14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@id/cl_info"
-                    app:layout_constraintTop_toBottomOf="@id/text_tel" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_address" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_homepage"
@@ -236,12 +210,13 @@
                     android:layout_marginEnd="@dimen/margin_19dp"
                     android:autoLink="web"
                     android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="@{vm.tourProductDetail.homepage}"
+                    android:lines="2"
+                    android:maxLines="2"
                     android:textColor="@color/colorBlack2D2D"
                     app:layout_constraintEnd_toEndOf="@id/cl_info"
                     app:layout_constraintStart_toEndOf="@id/text_homepage"
                     app:layout_constraintTop_toTopOf="@id/text_homepage"
+                    bind:htmlText="@{vm.tourProductDetail.homepage}"
                     tools:text="http://www.naver.com" />
 
 
