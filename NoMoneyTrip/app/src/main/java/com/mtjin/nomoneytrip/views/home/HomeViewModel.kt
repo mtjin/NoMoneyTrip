@@ -8,9 +8,12 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.home.source.HomeRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
+import com.mtjin.nomoneytrip.utils.getTimestamp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel() {
     private val _goSearch = SingleLiveEvent<Unit>()
@@ -40,6 +43,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : BaseViewModel(
                             hashTags.add(hashTag)
                         }
                     }
+                    hashTags.shuffle(Random(getTimestamp()))
                     _hashTagList.value = hashTags.distinct() as ArrayList<String>
                 }, {
                     Log.d(TAG, "HomeViewModel requestProducts() Error -> $it")

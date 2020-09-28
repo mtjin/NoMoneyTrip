@@ -7,8 +7,12 @@ import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.utils.FAVORITE_LIST
 import com.mtjin.nomoneytrip.utils.PRODUCT
+import com.mtjin.nomoneytrip.utils.getTimestamp
 import io.reactivex.Completable
 import io.reactivex.Single
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class HomeRepositoryImpl(private val database: DatabaseReference) : HomeRepository {
     override fun requestProducts(): Single<List<Product>> {
@@ -25,6 +29,7 @@ class HomeRepositoryImpl(private val database: DatabaseReference) : HomeReposito
                             productList.add(it)
                         }
                     }
+                    productList.shuffle(Random(getTimestamp()))
                     emitter.onSuccess(productList)
                 }
 
