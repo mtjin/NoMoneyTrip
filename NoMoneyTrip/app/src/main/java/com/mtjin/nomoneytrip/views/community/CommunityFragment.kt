@@ -1,10 +1,15 @@
 package com.mtjin.nomoneytrip.views.community
 
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentCommunityBinding
+import com.mtjin.nomoneytrip.utils.getMyColor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragment_community) {
@@ -13,7 +18,30 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragme
         binding.vm = viewModel
         initViewModelCallback()
         initAdapter()
-        viewModel.requestReviews()
+        initView()
+        viewModel.requestReviews("국내 전체")
+    }
+
+    private fun initView() {
+        val cities = thisContext.resources.getStringArray(R.array.cities)
+        val cityArrayAdapter =
+            ArrayAdapter(thisContext, R.layout.support_simple_spinner_dropdown_item, cities)
+        binding.spCities.adapter = cityArrayAdapter
+        binding.spCities.setSelection(0)
+        binding.spCities.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                viewModel.requestReviews((parent.getChildAt(0) as TextView).text.toString())
+                (parent.getChildAt(0) as TextView).setTextColor(thisContext.getMyColor(R.color.colorOrangeF79256))
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+            }
+        }
     }
 
     private fun initAdapter() {

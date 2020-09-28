@@ -7,6 +7,6 @@ import io.reactivex.Single
 
 interface CommunityRepository {
     fun requestMyReservations(): Single<List<ReservationProduct>>
-    fun requestReviews(): Single<List<UserReview>>
+    fun requestReviews(cityCode: String): Single<List<UserReview>>
     fun updateReviewRecommend(userReview: UserReview): Completable
 }

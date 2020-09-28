@@ -43,9 +43,9 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
         )
     }
 
-    fun requestReviews() {
+    fun requestReviews(city: String) {
         compositeDisposable.add(
-            repository.requestReviews()
+            repository.requestReviews(city)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(

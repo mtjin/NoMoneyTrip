@@ -61,73 +61,143 @@ class CommunityRepositoryImpl(private val database: DatabaseReference) : Communi
         }
     }
 
-    override fun requestReviews(): Single<List<UserReview>> {
+    override fun requestReviews(cityCode: String): Single<List<UserReview>> {
         var userList = ArrayList<User>()
         var productList = ArrayList<Product>()
         var userReviewList = ArrayList<UserReview>()
-        return Single.create<List<UserReview>> { emitter ->
-            database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    emitter.onError(error.toException())
-                }
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    for (productSnapshot in snapshot.children) {
-                        productSnapshot.getValue(Product::class.java)?.let {
-                            productList.add(it)
-                        }
+        if (cityCode == "국내 전체") {//국내전체
+            return Single.create<List<UserReview>> { emitter ->
+                database.child(PRODUCT).addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        emitter.onError(error.toException())
                     }
-                    database.child(USER)
-                        .addListenerForSingleValueEvent(object : ValueEventListener {
-                            override fun onCancelled(error: DatabaseError) {
-                                emitter.onError(error.toException())
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (productSnapshot in snapshot.children) {
+                            productSnapshot.getValue(Product::class.java)?.let {
+                                productList.add(it)
                             }
-
-                            override fun onDataChange(snapshot: DataSnapshot) {
-                                for (userSnapshot in snapshot.children) {
-                                    userSnapshot.getValue(User::class.java)?.let {
-                                        userList.add(it)
-                                    }
+                        }
+                        database.child(USER)
+                            .addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onCancelled(error: DatabaseError) {
+                                    emitter.onError(error.toException())
                                 }
-                                database.child(REVIEW)
-                                    .addListenerForSingleValueEvent(object : ValueEventListener {
-                                        override fun onCancelled(error: DatabaseError) {
-                                            emitter.onError(error.toException())
-                                        }
 
-                                        override fun onDataChange(snapshot: DataSnapshot) {
-                                            for (reviewSnapshot in snapshot.children) {
-                                                reviewSnapshot.getValue(Review::class.java)
-                                                    ?.let { review ->
-                                                        for (product in productList) {
-                                                            if (product.id == review.productId) {
-                                                                for (user in userList) {
-                                                                    if (user.id == review.userId) {
-                                                                        userReviewList.add(
-                                                                            UserReview(
-                                                                                user = user,
-                                                                                review = review,
-                                                                                product = product
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    for (userSnapshot in snapshot.children) {
+                                        userSnapshot.getValue(User::class.java)?.let {
+                                            userList.add(it)
+                                        }
+                                    }
+                                    database.child(REVIEW)
+                                        .addListenerForSingleValueEvent(object :
+                                            ValueEventListener {
+                                            override fun onCancelled(error: DatabaseError) {
+                                                emitter.onError(error.toException())
+                                            }
+
+                                            override fun onDataChange(snapshot: DataSnapshot) {
+                                                for (reviewSnapshot in snapshot.children) {
+                                                    reviewSnapshot.getValue(Review::class.java)
+                                                        ?.let { review ->
+                                                            for (product in productList) {
+                                                                if (product.id == review.productId) {
+                                                                    for (user in userList) {
+                                                                        if (user.id == review.userId) {
+                                                                            userReviewList.add(
+                                                                                UserReview(
+                                                                                    user = user,
+                                                                                    review = review,
+                                                                                    product = product
+                                                                                )
                                                                             )
-                                                                        )
+                                                                        }
                                                                     }
+                                                                    break
                                                                 }
-                                                                break
                                                             }
                                                         }
-                                                    }
+                                                }
+                                                userReviewList.sortByDescending { it.review.timestamp }
+                                                emitter.onSuccess(userReviewList)
                                             }
-                                            userReviewList.sortByDescending { it.review.timestamp }
-                                            emitter.onSuccess(userReviewList)
-                                        }
 
-                                    })
+                                        })
+                                }
+
+                            })
+                    }
+
+                })
+            }
+        } else {
+            return Single.create<List<UserReview>> { emitter ->
+                database.child(PRODUCT).orderByChild(CITY).equalTo(cityCode)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(error: DatabaseError) {
+                            emitter.onError(error.toException())
+                        }
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            for (productSnapshot in snapshot.children) {
+                                productSnapshot.getValue(Product::class.java)?.let {
+                                    productList.add(it)
+                                }
                             }
+                            database.child(USER)
+                                .addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onCancelled(error: DatabaseError) {
+                                        emitter.onError(error.toException())
+                                    }
 
-                        })
-                }
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        for (userSnapshot in snapshot.children) {
+                                            userSnapshot.getValue(User::class.java)?.let {
+                                                userList.add(it)
+                                            }
+                                        }
+                                        database.child(REVIEW)
+                                            .addListenerForSingleValueEvent(object :
+                                                ValueEventListener {
+                                                override fun onCancelled(error: DatabaseError) {
+                                                    emitter.onError(error.toException())
+                                                }
 
-            })
+                                                override fun onDataChange(snapshot: DataSnapshot) {
+                                                    for (reviewSnapshot in snapshot.children) {
+                                                        reviewSnapshot.getValue(Review::class.java)
+                                                            ?.let { review ->
+                                                                for (product in productList) {
+                                                                    if (product.id == review.productId) {
+                                                                        for (user in userList) {
+                                                                            if (user.id == review.userId) {
+                                                                                userReviewList.add(
+                                                                                    UserReview(
+                                                                                        user = user,
+                                                                                        review = review,
+                                                                                        product = product
+                                                                                    )
+                                                                                )
+                                                                            }
+                                                                        }
+                                                                        break
+                                                                    }
+                                                                }
+                                                            }
+                                                    }
+                                                    userReviewList.sortByDescending { it.review.timestamp }
+                                                    emitter.onSuccess(userReviewList)
+                                                }
+
+                                            })
+                                    }
+
+                                })
+                        }
+
+                    })
+            }
         }
     }
 

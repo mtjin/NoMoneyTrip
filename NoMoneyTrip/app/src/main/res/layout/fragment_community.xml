@@ -44,10 +44,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/sp_cities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@android:color/transparent"
+            android:spinnerMode="dialog"
+            android:entries="@array/cities"
             android:text="@string/country_entire_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_18sp"
