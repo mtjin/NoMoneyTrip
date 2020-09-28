@@ -150,6 +150,10 @@
             android:id="@+id/action_localpage_fragment_to_search_fragment"
             app:destination="@id/search_fragment"
             app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_localpage_fragment_to_tour_detail_fragment"
+            app:destination="@id/tour_detail_fragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
@@ -287,7 +291,7 @@
         android:id="@+id/alarm_fragment"
         android:name="com.mtjin.nomoneytrip.views.alarm.AlarmFragment"
         android:label="AlarmFragment"
-        tools:layout="@layout/fragment_alarm" >
+        tools:layout="@layout/fragment_alarm">
         <action
             android:id="@+id/action_alarm_fragment_to_reservation_detail_fragment"
             app:destination="@id/reservation_detail_fragment"
@@ -348,6 +352,15 @@
         android:name="com.mtjin.nomoneytrip.views.recommend_review.RecommendReviewFragment"
         android:label="RecommendReviewFragment"
         tools:layout="@layout/fragment_recommend_review" />
+    <fragment
+        android:id="@+id/tour_detail_fragment"
+        android:name="com.mtjin.nomoneytrip.views.tour_detail.TourDetailFragment"
+        android:label="TourDetailFragment"
+        tools:layout="@layout/fragment_tour_detail" >
+        <argument
+            android:name="tourIntroduce"
+            app:argType=" com.mtjin.nomoneytrip.data.local_page.TourIntroduce" />
 
+    </fragment>
 
 </navigation>
