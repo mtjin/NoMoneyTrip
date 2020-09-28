@@ -91,16 +91,12 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
     private fun initAdapter() {
         tourIntroduceAdapter = LocalPageAdapter {
             findNavController().navigate(
-                LocalPageFragmentDirections.actionLocalpageFragmentToWebViewFragment(
-                    "http://api.visitkorea.or.kr/guide/tourDetail.do?contentId=" + it.contentid + "&langtype=KOR&oper=area&burl=&contentTypeId=" + it.contenttypeid + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A"
-                )
+                LocalPageFragmentDirections.actionLocalpageFragmentToTourDetailFragment(it)
             )
         }
         restaurantIntroduceAdapter = LocalPageAdapter {
             findNavController().navigate(
-                LocalPageFragmentDirections.actionLocalpageFragmentToWebViewFragment(
-                    "http://api.visitkorea.or.kr/guide/tourDetail.do?contentId=" + it.contentid + "&langtype=KOR&oper=area&burl=&contentTypeId=" + it.contenttypeid + "&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A"
-                )
+                LocalPageFragmentDirections.actionLocalpageFragmentToTourDetailFragment(it)
             )
         }
         productAdapter = LocalProductAdapter(context = thisContext, itemClick = {

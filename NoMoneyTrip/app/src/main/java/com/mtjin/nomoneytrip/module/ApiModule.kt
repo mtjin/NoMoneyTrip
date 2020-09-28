@@ -29,7 +29,7 @@ val apiModule: Module = module {
     single<Retrofit>(named("tour")) {
         Retrofit.Builder()
             .baseUrl(ApiClient.TOUR_BASE_URL)
-            .client(get())
+            .client(get(named("tour")))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(get<GsonConverterFactory>())
             .build()
@@ -38,10 +38,10 @@ val apiModule: Module = module {
 
     single<GsonConverterFactory> { GsonConverterFactory.create() }
 
-    single<OkHttpClient> {
+    single<OkHttpClient>(named("tour")) {
         OkHttpClient.Builder()
             .run {
-                addInterceptor(get<Interceptor>())
+                addInterceptor(get<Interceptor>(named("tour")))
                 build()
             }
     }
@@ -68,7 +68,7 @@ val apiModule: Module = module {
 
 
 
-    single<Interceptor> {
+    single<Interceptor>(named("tour")) {
         Interceptor { chain ->
             with(chain) {
                 val newRequest = request().newBuilder()

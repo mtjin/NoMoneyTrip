@@ -90,4 +90,6 @@
     <dimen name="padding_19dp">19dp</dimen>
     <dimen name="margin_120dp">120dp</dimen>
     <dimen name="margin_56dp">56dp</dimen>
+    <dimen name="padding_17dp">17dp</dimen>
+    <dimen name="margin_87dp">87dp</dimen>
 </resources>

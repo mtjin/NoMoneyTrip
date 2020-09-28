@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="tourIntroduce"
+            type="com.mtjin.nomoneytrip.data.local_page.TourIntroduce" />
+
+        <variable
+            name="vm"
+            type="com.mtjin.nomoneytrip.views.tour_detail.TourDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/sv_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:onClick="@{()->vm.onBackClick()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_title" />
+
+            <View
+                android:id="@+id/view_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_1dp"
+                android:layout_marginTop="@dimen/margin_7dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_lodgment_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:layout_marginEnd="@dimen/margin_62dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:maxLines="2"
+                android:text="@{tourIntroduce.title}"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_top"
+                tools:text="상품 이름" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="28dp"
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toBottomOf="@id/tv_lodgment_name"
+                bind:urlImageRadius16="@{tourIntroduce.firstimage}"
+                tools:src="@drawable/img_product" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:onClick="@{()->vm.searchDirection()}"
+                app:layout_constraintEnd_toStartOf="@id/iv_share"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_image"
+                app:srcCompat="@drawable/ic_map_detail" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_map"
+                app:layout_constraintTop_toBottomOf="@id/iv_image"
+                app:srcCompat="@drawable/ic_share_detail" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="28dp"
+                android:background="@color/colorWhiteGrayF4F4"
+                app:layout_constraintTop_toBottomOf="@id/iv_share" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_explanation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@{vm.tourProductDetail.overview}"
+                android:textColor="@color/colorBlack2D2D"
+                app:layout_constraintEnd_toEndOf="@id/iv_image"
+                app:layout_constraintStart_toStartOf="@id/iv_image"
+                app:layout_constraintTop_toBottomOf="@id/view"
+                tools:text="상품 설명 상세  설명 상품 설명 상세 설명 상품 설명
+상품 설명 상세 설명 상품 설명 상세 설명 상품 설명
+상품 설명 상세 설명 상품 설명 상세 설명 상품 설명" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_tour_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_36dp"
+                android:fontFamily="@font/goyang_ilsan_regular"
+                android:text="관광지 정보"
+                android:textColor="@color/colorBlack2D2D"
+                android:textSize="@dimen/text_size_18sp"
+                app:layout_constraintStart_toStartOf="@id/iv_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_explanation" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/tmap"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_160dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_tour_info" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:layout_marginEnd="@dimen/margin_28dp"
+                android:background="@drawable/bg_solid_grayf4f4_radius_8dp"
+                android:paddingBottom="@dimen/padding_17dp"
+                app:cardCornerRadius="@dimen/radius_8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tmap">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="@string/address_text"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/cl_info"
+                    app:layout_constraintTop_toTopOf="@id/cl_info" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_12dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_32dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{tourIntroduce.addr1}"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintEnd_toEndOf="@id/cl_info"
+                    app:layout_constraintStart_toEndOf="@id/text_address"
+                    app:layout_constraintTop_toTopOf="@id/cl_info"
+                    tools:text="주소입니다. 주소에요 . 주소라구요. 두
+줄입니다." />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:text="@string/telephone_text"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/cl_info"
+                    app:layout_constraintTop_toBottomOf="@id/tv_address" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_tel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:autoLink="phone"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/text_tel"
+                    app:layout_constraintTop_toTopOf="@id/text_tel"
+                    tools:text="+821012345677" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_homepage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:text="@string/homepage_text"
+                    android:textColor="@color/colorBlack2D2D"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/cl_info"
+                    app:layout_constraintTop_toBottomOf="@id/text_tel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_homepage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_12dp"
+                    android:layout_marginEnd="@dimen/margin_19dp"
+                    android:autoLink="web"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{vm.tourProductDetail.homepage}"
+                    android:textColor="@color/colorBlack2D2D"
+                    app:layout_constraintEnd_toEndOf="@id/cl_info"
+                    app:layout_constraintStart_toEndOf="@id/text_homepage"
+                    app:layout_constraintTop_toTopOf="@id/text_homepage"
+                    tools:text="http://www.naver.com" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/iv_search_road"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_44dp"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:layout_marginEnd="@dimen/margin_28dp"
+                android:layout_marginBottom="@dimen/margin_36dp"
+                android:background="@drawable/bg_btn_orange_edge"
+                android:gravity="center"
+                android:onClick="@{()->vm.searchDirection()}"
+                android:text="@string/search_road_text"
+                android:textColor="@color/colorOrangeF79256"
+                android:textSize="@dimen/text_size_14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cl_info" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

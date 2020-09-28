@@ -12,7 +12,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.community.UserReview
@@ -43,14 +42,6 @@ fun ImageView.setUrlImage(url: String) {
     Glide.with(this).load(url)
         .thumbnail(0.1f)
         .error(R.drawable.img_product)
-        .into(this)
-}
-
-@BindingAdapter("urlImageRadius16dp")
-fun ImageView.setUrrlImageRadius16dp(url: String) {
-    Glide.with(this)
-        .load(url)
-        .apply(RequestOptions.bitmapTransform(RoundedCorners(16)))
         .into(this)
 }
 
@@ -122,8 +113,8 @@ fun TextView.setReservationStateText(reservationProduct: ReservationProduct) {
     }
 }
 
-@BindingAdapter("urlImageRadius")
-fun ImageView.setUrlImageRadius(url: String) {
+@BindingAdapter("urlImageRadius16")
+fun ImageView.setUrlImageRadius16(url: String) {
     Glide.with(this).load(url)
         .thumbnail(0.1f)
         .transform(RoundedCorners(16))

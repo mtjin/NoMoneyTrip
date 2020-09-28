@@ -359,8 +359,7 @@
         tools:layout="@layout/fragment_tour_detail" >
         <argument
             android:name="tourIntroduce"
-            app:argType=" com.mtjin.nomoneytrip.data.local_page.TourIntroduce" />
-
+            app:argType="com.mtjin.nomoneytrip.data.local_page.TourIntroduce" />
     </fragment>
 
 </navigation>
