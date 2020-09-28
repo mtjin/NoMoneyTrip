@@ -4,7 +4,9 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.mtjin.nomoneytrip.views.phone.PhoneAuthViewModel" />
@@ -123,6 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_4dp"
+            android:onClick="@{()->vm.requestAuth()}"
             android:text="@string/retry_request_auth_phone_text"
             android:textColor="@color/colorOrangeF79256"
             android:textSize="@dimen/text_size_12sp"

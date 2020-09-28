@@ -5,4 +5,5 @@ import io.reactivex.Completable
 
 interface EmailLoginRepository{
     fun insertUser(user: User) : Completable
+    fun updateFCM(): Completable
 }

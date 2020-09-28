@@ -90,14 +90,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
                 letterAdapter.run {
                     clear()
                     addItems(it as List<MasterLetter>)
-                    addItem(
-                        MasterLetter(
-                            title = "무전일기 이장",
-                            timestamp = getTimestamp(),
-                            content = "반갑습니다! 안전하고 멋진\n" +
-                                    "무전여행을 기대할게요 :)"
-                        )
-                    )
                 }
             })
         }

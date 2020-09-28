@@ -33,7 +33,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) :
         _goEmailSignUp.call()
     }
 
-    fun goMasterLogin(){
+    fun goMasterLogin() {
         _goMasterLogin.call()
     }
 
@@ -54,7 +54,15 @@ class LoginViewModel(private val loginRepository: LoginRepository) :
     }
 
     fun updateFCM() {
-        loginRepository.updateFCM()
+        compositeDisposable.add(
+            loginRepository.updateFCM()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onComplete = { _insertUserResult.value = true },
+                    onError = { _insertUserResult.value = false }
+                )
+        )
     }
 
 }

@@ -163,17 +163,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                 .addOnCompleteListener(this@LoginActivity) { task ->
                     if (task.isSuccessful) {
                         uuid = auth.currentUser?.uid.toString()
-                        viewModel.insertUser(
-                            User(
-                                id = uuid,
-                                name = "무전" + getTimestamp().toString()
-                                    .subSequence(0, 6),
-                                fcm = fcm,
-                                email = email,
-                                pw = password,
-                                image = image
-                            )
-                        )
+                        viewModel.updateFCM()
                     } else {
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this@LoginActivity) { task ->
@@ -182,10 +172,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                         .addOnCompleteListener(this@LoginActivity) { task ->
                                             if (task.isSuccessful) {
                                                 uuid = auth.currentUser?.uid.toString()
-                                                val intent: Intent = Intent(
-                                                    this@LoginActivity,
-                                                    MainActivity::class.java
-                                                )
                                                 viewModel.insertUser(
                                                     User(
                                                         id = uuid,

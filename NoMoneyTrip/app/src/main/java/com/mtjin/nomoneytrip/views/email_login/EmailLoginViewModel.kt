@@ -54,6 +54,18 @@ class EmailLoginViewModel(private val emailLoginRepository: EmailLoginRepository
         )
     }
 
+    fun updateFCM() {
+        compositeDisposable.add(
+            emailLoginRepository.updateFCM()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onComplete = { _loginSuccess.call() },
+                    onError = { Log.d(TAG, "EmailLoginViewModel updateFCM() error -> $it") }
+                )
+        )
+    }
+
     fun onBackButtonClick() {
         _backClick.call()
     }
