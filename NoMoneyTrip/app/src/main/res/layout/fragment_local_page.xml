@@ -249,7 +249,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/tv_local_popular_tour"
                     bind:setItems="@{vm.userReviewList}"
-                    tools:itemCount="3"
+                    tools:itemCount="1"
                     tools:listitem="@layout/item_user_review" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -277,18 +277,25 @@
                         android:textSize="@dimen/text_size_16sp" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/iv_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_more"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_44dp"
+                    android:layout_marginStart="@dimen/margin_28dp"
                     android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_28dp"
                     android:layout_marginBottom="@dimen/margin_36dp"
+                    android:background="@drawable/bg_btn_orange_edge"
+                    android:gravity="center"
                     android:onClick="@{()->vm.requestReviews()}"
+                    android:text="@string/local_tour_review_more_text"
+                    android:textColor="@color/colorOrangeF79256"
+                    android:textSize="@dimen/text_size_14sp"
                     android:visibility="@{vm.userReviewList.empty ? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rv_reviews"
-                    app:srcCompat="@drawable/every_view" />
+                    app:layout_constraintTop_toBottomOf="@id/rv_reviews" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

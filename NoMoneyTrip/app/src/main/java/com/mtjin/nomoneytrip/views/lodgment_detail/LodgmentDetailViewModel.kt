@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
+import com.mtjin.nomoneytrip.data.community.Review
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.lodgment_detail.source.LodgmentDetailRepository
+import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import com.mtjin.nomoneytrip.utils.uuid
@@ -15,6 +17,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) : BaseViewModel() {
+    private var lastUserReview: UserReview = UserReview(User(), Review(), Product())
     var page = 2 //리뷰 페이징
     lateinit var productId: String
     lateinit var product: Product
@@ -23,11 +26,13 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
     private val _searchDirection = SingleLiveEvent<Unit>()
     private val _updateFavoriteResult = SingleLiveEvent<Boolean>()
     private val _userReviewList = MutableLiveData<List<UserReview>>()
+    private val _lastReviewCall = SingleLiveEvent<Unit>()
 
     val goReservationFirst: LiveData<Unit> get() = _goReservationFirst
     val searchDirection: LiveData<Unit> get() = _searchDirection
     val updateFavoriteResult: LiveData<Boolean> get() = _updateFavoriteResult
     val userReviewList: LiveData<List<UserReview>> get() = _userReviewList
+    val lastReviewCall: LiveData<Unit> get() = _lastReviewCall
 
     fun goReservationFirst() {
         _goReservationFirst.call()
@@ -44,8 +49,18 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                     onSuccess = {
-                        Log.d("AAAA", it.toString())
-                        _userReviewList.value = it
+                        when {
+                            it.isNullOrEmpty() -> {
+                                _userReviewList.value = it
+                            }
+                            lastUserReview.review.id == it[it.size - 1].review.id -> {
+                                _lastReviewCall.call()
+                            }
+                            else -> {
+                                lastUserReview = it[it.size - 1]
+                                _userReviewList.value = it
+                            }
+                        }
                     },
                     onError = {
                         Log.d(TAG, "LodgmentDetailViewModel requestReviews() -> $it")

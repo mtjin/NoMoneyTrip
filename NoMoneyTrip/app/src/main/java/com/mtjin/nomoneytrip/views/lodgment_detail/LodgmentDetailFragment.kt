@@ -106,6 +106,13 @@ class LodgmentDetailFragment :
                 else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
             })
 
+            lastReviewCall.observe(this@LodgmentDetailFragment, Observer {
+                binding.run {
+                    tvMore.visibility = View.GONE
+                    showToast(getString(R.string.last_tour_history_msg))
+                }
+            })
+
             backClick.observe(this@LodgmentDetailFragment, Observer {
                 findNavController().popBackStack()
             })

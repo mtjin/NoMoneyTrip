@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="product"
             type="com.mtjin.nomoneytrip.data.home.Product" />
@@ -535,9 +537,33 @@
                     tools:itemCount="1"
                     tools:listitem="@layout/item_lodgement_review" />
 
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_no_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_36dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="@{vm.userReviewList.empty ? View.VISIBLE: View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/rv_reviews">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/img_reservation_none" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="@string/no_tour_community_text"
+                        android:textColor="@color/colorGray8C8C"
+                        android:textSize="@dimen/text_size_16sp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_view_all_local"
+                    android:id="@+id/tv_more"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/height_44dp"
                     android:layout_marginTop="@dimen/margin_16dp"
@@ -545,9 +571,10 @@
                     android:background="@drawable/bg_btn_orange_edge"
                     android:gravity="center"
                     android:onClick="@{()->vm.requestReviews()}"
-                    android:text="@string/local_tour_review_more_text"
+                    android:text="@string/this_product_review_more_text"
                     android:textColor="@color/colorOrangeF79256"
                     android:textSize="@dimen/text_size_14sp"
+                    android:visibility="@{vm.userReviewList.empty ? View.GONE: View.VISIBLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/vp_viewpager"
                     app:layout_constraintStart_toStartOf="@id/vp_viewpager"
