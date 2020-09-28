@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
 import com.mtjin.nomoneytrip.data.master_main.MasterProduct
 import com.mtjin.nomoneytrip.data.master_main.source.MasterMainRepository
+import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -15,9 +16,11 @@ class MasterMainViewModel(private val repository: MasterMainRepository) : BaseVi
 
     private val _newProductList = MutableLiveData<ArrayList<MasterProduct>>()
     private val _acceptedProductList = MutableLiveData<ArrayList<MasterProduct>>()
+    private val _onClickAlarm = SingleLiveEvent<Unit>()
 
     val newProductList: LiveData<ArrayList<MasterProduct>> get() = _newProductList
     val acceptedProductList: LiveData<ArrayList<MasterProduct>> get() = _acceptedProductList
+    val onClickAlarm: LiveData<Unit> get() = _onClickAlarm
 
     fun requestNewMasterProducts() {
         compositeDisposable.add(
@@ -70,5 +73,9 @@ class MasterMainViewModel(private val repository: MasterMainRepository) : BaseVi
                     }
                 )
         )
+    }
+
+    fun onClickAlarm(){
+        _onClickAlarm.call()
     }
 }

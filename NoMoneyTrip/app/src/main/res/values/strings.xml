@@ -176,4 +176,5 @@
     <string name="please_write_thanks_letter_hint">5줄 이내로 감사편지 작성해주세요</string>
     <string name="write2_text">작성하기</string>
     <string name="thanks_letter_complete_msg">감사편지 작성 완료</string>
+    <string name="no_tour_community_text">이 지역에 아직 여행기가 없습니다.</string>
 </resources>

@@ -31,6 +31,9 @@ class MasterMainActivity : BaseActivity<ActivityMasterMainBinding>(R.layout.acti
                 if (loading) showProgressDialog()
                 else hideProgressDialog()
             })
+            onClickAlarm.observe(this@MasterMainActivity, Observer {
+                showToast("추후 업데이트 예정")
+            })
         }
     }
 
