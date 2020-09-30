@@ -114,9 +114,9 @@ class ReservationPhaseFirstFragment :
             .setCalendarDisplayMode(CalendarMode.MONTHS)
             .setMinimumDate(
                 CalendarDay.from(
-                    getCurrentYear(),
-                    getCurrentMonth(),
-                    getCurrentDay() + 1
+                    getNextDayCurrentYear(),
+                    getNextDayCurrentMonth(),
+                    getNextDayCurrentDay()
                 )
             ).commit()
 

@@ -55,6 +55,32 @@ fun Int.convertNextHour(): Int = if (this == 23) 0 else this + 1
 
 fun Int.convertNextMinute(): Int = if (this == 59) 0 else this + 1
 
+// 다음날의 현재 Year
+fun getNextDayCurrentYear(): Int {
+    val c = Calendar.getInstance()
+    c.add(Calendar.DATE, 1)
+    return c.get(Calendar.YEAR)
+}
+
+// 다음날의 현재 Month
+fun getNextDayCurrentMonth(): Int {
+    val c = Calendar.getInstance()
+    c.add(Calendar.DATE, 1)
+    return if (c.get(Calendar.MONTH) == 11) {
+        0
+    } else {
+        (c.get(Calendar.MONTH) + 1)
+    }
+}
+
+// 다음날의 현재 Day
+fun getNextDayCurrentDay(): Int {
+    val c = Calendar.getInstance()
+    c.add(Calendar.DATE, 1)
+    return c.get(Calendar.DAY_OF_MONTH)
+}
+
+
 // 현재 Year
 fun getCurrentYear(): Int = Calendar.getInstance().get(Calendar.YEAR)
 
