@@ -25,14 +25,10 @@ class AlarmRepositoryImpl(private val database: DatabaseReference) : AlarmReposi
                         val alarmList = ArrayList<Alarm>()
                         for (snapshot2 in snapshot.children) {
                             snapshot2.getValue(Alarm::class.java)?.let {
-                                if (alarmList.isNotEmpty()) {
-                                    alarmList.add(alarmList.size - 1, it)
-                                } else {
-                                    alarmList.add(it)
-                                }
+                                alarmList.add(it)
                             }
                         }
-                        alarmList.sortByDescending { it.timestamp }
+                        alarmList.reverse()
                         emitter.onSuccess(alarmList)
                     }
 
@@ -64,28 +60,23 @@ class AlarmRepositoryImpl(private val database: DatabaseReference) : AlarmReposi
 
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.getValue(Product::class.java)?.let { product ->
-                            database.child(RESERVATION).orderByChild(USER_ID).equalTo(uuid)
+                            database.child(RESERVATION).child(alarm.reservationId)
                                 .addValueEventListener(object : ValueEventListener {
                                     override fun onCancelled(error: DatabaseError) {
                                         emitter.onError(error.toException())
                                     }
 
                                     override fun onDataChange(snapshot: DataSnapshot) {
-                                        for (reserveSnapShot: DataSnapshot in snapshot.children) {
-                                            reserveSnapShot.getValue(Reservation::class.java)?.let {
-
-                                                if (product.id == it.productId) {
-                                                    emitter.onSuccess(
-                                                        ReservationProduct(
-                                                            reservation = it,
-                                                            product = product
-                                                        )
-                                                    )
-                                                    return
-                                                }
-                                            }
+                                        snapshot.getValue(Reservation::class.java)?.let {
+                                            emitter.onSuccess(
+                                                ReservationProduct(
+                                                    reservation = it,
+                                                    product = product
+                                                )
+                                            )
+                                            return
                                         }
-                                        emitter.onError(Throwable("requestReservations 에러"))
+                                        emitter.onError(Throwable("requestReservation 에러"))
                                     }
                                 })
                         }

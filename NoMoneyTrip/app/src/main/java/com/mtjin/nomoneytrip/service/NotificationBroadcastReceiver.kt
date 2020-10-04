@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -17,7 +18,7 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
             val title = it.getStringExtra(EXTRA_NOTIFICATION_TITLE).toString()
             val message = it.getStringExtra(EXTRA_NOTIFICATION_MESSAGE).toString()
             val productId = intent.getStringExtra(EXTRA_ALARM_PRODUCT_ID).toString()
-            val userId = intent.getStringExtra(EXTRA_ALARM_USER_ID)
+            val userId = intent.getStringExtra(EXTRA_ALARM_USER_ID).toString()
             val timestamp = intent.getLongExtra(EXTRA_ALARM_TIMESTAMP, 0)
             val case = intent.getIntExtra(EXTRA_ALARM_CASE, 0)
             val reservationId = intent.getStringExtra(EXTRA_RESERVATION_ID).toString()
@@ -31,7 +32,7 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
                 .putInt(EXTRA_ALARM_CASE, case)
                 .putString(EXTRA_RESERVATION_ID, reservationId)
                 .build()
-
+            Log.d("BroadcastReceiver", notificationData.toString())
             val workRequest =
                 OneTimeWorkRequestBuilder<ScheduledWorker>()
                     .setInputData(notificationData)

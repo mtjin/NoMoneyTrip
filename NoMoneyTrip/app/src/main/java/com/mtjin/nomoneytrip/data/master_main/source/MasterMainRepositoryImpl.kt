@@ -173,7 +173,15 @@ class MasterMainRepositoryImpl(
                                 time = product.checkIn
                             )
                         }
-                        Log.d("FCM", masterProduct.user.fcm)
+                        var content = ""
+                        var case = 0
+                        if (masterState == 2) { //수락
+                            content = product.title + " 예약을 이장님이 수락했습니다."
+                            case = ALARM_RESERVATION_ACCEPT_CASE2
+                        } else if (masterState == 1) {// 거절
+                            content = product.title + " 예약을 이장님이 거절했습니다."
+                            case = ALARM_RESERVATION_DENY_CASE6
+                        }
                         fcmInterface.sendNotification(
                             NotificationBody(
                                 masterProduct.user.fcm,
@@ -181,9 +189,9 @@ class MasterMainRepositoryImpl(
                                     title = product.title,
                                     message = message,
                                     productId = product.id,
-                                    uuid = uuid,
+                                    uuid = masterProduct.user.id,
                                     alarmTimestamp = getTimestamp(),
-                                    alarmCase = ALARM_RESERVATION_REQUEST_CASE5,
+                                    alarmCase = case,
                                     isScheduled = "false",
                                     reservationId = masterProduct.reservation.id
                                 )
@@ -194,28 +202,22 @@ class MasterMainRepositoryImpl(
                                 onSuccess = { Log.d(TAG, "SUCCESS") },
                                 onError = { Log.d(TAG, "FAIL") }
                             )
-                        var content = ""
-                        var case = 0
-                        if (masterState == 2) { //수락
-                            content = product.title + " 예약을 이장님이 수락했습니다."
-                            case = ALARM_RESERVATION_ACCEPT_CASE2
-                        } else if (masterState == 1) {// 거절
-                            content = product.title + " 예약을 이장님이 거절했습니다."
-                            case = ALARM_RESERVATION_DENY_CASE6
-                        }
                         val dbKey = database.push().key.toString()
-                        database.child(ALARM).child(masterProduct.reservation.userId).child(dbKey)
-                            .setValue(
-                                Alarm(
-                                    id = dbKey,
-                                    productId = masterProduct.reservation.productId,
-                                    userId = uuid,
-                                    case = case,
-                                    readState = false,
-                                    content = content,
-                                    timestamp = getTimestamp()
+                        if (masterProduct.user.id.isNotBlank()) {
+                            database.child(ALARM).child(masterProduct.user.id).child(dbKey)
+                                .setValue(
+                                    Alarm(
+                                        id = dbKey,
+                                        productId = masterProduct.reservation.productId,
+                                        userId = masterProduct.user.id,
+                                        case = case,
+                                        readState = false,
+                                        content = content,
+                                        timestamp = getTimestamp(),
+                                        reservationId = masterProduct.reservation.id
+                                    )
                                 )
-                            )
+                        }
                     }
                 }
 

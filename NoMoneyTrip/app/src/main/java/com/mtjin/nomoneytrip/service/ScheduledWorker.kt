@@ -10,12 +10,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mtjin.nomoneytrip.data.alarm.Alarm
+import com.mtjin.nomoneytrip.data.master_login.MasterUser
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.utils.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import java.util.concurrent.TimeUnit
 
 class ScheduledWorker(appContext: Context, workerParams: WorkerParameters) :
     Worker(appContext, workerParams) {
@@ -37,11 +34,13 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters) :
                 Firebase.database.reference.child(RESERVATION).child(reservationId)
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onCancelled(error: DatabaseError) {
-                            Log.d(TAG, "ScheduledWorker Firebase DB error -> " + error.toException())
+                            Log.d(
+                                TAG,
+                                "ScheduledWorker Firebase DB error -> " + error.toException()
+                            )
                         }
 
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val s = (snapshot.getValue(Reservation::class.java))
                             snapshot.getValue(Reservation::class.java)?.let { reservation ->
                                 if (reservation.state == 2 || reservation.state == 0) {
                                     Firebase.database.reference.child(ALARM).child(userId)
@@ -54,7 +53,8 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters) :
                                                 case = case,
                                                 readState = false,
                                                 content = message,
-                                                timestamp = timestamp
+                                                timestamp = timestamp,
+                                                reservationId = reservationId
                                             )
                                         )
                                     NotificationUtil(applicationContext).showNotification(
@@ -65,18 +65,51 @@ class ScheduledWorker(appContext: Context, workerParams: WorkerParameters) :
                             }
                         }
                     })
-            } else {
-                Firebase.database.reference.child(ALARM).child(userId).child(dbKey).setValue(
-                    Alarm(
-                        id = dbKey,
-                        productId = productId,
-                        userId = userId,
-                        case = case,
-                        readState = false,
-                        content = message,
-                        timestamp = timestamp
-                    )
-                )
+            } else if (case == ALARM_RESERVATION_REQUEST_CASE5) {
+                Firebase.database.reference.child(MASTER_USER).orderByChild(PRODUCT_ID).equalTo(
+                    productId
+                ).addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(TAG, error.toException().toString())
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (snapshot2 in snapshot.children) {
+                            snapshot2.getValue(MasterUser::class.java)?.let { masterUser ->
+                                Firebase.database.reference.child(ALARM).child(masterUser.id)
+                                    .child(dbKey)
+                                    .setValue(
+                                        Alarm(
+                                            id = dbKey,
+                                            productId = productId,
+                                            userId = masterUser.id,
+                                            case = case,
+                                            readState = false,
+                                            content = message,
+                                            timestamp = timestamp,
+                                            reservationId = reservationId
+                                        )
+                                    )
+                                NotificationUtil(applicationContext).showNotification(
+                                    title,
+                                    message
+                                )
+                            }
+                        }
+                    }
+                })
+            } else { //이장님 수락,거절, 예약완료
+//                Firebase.database.reference.child(ALARM).child(userId).child(dbKey).setValue(
+//                    Alarm(
+//                        id = dbKey,
+//                        productId = productId,
+//                        userId = userId,
+//                        case = case,
+//                        readState = false,
+//                        content = message,
+//                        timestamp = timestamp
+//                    )
+//                )
                 NotificationUtil(applicationContext).showNotification(
                     title,
                     message

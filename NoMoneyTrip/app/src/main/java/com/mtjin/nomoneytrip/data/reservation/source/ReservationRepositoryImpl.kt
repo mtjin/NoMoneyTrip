@@ -99,7 +99,10 @@ class ReservationRepositoryImpl(
                 intent.putExtra(EXTRA_NOTIFICATION_MESSAGE, message)
                 intent.putExtra(EXTRA_ALARM_PRODUCT_ID, product.id)
                 intent.putExtra(EXTRA_ALARM_USER_ID, uuid)
-                intent.putExtra(EXTRA_ALARM_TIMESTAMP, reservation.startDateTimestamp)
+                intent.putExtra(
+                    EXTRA_ALARM_TIMESTAMP,
+                    reservation.startDateTimestamp - TimeUnit.HOURS.toMillis(11)
+                )// 시작 하루 전 타임스탬프
                 intent.putExtra(EXTRA_ALARM_CASE, ALARM_START_CASE3)
                 intent.putExtra(EXTRA_RESERVATION_ID, reservation.id)
                 PendingIntent.getBroadcast(context, 0, intent, 0)
@@ -113,7 +116,8 @@ class ReservationRepositoryImpl(
                 case = ALARM_RESERVATION_COMPLETE_CASE1,
                 readState = false,
                 content = "$title 예약이 완료되었습니다. 이장님 수락을 기다려주세요~",
-                timestamp = getTimestamp()
+                timestamp = getTimestamp(),
+                reservationId = reservation.id
             )
         )
         //시작날 알림요청
@@ -159,7 +163,7 @@ class ReservationRepositoryImpl(
                     title = product.title,
                     message = convertTimeToMasterFcmMessage(date = reservation.startDateTimestamp),
                     productId = product.id,
-                    uuid = uuid,
+                    uuid = uuid, //TODO::알림쪽에서 CASE5 분기로 이 uuid 사용안하고 마스터 userId 사용할것
                     alarmTimestamp = getTimestamp(),
                     alarmCase = ALARM_RESERVATION_REQUEST_CASE5,
                     isScheduled = "false",
