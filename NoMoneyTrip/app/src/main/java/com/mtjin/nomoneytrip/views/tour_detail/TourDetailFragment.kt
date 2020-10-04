@@ -3,6 +3,7 @@ package com.mtjin.nomoneytrip.views.tour_detail
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -82,8 +83,19 @@ class TourDetailFragment : BaseFragment<FragmentTourDetailBinding>(R.layout.frag
                 }
             })
 
+            tourProductDetail.observe(this@TourDetailFragment, Observer {
+                if (it?.homepage.isNullOrBlank()) {
+                    binding.textHomepage.visibility = View.GONE
+                    binding.tvHomepage.visibility = View.GONE
+                } else {
+                    binding.textHomepage.visibility = View.VISIBLE
+                    binding.tvHomepage.visibility = View.VISIBLE
+                }
+            })
+
             share.observe(this@TourDetailFragment, Observer {
-                Toast.makeText(context, getString(R.string.update_later_msg), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.update_later_msg), Toast.LENGTH_SHORT)
+                    .show()
             })
 
             backClick.observe(this@TourDetailFragment, Observer {
