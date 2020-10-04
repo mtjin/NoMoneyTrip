@@ -68,7 +68,7 @@ class MasterMainRepositoryImpl(
                                             }
                                         }
                                     }
-                                    masterProductList.sortBy { it.reservation.startDateTimestamp }
+                                    masterProductList.sortByDescending { it.reservation.startDateTimestamp }
                                     emitter.onSuccess(masterProductList)
                                 }
 
@@ -123,7 +123,7 @@ class MasterMainRepositoryImpl(
                                             }
                                         }
                                     }
-                                    masterProductList.sortBy { it.reservation.startDateTimestamp }
+                                    masterProductList.sortByDescending { it.reservation.startDateTimestamp }
                                     emitter.onSuccess(masterProductList)
                                 }
 
