@@ -2,8 +2,11 @@
 2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
 https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
 
-# 구조
+# 안드로이드 구조
 MVVM 적용 : 시간 관계상 DataSource 쪽 대부분을 Local, Remote 로 따로 나누지 않고 Repository 만 사용합니다. (대부분 Repository에서 서버의 데이터만 불러오도록 합니다.)
+
+# 데이터베이스 구조 (timestamp 기반 String 타입 id 사용)
+<img src="https://user-images.githubusercontent.com/37071007/95203030-21dae700-081d-11eb-9563-9b03918f0958.png"/>
 
 Commit 메세지
 -----------
