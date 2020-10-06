@@ -40,6 +40,11 @@
         android:label="EmailSignUpActivity"
         tools:layout="@layout/activity_email_signup" />
 
+    <activity
+        android:id="@+id/phoneAuthActivity"
+        android:name="com.mtjin.nomoneytrip.views.phone.PhoneAuthActivity"
+        android:label="PhoneAuthActivity"
+        tools:layout="@layout/activity_phone_auth" />
 
     <fragment
         android:id="@+id/bottom_nav_1"
@@ -356,7 +361,7 @@
         android:id="@+id/tour_detail_fragment"
         android:name="com.mtjin.nomoneytrip.views.tour_detail.TourDetailFragment"
         android:label="TourDetailFragment"
-        tools:layout="@layout/fragment_tour_detail" >
+        tools:layout="@layout/fragment_tour_detail">
         <argument
             android:name="tourIntroduce"
             app:argType="com.mtjin.nomoneytrip.data.local_page.TourIntroduce" />
