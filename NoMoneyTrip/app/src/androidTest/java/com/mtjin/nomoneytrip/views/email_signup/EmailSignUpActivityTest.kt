@@ -32,7 +32,7 @@ class EmailSignUpActivityTest {
     }
 
     @Test
-    fun password_confirm_edittext_show_error_message_if_it_empty() {
+    fun password_confirm_edit_text_show_error_message_if_it_empty() {
         Espresso.onView(withId(R.id.et_email))
             .perform(ViewActions.typeText("JackJackE@github.com"), ViewActions.closeSoftKeyboard())
         Espresso.onView(withId(R.id.et_pw))
