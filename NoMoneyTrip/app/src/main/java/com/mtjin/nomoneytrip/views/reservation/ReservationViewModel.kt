@@ -42,6 +42,11 @@ class ReservationViewModel(private val repository: ReservationRepository) : Base
                     .flatMap { insertedReservation ->
                         repository.sendNotification(insertedReservation, product)
                             .subscribeOn(Schedulers.io())
+                            .doOnError {
+                                repository.deleteReservation(reservation).subscribe()
+                            }
+                            .subscribeOn(Schedulers.io())
+
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe { showLottieProgress() }

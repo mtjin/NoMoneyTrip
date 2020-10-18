@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -172,16 +173,16 @@ class ReservationRepositoryImpl(
                     reservationId = reservation.id
                 )
             )
-        ).doOnError {
-            deleteReservation(reservation).subscribeOn(Schedulers.io()).subscribe()
-        }
+        )
     }
 
     override fun deleteReservation(reservation: Reservation): Completable {
         return Completable.create { emitter ->
             database.child(RESERVATION).child(reservation.id).removeValue().addOnSuccessListener {
+                Log.d("QQQQQ", "1")
                 emitter.onComplete()
             }.addOnFailureListener {
+                Log.d("QQQQQ", "2")
                 emitter.onError(it)
             }
         }
