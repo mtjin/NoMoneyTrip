@@ -179,10 +179,8 @@ class ReservationRepositoryImpl(
     override fun deleteReservation(reservation: Reservation): Completable {
         return Completable.create { emitter ->
             database.child(RESERVATION).child(reservation.id).removeValue().addOnSuccessListener {
-                Log.d("QQQQQ", "1")
                 emitter.onComplete()
             }.addOnFailureListener {
-                Log.d("QQQQQ", "2")
                 emitter.onError(it)
             }
         }
