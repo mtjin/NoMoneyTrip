@@ -5,7 +5,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
 import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
@@ -25,6 +24,7 @@ import com.mtjin.nomoneytrip.service.ScheduledWorker
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
 import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 import okhttp3.ResponseBody
 import java.util.concurrent.TimeUnit
 
@@ -173,8 +173,7 @@ class ReservationRepositoryImpl(
                 )
             )
         ).doOnError {
-            Log.d("WWWWWWW", "error")
-            deleteReservation(reservation)
+            deleteReservation(reservation).subscribeOn(Schedulers.io()).subscribe()
         }
     }
 
