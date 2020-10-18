@@ -52,21 +52,21 @@ import org.koin.dsl.module
 
 val repositoryModule: Module = module {
     single<LoginRepository> { LoginRepositoryImpl(get()) }
-    single<LocalPageRepository> { LocalPageRepositoryImpl(get(named("tour")), get()) }
+    single<LocalPageRepository> { LocalPageRepositoryImpl(get(named(TOUR_NAMED)), get()) }
     single<EmailLoginRepository> { EmailLoginRepositoryImpl(get()) }
     single<HomeRepository> { HomeRepositoryImpl(get()) }
     single<TourWriteRepository> {
         TourWriteRepositoryImpl(
             get(),
             get(named(REVIEW)),
-            get(named("fcm"))
+            get(named(FCM_NAMED))
         )
     }
-    single<ReservationRepository> { ReservationRepositoryImpl(get(), get(named("fcm")), get()) }
+    single<ReservationRepository> { ReservationRepositoryImpl(get(), get(named(FCM_NAMED)), get()) }
     single<ReservationHistoryRepository> {
         ReservationHistoryRepositoryImpl(
             get(),
-            get(named("fcm"))
+            get(named(FCM_NAMED))
         )
     }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
@@ -78,10 +78,10 @@ val repositoryModule: Module = module {
     single<AlarmRepository> { AlarmRepositoryImpl(get()) }
     single<PhoneAuthRepository> { PhoneAuthRepositoryImpl(get()) }
     single<MasterLoginRepository> { MasterLoginRepositoryImpl(get(), get()) }
-    single<MasterMainRepository> { MasterMainRepositoryImpl(get(), get(named("fcm"))) }
+    single<MasterMainRepository> { MasterMainRepositoryImpl(get(), get(named(FCM_NAMED))) }
     single<SettingRepository> { SettingRepositoryImpl(get()) }
     single<FavoriteRepository> { FavoriteRepositoryImpl(get()) }
     single<RecommendReviewRepository> { RecommendReviewRepositoryImpl(get()) }
     single<MasterWriteRepository> { MasterWriteRepositoryImpl(get()) }
-    single<TourDetailRepository> { TourDetailRepositoryImpl(get(named("tour"))) }
+    single<TourDetailRepository> { TourDetailRepositoryImpl(get(named(TOUR_NAMED))) }
 }

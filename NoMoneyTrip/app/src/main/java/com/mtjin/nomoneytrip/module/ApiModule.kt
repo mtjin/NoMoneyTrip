@@ -14,22 +14,22 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 val apiModule: Module = module {
-    single<ApiInterface>(named("tour")) { get<Retrofit>(named("tour")).create(ApiInterface::class.java) }
-    single<FcmInterface>(named("fcm")) { get<Retrofit>(named("fcm")).create(FcmInterface::class.java) }
+    single<ApiInterface>(named(TOUR_NAMED)) { get<Retrofit>(named(TOUR_NAMED)).create(ApiInterface::class.java) }
+    single<FcmInterface>(named(FCM_NAMED)) { get<Retrofit>(named(FCM_NAMED)).create(FcmInterface::class.java) }
 
-    single<Retrofit>(named("fcm")) {
+    single<Retrofit>(named(FCM_NAMED)) {
         Retrofit.Builder()
             .baseUrl(ApiClient.FCM_URL)
-            .client(get(named("fcm")))
+            .client(get(named(FCM_NAMED)))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(get<GsonConverterFactory>())
             .build()
     }
 
-    single<Retrofit>(named("tour")) {
+    single<Retrofit>(named(TOUR_NAMED)) {
         Retrofit.Builder()
             .baseUrl(ApiClient.TOUR_BASE_URL)
-            .client(get(named("tour")))
+            .client(get(named(TOUR_NAMED)))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(get<GsonConverterFactory>())
             .build()
@@ -38,23 +38,23 @@ val apiModule: Module = module {
 
     single<GsonConverterFactory> { GsonConverterFactory.create() }
 
-    single<OkHttpClient>(named("tour")) {
+    single<OkHttpClient>(named(TOUR_NAMED)) {
         OkHttpClient.Builder()
             .run {
-                addInterceptor(get<Interceptor>(named("tour")))
+                addInterceptor(get<Interceptor>(named(TOUR_NAMED)))
                 build()
             }
     }
 
-    single<OkHttpClient>(named("fcm")) {
+    single<OkHttpClient>(named(FCM_NAMED)) {
         OkHttpClient.Builder()
             .run {
-                addInterceptor(get<Interceptor>(named("fcm")))
+                addInterceptor(get<Interceptor>(named(FCM_NAMED)))
                 build()
             }
     }
 
-    single<Interceptor>(named("fcm")) {
+    single<Interceptor>(named(FCM_NAMED)) {
         Interceptor { chain ->
             with(chain) {
                 val newRequest = request().newBuilder()
@@ -68,7 +68,7 @@ val apiModule: Module = module {
 
 
 
-    single<Interceptor>(named("tour")) {
+    single<Interceptor>(named(TOUR_NAMED)) {
         Interceptor { chain ->
             with(chain) {
                 val newRequest = request().newBuilder()
