@@ -6,7 +6,7 @@ import com.mtjin.nomoneytrip.databinding.FragmentLodgmentCompleteBinding
 
 class LodgmentCompleteFragment : BaseFragment<FragmentLodgmentCompleteBinding>(R.layout.fragment_lodgment_complete){
     override fun init() {
-        TODO("Not yet implemented")
+
     }
 
 }

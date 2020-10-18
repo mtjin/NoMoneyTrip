@@ -7,6 +7,6 @@ import com.mtjin.nomoneytrip.databinding.FragmentSaveTourDiaryBinding
 class SaveTourDiaryFragment :
     BaseFragment<FragmentSaveTourDiaryBinding>(R.layout.fragment_save_tour_diary) {
     override fun init() {
-        TODO("Not yet implemented")
+
     }
 }

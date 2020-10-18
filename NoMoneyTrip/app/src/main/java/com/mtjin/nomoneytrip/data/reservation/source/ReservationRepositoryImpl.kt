@@ -24,10 +24,8 @@ import com.mtjin.nomoneytrip.service.NotificationData
 import com.mtjin.nomoneytrip.service.ScheduledWorker
 import com.mtjin.nomoneytrip.utils.*
 import io.reactivex.Completable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.Single
+import okhttp3.ResponseBody
 import java.util.concurrent.TimeUnit
 
 
@@ -36,8 +34,11 @@ class ReservationRepositoryImpl(
     private val fcmInterface: FcmInterface,
     private val context: Context
 ) : ReservationRepository {
-    override fun insertReservation(reservation: Reservation, product: Product): Completable {
-        return Completable.create { emitter ->
+    override fun insertReservation(
+        reservation: Reservation,
+        product: Product
+    ): Single<Reservation> {
+        return Single.create { emitter ->
             database.child(RESERVATION).orderByChild(PRODUCT_ID).equalTo(product.id)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
@@ -72,8 +73,7 @@ class ReservationRepositoryImpl(
                         reservation.id = key.toString()
                         database.child(RESERVATION).child(key.toString()).setValue(reservation)
                             .addOnSuccessListener {
-                                sendNotification(reservation = reservation, product = product)
-                                emitter.onComplete()
+                                emitter.onSuccess(reservation)
                             }.addOnFailureListener {
                                 emitter.onError(it)
                             }
@@ -83,7 +83,10 @@ class ReservationRepositoryImpl(
     }
 
 
-    override fun sendNotification(reservation: Reservation, product: Product) {
+    override fun sendNotification(
+        reservation: Reservation,
+        product: Product
+    ): Single<ResponseBody> {
         val title = product.title
         val message = convertTimeToUserStartFcmMessage(
             date = reservation.startDateTimestamp,
@@ -155,27 +158,33 @@ class ReservationRepositoryImpl(
         workManager.enqueue(workRequest)
 
         //이장님께 FCM 전송
-        val compositeDisposable = CompositeDisposable()
-        compositeDisposable.add(fcmInterface.sendNotification(
+        return fcmInterface.sendNotification(
             NotificationBody(
                 product.fcm,
                 NotificationData(
                     title = product.title,
                     message = convertTimeToMasterFcmMessage(date = reservation.startDateTimestamp),
                     productId = product.id,
-                    uuid = uuid, //TODO::알림쪽에서 CASE5 분기로 이 uuid 사용안하고 마스터 userId 사용할것
+                    uuid = uuid, //TODO::알림쪽에서 CASE5 분기로 이 uuid 사용안하고 마스터 userId 사용
                     alarmTimestamp = getTimestamp(),
                     alarmCase = ALARM_RESERVATION_REQUEST_CASE5,
                     isScheduled = "false",
                     reservationId = reservation.id
                 )
             )
-        ).subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeBy(
-                onSuccess = { Log.d(TAG, "SUCCESS") },
-                onError = { Log.d(TAG, "FAIL") }
-            )
-        )
+        ).doOnError {
+            Log.d("WWWWWWW", "error")
+            deleteReservation(reservation)
+        }
+    }
+
+    override fun deleteReservation(reservation: Reservation): Completable {
+        return Completable.create { emitter ->
+            database.child(RESERVATION).child(reservation.id).removeValue().addOnSuccessListener {
+                emitter.onComplete()
+            }.addOnFailureListener {
+                emitter.onError(it)
+            }
+        }
     }
 }

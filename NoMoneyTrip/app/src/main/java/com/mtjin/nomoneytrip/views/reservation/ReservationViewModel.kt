@@ -1,5 +1,6 @@
 package com.mtjin.nomoneytrip.views.reservation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.nomoneytrip.base.BaseViewModel
@@ -8,6 +9,7 @@ import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.data.reservation.source.ReservationRepository
 import com.mtjin.nomoneytrip.utils.ERR_DUPLICATE_DATE
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
+import com.mtjin.nomoneytrip.utils.TAG
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -31,17 +33,26 @@ class ReservationViewModel(private val repository: ReservationRepository) : Base
         } else {
             compositeDisposable.add(
                 repository.insertReservation(reservation, product)
-                    .subscribeOn(Schedulers.io())
+                    .doOnError {
+                        when (it.localizedMessage) {
+                            ERR_DUPLICATE_DATE -> _duplicateDateMsg.call()
+                            else -> _successReservation.value = false
+                        }
+                    }
+                    .flatMap { insertedReservation ->
+                        repository.sendNotification(insertedReservation, product)
+                            .subscribeOn(Schedulers.io())
+                    }
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe { showLottieProgress() }
                     .doAfterTerminate { hideLottieProgress() }
                     .subscribeBy(
-                        onComplete = { _successReservation.value = true },
+                        onSuccess = {
+                            _successReservation.value = true
+                        },
                         onError = {
-                            when (it.localizedMessage) {
-                                ERR_DUPLICATE_DATE -> _duplicateDateMsg.call()
-                                else -> _successReservation.value = false
-                            }
+                            _successReservation.value = false
+                            Log.d(TAG, "insertReservation() onError -> $it")
                         }
                     )
             )

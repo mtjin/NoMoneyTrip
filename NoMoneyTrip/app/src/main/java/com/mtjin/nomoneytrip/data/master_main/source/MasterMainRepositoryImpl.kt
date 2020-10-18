@@ -19,6 +19,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class MasterMainRepositoryImpl(
     private val database: DatabaseReference,
@@ -57,7 +58,9 @@ class MasterMainRepositoryImpl(
                                     val masterProductList = ArrayList<MasterProduct>()
                                     for (reservation in reservationList) {
                                         for (user in userList) {
-                                            if (user.id == reservation.userId //&& reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(30)
+                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(
+                                                    30
+                                                )
                                             ) {
                                                 masterProductList.add(
                                                     MasterProduct(
@@ -68,7 +71,7 @@ class MasterMainRepositoryImpl(
                                             }
                                         }
                                     }
-                                    masterProductList.sortByDescending { it.reservation.startDateTimestamp }
+                                    masterProductList.sortBy { it.reservation.startDateTimestamp }
                                     emitter.onSuccess(masterProductList)
                                 }
 
@@ -112,7 +115,9 @@ class MasterMainRepositoryImpl(
                                     val masterProductList = ArrayList<MasterProduct>()
                                     for (reservation in reservationList) {
                                         for (user in userList) {
-                                            if (user.id == reservation.userId //&& reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(30)
+                                            if (user.id == reservation.userId && reservation.endDateTimestamp >= getTimestamp() - TimeUnit.DAYS.toMillis(
+                                                    30
+                                                )
                                             ) {
                                                 masterProductList.add(
                                                     MasterProduct(
@@ -123,7 +128,7 @@ class MasterMainRepositoryImpl(
                                             }
                                         }
                                     }
-                                    masterProductList.sortByDescending { it.reservation.startDateTimestamp }
+                                    masterProductList.sortBy { it.reservation.startDateTimestamp }
                                     emitter.onSuccess(masterProductList)
                                 }
 
