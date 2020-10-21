@@ -47,7 +47,7 @@ class ProfileViewModelTest {
     }
 
     @Test
-    fun requestMyReviewsShouldUserReviewListLiveDataSetIfSuccess() {
+    fun request_my_reviews_should_userReviewListLiveData_value_set_if_success() {
         viewModel.requestMyReviews()
         viewModel.userReviewList.getOrAwaitValue()
         Assert.assertEquals(viewModel.userReviewList.value, userReviews)
