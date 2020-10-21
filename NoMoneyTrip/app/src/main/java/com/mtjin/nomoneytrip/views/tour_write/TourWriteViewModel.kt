@@ -20,7 +20,7 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
     lateinit var imageUri: Uri
     lateinit var reservationProduct: ReservationProduct
     var rating: Float = 0f
-    var isComplete: Boolean = true
+    private var isComplete: Boolean = true
 
     private val _pickImage = SingleLiveEvent<Unit>()
     private val _contentEmptyMsg = SingleLiveEvent<String>()
