@@ -51,5 +51,5 @@ MVVM 적용 : 시간과 작업 효율성 면에서 DataSource 쪽 로그인 부�
 
 
 # 앱내 이미지
-https://www.notion.so/86301ccf746e48afb35debbd15f30818
+https://github.com/mtjin/NoMoneyTrip/blob/master/%EB%AC%B4%EC%A0%84%EC%9D%BC%EA%B8%B0%20%EC%95%B1.pdf
 
