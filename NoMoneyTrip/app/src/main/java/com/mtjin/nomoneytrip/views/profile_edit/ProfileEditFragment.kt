@@ -64,7 +64,6 @@ class ProfileEditFragment :
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == RC_PICK_IMAGE) {
             data?.data?.let {
-                Log.d("SSSSS",it.toString())
                 Glide.with(this).load(it).into(binding.ivImage)
                 viewModel.imageUri = it
             }

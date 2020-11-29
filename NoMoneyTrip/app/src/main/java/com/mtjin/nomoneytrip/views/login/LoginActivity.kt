@@ -46,11 +46,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     // 세션 콜백 구현
     private val sessionCallback: ISessionCallback = object : ISessionCallback {
         override fun onSessionOpened() {
-            Log.i(TAG, "로그인 성공")
+            Log.i(TAG, getString(R.string.login_success_msg))
         }
 
         override fun onSessionOpenFailed(exception: KakaoException) {
-            Log.e(TAG, "로그인 실패", exception)
+            Log.e(TAG, getString(R.string.login_fail_msg), exception)
         }
     }
 
@@ -85,12 +85,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
             insertUserResult.observe(this@LoginActivity, Observer { success ->
                 if (!success) {
-                    showToast("오류가 발생했습니다")
+                    showToast(getString(R.string.error_excution_msg))
                 } else {
                     Firebase.database.reference.child(USER).child(uuid)
                         .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onCancelled(error: DatabaseError) {
-                                showToast("오류가 발생했습니다")
+                                showToast(getString(R.string.error_excution_msg))
                             }
 
                             override fun onDataChange(snapshot: DataSnapshot) {
@@ -186,12 +186,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                                                     )
                                                 )
                                             } else {
-                                                showToast("로그인 실패")
+                                                showToast(getString(R.string.login_fail_msg))
                                                 viewModel.hideProgress()
                                             }
                                         }
                                 } else {
-                                    showToast("로그인 실패")
+                                    showToast(getString(R.string.login_fail_msg))
                                     viewModel.hideProgress()
                                 }
                             }
