@@ -153,7 +153,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                         val email: String = "" + result.id + "@mujeon.com"
                         val password: String = "111111"
                         //구글이메일 로그인
-                        googleAuth(email, password, result.kakaoAccount.profile.profileImageUrl)
+                        var photoUrl = result.kakaoAccount.profile.profileImageUrl
+                        if (photoUrl == null) photoUrl = ""
+                        googleAuth(email, password, photoUrl)
                     }
                 })
         }
