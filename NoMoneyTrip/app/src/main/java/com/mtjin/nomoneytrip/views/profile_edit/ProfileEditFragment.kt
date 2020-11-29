@@ -2,9 +2,11 @@ package com.mtjin.nomoneytrip.views.profile_edit
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentProfileEditBinding
@@ -62,7 +64,8 @@ class ProfileEditFragment :
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == RC_PICK_IMAGE) {
             data?.data?.let {
-                binding.ivImage.setImageURI(it)
+                Log.d("SSSSS",it.toString())
+                Glide.with(this).load(it).into(binding.ivImage)
                 viewModel.imageUri = it
             }
         }
