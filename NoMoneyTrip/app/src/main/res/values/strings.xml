@@ -180,4 +180,7 @@
     <string name="last_tour_history_msg">마지막 여행기입니다.</string>
     <string name="this_product_review_more_text">이 상품 여행기 더보기</string>
     <string name="update_later_msg">추후 업데이트</string>
+    <string name="login_success_msg">로그인 성공</string>
+    <string name="login_fail_msg">로그인 실패</string>
+    <string name="error_excution_msg">오류가 발생했습니다</string>
 </resources>
