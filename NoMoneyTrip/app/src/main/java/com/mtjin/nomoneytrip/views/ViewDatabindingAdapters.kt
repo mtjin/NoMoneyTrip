@@ -50,7 +50,6 @@ fun ImageView.setUrlImage(url: String) {
 fun ImageView.setUrlImageRadius16(url: String) {
     Glide.with(this).load(url)
         .thumbnail(0.1f)
-        .error(R.drawable.ic_logo_58dp)
         .transform(RoundedCorners(16))
         .into(this)
 }

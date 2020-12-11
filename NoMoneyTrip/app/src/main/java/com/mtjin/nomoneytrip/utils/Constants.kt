@@ -9,6 +9,7 @@ const val APP_PERSONAL_INFO_RULE = "https://blog.naver.com/kjhumal94/22209454123
 const val APP_LOCATION_INFO_RULE = "https://blog.naver.com/kjhumal94/222094541884"
 var FCM_KEY: String =
     "AAAAfpllS3k:APA91bG1UIo_4vhP-q5H83_N-zdnNXnM4wzdtW2hbLNJdh-qJKeVl5BpYvAsvC4iNg-55VWUwfSebiV5v3obFxSUuuMIp8nHQFrX8B3dojCV1_5i2FWbpmPkSkHCv8ocA_yXZ-Xsy63e"
+const val APP_LOGO_URL = "gs://nomoneytrip-63056.appspot.com/ic_logo_58dp.png"
 
 var TOUR_API_KEY: String =
     "GU7pI9Qe5kD1WOmPjAuxSGYzbLGkUJXMnQmy8EyV18c%2FdMkdvBBO1gpgrNoX30AOF%2FyKVxQkdZ45c7hMLOBfzQ%3D%3D"
