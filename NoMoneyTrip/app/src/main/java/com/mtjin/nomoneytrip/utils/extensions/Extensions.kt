@@ -1,4 +1,4 @@
-package com.mtjin.nomoneytrip.utils
+package com.mtjin.nomoneytrip.utils.extensions
 
 import android.content.Context
 import android.graphics.drawable.Drawable
