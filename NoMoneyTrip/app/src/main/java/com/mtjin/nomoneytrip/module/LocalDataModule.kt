@@ -7,6 +7,9 @@ import com.mtjin.nomoneytrip.data.community.source.local.UserReviewDao
 import com.mtjin.nomoneytrip.data.database.MyRoomDatabase
 import com.mtjin.nomoneytrip.data.login.source.local.LoginLocalDataSource
 import com.mtjin.nomoneytrip.data.login.source.local.LoginLocalDataSourceImpl
+import com.mtjin.nomoneytrip.data.profile.soruce.local.ProfileLocalDataSource
+import com.mtjin.nomoneytrip.data.profile.soruce.local.ProfileLocalDataSourceImpl
+import com.mtjin.nomoneytrip.data.profile.soruce.local.UserDao
 import com.mtjin.nomoneytrip.utils.PreferenceManager
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -24,6 +27,8 @@ val localDataModule: Module = module {
     //LocalDataSource
     single<LoginLocalDataSource> { LoginLocalDataSourceImpl() }
     single<CommunityLocalDataSource> { CommunityLocalDataSourceImpl(get()) }
+    single<ProfileLocalDataSource> { ProfileLocalDataSourceImpl(get(), get()) }
     //Dao
     single<UserReviewDao> { get<MyRoomDatabase>().userReviewDao() }
+    single<UserDao> { get<MyRoomDatabase>().userDao() }
 }

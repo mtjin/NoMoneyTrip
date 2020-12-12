@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.mtjin.nomoneytrip.data.community.UserReview
-import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import io.reactivex.Completable
 import io.reactivex.Single
 
@@ -16,4 +15,7 @@ interface UserReviewDao {
 
     @Query("SELECT * FROM userReview")
     fun getUserReviews(): Single<List<UserReview>>
+
+    @Query("SELECT * FROM userReview WHERE user_id = :uuid")
+    fun getMyUserReviews(uuid: String): Single<List<UserReview>>
 }
