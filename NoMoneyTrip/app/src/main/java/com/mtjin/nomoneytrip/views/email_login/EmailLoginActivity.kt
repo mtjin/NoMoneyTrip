@@ -16,7 +16,7 @@ import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityEmailLoginBinding
 import com.mtjin.nomoneytrip.utils.USER
 import com.mtjin.nomoneytrip.utils.fcm
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.main.MainActivity
 import com.mtjin.nomoneytrip.views.phone.PhoneAuthActivity

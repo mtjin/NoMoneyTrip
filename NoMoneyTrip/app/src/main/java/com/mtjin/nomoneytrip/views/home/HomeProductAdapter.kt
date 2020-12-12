@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.databinding.ItemProductBinding
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 import com.mtjin.nomoneytrip.utils.uuid
 
 class HomeProductAdapter(
@@ -36,10 +36,10 @@ class HomeProductAdapter(
                 if (it.favoriteList.contains(uuid)) {
                     val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_white_off)
                     binding.ivFavorite.setImageDrawable(img)
-                    items[viewHolder.adapterPosition].favoriteList.remove(uuid)
+                    (items[viewHolder.adapterPosition].favoriteList as ArrayList).remove(uuid)
                 } else {
                     val img: Drawable? = context.getMyDrawable(R.drawable.ic_save_on)
-                    items[viewHolder.adapterPosition].favoriteList.add(uuid)
+                    (items[viewHolder.adapterPosition].favoriteList as ArrayList).add(uuid)
                     binding.ivFavorite.setImageDrawable(img)
                 }
                 favoriteClick(items[viewHolder.adapterPosition])

@@ -13,6 +13,7 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLocalPageBinding
 import com.mtjin.nomoneytrip.utils.*
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.abs

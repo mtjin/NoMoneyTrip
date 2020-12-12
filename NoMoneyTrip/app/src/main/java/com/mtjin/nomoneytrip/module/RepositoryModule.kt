@@ -70,7 +70,7 @@ val repositoryModule: Module = module {
         )
     }
     single<ReservationPhaseFirstRepository> { ReservationPhaseFirstRepositoryImpl(get()) }
-    single<CommunityRepository> { CommunityRepositoryImpl(get()) }
+    single<CommunityRepository> { CommunityRepositoryImpl(get(), get()) }
     single<TourNoHistoryRepository> { TourNoHistoryRepositoryImpl(get()) }
     single<ProfileRepository> { ProfileRepositoryImpl(get()) }
     single<ProfileEditRepository> { ProfileEditRepositoryImpl(get(), get(named(USER))) }

@@ -58,7 +58,7 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".service.NotificationBroadcastReceiver" />
+        <receiver android:name=".service.notification.NotificationBroadcastReceiver" />
     </application>
 
 </manifest>

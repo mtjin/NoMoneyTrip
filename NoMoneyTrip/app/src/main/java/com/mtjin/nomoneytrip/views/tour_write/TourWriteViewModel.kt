@@ -10,7 +10,7 @@ import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.data.tour_write.source.TourWriteRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -45,7 +45,7 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
                 if (!isComplete) {
                     return
                 }
-                reservationProduct.product.ratingList.add(rating)
+                (reservationProduct.product.ratingList as ArrayList).add(rating)
                 compositeDisposable.add(
                     tourWriteRepository.insertReview(
                         imageUri = imageUri,
@@ -70,7 +70,7 @@ class TourWriteViewModel(private val tourWriteRepository: TourWriteRepository) :
                         .doAfterTerminate {
                             isComplete = true
                             hideLottieProgress()
-                            reservationProduct.product.ratingList.removeAt(reservationProduct.product.ratingList.size - 1)
+                            (reservationProduct.product.ratingList as ArrayList).removeAt(reservationProduct.product.ratingList.size - 1)
                         }
                         .subscribeBy(
                             onError = {

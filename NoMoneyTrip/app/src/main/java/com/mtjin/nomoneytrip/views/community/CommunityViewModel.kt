@@ -9,7 +9,7 @@ import com.mtjin.nomoneytrip.data.community.source.CommunityRepository
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -26,7 +26,7 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
 
     fun goReview() {
         compositeDisposable.add(
-            repository.requestMyReservations()
+            repository.requestMyReviews()
                 .map { it.filter { item -> !item.reservation.reviewed && item.reservation.endDateTimestamp <= getTimestamp() && item.reservation.state != 1 && item.reservation.state != 3 } }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -49,7 +49,7 @@ class CommunityViewModel(private val repository: CommunityRepository) : BaseView
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
-                    onSuccess = {
+                    onNext = {
                         _userReviewList.value = it
                     },
                     onError = {

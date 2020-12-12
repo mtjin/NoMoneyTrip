@@ -24,7 +24,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                 FavoriteFragmentDirections.actionFavoriteFragmentToLodgmentDetailFragment(it)
             )
         }, onFavoriteClick = {
-            it.favoriteList.remove(uuid)
+            (it.favoriteList as ArrayList).remove(uuid)
             viewModel.updateProductFavorite(it)
         })
         binding.rvProducts.adapter = adapter

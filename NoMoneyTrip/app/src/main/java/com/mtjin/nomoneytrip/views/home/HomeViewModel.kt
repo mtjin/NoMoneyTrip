@@ -8,7 +8,7 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.home.source.HomeRepository
 import com.mtjin.nomoneytrip.utils.SingleLiveEvent
 import com.mtjin.nomoneytrip.utils.TAG
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers

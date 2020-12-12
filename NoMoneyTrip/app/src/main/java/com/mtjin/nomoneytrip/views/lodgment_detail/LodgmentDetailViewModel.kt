@@ -17,7 +17,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) : BaseViewModel() {
-    private var lastUserReview: UserReview = UserReview(User(), Review(), Product())
+    private var lastUserReview: UserReview = UserReview("", User(), Review(), Product())
     var page = 2 //리뷰 페이징
     lateinit var productId: String
     lateinit var product: Product
@@ -85,8 +85,8 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
     }
 
     fun updateProductFavorite() {
-        if (product.favoriteList.contains(uuid)) product.favoriteList.remove(uuid)
-        else product.favoriteList.add(uuid)
+        if (product.favoriteList.contains(uuid)) (product.favoriteList as ArrayList).remove(uuid)
+        else (product.favoriteList as ArrayList).add(uuid)
         compositeDisposable.add(
             repository.updateProductFavorite(product)
                 .subscribeOn(Schedulers.io())
