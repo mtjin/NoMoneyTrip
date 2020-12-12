@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentCommunityBinding
-import com.mtjin.nomoneytrip.utils.getMyColor
+import com.mtjin.nomoneytrip.utils.extensions.getMyColor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>(R.layout.fragment_community) {

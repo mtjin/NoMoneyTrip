@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.databinding.ItemReservationHistoryBinding
-import com.mtjin.nomoneytrip.utils.getMyColor
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getMyColor
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 
 class ReservationHistoryAdapter(
     private val context: Context,

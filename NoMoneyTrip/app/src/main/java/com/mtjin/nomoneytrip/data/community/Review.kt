@@ -9,5 +9,5 @@ data class Review(
     var image: String = "",
     var content: String = "",
     var city: String = "",
-    var recommendList: ArrayList<String> = ArrayList<String>()
+    var recommendList: List<String> = ArrayList()
 )

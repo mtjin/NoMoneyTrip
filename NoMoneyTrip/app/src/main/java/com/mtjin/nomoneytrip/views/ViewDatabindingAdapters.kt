@@ -22,6 +22,7 @@ import com.mtjin.nomoneytrip.data.master_main.MasterProduct
 import com.mtjin.nomoneytrip.data.master_write.MasterLetter
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.utils.*
+import com.mtjin.nomoneytrip.utils.extensions.*
 import com.mtjin.nomoneytrip.views.alarm.AlarmAdapter
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.favorite.FavoriteAdapter
@@ -50,7 +51,6 @@ fun ImageView.setUrlImage(url: String) {
 fun ImageView.setUrlImageRadius16(url: String) {
     Glide.with(this).load(url)
         .thumbnail(0.1f)
-        .error(R.drawable.ic_logo_58dp)
         .transform(RoundedCorners(16))
         .into(this)
 }

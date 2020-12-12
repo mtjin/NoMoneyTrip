@@ -15,7 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentLodgementDetailBinding
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import com.mtjin.nomoneytrip.views.home.ProductHashTagAdapter

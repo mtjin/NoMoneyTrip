@@ -18,7 +18,7 @@ import io.reactivex.schedulers.Schedulers
 
 class LocalPageViewModel(private val repository: LocalPageRepository) : BaseViewModel() {
     var page = 2 //리뷰 페이징
-    var lastUserReview: UserReview = UserReview(User(), Review(), Product())
+    var lastUserReview: UserReview = UserReview("", User(), Review(), Product())
     lateinit var city: String
     private val _tourIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _restaurantIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()

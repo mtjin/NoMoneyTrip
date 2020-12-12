@@ -9,7 +9,6 @@ import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.data.master_write.MasterLetter
 import com.mtjin.nomoneytrip.databinding.FragmentProfileBinding
-import com.mtjin.nomoneytrip.utils.getTimestamp
 import com.mtjin.nomoneytrip.views.community.CommunityAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

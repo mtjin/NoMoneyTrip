@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.data.master_write.MasterLetter
 import com.mtjin.nomoneytrip.utils.*
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import io.reactivex.Completable
 
 class EmailLoginRepositoryImpl(private val database: DatabaseReference) : EmailLoginRepository {

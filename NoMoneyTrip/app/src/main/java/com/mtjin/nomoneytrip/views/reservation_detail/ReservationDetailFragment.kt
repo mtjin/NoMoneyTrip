@@ -7,7 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationDetailBinding
-import com.mtjin.nomoneytrip.utils.getMyColor
+import com.mtjin.nomoneytrip.utils.extensions.getMyColor
 import com.mtjin.nomoneytrip.views.dialog.YesNoDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

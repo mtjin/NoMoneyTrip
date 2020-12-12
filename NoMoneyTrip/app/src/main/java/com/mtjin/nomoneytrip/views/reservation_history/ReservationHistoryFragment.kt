@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.databinding.FragmentReservationHistoryBinding
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import com.mtjin.nomoneytrip.views.dialog.RatingBottomDialogFragment
 import com.mtjin.nomoneytrip.views.dialog.YesNoDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel

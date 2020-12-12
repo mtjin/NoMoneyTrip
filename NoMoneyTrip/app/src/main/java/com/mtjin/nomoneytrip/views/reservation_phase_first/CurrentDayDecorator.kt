@@ -3,7 +3,7 @@ package com.mtjin.nomoneytrip.views.reservation_phase_first
 import android.R
 import android.app.Activity
 import android.graphics.drawable.Drawable
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade

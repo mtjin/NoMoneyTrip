@@ -11,7 +11,7 @@ import com.mtjin.nomoneytrip.base.BaseActivity
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.databinding.ActivityEmailSignupBinding
 import com.mtjin.nomoneytrip.utils.fcm
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import com.mtjin.nomoneytrip.utils.uuid
 import com.mtjin.nomoneytrip.views.email_login.EmailLoginActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

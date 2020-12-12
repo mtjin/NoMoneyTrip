@@ -7,10 +7,8 @@ import com.google.firebase.database.ValueEventListener
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.utils.FAVORITE_LIST
 import com.mtjin.nomoneytrip.utils.PRODUCT
-import com.mtjin.nomoneytrip.utils.getTimestamp
 import io.reactivex.Completable
 import io.reactivex.Single
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 

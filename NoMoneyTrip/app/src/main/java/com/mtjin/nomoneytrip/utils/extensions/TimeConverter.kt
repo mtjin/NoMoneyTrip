@@ -1,6 +1,6 @@
 @file:Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
-package com.mtjin.nomoneytrip.utils
+package com.mtjin.nomoneytrip.utils.extensions
 
 import android.text.format.DateFormat
 import java.text.SimpleDateFormat

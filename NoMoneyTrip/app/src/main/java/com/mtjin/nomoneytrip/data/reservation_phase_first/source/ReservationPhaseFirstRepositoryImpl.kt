@@ -8,7 +8,7 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.utils.PRODUCT_ID
 import com.mtjin.nomoneytrip.utils.RESERVATION
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 
