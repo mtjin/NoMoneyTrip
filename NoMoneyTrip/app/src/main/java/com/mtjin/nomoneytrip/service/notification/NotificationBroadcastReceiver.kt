@@ -1,4 +1,4 @@
-package com.mtjin.nomoneytrip.service
+package com.mtjin.nomoneytrip.service.notification
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -8,6 +8,7 @@ import androidx.work.BackoffPolicy
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.mtjin.nomoneytrip.service.work_manager.ScheduledWorker
 import com.mtjin.nomoneytrip.utils.*
 import java.util.concurrent.TimeUnit
 

@@ -9,6 +9,7 @@ import com.mtjin.nomoneytrip.base.BaseFragment
 import com.mtjin.nomoneytrip.data.reservation.Reservation
 import com.mtjin.nomoneytrip.databinding.FragmentReservationPhaseFirstBinding
 import com.mtjin.nomoneytrip.utils.*
+import com.mtjin.nomoneytrip.utils.extensions.*
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import org.koin.androidx.viewmodel.ext.android.viewModel

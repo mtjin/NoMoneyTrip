@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.master_main.MasterProduct
 import com.mtjin.nomoneytrip.databinding.ItemMasterReservationBinding
-import com.mtjin.nomoneytrip.utils.getTimestamp
+import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
 
 class MasterMainAdapter(
     private val context: Context,

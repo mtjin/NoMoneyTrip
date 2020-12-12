@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
 import com.mtjin.nomoneytrip.databinding.ItemTourWriteHistoryBinding
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 
 class TourHistoryAdapter(
     private val context: Context,

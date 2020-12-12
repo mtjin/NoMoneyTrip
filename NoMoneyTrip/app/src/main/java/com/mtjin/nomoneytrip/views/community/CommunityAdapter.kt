@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.data.community.UserReview
 import com.mtjin.nomoneytrip.databinding.ItemUserReviewBinding
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 import com.mtjin.nomoneytrip.utils.uuid
 
 
@@ -36,13 +36,15 @@ class CommunityAdapter(
                     val img: Drawable? = context.getMyDrawable(R.drawable.ic_community_good_off)
                     binding.tvHeart.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null)
                     binding.tvHeart.text = (binding.tvHeart.text.toString().toInt() - 1).toString()
-                    items[viewHolder.adapterPosition].review.recommendList.remove(uuid)
+                    (items[viewHolder.adapterPosition].review.recommendList as ArrayList).remove(
+                        uuid
+                    )
                     recommendClick(items[viewHolder.adapterPosition])
                 } else {
                     val img: Drawable? = context.getMyDrawable(R.drawable.ic_community_good)
                     binding.tvHeart.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null)
                     binding.tvHeart.text = (binding.tvHeart.text.toString().toInt() + 1).toString()
-                    items[viewHolder.adapterPosition].review.recommendList.add(uuid)
+                    (items[viewHolder.adapterPosition].review.recommendList as ArrayList).add(uuid)
                     recommendClick(items[viewHolder.adapterPosition])
                 }
             }

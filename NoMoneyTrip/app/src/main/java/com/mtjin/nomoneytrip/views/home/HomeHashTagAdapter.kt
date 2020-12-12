@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.nomoneytrip.R
 import com.mtjin.nomoneytrip.databinding.ItemHashTagBinding
-import com.mtjin.nomoneytrip.utils.getMyColor
-import com.mtjin.nomoneytrip.utils.getMyDrawable
+import com.mtjin.nomoneytrip.utils.extensions.getMyColor
+import com.mtjin.nomoneytrip.utils.extensions.getMyDrawable
 
 open class HomeHashTagAdapter(
     private val hashTagClick: (String) -> Unit,

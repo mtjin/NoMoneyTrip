@@ -9,7 +9,7 @@ data class Product(
     var imageList: List<String> = ArrayList(),
     var hashTagList: List<String> = ArrayList(),
     var optionList: List<String> = ArrayList(),
-    var favoriteList: ArrayList<String> = ArrayList(),
+    var favoriteList: List<String> = ArrayList(),
     var title: String = "",
     var content: String = "",
     var city: String = "",
@@ -21,11 +21,10 @@ data class Product(
     var checkOut: String = "",
     var phone: String = "",
     var time: String = "",
-    var ratingList: ArrayList<Float> = ArrayList(),
+    var ratingList: List<Float> = ArrayList(),
     var internet: Boolean = false,
     var parking: Boolean = false,
     var market: Boolean = false,
     var animal: Boolean = false,
     var fcm: String = ""
-
 ) : Parcelable
