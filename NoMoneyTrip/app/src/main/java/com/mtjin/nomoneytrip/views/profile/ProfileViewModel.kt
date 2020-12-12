@@ -40,13 +40,13 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
-                    onSuccess = {
-                        Log.d(TAG, "ProfileViewModel requestProfile() error -> $it")
+                    onNext = {
+                        Log.d(TAG, "ProfileViewModel requestProfile() onNext -> $it")
                         if (it.image == "") it.image = APP_LOGO_URL
                         _user.value = it
                     },
                     onError = {
-                        Log.d(TAG, "ProfileViewModel requestProfile() error -> $it")
+                        Log.d(TAG, "ProfileViewModel requestProfile() onError -> $it")
                     }
                 )
         )
@@ -58,11 +58,11 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
-                    onSuccess = {
+                    onNext = {
                         _userReviewList.value = it
                     },
                     onError = {
-                        Log.d(TAG, "ProfileViewModel requestMyReviews() -> $it")
+                        Log.d(TAG, "ProfileViewModel requestMyReviews() onError-> $it")
                     }
                 )
         )
@@ -93,11 +93,14 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : BaseV
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                     onSuccess = {
-                        Log.d("AAAAAA", it.toString())
+                        Log.d(
+                            TAG,
+                            "ProfileViewModel requestMasterLetters() onSuccess->" + it.toString()
+                        )
                         _masterLetterList.value = it
                     },
                     onError = {
-                        Log.d(TAG, "ProfileViewModel requestMasterLetters() -> $it")
+                        Log.d(TAG, "ProfileViewModel requestMasterLetters() onError-> $it")
                     }
                 )
         )
