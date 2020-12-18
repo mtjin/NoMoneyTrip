@@ -16,9 +16,6 @@ class YesNoDialogFragment : DialogFragment(),
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_dialog_yes_no, container, false)
-        //어느 다이어로그에서 왔는지
-//        val bundle = arguments
-//        val notice = bundle.getParcelable<FavoriteNotice>(EXTRA_NOTICE_SAVE)
         view.tv_yes.setOnClickListener {
             yesClick(true)
             dismiss()
