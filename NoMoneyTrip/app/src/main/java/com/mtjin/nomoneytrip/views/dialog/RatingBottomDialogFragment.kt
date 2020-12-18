@@ -9,10 +9,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mtjin.nomoneytrip.R
 import kotlinx.android.synthetic.main.fragment_rating_bottom_dialog.view.*
 
-class RatingBottomDialogFragment(
-    val ratingClick: (Float) -> Unit
-) :
+class RatingBottomDialogFragment :
     BottomSheetDialogFragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,10 +19,12 @@ class RatingBottomDialogFragment(
         inflater.inflate(R.layout.fragment_rating_bottom_dialog, container, false)
 
     companion object {
+        lateinit var ratingClick: (Float) -> Unit
         fun newInstance(
             ratingClick: (Float) -> Unit
         ): RatingBottomDialogFragment {
-            return RatingBottomDialogFragment(ratingClick)
+            this.ratingClick = ratingClick
+            return RatingBottomDialogFragment()
         }
     }
 
