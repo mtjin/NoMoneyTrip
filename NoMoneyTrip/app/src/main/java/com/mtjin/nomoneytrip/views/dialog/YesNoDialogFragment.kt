@@ -8,7 +8,7 @@ import androidx.fragment.app.DialogFragment
 import com.mtjin.nomoneytrip.R
 import kotlinx.android.synthetic.main.fragment_dialog_yes_no.view.*
 
-class YesNoDialogFragment(private val yesClick: (Boolean) -> Unit) : DialogFragment(),
+class YesNoDialogFragment : DialogFragment(),
     View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +31,10 @@ class YesNoDialogFragment(private val yesClick: (Boolean) -> Unit) : DialogFragm
     }
 
     companion object {
+        lateinit var yesClick: (Boolean) -> Unit
         fun getInstance(yesClick: (Boolean) -> Unit): YesNoDialogFragment {
-            return YesNoDialogFragment(yesClick)
+            this.yesClick = yesClick
+            return YesNoDialogFragment()
         }
     }
 
