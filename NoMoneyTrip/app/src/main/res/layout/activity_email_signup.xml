@@ -63,6 +63,7 @@
             android:layout_marginTop="@dimen/margin_40dp"
             android:layout_marginEnd="@dimen/margin_28dp"
             android:hint="@string/pw_signip_input_hint"
+            android:inputType="textEmailAddress"
             android:paddingBottom="@dimen/padding_20dp"
             android:singleLine="true"
             android:text="@={vm.pw}"
