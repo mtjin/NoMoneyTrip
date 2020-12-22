@@ -3,6 +3,7 @@
 package com.mtjin.nomoneytrip.utils.extensions
 
 import android.text.format.DateFormat
+import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.random.Random
@@ -66,11 +67,8 @@ fun getNextDayCurrentYear(): Int {
 fun getNextDayCurrentMonth(): Int {
     val c = Calendar.getInstance()
     c.add(Calendar.DATE, 1)
-    return if (c.get(Calendar.MONTH) == 11) {
-        0
-    } else {
-        (c.get(Calendar.MONTH) + 1)
-    }
+    return if (c.get(Calendar.MONTH) == 11) 12
+    else c.get(Calendar.MONTH) + 1
 }
 
 // 다음날의 현재 Day
