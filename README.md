@@ -3,7 +3,7 @@
 https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
 
 # 안드로이드 구조
-MVVM 적용 : 시간과 작업 효율성 면에서 DataSource 쪽 로그인 부분을 제외하고 대부분을 Local, Remote 로 따로 나누지 않고 Repository 에서 서버API 나 Firebase 에서 불러오도록 했습니다.
+MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 홈화면 부분만 Repository 를 local과 remote로 나누고 나머지 부분은 나누지 않고 Repository에서 서버API와 통신하게 구현했습니다.
 
 # Jetpack Navigation 설계
 <img src="https://user-images.githubusercontent.com/37071007/99547497-eece6a80-29fa-11eb-88d6-b128a51beee9.png" ></img>
