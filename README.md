@@ -1,6 +1,10 @@
 # NoMoneyTrip
 2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
-https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
+스토어 : https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
+
+시연영상1(첫 회원가입 부분만) : https://youtu.be/f2-8GOL8esE
+
+시연영상2(전체적으로) : https://youtu.be/Ty2MfKSNdso
 
 # 안드로이드 구조
 MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 홈화면 부분만 Repository 를 local과 remote로 나누고 나머지 부분은 나누지 않고 Repository에서 서버API와 통신하게 구현했습니다.
