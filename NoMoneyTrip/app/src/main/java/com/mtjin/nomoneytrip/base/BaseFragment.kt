@@ -42,10 +42,12 @@ abstract class BaseFragment<B : ViewDataBinding>(
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 
     fun showProgressDialog() {
-        lottieDialog.show(
-            requireActivity().supportFragmentManager,
-            lottieDialog.tag
-        )
+        if (!lottieDialog.isAdded) {
+            lottieDialog.show(
+                requireActivity().supportFragmentManager,
+                lottieDialog.tag
+            )
+        }
     }
 
     fun hideProgressDialog() {
