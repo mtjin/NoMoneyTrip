@@ -6,14 +6,19 @@
 
 시연영상2(전체적으로) : https://youtu.be/Ty2MfKSNdso
 
-# 안드로이드 구조
+
+# 안드로이드 아키텍처 구조
 MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 홈화면 부분만 Repository 를 local과 remote로 나누고 나머지 부분은 나누지 않고 Repository에서 서버API와 통신하게 구현했습니다.
+<img src="https://user-images.githubusercontent.com/37071007/103278060-ed3a8e00-4a0d-11eb-9047-76e80fb0f7ac.png" ></img>
+
 
 # Jetpack Navigation 설계
 <img src="https://user-images.githubusercontent.com/37071007/99547497-eece6a80-29fa-11eb-88d6-b128a51beee9.png" ></img>
 
+
 # 데이터베이스 구조 설계 (timestamp 기반 String 타입 id 사용)
 <img src="https://user-images.githubusercontent.com/37071007/95646136-63f77780-0b00-11eb-87dc-6b0207303803.png"/>
+
 
 # Commit 메세지
 -----------
