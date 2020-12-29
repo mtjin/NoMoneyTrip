@@ -12,6 +12,10 @@ MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 홈화면 부분
 <img src="https://user-images.githubusercontent.com/37071007/103278060-ed3a8e00-4a0d-11eb-9047-76e80fb0f7ac.png" ></img>
 
 
+# 사용한 것
+Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, LiveData, Koin, RxJava2, RxKotlin, RxAndroid, Retrofit2, Firebase(RTDB , Storage, FCM, Auth, Crashlytics), AlarmManager, WorkManager, ViewPager2, Material Design, Lottie,  Kakao Login API, Tmap API, Tour API, Linkfy, Glide, Unit Test(Espresso, Mockito, Junit 4) 등
+
+
 # Jetpack Navigation 설계
 <img src="https://user-images.githubusercontent.com/37071007/99547497-eece6a80-29fa-11eb-88d6-b128a51beee9.png" ></img>
 
