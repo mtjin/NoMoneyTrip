@@ -8,7 +8,7 @@
 
 
 # 안드로이드 아키텍처 구조
-MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 홈화면 부분만 Repository 를 local과 remote로 나누고 나머지 부분은 Local DB는 필요없고 Remote 서버 API하고만 통신하기 때문에 Local과 Remote를 나누지 않고 Repository만 만들어 서버API와 통신하게 구현했습니다.
+MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 바텀네비가 있는 메인(홈)화면 부분만 Repository 를 local과 remote로 나누고 나머지 부분은 Local DB는 필요없고 Remote 서버 API하고만 통신하기 때문에 Local과 Remote를 나누지 않고 Repository만 만들어 서버API와 통신하게 구현했습니다.
 <img src="https://user-images.githubusercontent.com/37071007/103278060-ed3a8e00-4a0d-11eb-9047-76e80fb0f7ac.png" ></img>
 
 
