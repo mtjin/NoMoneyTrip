@@ -64,6 +64,6 @@ Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, Liv
 <img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%846.jpg?raw=true" width="30%"></img>
 
 
-# 앱내 이미지
+# 앱내 
 https://github.com/mtjin/NoMoneyTrip/blob/master/%EB%AC%B4%EC%A0%84%EC%9D%BC%EA%B8%B0%20%EC%95%B1.pdf
 
