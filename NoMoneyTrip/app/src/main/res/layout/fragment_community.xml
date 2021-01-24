@@ -52,7 +52,7 @@
             android:background="@android:color/transparent"
             android:spinnerMode="dialog"
             android:text="@string/country_entire_text"
-            android:textColor="@color/colorOrangeF79256"
+            android:entries="@array/cities"
             android:textSize="@dimen/text_size_18sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"

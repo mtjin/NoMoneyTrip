@@ -53,7 +53,11 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_bottom_nav_1_to_search_fragment"
-            app:destination="@id/search_fragment" />
+            app:destination="@id/search_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_1_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
@@ -61,10 +65,18 @@
         <action
             android:id="@+id/action_bottom_nav_1_to_alarm_fragment"
             app:destination="@id/alarm_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_1_to_lodgment_detail_fragment2"
-            app:destination="@id/lodgment_detail_fragment" />
+            app:destination="@id/lodgment_detail_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_2"
@@ -74,15 +86,27 @@
         <action
             android:id="@+id/action_bottom_nav_2_to_tour_history_fragment"
             app:destination="@id/tour_history_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_2_to_tour_no_history_fragment"
             app:destination="@id/tour_no_history_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_2_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_3"
@@ -92,15 +116,27 @@
         <action
             android:id="@+id/action_bottom_nav_3_to_tour_write_fragment"
             app:destination="@id/tour_write_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_3_to_reservation_detail_fragment"
             app:destination="@id/reservation_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_3_to_favorite_fragment"
             app:destination="@id/favorite_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/bottom_nav_4"
@@ -110,19 +146,35 @@
         <action
             android:id="@+id/action_bottom_nav_4_to_profile_edit_fragment"
             app:destination="@id/profile_edit_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_4_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_4_to_setting_fragment"
             app:destination="@id/setting_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_bottom_nav_4_to_recommend_review_fragment"
             app:destination="@id/recommend_review_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/search_fragment"
@@ -132,7 +184,11 @@
         <action
             android:id="@+id/action_search_fragment_to_localpage_fragment"
             app:destination="@id/localpage_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -146,19 +202,35 @@
         <action
             android:id="@+id/action_localpage_fragment_to_web_view_fragment"
             app:destination="@id/web_view_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_localpage_fragment_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_localpage_fragment_to_search_fragment"
             app:destination="@id/search_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_localpage_fragment_to_tour_detail_fragment"
             app:destination="@id/tour_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -172,7 +244,11 @@
         <action
             android:id="@+id/action_lodgment_detail_fragment_to_reservation_first_fragment"
             app:destination="@id/reservation_first_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -186,7 +262,11 @@
         <action
             android:id="@+id/action_reservation_first_fragment_to_reservation_fragment"
             app:destination="@id/reservation_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -203,7 +283,11 @@
         <action
             android:id="@+id/action_reservation_fragment_to_reservation_complete_fragment"
             app:destination="@id/reservation_complete_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/bottom_nav_1" />
     </fragment>
     <fragment
@@ -217,7 +301,11 @@
         <action
             android:id="@+id/action_reservation_complete_fragment_to_bottom_nav_3"
             app:destination="@id/bottom_nav_3"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/reservation_complete_fragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -230,13 +318,21 @@
         <action
             android:id="@+id/action_tour_no_history_fragment_to_bottom_nav_1"
             app:destination="@id/bottom_nav_1"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/bottom_nav_2"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_tour_no_history_fragment_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -250,7 +346,11 @@
         <action
             android:id="@+id/action_tour_history_fragment_to_tour_write_fragment"
             app:destination="@id/tour_write_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -267,7 +367,11 @@
         <action
             android:id="@+id/action_tour_write_fragment_to_bottom_nav_2"
             app:destination="@id/bottom_nav_2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/tour_write_fragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -300,15 +404,27 @@
         <action
             android:id="@+id/action_alarm_fragment_to_reservation_detail_fragment"
             app:destination="@id/reservation_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_alarm_fragment_to_tour_history_fragment"
             app:destination="@id/tour_history_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_alarm_fragment_to_tour_no_history_fragment"
             app:destination="@id/tour_no_history_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/setting_fragment"
@@ -318,11 +434,19 @@
         <action
             android:id="@+id/action_setting_fragment_to_web_view_fragment"
             app:destination="@id/web_view_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_setting_fragment_to_app_info_fragment"
             app:destination="@id/app_info_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment
@@ -350,7 +474,11 @@
         <action
             android:id="@+id/action_favorite_fragment_to_lodgment_detail_fragment"
             app:destination="@id/lodgment_detail_fragment"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/recommend_review_fragment"

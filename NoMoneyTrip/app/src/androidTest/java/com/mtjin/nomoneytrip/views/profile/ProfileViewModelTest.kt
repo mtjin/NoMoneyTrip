@@ -7,7 +7,7 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.data.profile.soruce.ProfileRepository
 import com.mtjin.nomoneytrip.views.getOrAwaitValue
-import io.reactivex.Single
+import io.reactivex.Flowable
 import org.junit.*
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -34,11 +34,11 @@ class ProfileViewModelTest {
 
     @Before
     fun setUp() {
-        userReviews.add(UserReview(User(id = "1"), Review(), Product()))
-        userReviews.add(UserReview(User(id = "2"), Review(), Product()))
-        userReviews.add(UserReview(User(id = "3"), Review(), Product()))
+        userReviews.add(UserReview("1", User(id = "1"), Review(), Product()))
+        userReviews.add(UserReview("2", User(id = "2"), Review(), Product()))
+        userReviews.add(UserReview("3", User(id = "3"), Review(), Product()))
         Mockito.`when`(repository.requestMyReviews())
-            .thenReturn(Single.just(userReviews))
+            .thenReturn(Flowable.just(userReviews))
         viewModel = ProfileViewModel(repository)
     }
 

@@ -19,6 +19,7 @@ import io.reactivex.schedulers.Schedulers
 class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) : BaseViewModel() {
     private var lastUserReview: UserReview = UserReview("", User(), Review(), Product())
     var page = 2 //리뷰 페이징
+    var isFragmentFromBackStack = false //프래그먼트가 백스택에 있다가 돌아온건지 플래그
     lateinit var productId: String
     lateinit var product: Product
 
@@ -37,10 +38,12 @@ class LodgmentDetailViewModel(private val repository: LodgmentDetailRepository) 
     val share: LiveData<Unit> get() = _share
 
     fun goReservationFirst() {
+        isFragmentFromBackStack = true
         _goReservationFirst.call()
     }
 
     fun searchDirection() {
+        isFragmentFromBackStack = true
         _searchDirection.call()
     }
 
