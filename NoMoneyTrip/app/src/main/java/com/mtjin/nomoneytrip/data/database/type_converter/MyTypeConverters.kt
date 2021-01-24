@@ -5,14 +5,14 @@ import com.google.gson.Gson
 
 class MyTypeConverters {
     @TypeConverter
-    fun stringListToJson(value: List<String>?) = Gson().toJson(value)
+    fun fromStringList(value: List<String>?): String = Gson().toJson(value)
 
     @TypeConverter
-    fun jsonToStringList(value: String) = Gson().fromJson(value, Array<String>::class.java).toList()
+    fun toStringList(value: String) = Gson().fromJson(value, Array<String>::class.java).toList()
 
     @TypeConverter
-    fun floatListToJson(value: List<Float>?) = Gson().toJson(value)
+    fun fromFloatList(value: List<Float>?): String = Gson().toJson(value)
 
     @TypeConverter
-    fun jsonToFloatList(value: String) = Gson().fromJson(value, Array<Float>::class.java).toList()
+    fun toFloatList(value: String) = Gson().fromJson(value, Array<Float>::class.java).toList()
 }
