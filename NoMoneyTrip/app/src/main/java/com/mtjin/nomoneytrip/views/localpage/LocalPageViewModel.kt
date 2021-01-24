@@ -19,6 +19,7 @@ import io.reactivex.schedulers.Schedulers
 class LocalPageViewModel(private val repository: LocalPageRepository) : BaseViewModel() {
     var page = 2 //리뷰 페이징
     var lastUserReview: UserReview = UserReview("", User(), Review(), Product())
+    private var isFragmentFromBackStack = false //프래그먼트가 백스택에 있다가 돌아온건지 플래그
     lateinit var city: String
     private val _tourIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
     private val _restaurantIntroduceList = MutableLiveData<ArrayList<TourIntroduce>>()
@@ -129,6 +130,13 @@ class LocalPageViewModel(private val repository: LocalPageRepository) : BaseView
     }
 
     fun goLodgeSearch() {
+        isFragmentFromBackStack = true
         _goLodgeSearch.call()
     }
+
+    fun setIsFragmentFromBackStack(bool: Boolean) {
+        isFragmentFromBackStack = bool
+    }
+
+    fun getIsFragmentFromBackStack() : Boolean = isFragmentFromBackStack
 }

@@ -101,11 +101,11 @@ class LodgmentDetailFragment :
 
             lastReviewCall.observe(this@LodgmentDetailFragment, Observer {
                 binding.run {
-                    if (!viewModel.isFragmentFromBackStack) {
+                    if (!viewModel.getIsFragmentFromBackStack()) {
                         tvMore.visibility = View.GONE
                         showToast(getString(R.string.last_tour_history_msg))
                     } else {
-                        viewModel.isFragmentFromBackStack = false
+                        viewModel.setIsFragmentFromBackStack(false)
                     }
                 }
             })

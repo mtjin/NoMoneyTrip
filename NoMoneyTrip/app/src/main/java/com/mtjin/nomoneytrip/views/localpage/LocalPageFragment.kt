@@ -66,8 +66,12 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
 
             lastReviewCall.observe(this@LocalPageFragment, Observer {
                 binding.run {
-                    tvMore.visibility = View.GONE
-                    showToast(getString(R.string.last_tour_history_msg))
+                    if (!viewModel.getIsFragmentFromBackStack()) {
+                        tvMore.visibility = View.GONE
+                        showToast(getString(R.string.last_tour_history_msg))
+                    } else {
+                        viewModel.setIsFragmentFromBackStack(false)
+                    }
                 }
             })
         }
@@ -91,16 +95,19 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
 
     private fun initAdapter() {
         tourIntroduceAdapter = LocalPageAdapter {
+            viewModel.setIsFragmentFromBackStack(true)
             findNavController().navigate(
                 LocalPageFragmentDirections.actionLocalpageFragmentToTourDetailFragment(it)
             )
         }
         restaurantIntroduceAdapter = LocalPageAdapter {
+            viewModel.setIsFragmentFromBackStack(true)
             findNavController().navigate(
                 LocalPageFragmentDirections.actionLocalpageFragmentToTourDetailFragment(it)
             )
         }
         productAdapter = LocalProductAdapter(context = thisContext, itemClick = {
+            viewModel.setIsFragmentFromBackStack(true)
             findNavController().navigate(
                 LocalPageFragmentDirections.actionLocalpageFragmentToLodgmentDetailFragment(
                     it
@@ -112,6 +119,7 @@ class LocalPageFragment : BaseFragment<FragmentLocalPageBinding>(R.layout.fragme
         reviewAdapter = CommunityAdapter(context = thisContext, recommendClick = {
             viewModel.updateReviewRecommend(it)
         }, productClick = {
+            viewModel.setIsFragmentFromBackStack(true)
             findNavController().navigate(
                 LocalPageFragmentDirections.actionLocalpageFragmentToLodgmentDetailFragment(
                     it.product

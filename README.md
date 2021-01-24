@@ -1,4 +1,4 @@
-# NoMoneyTrip
+# NoMoneyTrip (5인팀, 본인 개발기여도 : 99%)
 2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
 스토어 : https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
 
@@ -13,7 +13,7 @@ MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 바텀네비가 
 
 
 # 사용기술
-Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, LiveData, Koin, RxJava2, RxKotlin, RxAndroid, Retrofit2, Firebase(RTDB , Storage, FCM, Auth, Crashlytics), AlarmManager, WorkManager, ViewPager2, Material Design, Lottie,  Kakao Login API, Tmap API, Tour API, Linkfy, Glide, Unit Test(Espresso, Mockito, Junit 4) 등
+Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, LiveData, Koin, RxJava2, RxKotlin, RxAndroid, Retrofit2, Firebase(RTDB , Storage, FCM, Auth, Crashlytics, Performance, TestLab, Analytics), AlarmManager, WorkManager, ViewPager2, Material Design, Lottie,  Kakao Login API, Tmap API, Tour API, Linkfy, Glide, Unit Test(Espresso, Mockito, Junit 4) 등
 
 
 # Jetpack Navigation 설계
