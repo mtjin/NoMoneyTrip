@@ -69,10 +69,10 @@ class LocalPageViewModelTest {
     @Test
     fun request_reviews_then_user_review_list_should_not_set_if_last_review_id_is_same() {
         val userReviews = ArrayList<UserReview>()
-        userReviews.add(UserReview(User(id = "1"), Review(id = "1"), Product()))
-        userReviews.add(UserReview(User(id = "2"), Review(id = "2"), Product()))
-        userReviews.add(UserReview(User(id = "3"), Review(id = "3"), Product()))
-        userReviews.add(UserReview(User(id = "4"), Review(id = "4"), Product()))
+        userReviews.add(UserReview("1", User(id = "1"), Review(id = "1"), Product()))
+        userReviews.add(UserReview("2", User(id = "2"), Review(id = "2"), Product()))
+        userReviews.add(UserReview("3", User(id = "3"), Review(id = "3"), Product()))
+        userReviews.add(UserReview("4", User(id = "4"), Review(id = "4"), Product()))
         viewModel.city = "city"
         val page = 4
         viewModel.page = page
