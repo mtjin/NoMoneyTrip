@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
     compileSdkVersion 30
@@ -13,8 +15,8 @@ android {
         applicationId "com.mtjin.nomoneytrip"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 19
-        versionName "1.18"
+        versionCode 20
+        versionName "1.19"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -56,6 +58,12 @@ dependencies {
     implementation files('libs/com.skt.Tmap_1.65.jar')
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
@@ -74,6 +82,9 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.1'
+    implementation 'com.google.firebase:firebase-perf:19.1.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     // Room
     implementation "androidx.room:room-runtime:2.2.5"
