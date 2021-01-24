@@ -49,26 +49,17 @@ class LodgmentDetailFragment :
                 thisContext.getMyDrawable(R.drawable.ic_good_on)
             )
             else binding.ivFavorite.setImageDrawable(thisContext.getMyDrawable(R.drawable.ic_good_off_detail))
-            if (!market) {// 편의시설
-                binding.ivMarket.alpha = 0.3f
-            }
-            if (!internet) {
-                binding.ivInternet.alpha = 0.3f
-            }
-            if (!parking) {
-                binding.ivParking.alpha = 0.3f
-            }
-            if (!animal) {
-                binding.ivAnimal.alpha = 0.3f
-            }
+            // 편의시설
+            if (!market) binding.ivMarket.alpha = 0.3f
+            if (!internet) binding.ivInternet.alpha = 0.3f
+            if (!parking) binding.ivParking.alpha = 0.3f
+            if (!animal) binding.ivAnimal.alpha = 0.3f
         }
 
         binding.svScrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (isVisible(binding.tvTopReservation)) binding.clBottomReservation.visibility =
                 View.GONE
             else binding.clBottomReservation.visibility = View.VISIBLE
-
-
         })
     }
 
@@ -81,6 +72,7 @@ class LodgmentDetailFragment :
                     )
                 )
             })
+
             searchDirection.observe(this@LodgmentDetailFragment, Observer {
                 val tMapTapi = TMapTapi(thisContext)
                 if (tMapTapi.isTmapApplicationInstalled) tMapTapi.invokeRoute(
@@ -109,8 +101,12 @@ class LodgmentDetailFragment :
 
             lastReviewCall.observe(this@LodgmentDetailFragment, Observer {
                 binding.run {
-                    tvMore.visibility = View.GONE
-                    showToast(getString(R.string.last_tour_history_msg))
+                    if (!viewModel.isFragmentFromBackStack) {
+                        tvMore.visibility = View.GONE
+                        showToast(getString(R.string.last_tour_history_msg))
+                    } else {
+                        viewModel.isFragmentFromBackStack = false
+                    }
                 }
             })
 
@@ -183,12 +179,11 @@ class LodgmentDetailFragment :
         val xPos = productArg.product.xPos.toDouble() //좌표
         val yPos = productArg.product.yPos.toDouble()
         val tmapView = TMapView(context)
-        tmapView.setSKTMapApiKey(getString(R.string.tmap_key))
-        tmapView.setCenterPoint(
-            yPos,
-            xPos
-        )
-        tmapView.zoomLevel = 20 // 클수록 더 줌된 상태
+        tmapView.apply {
+            setSKTMapApiKey(getString(R.string.tmap_key))
+            setCenterPoint(yPos, xPos)
+            zoomLevel = 20 // 클수록 더 줌된 상태
+        }
         tmap.addView(tmapView) //tmap(xml레이아웃)에 tmapView 동적 추가
         //마커추가
         val bitmap =
@@ -199,9 +194,11 @@ class LodgmentDetailFragment :
         val tMapPoint1 =
             TMapPoint(xPos, yPos)
         val markerItem1 = TMapMarkerItem()
-        markerItem1.icon = bitmap // 마커 아이콘 지정
-        markerItem1.tMapPoint = tMapPoint1 // 마커의 좌표 지정
-        markerItem1.name = getString(R.string.no_money_diary_text) // 마커의 타이틀 지정
+        markerItem1.apply {
+            icon = bitmap // 마커 아이콘 지정
+            tMapPoint = tMapPoint1 // 마커의 좌표 지정
+            name = getString(R.string.no_money_diary_text) // 마커의 타이틀 지정
+        }
         tmapView.addMarkerItem("markerItem1", markerItem1) // 지도에 마커 추가
     }
 }
