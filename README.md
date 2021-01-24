@@ -6,7 +6,7 @@
 
 - [시연영상2 (첫 회원가입 부분만)](https://youtu.be/f2-8GOL8esE)
 
-- [화면전환 애니메이션 업데이트 시연영상](https://www.youtube.com/watch?v=snzmKRwiOVM)
+- [화면전환 애니메이션 업데이트 시연영상3](https://www.youtube.com/watch?v=snzmKRwiOVM)
 
 
 
