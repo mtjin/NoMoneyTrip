@@ -1,12 +1,13 @@
 # NoMoneyTrip (5인팀, 본인 개발기여도 : 99%)
 2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
-스토어 : https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip
+- [스토어](https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip)
 
-메인 시연영상1(전체적으로) : [https://youtu.be/Ty2MfKSNdso](https://youtu.be/Ty2MfKSNdso)
+- [메인 시연영상1 (전체)](https://youtu.be/Ty2MfKSNdso)
 
-시연영상1(첫 회원가입 부분만) : [https://youtu.be/f2-8GOL8esE](https://youtu.be/f2-8GOL8esE)
+- [시연영상2 (첫 회원가입 부분만)](https://youtu.be/f2-8GOL8esE)
 
-화면전환 애니메이션 전체 적용 업데이트 : [https://www.youtube.com/watch?v=snzmKRwiOVM](https://www.youtube.com/watch?v=snzmKRwiOVM)
+- [화면전환 애니메이션 업데이트 시연영상](https://www.youtube.com/watch?v=snzmKRwiOVM)
+
 
 
 # 안드로이드 아키텍처 구조
