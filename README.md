@@ -11,8 +11,8 @@
 
 
 # 안드로이드 아키텍처 구조
-MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 바텀네비가 있는 메인(홈)화면 부분만 Repository 를 local과 remote로 나누고 나머지 부분은 Local DB는 필요없고 Remote 서버 API하고만 통신하기 때문에 Local과 Remote를 나누지 않고 Repository만 만들어 서버API와 통신하게 구현했습니다.
-<img src="https://user-images.githubusercontent.com/37071007/103278060-ed3a8e00-4a0d-11eb-9047-76e80fb0f7ac.png" ></img>
+MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 바텀네비가 있는 메인(홈)화면 부분만 Repository 를 local과 remote로 나누고 로컬캐싱을 적용하여 데이터 불러오는 속도를 높이고 나머지 부분은 Local DB는 필요없고 Remote 서버 API하고만 통신하기 때문에 Local과 Remote를 나누지 않고 Repository만 만들어 서버API와 통신하게 구현했습니다. 
+<img src="https://user-images.githubusercontent.com/37071007/107048812-b295f380-680c-11eb-8b14-4879abd617b8.png" ></img>
 
 
 # 사용기술
@@ -67,6 +67,6 @@ Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, Liv
 <img src="https://github.com/mtjin/NoMoneyTrip/blob/master/playstore_file/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A0%EC%96%B4%EC%82%AC%EC%A7%846.jpg?raw=true" width="30%"></img>
 
 
-# 앱내 
+# 앱내 이미지 및 기능 정리
 https://github.com/mtjin/NoMoneyTrip/blob/master/%EB%AC%B4%EC%A0%84%EC%9D%BC%EA%B8%B0%20%EC%95%B1.pdf
 
