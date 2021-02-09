@@ -129,13 +129,13 @@ class ReservationRepositoryImpl(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmMgr.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                startScheduledTime - TimeUnit.HOURS.toMillis(11),// 전날알림(13시)
+                startScheduledTime - 39600000,// 전날알림(13시)(마이너스 11시간)
                 startAlarmIntent
             )
         } else {
             alarmMgr.setExact(
                 AlarmManager.RTC_WAKEUP,
-                startScheduledTime - TimeUnit.HOURS.toMillis(11),// 전날알림(13시)
+                startScheduledTime - 39600000,// 전날알림(13시)
                 startAlarmIntent
             )
         }
