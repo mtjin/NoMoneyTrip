@@ -11,7 +11,7 @@ import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.login.User
 import com.mtjin.nomoneytrip.data.master_main.MasterProduct
 import com.mtjin.nomoneytrip.data.reservation.Reservation
-import com.mtjin.nomoneytrip.service.NotificationBody
+import com.mtjin.nomoneytrip.service.notification.NotificationBody
 import com.mtjin.nomoneytrip.service.notification.NotificationData
 import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.utils.extensions.convertTimeToMasterAcceptFcmMessage
