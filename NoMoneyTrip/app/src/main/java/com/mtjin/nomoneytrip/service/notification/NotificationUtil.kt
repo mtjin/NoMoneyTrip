@@ -1,4 +1,4 @@
-package com.mtjin.nomoneytrip.utils
+package com.mtjin.nomoneytrip.service.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

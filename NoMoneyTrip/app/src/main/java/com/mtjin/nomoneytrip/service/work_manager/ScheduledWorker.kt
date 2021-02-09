@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.master_login.MasterUser
 import com.mtjin.nomoneytrip.data.reservation.Reservation
+import com.mtjin.nomoneytrip.service.notification.NotificationUtil
 import com.mtjin.nomoneytrip.utils.*
 
 class ScheduledWorker(appContext: Context, workerParams: WorkerParameters) :
