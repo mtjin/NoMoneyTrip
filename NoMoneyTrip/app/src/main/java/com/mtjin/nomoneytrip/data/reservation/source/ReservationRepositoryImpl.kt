@@ -96,7 +96,7 @@ class ReservationRepositoryImpl(
         )
         val startScheduledTime = reservation.startDateTimestamp
         val endScheduledTime = reservation.endDateTimestamp
-        val timeDiff = endScheduledTime + TimeUnit.HOURS.toMillis(18) - System.currentTimeMillis()
+        val timeDiff = endScheduledTime + 64800000 - System.currentTimeMillis() //64800000 -> 18시간
         val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val startAlarmIntent =
             Intent(context, NotificationBroadcastReceiver::class.java).let { intent ->
