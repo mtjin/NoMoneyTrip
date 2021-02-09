@@ -17,7 +17,7 @@ import com.mtjin.nomoneytrip.api.FcmInterface
 import com.mtjin.nomoneytrip.data.alarm.Alarm
 import com.mtjin.nomoneytrip.data.home.Product
 import com.mtjin.nomoneytrip.data.reservation.Reservation
-import com.mtjin.nomoneytrip.service.NotificationBody
+import com.mtjin.nomoneytrip.service.notification.NotificationBody
 import com.mtjin.nomoneytrip.service.notification.NotificationBroadcastReceiver
 import com.mtjin.nomoneytrip.service.notification.NotificationData
 import com.mtjin.nomoneytrip.service.work_manager.ScheduledWorker
@@ -127,15 +127,15 @@ class ReservationRepositoryImpl(
         )
         //시작날 알림요청
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            alarmMgr.setAndAllowWhileIdle(
+            alarmMgr.setExactAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
-                startScheduledTime - TimeUnit.HOURS.toMillis(11),// 전날알림(13시)
+                startScheduledTime - 39600000,// 전날알림(13시)(마이너스 11시간)
                 startAlarmIntent
             )
         } else {
             alarmMgr.setExact(
                 AlarmManager.RTC_WAKEUP,
-                startScheduledTime - TimeUnit.HOURS.toMillis(11),// 전날알림(13시)
+                startScheduledTime - 39600000,// 전날알림(13시)
                 startAlarmIntent
             )
         }
@@ -154,7 +154,7 @@ class ReservationRepositoryImpl(
             OneTimeWorkRequestBuilder<ScheduledWorker>()
                 .setInputData(notificationData)
                 .setInitialDelay(timeDiff, TimeUnit.MILLISECONDS) // 18시 알림
-                .setBackoffCriteria(BackoffPolicy.LINEAR, 30000, TimeUnit.MILLISECONDS)
+                .setBackoffCriteria(BackoffPolicy.LINEAR, 5000, TimeUnit.MILLISECONDS)
                 .build()
         val workManager = WorkManager.getInstance(context)
         workManager.enqueue(workRequest)

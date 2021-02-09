@@ -37,7 +37,7 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
             val workRequest =
                 OneTimeWorkRequestBuilder<ScheduledWorker>()
                     .setInputData(notificationData)
-                    .setBackoffCriteria(BackoffPolicy.LINEAR, 30000, TimeUnit.MILLISECONDS)
+                    .setBackoffCriteria(BackoffPolicy.LINEAR, 5000, TimeUnit.MILLISECONDS)
                     .build()
 
             val workManager = WorkManager.getInstance(context)

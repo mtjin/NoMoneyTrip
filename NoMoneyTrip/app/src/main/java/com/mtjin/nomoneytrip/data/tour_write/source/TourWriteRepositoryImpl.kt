@@ -8,7 +8,7 @@ import com.google.firebase.storage.StorageReference
 import com.mtjin.nomoneytrip.api.FcmInterface
 import com.mtjin.nomoneytrip.data.community.Review
 import com.mtjin.nomoneytrip.data.reservation_history.ReservationProduct
-import com.mtjin.nomoneytrip.service.NotificationBody
+import com.mtjin.nomoneytrip.service.notification.NotificationBody
 import com.mtjin.nomoneytrip.service.notification.NotificationData
 import com.mtjin.nomoneytrip.utils.*
 import com.mtjin.nomoneytrip.utils.extensions.getTimestamp
