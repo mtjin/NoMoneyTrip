@@ -4,7 +4,7 @@
 
 - [스토어](https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip)
 
-= [프로젝트 상세정보 노션](https://www.notion.so/ffeadb2cbfdf4707ba392690015146c1)
+- [프로젝트 상세정보 노션](https://www.notion.so/ffeadb2cbfdf4707ba392690015146c1)
 
 - [메인 시연영상1 (전체)](https://youtu.be/Ty2MfKSNdso)
 
