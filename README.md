@@ -1,5 +1,5 @@
-# NoMoneyTrip (5인팀, 본인 개발기여도 : 99%)
-2020 스마트 관광앱 공모전 '무전일기' 안드로이드 앱
+# NoMoneyTrip (5인팀, 1인 개발)
+2020 스마트 관광앱 개발 공모전 '무전일기' 안드로이드 앱
 - [스토어](https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip)
 
 - [메인 시연영상1 (전체)](https://youtu.be/Ty2MfKSNdso)
