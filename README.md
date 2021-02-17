@@ -1,12 +1,16 @@
 # NoMoneyTrip (5인팀, 1인 개발)
 2020 스마트 관광앱 개발 공모전 '무전일기' 안드로이드 앱
+-
+
 - [스토어](https://play.google.com/store/apps/details?id=com.mtjin.nomoneytrip)
+
+= [프로젝트 상세정보 노션](https://www.notion.so/ffeadb2cbfdf4707ba392690015146c1)
 
 - [메인 시연영상1 (전체)](https://youtu.be/Ty2MfKSNdso)
 
-- [시연영상2 (첫 회원가입 부분만)](https://youtu.be/f2-8GOL8esE)
+- [서브 시연영상2 (첫 회원가입 부분만)](https://youtu.be/f2-8GOL8esE)
 
-- [화면전환 애니메이션 업데이트 시연영상3](https://www.youtube.com/watch?v=snzmKRwiOVM)
+- [서브 시연영상3 화면전환 애니메이션 업데이트](https://www.youtube.com/watch?v=snzmKRwiOVM)
 
 
 
@@ -16,7 +20,8 @@ MVVM 적용 : 시간과 작업 효율성 면에서 로그인과 바텀네비가 
 
 
 # 사용기술
-Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, LiveData, Koin, RxJava2, RxKotlin, RxAndroid, Retrofit2, Firebase(RTDB , Storage, FCM, Auth, Crashlytics, Performance, TestLab, Analytics), AlarmManager, WorkManager, ViewPager2, Material Design, Lottie,  Kakao Login API, Tmap API, Tour API, Linkfy, Glide, Unit Test(Espresso, Mockito, Junit 4) 등
+Android(Kotlin), Jetpack Navigation, MVVM, Room, AAC ViewModel, DataBinding, LiveData, Koin, RxJava2, RxKotlin, RxAndroid, Retrofit2, Firebase(RTDB , Storage, FCM, Auth, Crashlytics, Performance, TestLab, Analytics), AlarmManager, WorkManager, ViewPager2, Material Design, Lottie,  Kakao Login API, Tmap API, Tour API, Linkfy, Glide,
+Unit Test(Espresso, Mockito, Junit 4) 등
 
 
 # Jetpack Navigation 설계
