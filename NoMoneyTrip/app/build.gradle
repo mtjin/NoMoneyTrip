@@ -127,5 +127,8 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.0.7'
     // read more
     implementation 'kr.co.prnd:readmore-textview:1.0.0'
+    // 카카오링크
+    implementation "com.kakao.sdk:v2-link:2.4.2"
+    implementation "com.kakao.sdk:v2-link-rx:2.4.2"
 
 }
