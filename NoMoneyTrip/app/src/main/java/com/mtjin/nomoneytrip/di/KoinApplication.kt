@@ -1,7 +1,9 @@
 package com.mtjin.nomoneytrip.di
 
 import android.app.Application
+import android.content.res.Resources
 import com.kakao.auth.*
+import com.kakao.sdk.common.KakaoSdk
 import com.mtjin.nomoneytrip.BuildConfig
 import com.mtjin.nomoneytrip.module.*
 import org.koin.android.ext.koin.androidContext
@@ -17,6 +19,8 @@ class KoinApplication : Application() {
         instance = this
         // Kakao Sdk 초기화
         KakaoSDK.init(KakaoSDKAdapter())
+        //카카오링크
+        KakaoSdk.init(this, "541c8caff279c6e6019cd20dde7951d5")
 
         startKoin {
             if (BuildConfig.DEBUG) {

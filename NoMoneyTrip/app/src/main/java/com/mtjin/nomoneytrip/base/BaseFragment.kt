@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.mtjin.nomoneytrip.views.dialog.LottieDialogFragment
+import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment<B : ViewDataBinding>(
     @LayoutRes val layoutId: Int
@@ -18,6 +19,7 @@ abstract class BaseFragment<B : ViewDataBinding>(
     lateinit var binding: B
     protected lateinit var thisContext: Context
     lateinit var lottieDialog: LottieDialogFragment
+    protected val compositeDisposable = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater,

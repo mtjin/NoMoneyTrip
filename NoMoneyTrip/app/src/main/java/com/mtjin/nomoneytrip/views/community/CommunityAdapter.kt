@@ -17,7 +17,8 @@ import com.mtjin.nomoneytrip.utils.uuid
 class CommunityAdapter(
     private val context: Context,
     private val recommendClick: (UserReview) -> Unit,
-    private val productClick: (UserReview) -> Unit
+    private val productClick: (UserReview) -> Unit,
+    private val shareClick: (UserReview) -> Unit
 ) :
     RecyclerView.Adapter<CommunityAdapter.ViewHolder>() {
     private val items = ArrayList<UserReview>()
@@ -53,7 +54,7 @@ class CommunityAdapter(
             productClick(items[viewHolder.adapterPosition])
         }
         binding.ivShare.setOnClickListener {
-            Toast.makeText(context, "추후 업데이트", Toast.LENGTH_SHORT).show()
+            shareClick(items[viewHolder.adapterPosition])
         }
         binding.ivOption.setOnClickListener {
             Toast.makeText(context, "추후 업데이트", Toast.LENGTH_SHORT).show()
