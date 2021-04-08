@@ -12,6 +12,8 @@
 
 - [서브 시연영상3 화면전환 애니메이션 업데이트](https://www.youtube.com/watch?v=snzmKRwiOVM)
 
+- [카카오링크 기능 업데이트](https://www.youtube.com/watch?v=LT_FtLcXJPM)
+
 
 
 # 안드로이드 아키텍처 구조
